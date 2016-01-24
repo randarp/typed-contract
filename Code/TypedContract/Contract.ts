@@ -1,8 +1,9 @@
-class Contract {
-    In(precondition:any) {
-
+module Contract {
+    export function In(precondition:any):boolean {
+        return true;
     }
-    Out(postcondition:any) {
 
+    export function Out(postcondition:any):boolean {
+        return true;
     }
 }
