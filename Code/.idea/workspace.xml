@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="564450ab-9c86-4ca9-ab74-dc077bd05009" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TypedContract.Specs/Contract.spec.ts" afterPath="$PROJECT_DIR$/TypedContract.Specs/Contract.spec.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TypedContract/Contract.js" afterPath="$PROJECT_DIR$/TypedContract/Contract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TypedContract/Contract.js.map" afterPath="$PROJECT_DIR$/TypedContract/Contract.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TypedContract/Contract.ts" afterPath="$PROJECT_DIR$/TypedContract/Contract.ts" />
-    </list>
+    <list default="true" id="564450ab-9c86-4ca9-ab74-dc077bd05009" name="Default" comment="" />
     <ignored path="Code.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="node_modules/" />
