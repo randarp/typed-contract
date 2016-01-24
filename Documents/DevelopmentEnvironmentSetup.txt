@@ -18,17 +18,3 @@ Configuring a Custom JavaScript Library
 1) Open the Settings / Preferences Dialog by choosing File | Settings for Windows and Unix or WebStorm | Preferences for OS X. Expand the Languages and Frameworks node, and then click Libraries under JavaScript.
 2) Download
 3) Pick Jasmine
-
-
-----
-
-Configuring a Custom JavaScript Library
-Open the Settings / Preferences Dialog by choosing File | Settings for Windows and Unix or WebStorm | Preferences for OS X. Expand the Languages and Frameworks node, and then click Libraries under JavaScript.
-
-The JavaScript. Libraries page that opens shows a list of all the already available libraries. Click Add.
-
-In the New Library dialog box that opens, specify the name of the library, the framework to configure the library from, and framework version to use.
-
-Specify the library visibility:
-        To enable associating the library with the current project only, choose Current project.
-        To make the library available in any WebStorm project, choose Global. 
