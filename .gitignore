@@ -1,0 +1,8 @@
+# Node packages #
+###################
+Code/node_modules/
+
+# Generated source files #
+###################
+*.js
+*.map
