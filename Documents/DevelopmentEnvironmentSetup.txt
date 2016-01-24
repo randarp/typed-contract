@@ -1,0 +1,3 @@
+Required Software:
+-WebStorm 11 or greater
+-SourceTree
