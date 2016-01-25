@@ -8,9 +8,9 @@ describe("Contract", function() {
         expect(true).toBe(true);
     });
 
-    xit("will call code in the source", function() {
+    it("will call code in the source", function() {
         // Arrange
-        let localVariable = 0;
+        let localVariable = 10;
 
         // Act
         var result = Contract.In(localVariable);

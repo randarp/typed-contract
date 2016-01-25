@@ -1,7 +1,7 @@
 var TestClass = (function () {
     function TestClass() {
     }
-    TestClass.prototype.Method1 = function () {
+    TestClass.prototype.Method7 = function () {
         return true;
     };
     return TestClass;

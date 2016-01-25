@@ -7,5 +7,6 @@
     <option name="outDirectory" value="$FileDir$\typed-contract.js" />
     <option name="mainFilePath" value="C:\Projects\TypedContract\Code\TypedContract\Contract.ts" />
     <option name="useMainFile" value="true" />
+    <option name="useConfig" value="true" />
   </component>
 </project>
