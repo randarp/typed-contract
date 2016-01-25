@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="564450ab-9c86-4ca9-ab74-dc077bd05009" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/karma.chrome.debug.conf.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/karma.chrome.conf.js" afterPath="$PROJECT_DIR$/karma.chrome.conf.js" />
     </list>
     <ignored path="Code.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,23 +26,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Contract.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Contract.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TypedContract/Contract.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18655692">
+            <state vertical-scroll-proportion="0.0">
               <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="karma.chrome.debug.conf.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/karma.chrome.debug.conf.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
-            </state>
+      <file leaf-file-name="debug.html" pinned="false" current-in-tab="true">
+        <entry file="http://localhost:9877/debug.html">
+          <provider selected="true" editor-type-id="httpFileEditor">
+            <state />
           </provider>
         </entry>
       </file>
@@ -56,31 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="typed-contract.d.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/typed-contract.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="typed-contract.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/typed-contract.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="23" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="karma.chrome.conf.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/karma.chrome.conf.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -275,20 +254,14 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="karma.chrome.debug.conf.js" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="$PROJECT_DIR$/karma.chrome.debug.conf.js">
-      <karma-package-dir value="" />
-      <envs />
-      <method />
-    </configuration>
     <configuration default="false" name="karma.phantomjs.conf.js" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="$PROJECT_DIR$/karma.phantomjs.conf.js">
       <karma-package-dir value="" />
       <envs />
       <method />
     </configuration>
-    <list size="3">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Karma.karma.chrome.conf.js" />
-      <item index="1" class="java.lang.String" itemvalue="Karma.karma.chrome.debug.conf.js" />
-      <item index="2" class="java.lang.String" itemvalue="Karma.karma.phantomjs.conf.js" />
+      <item index="1" class="java.lang.String" itemvalue="Karma.karma.phantomjs.conf.js" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -311,8 +284,8 @@
     <history-entry file="karma_chrome_conf_js - 2016.01.24 at 22h 43m 32s.xml">
       <configuration name="karma.chrome.conf.js" configurationId="JavaScriptTestRunnerKarma" />
     </history-entry>
-    <history-entry file="karma_chrome_debug_conf_js - 2016.01.24 at 22h 12m 44s.xml">
-      <configuration name="karma.chrome.debug.conf.js" configurationId="JavaScriptTestRunnerKarma" />
+    <history-entry file="karma_chrome_conf_js - 2016.01.24 at 22h 47m 43s.xml">
+      <configuration name="karma.chrome.conf.js" configurationId="JavaScriptTestRunnerKarma" />
     </history-entry>
     <history-entry file="karma_chrome_debug_conf_js - 2016.01.24 at 22h 14m 17s.xml">
       <configuration name="karma.chrome.debug.conf.js" configurationId="JavaScriptTestRunnerKarma" />
@@ -336,14 +309,24 @@
       <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
     </history-entry>
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="1273" y="0" width="1294" height="1407" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27468154" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265306" sideWeight="0.4483568" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3993832" sideWeight="0.5093897" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922128" sideWeight="0.49374023" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32731554" sideWeight="0.44366196" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980299" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -355,7 +338,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922128" sideWeight="0.49374023" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -790,6 +772,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/karma.chrome.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -800,30 +792,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/karma.chrome.debug.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/karma.chrome.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TypedContract/Contract.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18655692">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="19" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="http://localhost:9877/debug.html">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
       </provider>
     </entry>
   </component>
