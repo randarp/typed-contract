@@ -1,6 +1,6 @@
 module Contract {
     export function In(precondition:any):boolean {
-        return true;
+        return false;
     }
 
     export function Out(postcondition:any):boolean {
