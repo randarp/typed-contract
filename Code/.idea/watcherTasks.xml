@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectTasksOptions">
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--sourcemap $FilePath$ --outFile C:\Projects\TypedContract\Code\typed-contract.js" />
+      <option name="arguments" value="C:\Projects\TypedContract\Code\TypedContract\Contract.ts --outFile C:\Projects\TypedContract\Code\typed-contract.js" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" value="Compiles .ts files into .js files" />
       <option name="exitCodeBehavior" value="ERROR" />
