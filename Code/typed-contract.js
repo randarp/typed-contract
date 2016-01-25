@@ -2,7 +2,7 @@ var TestClass = (function () {
     function TestClass() {
     }
     TestClass.prototype.Method1 = function () {
-        return true;
+        return false;
     };
     return TestClass;
 })();
@@ -18,3 +18,4 @@ var Contract;
     }
     Contract.Out = Out;
 })(Contract || (Contract = {}));
+//# sourceMappingURL=typed-contract.js.map

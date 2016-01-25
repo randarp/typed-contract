@@ -1,6 +1,6 @@
 class TestClass {
     public Method1():boolean
     {
-        return true;
+        return false;
     }
 }
