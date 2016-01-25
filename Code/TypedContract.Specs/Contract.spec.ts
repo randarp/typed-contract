@@ -10,10 +10,10 @@ describe("Contract", function() {
 
     it("will call code in the source", function() {
         // Arrange
-        let localVariable = 10;
+        let localVariable = 23;
 
         // Act
-        var result = Contract.In(localVariable);
+       var result = Contract.In(localVariable);
 
         // Assert
         expect(result).toBe(true);

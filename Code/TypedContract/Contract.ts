@@ -1,8 +1,8 @@
 /// <reference path="TypeExtensions\Test.ts" />
 
 module Contract {
-    export function In2(precondition:any):boolean {
-        let testVariable = 12;
+    export function In(precondition:any):boolean {
+        let testVariable = 23;
         return true;
     }
 

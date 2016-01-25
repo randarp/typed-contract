@@ -1,7 +1,7 @@
 declare class TestClass {
-    Method8(): boolean;
+    Method23(): boolean;
 }
 declare module Contract {
-    function In2(precondition: any): boolean;
+    function In(precondition: any): boolean;
     function Out(postcondition: any): boolean;
 }

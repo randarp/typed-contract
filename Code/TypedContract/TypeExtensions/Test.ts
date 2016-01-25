@@ -1,5 +1,5 @@
 class TestClass {
-    public Method8():boolean
+    public Method23():boolean
     {
         return true;
     }

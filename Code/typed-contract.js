@@ -1,7 +1,7 @@
 var TestClass = (function () {
     function TestClass() {
     }
-    TestClass.prototype.Method8 = function () {
+    TestClass.prototype.Method23 = function () {
         return true;
     };
     return TestClass;
@@ -9,11 +9,11 @@ var TestClass = (function () {
 /// <reference path="TypeExtensions\Test.ts" />
 var Contract;
 (function (Contract) {
-    function In2(precondition) {
-        var testVariable = 12;
+    function In(precondition) {
+        var testVariable = 23;
         return true;
     }
-    Contract.In2 = In2;
+    Contract.In = In;
     function Out(postcondition) {
         return false;
     }
