@@ -5,20 +5,20 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: 'TypedContract',
+    basePath: '',
 
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
-
     // list of files / patterns to load in the browser
     files: [
-      'typed-contract.js',
-      'TypedContract.Specs/**/*.js'
+      {pattern: 'typed-contract.js', watched: true, included: true, served: true},
+      {pattern: 'TypedContract.Specs/**/*.js', watched: true, included: true, served: true},
+      {pattern: 'typed-contract.js.map', watched: true, included: false, served: true},
+      {pattern: 'TypedContract.Specs/**/*.map', watched: true, included: false, served: true}
     ],
-
 
     // list of files to exclude
     exclude: [
