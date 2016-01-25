@@ -1,7 +1,7 @@
 var TestClass = (function () {
     function TestClass() {
     }
-    TestClass.prototype.Method23 = function () {
+    TestClass.prototype.Method1 = function () {
         return true;
     };
     return TestClass;
@@ -10,12 +10,11 @@ var TestClass = (function () {
 var Contract;
 (function (Contract) {
     function In(precondition) {
-        var testVariable = 23;
         return true;
     }
     Contract.In = In;
     function Out(postcondition) {
-        return false;
+        return true;
     }
     Contract.Out = Out;
 })(Contract || (Contract = {}));
