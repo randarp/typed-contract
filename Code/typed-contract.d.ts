@@ -1,5 +1,5 @@
-declare class TestClass {
-    Method1(): boolean;
+declare class Test {
+    constructor();
 }
 declare module Contract {
     function In(precondition: any): boolean;

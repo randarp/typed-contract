@@ -1,1 +1,1 @@
-{"version":3,"file":"Test.js","sourceRoot":"","sources":["Test.ts"],"names":["TestClass","TestClass.constructor","TestClass.Method1"],"mappings":"AAAA;IAAAA;IAKAC,CAACA;IAJUD,2BAAOA,GAAdA;QAEIE,MAAMA,CAACA,IAAIA,CAACA;IAChBA,CAACA;IACLF,gBAACA;AAADA,CAACA,AALD,IAKC"}
+{"version":3,"file":"Test.js","sourceRoot":"","sources":["Test.ts"],"names":["Test","Test.constructor"],"mappings":"AAAA;IACIA;IAGAC,CAACA;IACLD,WAACA;AAADA,CAACA,AALD,IAKC"}

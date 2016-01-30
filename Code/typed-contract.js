@@ -1,10 +1,7 @@
-var TestClass = (function () {
-    function TestClass() {
+var Test = (function () {
+    function Test() {
     }
-    TestClass.prototype.Method1 = function () {
-        return true;
-    };
-    return TestClass;
+    return Test;
 })();
 /// <reference path="TypeExtensions\Test.ts" />
 var Contract;
