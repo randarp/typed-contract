@@ -1,13 +1,31 @@
-var Test = (function () {
-    function Test() {
+var StringValidator = (function () {
+    function StringValidator() {
     }
-    return Test;
+    StringValidator.prototype.IsNotNull = function () {
+        return this;
+    };
+    return StringValidator;
 })();
-/// <reference path="TypeExtensions\Test.ts" />
+var BooleanValidator = (function () {
+    function BooleanValidator() {
+    }
+    BooleanValidator.prototype.IsTrue = function () {
+        return this;
+    };
+    return BooleanValidator;
+})();
+/// <reference path="TypeValidators\StringValidator.ts" />
+/// <reference path="TypeValidators\BooleanValidator.ts" />
 var Contract;
 (function (Contract) {
     function In(precondition) {
-        return true;
+        if (typeof precondition == "string") {
+            return new StringValidator();
+        }
+        else if (typeof precondition == "boolean") {
+            return new BooleanValidator();
+        }
+        return null;
     }
     Contract.In = In;
     function Out(postcondition) {

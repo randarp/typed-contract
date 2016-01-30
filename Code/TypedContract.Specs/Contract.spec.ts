@@ -3,19 +3,14 @@
 
 describe("Contract", function() {
 
-    it("will always be true", function() {
-        // Assert
-        expect(true).toBe(true);
-    });
-
     it("will call code in the source", function() {
         // Arrange
-        let localVariable = 23;
+        let localVariable = "string";
 
         // Act
        var result = Contract.In(localVariable);
 
         // Assert
-        expect(result).toBe(true);
+        expect(result).not.toBeNull();
     });
 });
