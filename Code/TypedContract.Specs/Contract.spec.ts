@@ -1,23 +1,101 @@
 /// <reference path="..\TypedContract\Contract.ts" />
 /// <reference path="..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
-describe("Contract", function() {
+describe("Contract", () => {
 
-    it("will always be true", function() {
-        // Assert
-        expect(true).toBe(true);
+    it("will return the correct validator for a boolean", () => {
+        // arrange
+        let localVariable: boolean = true;
+
+        // act
+        let result: BooleanValidator = Contract.In(localVariable);
+
+        // assert
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(BooleanValidator));
     });
 
-    it("will call code in the source", function() {
-        // Arrange
-        let localVariable = 23;
+    it("will return the correct validator for a boolean with a name", () => {
+        // arrange
+        let localVariable: boolean = true;
 
-        // Act
-       var result = Contract.In(localVariable);
+        // act
+        let result: BooleanValidator = Contract.In(localVariable, "localVariable");
 
-        // Assert
-        expect(result).toBe(true);
+        // assert
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(BooleanValidator));
+    });
+
+    it("will return the correct validator for a number", () => {
+        // arrange
+        let localVariable: number = 2;
+
+        // act
+        let result: NumberValidator = Contract.In(localVariable);
+
+        // assert
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(NumberValidator));
+    });
+
+    it("will return the correct validator for a number with a name", () => {
+        // arrange
+        let localVariable: number = 2;
+
+        // act
+        let result: NumberValidator = Contract.In(localVariable, "localVariable");
+
+        // assert
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(NumberValidator));
+    });
+
+    it("will return the correct validator for a string", () => {
+        // arrange
+        let localVariable: string = "A string";
+
+        // act
+        let result: StringValidator = Contract.In(localVariable);
+
+        // assert
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(StringValidator));
+    });
+
+    it("will return the correct validator for a string with a name", () => {
+        // arrange
+        let localVariable: string = "A string";
+
+        // act
+        let result: StringValidator = Contract.In(localVariable, "localVariable");
+
+        // assert
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(StringValidator));
+    });
+
+    it("will return the correct validator for an array", () => {
+        // arrange
+        let localVariable: string[] = ["A", "B", "C"];
+
+        // act
+        let result: ArrayValidator = Contract.In(localVariable);
+
+        // assert
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(ArrayValidator));
+    });
+
+    it("will return the correct validator for an array with a name", () => {
+        // arrange
+        let localVariable: string[] = ["A", "B", "C"];
+
+        // act
+        let result: ArrayValidator = Contract.In(localVariable, "localVariable");
+
+        // assert
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(ArrayValidator));
     });
 });
-// like try catch finally
-
