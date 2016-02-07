@@ -8,7 +8,7 @@ describe("StringValidator", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: any = Contract.In(localVariable).IsNotNull();
+        let result: StringValidator = Contract.In(localVariable).IsNotNull();
 
         // assert
         expect(result).not.toBeNull();

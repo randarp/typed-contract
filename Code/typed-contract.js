@@ -18,6 +18,7 @@ var BooleanValidator = (function () {
 /// <reference path="TypeValidators\BooleanValidator.ts" />
 var Contract;
 (function (Contract) {
+    "use strict";
     function In(precondition) {
         if (typeof precondition === "string") {
             return new StringValidator();
@@ -25,7 +26,7 @@ var Contract;
         else if (typeof precondition === "boolean") {
             return new BooleanValidator();
         }
-        return null;
+        return undefined;
     }
     Contract.In = In;
     function Out(postcondition) {

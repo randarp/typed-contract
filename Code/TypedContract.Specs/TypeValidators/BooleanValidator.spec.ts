@@ -3,12 +3,12 @@
 
 describe("BooleanValidator", () => {
 
-    it("will return the correct validator", function() {
+    it("will return the correct validator", () => {
         // arrange
         let localVariable: boolean = true;
 
         // act
-        let result: boolean = Contract.In(localVariable).IsTrue();
+        let result: BooleanValidator = Contract.In(localVariable).IsTrue();
 
         // assert
         expect(result).not.toBeNull();
