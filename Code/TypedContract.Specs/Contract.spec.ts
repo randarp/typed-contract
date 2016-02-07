@@ -19,3 +19,5 @@ describe("Contract", function() {
         expect(result).toBe(true);
     });
 });
+// like try catch finally
+

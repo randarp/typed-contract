@@ -1,0 +1,24 @@
+{
+  "name": "TypedContract",
+  "version": "1.0.0",
+  "description": "An open source library for code contracts in both TypeScript and JavaScript",
+  "main": "C:/Projects/TypedContract/Code/typed-contract.js",
+  "dependencies": {
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-jasmine": "^0.3.6",
+    "tslint": "^3.3.0",
+    "typescript": "^1.7.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository":{
+    "type":"git",
+    "url":"https://github.com/randarp/typed-contract"
+  },
+  "author": "Randar Puust & Andre Fischbacher",
+  "license": "MIT"
+}
