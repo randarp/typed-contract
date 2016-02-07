@@ -3,6 +3,9 @@ var BaseValidator = (function () {
         this._variableValue = variableValue;
         this._variableName = variableName;
     }
+    BaseValidator.prototype.Value = function () {
+        return this._variableValue;
+    };
     return BaseValidator;
 })();
 /// <reference path="BaseValidator.ts" />

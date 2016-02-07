@@ -2,6 +2,7 @@ declare class BaseValidator<T> {
     protected _variableValue: T;
     protected _variableName: string;
     constructor(variableValue: T, variableName: string);
+    Value(): T;
 }
 declare class StringValidator extends BaseValidator<string> {
     constructor(variableValue: string, variableName: string);
