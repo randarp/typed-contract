@@ -1,10 +1,16 @@
+# Solution files #
+##################
+Code/.idea/workspace.xml
+Code/.idea/tasks.xml
+
 # Node packages #
-###################
+#################
 Code/node_modules/
 
 # Generated source files #
-###################
+##########################
 Code/TypedContract/*.js
 Code/TypedContract/*.map
 Code/TypedContract.specs/*.js
 Code/TypedContract.specs/*.map
+
