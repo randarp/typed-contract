@@ -19,10 +19,10 @@ var BooleanValidator = (function () {
 var Contract;
 (function (Contract) {
     function In(precondition) {
-        if (typeof precondition == "string") {
+        if (typeof precondition === "string") {
             return new StringValidator();
         }
-        else if (typeof precondition == "boolean") {
+        else if (typeof precondition === "boolean") {
             return new BooleanValidator();
         }
         return null;

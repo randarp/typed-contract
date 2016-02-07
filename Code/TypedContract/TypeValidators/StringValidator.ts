@@ -1,5 +1,5 @@
 class StringValidator {
-    IsNotNull():StringValidator {
+    public IsNotNull(): StringValidator {
         return this;
     }
 }

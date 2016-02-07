@@ -1,16 +1,16 @@
 /// <reference path="..\TypedContract\Contract.ts" />
 /// <reference path="..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
-describe("Contract", function() {
+describe("Contract", () => {
 
     it("will call code in the source", function() {
-        // Arrange
-        let localVariable = "string";
+        // arrange
+        let localVariable: string = "string";
 
-        // Act
-       var result = Contract.In(localVariable);
+        // act
+        let result: any = Contract.In(localVariable);
 
-        // Assert
+        // assert
         expect(result).not.toBeNull();
     });
 });

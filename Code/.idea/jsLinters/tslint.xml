@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="TsLintConfiguration" custom-config-file-path="$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-tslint" />
+  <component name="TsLintConfiguration" custom-config-file-path="$USER_HOME$/AppData/Roaming/npm/node_modules/tslint/docs" />
 </project>

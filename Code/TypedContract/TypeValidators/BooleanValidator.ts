@@ -1,5 +1,5 @@
 class BooleanValidator {
-    IsTrue():BooleanValidator {
+    public IsTrue(): BooleanValidator {
         return this;
     }
 }

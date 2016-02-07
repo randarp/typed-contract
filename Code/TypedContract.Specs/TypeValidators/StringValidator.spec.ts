@@ -1,16 +1,16 @@
 /// <reference path="..\..\TypedContract\Contract.ts" />
 /// <reference path="..\..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
-describe("StringValidator", function() {
+describe("StringValidator", () => {
 
     it("will return the correct validator", function() {
-        // Arrange
-        let localVariable = "A string";
+        // arrange
+        let localVariable: string = "A string";
 
-        // Act
-        var result = Contract.In(localVariable).IsNotNull();
+        // act
+        let result: any = Contract.In(localVariable).IsNotNull();
 
-        // Assert
+        // assert
         expect(result).not.toBeNull();
     });
 });

@@ -2,67 +2,58 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
-        <item url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/amdLoader.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/html2ts.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/transformers.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/tsconfig.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/templateCache.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/optionsResolver.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/reference.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/visualStudioOptionsResolver.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/defaults.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/cacheUtils.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/ts.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/utils.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/StringValidator.spec.js" />
-        <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/compile.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/TypedContract/TypeExtensions/Test.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/optionsResolver.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/utils.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/tsconfig.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/cacheUtils.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/amdLoader.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/visualStudioOptionsResolver.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/defaults.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/amdLoader.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/html2ts.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/compile.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/templateCache.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/reference.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/cacheUtils.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/ts.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/ts.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/templateCache.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/reference.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/transformers.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/compile.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/transformers.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/html2ts.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/utils.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeExtensions/Test.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/optionsResolver.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/utils.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/tsconfig.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/cacheUtils.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/amdLoader.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/visualStudioOptionsResolver.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/defaults.js" />
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/amdLoader.js" />
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/html2ts.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/compile.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/templateCache.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/reference.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/cacheUtils.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/ts.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/ts.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/templateCache.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/reference.js" />
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/transformers.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/compile.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/transformers.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/html2ts.js" />
-      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/utils.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/transformers.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/templateCache.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/utils.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/reference.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/ts.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/ts.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/cacheUtils.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/compile.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/templateCache.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/html2ts.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/amdLoader.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/node_modules/csproj2ts/node_modules/grunt-ts/tasks/modules/reference.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/tsconfig.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/optionsResolver.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/visualStudioOptionsResolver.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/defaults.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/cacheUtils.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/utils.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/StringValidator.spec.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/compile.js" />
     </CLASSES>
     <SOURCES />
   </library>
