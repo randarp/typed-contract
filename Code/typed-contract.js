@@ -1,5 +1,7 @@
 var BaseValidator = (function () {
-    function BaseValidator() {
+    function BaseValidator(variableValue, variableName) {
+        this._variableValue = variableValue;
+        this._variableName = variableName;
     }
     return BaseValidator;
 })();
@@ -11,8 +13,8 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var StringValidator = (function (_super) {
     __extends(StringValidator, _super);
-    function StringValidator() {
-        _super.apply(this, arguments);
+    function StringValidator(variableValue, variableName) {
+        _super.call(this, variableValue, variableName);
     }
     StringValidator.prototype.IsNotNull = function () {
         return this;
@@ -22,8 +24,8 @@ var StringValidator = (function (_super) {
 /// <reference path="BaseValidator.ts" />
 var BooleanValidator = (function (_super) {
     __extends(BooleanValidator, _super);
-    function BooleanValidator() {
-        _super.apply(this, arguments);
+    function BooleanValidator(variableValue, variableName) {
+        _super.call(this, variableValue, variableName);
     }
     BooleanValidator.prototype.IsTrue = function () {
         return this;
@@ -33,8 +35,8 @@ var BooleanValidator = (function (_super) {
 /// <reference path="BaseValidator.ts" />
 var NumberValidator = (function (_super) {
     __extends(NumberValidator, _super);
-    function NumberValidator() {
-        _super.apply(this, arguments);
+    function NumberValidator(variableValue, variableName) {
+        _super.call(this, variableValue, variableName);
     }
     NumberValidator.prototype.IsGreaterThan = function (compareTo) {
         return this;
@@ -44,8 +46,8 @@ var NumberValidator = (function (_super) {
 /// <reference path="BaseValidator.ts" />
 var ArrayValidator = (function (_super) {
     __extends(ArrayValidator, _super);
-    function ArrayValidator() {
-        _super.apply(this, arguments);
+    function ArrayValidator(variableValue, variableName) {
+        _super.call(this, variableValue, variableName);
     }
     ArrayValidator.prototype.IsEmpty = function () {
         return this;
@@ -59,18 +61,19 @@ var ArrayValidator = (function (_super) {
 var Contract;
 (function (Contract) {
     "use strict";
-    function In(precondition) {
+    function In(precondition, name) {
+        if (name === void 0) { name = undefined; }
         if (typeof precondition === "string") {
-            return new StringValidator();
+            return new StringValidator(precondition, name);
         }
         else if (typeof precondition === "boolean") {
-            return new BooleanValidator();
+            return new BooleanValidator(precondition, name);
         }
         else if (typeof precondition === "number") {
-            return new NumberValidator();
+            return new NumberValidator(precondition, name);
         }
         else if (precondition instanceof Array) {
-            return new ArrayValidator();
+            return new ArrayValidator(precondition, name);
         }
         return undefined;
     }
