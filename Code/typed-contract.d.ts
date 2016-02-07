@@ -16,6 +16,6 @@ declare module Contract {
     function In(precondition: string): StringValidator;
     function In(precondition: boolean): BooleanValidator;
     function In(precondition: number): BooleanValidator;
-    function In(precondition: [any]): BooleanValidator;
+    function In(precondition: any[]): BooleanValidator;
     function Out(postcondition: any): boolean;
 }

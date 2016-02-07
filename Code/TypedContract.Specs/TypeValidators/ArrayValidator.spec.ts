@@ -3,7 +3,7 @@
 
 describe("ArrayValidator", () => {
 
-    xit("IsEmpty returns the right validator", () => {
+    it("IsEmpty returns the right validator", () => {
         // arrange
         let localVariable: string[] = ["A", "B", "C"];
 

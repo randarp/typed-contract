@@ -9,7 +9,7 @@ module Contract {
     export function In(precondition: string): StringValidator;
     export function In(precondition: boolean): BooleanValidator;
     export function In(precondition: number): BooleanValidator;
-    export function In(precondition: [any]): BooleanValidator;
+    export function In(precondition: any[]): BooleanValidator;
     export function In(precondition: any): any {
         if (typeof precondition === "string") {
             return new StringValidator();
