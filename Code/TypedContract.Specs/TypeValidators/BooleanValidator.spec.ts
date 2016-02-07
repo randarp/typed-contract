@@ -3,7 +3,7 @@
 
 describe("BooleanValidator", () => {
 
-    it("will return the correct validator", () => {
+    it("IsTrue returns the right validator", () => {
         // arrange
         let localVariable: boolean = true;
 
@@ -12,5 +12,6 @@ describe("BooleanValidator", () => {
 
         // assert
         expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(BooleanValidator));
     });
 });

@@ -3,7 +3,7 @@
 
 describe("StringValidator", () => {
 
-    it("will return the correct validator", function() {
+    it("IsNotNull returns the right validator", () => {
         // arrange
         let localVariable: string = "A string";
 
@@ -12,5 +12,6 @@ describe("StringValidator", () => {
 
         // assert
         expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(StringValidator));
     });
 });
