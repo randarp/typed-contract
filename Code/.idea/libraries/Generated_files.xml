@@ -2,14 +2,14 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeExtensions/Test.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeExtensions/Test.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
     </CLASSES>
     <SOURCES />

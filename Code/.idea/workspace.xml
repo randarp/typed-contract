@@ -21,12 +21,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="GruntFile.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GruntFile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64761907">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.63829786">
+              <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#42#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -37,6 +39,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -60,11 +63,21 @@
         <option value="$PROJECT_DIR$/TypedContract/TypeExtensions/Test.ts" />
         <option value="$PROJECT_DIR$/TypedContract/Contract.ts" />
         <option value="$PROJECT_DIR$/TypedContract.Specs/Contract.spec.ts" />
+        <option value="$PROJECT_DIR$/node_modules/grunt/internal-tasks/subgrunt.js" />
+        <option value="$PROJECT_DIR$/Gruntfile.js" />
         <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/typed-contract.min.js" />
+        <option value="$PROJECT_DIR$/typed-contract/package.json" />
+        <option value="$PROJECT_DIR$/GruntFile.js" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true">
+    <gruntfile path="$PROJECT_DIR$/GruntFile.js">
+      <core-task name="publish TypedContract" info="Custom task." file-path="$PROJECT_DIR$/GruntFile.js" multi="false" />
+      <core-task name="uglify" info="Minify files with UglifyJS." file-path="$PROJECT_DIR$/node_modules/grunt-contrib-uglify/tasks/uglify.js" multi="true" />
+    </gruntfile>
+  </component>
   <component name="JsBuildToolPackageJson" detection-done="true" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
@@ -74,6 +87,31 @@
     <option name="y" value="55" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>DOM issuesJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>JavaScript</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -100,6 +138,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -115,38 +154,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TypedContract.Specs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Contract.spec.ts" />
-              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Code" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TypedContract" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -166,15 +173,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Apps/2.0/BAY706VD.4NR/PNO6JL5P.JWV/gith..tion_317444273a93ac29_0003.0000_20a3dfa4ba8ba894/GitHub.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GruntFile.js" />
     <property name="javascript.karma.karma_node_package_dir" value="C:\Users\Randar\AppData\Roaming\npm\node_modules\karma" />
     <property name="javascript.karma.node_interpreter_path" value="C:\Program Files (x86)\nodejs\node.exe" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
@@ -182,16 +188,23 @@
     <property name="js-tslint-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
     <property name="js-tslint-package" value="C:\Projects\TypedContract\Code\node_modules\tslint" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="git&#9;ACTION&#9;Git.Menu&#10;term&#9;ACTION&#9;ActivateTerminalToolWindow&#10;ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;termi&#9;ACTION&#9;ActivateTerminalToolWindow&#10;termina&#9;ACTION&#9;ActivateTerminalToolWindow&#10;Project S&#9;ACTION&#9;ManageRecentProjects" />
+    <property name="SearchEverywhereHistoryKey" value="ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;termina&#9;ACTION&#9;ActivateTerminalToolWindow&#10;termin&#9;ACTION&#9;ActivateTerminalToolWindow&#10;term&#9;ACTION&#9;ActivateTerminalToolWindow&#10;settings&#9;ACTION&#9;WelcomeScreen.Settings&#10;grunt &#9;ACTION&#9;ActivateGruntToolWindow&#10;npm&#9;FILE&#9;file://C:/Projects/TypedContract/Code/node_modules/grunt/.npmignore&#10;java&#9;null&#9;null&#10;grunt&#9;null&#9;null&#10;terminal&#9;ACTION&#9;ActivateTerminalToolWindow&#10;git&#9;ACTION&#9;Git.Menu&#10;termi&#9;ACTION&#9;ActivateTerminalToolWindow&#10;Project S&#9;ACTION&#9;ManageRecentProjects" />
     <property name="js.eslint.nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
     <property name="js.eslint.eslintPackage" value="" />
+    <property name="js.buildTools.grunt.node_interpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
+    <property name="js.buildTools.grunt.grunt-cli.package" value="C:\Users\Andre\AppData\Roaming\npm\node_modules\grunt-cli" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\TypedContract\Code\Packages\npm" />
+      <recent name="C:\Projects\TypedContract\Code\typed-contract" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\TypedContract\Code\typed-contract" />
       <recent name="C:\Projects\TypedContract\Code" />
     </key>
   </component>
-  <component name="RunManager" selected="Karma.karma.chrome.conf.js">
+  <component name="RunManager" selected="Grunt.js.publish TypedContract">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
@@ -212,6 +225,12 @@
       <option name="cucumberJsArguments" value="" />
       <option name="executablePath" />
       <option name="filePath" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <envs />
+      <force value="false" />
+      <verbose value="false" />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -250,9 +269,17 @@
       <envs />
       <method />
     </configuration>
-    <list size="2">
+    <configuration default="false" name="publish TypedContract" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <gruntfile value="$PROJECT_DIR$/GruntFile.js" />
+      <envs />
+      <force value="false" />
+      <verbose value="false" />
+      <method />
+    </configuration>
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Karma.karma.phantomjs.conf.js" />
       <item index="1" class="java.lang.String" itemvalue="Karma.karma.chrome.conf.js" />
+      <item index="2" class="java.lang.String" itemvalue="Grunt.js.publish TypedContract" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -313,23 +340,24 @@
     <frame x="-1928" y="55" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14895834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1734375" sideWeight="0.65849674" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3301486" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Grunt " active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1734375" sideWeight="0.34150326" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32698414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24980299" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56666666" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35031846" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39915073" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3269639" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -364,23 +392,31 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/node_modules/grunt/internal-tasks/subgrunt.js</url>
+          <line>33</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.ts">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <marker date="1454183160070" expanded="true" signature="0:165" placeholder="//..." />
-            <marker date="1454183160070" expanded="true" signature="199:535" placeholder="{...}" />
-            <marker date="1454183160070" expanded="true" signature="243:301" placeholder="{...}" />
-            <marker date="1454183160070" expanded="true" signature="355:531" placeholder="{...}" />
+            <marker date="1454881213604" expanded="true" signature="0:785" placeholder="{&quot;name&quot;: &quot;TypedContract&quot;...}" />
+            <marker date="1454881213604" expanded="true" signature="227:259" placeholder="{&quot;typescript&quot;: &quot;^1.7.5&quot;...}" />
+            <marker date="1454881213604" expanded="true" signature="282:289" placeholder="{&quot;jasmine&quot;: &quot;^2.4.1&quot;...}" />
+            <marker date="1454881213604" expanded="true" signature="483:546" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1454881213604" expanded="true" signature="664:715" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -389,12 +425,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <marker date="1454183160070" expanded="true" signature="0:165" placeholder="//..." />
-            <marker date="1454183160070" expanded="true" signature="199:535" placeholder="{...}" />
-            <marker date="1454183160070" expanded="true" signature="243:301" placeholder="{...}" />
-            <marker date="1454183160070" expanded="true" signature="355:531" placeholder="{...}" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -409,12 +448,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding>
-            <marker date="1454183160070" expanded="true" signature="0:165" placeholder="//..." />
-            <marker date="1454183160070" expanded="true" signature="199:535" placeholder="{...}" />
-            <marker date="1454183160070" expanded="true" signature="243:301" placeholder="{...}" />
-            <marker date="1454183160070" expanded="true" signature="355:531" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -534,20 +568,89 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6206349">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grunt/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1454183160070" expanded="true" signature="0:165" placeholder="//..." />
-            <marker date="1454183160070" expanded="true" signature="199:535" placeholder="{...}" />
-            <marker date="1454183160070" expanded="true" signature="243:301" placeholder="{...}" />
-            <marker date="1454183160070" expanded="true" signature="355:531" placeholder="{...}" />
+            <marker date="1454866498232" expanded="true" signature="0:2313" placeholder="{&quot;name&quot;: &quot;grunt&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="102:177" placeholder="{&quot;name&quot;: &quot;\&quot;Cowboy\&quot; Ben Alman&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="232:304" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="316:373" placeholder="{&quot;url&quot;: &quot;http://github.com/gruntjs/grunt/issues&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="389:498" placeholder="[...]" />
+            <marker date="1454866498232" expanded="true" signature="395:494" placeholder="{&quot;type&quot;: &quot;MIT&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="536:566" placeholder="{&quot;test&quot;: &quot;grunt test&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="581:609" placeholder="{&quot;node&quot;: &quot;&gt;= 0.8.0&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="625:851" placeholder="[...]" />
+            <marker date="1454866498232" expanded="true" signature="871:1424" placeholder="{&quot;async&quot;: &quot;~0.1.22&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="1447:1666" placeholder="{&quot;temporary&quot;: &quot;~0.0.4&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="1702:1832" placeholder="{&quot;shasum&quot;: &quot;56937cd5194324adff6d207631832a9d6ba4e7f0&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="1896:1953" placeholder="{&quot;name&quot;: &quot;cowboy&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="1972:2120" placeholder="[...]" />
+            <marker date="1454866498232" expanded="true" signature="1978:2041" placeholder="{&quot;name&quot;: &quot;cowboy&quot;...}" />
+            <marker date="1454866498232" expanded="true" signature="2047:2116" placeholder="{&quot;name&quot;: &quot;tkellen&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grunt/internal-tasks/subgrunt.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27792916">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding>
+            <marker date="1454866498174" expanded="false" signature="0:177" placeholder="/*...*/" />
+            <marker date="1454866498174" expanded="true" signature="227:974" placeholder="{...}" />
+            <marker date="1454866498174" expanded="true" signature="373:969" placeholder="{...}" />
+            <marker date="1454866498174" expanded="true" signature="483:949" placeholder="{...}" />
+            <marker date="1454866498174" expanded="true" signature="563:649" placeholder="{&quot;grunt&quot;: true...}" />
+            <marker date="1454866498174" expanded="true" signature="675:941" placeholder="{...}" />
+            <marker date="1454866498174" expanded="true" signature="696:846" placeholder="{...}" />
+            <marker date="1454866498174" expanded="true" signature="852:933" placeholder="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64761907">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6253406">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <marker date="1454881213604" expanded="true" signature="0:785" placeholder="{&quot;name&quot;: &quot;TypedContract&quot;...}" />
+            <marker date="1454881213604" expanded="true" signature="227:259" placeholder="{&quot;typescript&quot;: &quot;^1.7.5&quot;...}" />
+            <marker date="1454881213604" expanded="true" signature="282:289" placeholder="{&quot;jasmine&quot;: &quot;^2.4.1&quot;...}" />
+            <marker date="1454881213604" expanded="true" signature="483:546" placeholder="{&quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; &amp;&amp; exit 1&quot;...}" />
+            <marker date="1454881213604" expanded="true" signature="664:715" placeholder="{&quot;type&quot;: &quot;git&quot;...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/grunt/.npmignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/typed-contract.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GruntFile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63829786">
+          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
