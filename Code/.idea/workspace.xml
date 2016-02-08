@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="564450ab-9c86-4ca9-ab74-dc077bd05009" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Code.iml" afterPath="$PROJECT_DIR$/.idea/Code.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.ts" afterPath="$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.ts" afterPath="$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.ts" afterPath="$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/typed-contract.d.ts" afterPath="$PROJECT_DIR$/typed-contract.d.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/typed-contract.js" afterPath="$PROJECT_DIR$/typed-contract.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/typed-contract.js.map" afterPath="$PROJECT_DIR$/typed-contract.js.map" />
-    </list>
+    <list default="true" id="564450ab-9c86-4ca9-ab74-dc077bd05009" name="Default" comment="" />
     <ignored path="Code.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -434,7 +423,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32698414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5666407" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5666407" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34968847" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
