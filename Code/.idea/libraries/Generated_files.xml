@@ -2,8 +2,6 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/TypedContract/TypeExtensions/Test.js" />
-        <item url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
@@ -20,7 +18,6 @@
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/TypedContract/TypeExtensions/Test.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeExtensions/Test.js" />
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/amdLoader.js" />
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/html2ts.js" />

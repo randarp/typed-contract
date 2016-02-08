@@ -1,7 +1,12 @@
 var BaseValidator = (function () {
     function BaseValidator(variableValue, variableName) {
         this._variableValue = variableValue;
-        this._variableName = variableName;
+        if (variableName && variableName.length > 0) {
+            this._variableName = variableName;
+        }
+        else {
+            this._variableName = "The variable";
+        }
     }
     BaseValidator.prototype.Value = function () {
         return this._variableValue;
@@ -31,7 +36,20 @@ var BooleanValidator = (function (_super) {
         _super.call(this, variableValue, variableName);
     }
     BooleanValidator.prototype.IsTrue = function () {
-        return this;
+        if (!this._variableValue) {
+            throw new RangeError(this._variableName + " should be true");
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.IsFalse = function () {
+        if (this._variableValue) {
+            throw new RangeError(this._variableName + " should be false");
+        }
+        else {
+            return this;
+        }
     };
     return BooleanValidator;
 })(BaseValidator);
