@@ -11,6 +11,7 @@ declare class StringValidator extends BaseValidator<string> {
 declare class BooleanValidator extends BaseValidator<boolean> {
     constructor(variableValue: boolean, variableName: string);
     IsTrue(): BooleanValidator;
+    IsFalse(): BooleanValidator;
 }
 declare class NumberValidator extends BaseValidator<number> {
     constructor(variableValue: number, variableName: string);

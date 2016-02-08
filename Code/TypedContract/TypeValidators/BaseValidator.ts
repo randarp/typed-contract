@@ -8,7 +8,12 @@ class BaseValidator<T> {
     constructor(variableValue: T, variableName: string) {
 
         this._variableValue = variableValue;
-        this._variableName = variableName;
+
+        if (variableName && variableName.length > 0) {
+            this._variableName = variableName;
+        } else {
+            this._variableName = "The variable"
+        }
     }
 
     /**

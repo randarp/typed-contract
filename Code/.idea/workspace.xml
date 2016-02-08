@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="564450ab-9c86-4ca9-ab74-dc077bd05009" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Code.iml" afterPath="$PROJECT_DIR$/.idea/Code.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Generated_files.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.ts" afterPath="$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.ts" afterPath="$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.ts" afterPath="$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/typed-contract.d.ts" afterPath="$PROJECT_DIR$/typed-contract.d.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/typed-contract.js" afterPath="$PROJECT_DIR$/typed-contract.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/typed-contract.js.map" afterPath="$PROJECT_DIR$/typed-contract.js.map" />
     </list>
     <ignored path="Code.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,17 +36,39 @@
         <entry file="file://$PROJECT_DIR$/TypedContract/Contract.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="1" />
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="BooleanValidator.spec.ts" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.91434264">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.80492425">
+              <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BooleanValidator.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseValidator.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -82,6 +110,9 @@
         <option value="$PROJECT_DIR$/typed-contract.min.js" />
         <option value="$PROJECT_DIR$/typed-contract/package.json" />
         <option value="$PROJECT_DIR$/GruntFile.js" />
+        <option value="$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.ts" />
+        <option value="$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.ts" />
+        <option value="$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.ts" />
       </list>
     </option>
   </component>
@@ -162,7 +193,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -181,22 +211,69 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypedContract.Specs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypedContract.Specs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypeValidators" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Code" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TypedContract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.tslint" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/GruntFile.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="javascript.karma.karma_node_package_dir" value="C:\Users\Randar\AppData\Roaming\npm\node_modules\karma" />
     <property name="javascript.karma.node_interpreter_path" value="C:\Program Files (x86)\nodejs\node.exe" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="javascript.nodejs.core.library.configured.version" value="0.12.0" />
-    <property name="js-tslint-nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
-    <property name="js-tslint-package" value="C:\Projects\TypedContract\Code\node_modules\tslint" />
+    <property name="js-tslint-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="js-tslint-package" value="C:\Projects\TypedContract\Code\tslint.json" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="SearchEverywhereHistoryKey" value="ter&#9;ACTION&#9;ActivateTerminalToolWindow&#10;termina&#9;ACTION&#9;ActivateTerminalToolWindow&#10;termin&#9;ACTION&#9;ActivateTerminalToolWindow&#10;term&#9;ACTION&#9;ActivateTerminalToolWindow&#10;settings&#9;ACTION&#9;WelcomeScreen.Settings&#10;grunt &#9;ACTION&#9;ActivateGruntToolWindow&#10;npm&#9;FILE&#9;file://C:/Projects/TypedContract/Code/node_modules/grunt/.npmignore&#10;java&#9;null&#9;null&#10;grunt&#9;null&#9;null&#10;terminal&#9;ACTION&#9;ActivateTerminalToolWindow&#10;git&#9;ACTION&#9;Git.Menu&#10;termi&#9;ACTION&#9;ActivateTerminalToolWindow&#10;Project S&#9;ACTION&#9;ManageRecentProjects" />
     <property name="js.eslint.nodeInterpreter" value="C:\Program Files (x86)\nodejs\node.exe" />
@@ -214,7 +291,7 @@
       <recent name="C:\Projects\TypedContract\Code" />
     </key>
   </component>
-  <component name="RunManager" selected="Grunt.js.publish TypedContract">
+  <component name="RunManager" selected="Karma.karma.phantomjs.conf.js">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
@@ -306,34 +383,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="karma_chrome_conf_js - 2016.01.24 at 22h 43m 32s.xml">
-      <configuration name="karma.chrome.conf.js" configurationId="JavaScriptTestRunnerKarma" />
-    </history-entry>
-    <history-entry file="karma_chrome_conf_js - 2016.01.24 at 22h 47m 43s.xml">
-      <configuration name="karma.chrome.conf.js" configurationId="JavaScriptTestRunnerKarma" />
-    </history-entry>
-    <history-entry file="karma_chrome_conf_js - 2016.01.24 at 22h 53m 19s.xml">
-      <configuration name="karma.chrome.conf.js" configurationId="JavaScriptTestRunnerKarma" />
-    </history-entry>
-    <history-entry file="karma_chrome_debug_conf_js - 2016.01.24 at 22h 14m 17s.xml">
-      <configuration name="karma.chrome.debug.conf.js" configurationId="JavaScriptTestRunnerKarma" />
-    </history-entry>
-    <history-entry file="karma_chrome_debug_conf_js - 2016.01.24 at 22h 15m 49s.xml">
-      <configuration name="karma.chrome.debug.conf.js" configurationId="JavaScriptTestRunnerKarma" />
-    </history-entry>
-    <history-entry file="karma_conf_js - 2016.01.24 at 21h 27m 48s.xml">
-      <configuration name="karma.conf.js" configurationId="JavaScriptTestRunnerKarma" />
-    </history-entry>
-    <history-entry file="karma_conf_js - 2016.01.24 at 21h 35m 55s.xml">
-      <configuration name="karma.conf.js" configurationId="JavaScriptTestRunnerKarma" />
-    </history-entry>
-    <history-entry file="karma_conf_js - 2016.01.24 at 21h 50m 51s.xml">
-      <configuration name="karma.conf.js" configurationId="JavaScriptTestRunnerKarma" />
-    </history-entry>
-    <history-entry file="karma_phantomjs_conf_js - 2016.01.24 at 22h 08m 56s.xml">
+    <history-entry file="karma_phantomjs_conf_js - 2016.02.08 at 00h 11m 34s.xml">
       <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
     </history-entry>
-    <history-entry file="karma_phantomjs_conf_js - 2016.01.24 at 22h 28m 19s.xml">
+    <history-entry file="karma_phantomjs_conf_js - 2016.02.08 at 00h 12m 27s.xml">
+      <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="karma_phantomjs_conf_js - 2016.02.08 at 00h 14m 32s.xml">
+      <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="karma_phantomjs_conf_js - 2016.02.08 at 00h 15m 56s.xml">
+      <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="karma_phantomjs_conf_js - 2016.02.08 at 00h 16m 54s.xml">
+      <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="karma_phantomjs_conf_js - 2016.02.08 at 00h 17m 16s.xml">
+      <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="karma_phantomjs_conf_js - 2016.02.08 at 00h 22m 49s.xml">
+      <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="karma_phantomjs_conf_js - 2016.02.08 at 00h 23m 06s.xml">
+      <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="karma_phantomjs_conf_js - 2016.02.08 at 00h 23m 45s.xml">
+      <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
+    </history-entry>
+    <history-entry file="karma_phantomjs_conf_js - 2016.02.08 at 00h 25m 00s.xml">
       <configuration name="karma.phantomjs.conf.js" configurationId="JavaScriptTestRunnerKarma" />
     </history-entry>
   </component>
@@ -350,13 +427,14 @@
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17336485" sideWeight="0.64928055" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17297085" sideWeight="0.64028776" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TypeScript Compiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281372" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17336485" sideWeight="0.35071942" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17297085" sideWeight="0.35971224" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32698414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5666407" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5666407" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34968847" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -366,7 +444,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32698414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -417,6 +494,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/TypedContract/Contract.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -509,20 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0297556">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6206349">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/typed-contract.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -541,19 +620,69 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TypedContract/Contract.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.91434264">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.25757575">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TypedContract/Contract.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.043560605">
+          <caret line="905" column="10" selection-start-line="905" selection-start-column="10" selection-end-line="905" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="299" column="8" selection-start-line="299" selection-start-column="8" selection-end-line="299" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80492425">
+          <caret line="52" column="46" selection-start-line="52" selection-start-column="46" selection-end-line="52" selection-end-column="46" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
