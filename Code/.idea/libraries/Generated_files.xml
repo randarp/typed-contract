@@ -2,16 +2,13 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-<<<<<<< HEAD
         <item url="file://$PROJECT_DIR$/TypedContract/TypeExtensions/Test.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
-=======
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/ArrayValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NumberValidator.js" />
->>>>>>> f10ab59c60378f770e780a1ee7ba9ead2a63a95a
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/NumberValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.js" />
@@ -23,9 +20,7 @@
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/TypedContract/TypeExtensions/Test.js" />
-<<<<<<< HEAD
       <root url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
-=======
       <root url="file://$PROJECT_DIR$/TypedContract/TypeExtensions/Test.js" />
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/amdLoader.js" />
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/html2ts.js" />
@@ -50,13 +45,9 @@
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/utils.js" />
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/compile.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/EnumValidator.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/Contract.ts.LOCAL.13168.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/Contract.ts.BASE.13168.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/Contract.ts.REMOTE.13168.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/ArrayValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NumberValidator.js" />
->>>>>>> f10ab59c60378f770e780a1ee7ba9ead2a63a95a
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/ArrayValidator.js" />

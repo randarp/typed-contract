@@ -4,7 +4,6 @@
   "description": "",
   "main": "karma.chrome.conf.js",
   "dependencies": {
-<<<<<<< HEAD
     "typescript": "^1.7.5"
   },
   "devDependencies": {
@@ -13,29 +12,17 @@
     "grunt-npm-release": "0.0.2",
     "grunt-release": "^0.13.0",
     "jasmine": "^2.4.1",
-=======
->>>>>>> f10ab59c60378f770e780a1ee7ba9ead2a63a95a
-    "jasmine-core": "^2.4.1",
-    "karma-jasmine": "^0.3.6",
-<<<<<<< HEAD
     "tslint": "^3.3.0"
-=======
     "typescript": "^1.7.5",
     "karma-chrome-launcher": "^0.2.2"
->>>>>>> f10ab59c60378f770e780a1ee7ba9ead2a63a95a
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-<<<<<<< HEAD
   "repository": {
     "type": "git",
     "url": "https://github.com/randarp/typed-contract.git"
   },
   "author": "Randar Puust & Andre Fischbacher",
   "license": "MIT"
-=======
-  "author": "",
-  "license": "ISC"
->>>>>>> f10ab59c60378f770e780a1ee7ba9ead2a63a95a
 }
