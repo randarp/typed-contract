@@ -28,7 +28,8 @@ describe("BooleanValidator", () => {
         let localVariable: boolean = false;
 
         // act
-        var failure = () => {
+        let failure: () => void;
+        failure = () => {
             Contract.In(localVariable).IsTrue();
         }
 
@@ -49,7 +50,8 @@ describe("BooleanValidator", () => {
         let localVariable: boolean = true;
 
         // act
-        var failure = () => {
+        let failure: () => void;
+        failure = () => {
             Contract.In(localVariable).IsFalse();
         }
 
