@@ -59,4 +59,17 @@ class NumberValidator extends BaseValidator<number> {
         }
     }
 
+    /**
+     * Checks if the number variable is not null or undefined
+     * @throws ReferenceError if the number variable is null or undefined
+     * @returns {NumberValidator}
+     */
+    public isNotNullOrUndefined(): NumberValidator {
+        if (this._variableValue == null || typeof this._variableValue === "undefined") {
+            throw new ReferenceError(`${this._variableName} should not be null or undefined`);
+        } else {
+            return this;
+        }
+    }
+
 }

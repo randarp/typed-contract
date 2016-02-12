@@ -57,10 +57,23 @@ class StringValidator extends BaseValidator<string> {
         }
     }
 
-    public LengthIsGreaterOrEqualThan(stringLength: number, variableName?: string): StringValidator {
+    public IsLengthIsGreaterOrEqualThan(stringLength: number, variableName?: string): StringValidator {
         if (this._variableValue.length < stringLength) {
             throw new RangeError(`${this._variableValue} is out of length range by a of ${this._variableValue.length - stringLength},
             your specified range was ${stringLength} for ${this._variableName} `);
+        } else {
+            return this;
+        }
+    }
+
+    /**
+     * Checks if a string variable is not null or undefined
+     * @throws ReferenceError if a string variable is null or not undefined
+     * @returns {StringValidator}
+     */
+    public isNullOrUndefined(): StringValidator {
+        if (this._variableValue == null || typeof this._variableValue === "undefined") {
+            throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {
             return this;
         }

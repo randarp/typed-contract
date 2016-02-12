@@ -2,6 +2,7 @@
 
 import {ReferenceError} from "../../node_modules/typescript/lib/lib";
 import {ReferenceError} from "../../node_modules/typescript/lib/lib";
+import ArrayValidator from "./";
 class ArrayValidator extends BaseValidator<any[]> {
 
     constructor(variableValue: any[], variableName: string) {
@@ -58,6 +59,19 @@ class ArrayValidator extends BaseValidator<any[]> {
     public isUndefined(): ArrayValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should be undefined`);
+        } else {
+            return this;
+        }
+    }
+
+    /**
+     * Checks if the array variable is not null or undefined
+     * @throws ReferenceError if the array variable is null or undefined
+     * @returns {ArrayValidator}
+     */
+    public isNotNullOrUndefined(): ArrayValidator {
+        if (this._variableValue == null || typeof this._variableValue === "undefined") {
+            throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {
             return this;
         }

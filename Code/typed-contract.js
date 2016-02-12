@@ -56,6 +56,14 @@ var NumberValidator = (function (_super) {
             return this;
         }
     };
+    NumberValidator.prototype.isNotNullOrUndefined = function () {
+        if (this._variableValue == null || typeof this._variableValue === "undefined") {
+            throw new ReferenceError(this._variableName + " should not be null or undefined");
+        }
+        else {
+            return this;
+        }
+    };
     return NumberValidator;
 })(BaseValidator);
 /// <reference path="TypeValidators\StringValidator.ts" />
