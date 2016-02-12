@@ -19,61 +19,44 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var StringValidator = (function (_super) {
-    __extends(StringValidator, _super);
-    function StringValidator(variableValue, variableName) {
-        _super.call(this, variableValue, variableName);
-    }
-    StringValidator.prototype.IsNotNull = function () {
-        return this;
-    };
-    return StringValidator;
-})(BaseValidator);
-/// <reference path="BaseValidator.ts" />
-var BooleanValidator = (function (_super) {
-    __extends(BooleanValidator, _super);
-    function BooleanValidator(variableValue, variableName) {
-        _super.call(this, variableValue, variableName);
-    }
-    BooleanValidator.prototype.IsTrue = function () {
-        if (!this._variableValue) {
-            throw new RangeError(this._variableName + " should be true");
-        }
-        else {
-            return this;
-        }
-    };
-    BooleanValidator.prototype.IsFalse = function () {
-        if (this._variableValue) {
-            throw new RangeError(this._variableName + " should be false");
-        }
-        else {
-            return this;
-        }
-    };
-    return BooleanValidator;
-})(BaseValidator);
-/// <reference path="BaseValidator.ts" />
 var NumberValidator = (function (_super) {
     __extends(NumberValidator, _super);
     function NumberValidator(variableValue, variableName) {
         _super.call(this, variableValue, variableName);
     }
-    NumberValidator.prototype.IsGreaterThan = function (compareTo) {
-        return this;
+    NumberValidator.prototype.isNotNull = function () {
+        if (this._variableValue === null) {
+            throw new ReferenceError(this._variableName + " should not be null");
+        }
+        else {
+            return this;
+        }
+    };
+    NumberValidator.prototype.isNull = function () {
+        if (this._variableValue !== null) {
+            throw new ReferenceError(this._variableName + " should be null");
+        }
+        else {
+            return this;
+        }
+    };
+    NumberValidator.prototype.isDefined = function () {
+        if (typeof this._variableValue === "undefined") {
+            throw new ReferenceError(this._variableName + " should be defined");
+        }
+        else {
+            return this;
+        }
+    };
+    NumberValidator.prototype.isUndefined = function () {
+        if (typeof this._variableValue !== "undefined") {
+            throw new ReferenceError(this._variableName + " should not be defined");
+        }
+        else {
+            return this;
+        }
     };
     return NumberValidator;
-})(BaseValidator);
-/// <reference path="BaseValidator.ts" />
-var ArrayValidator = (function (_super) {
-    __extends(ArrayValidator, _super);
-    function ArrayValidator(variableValue, variableName) {
-        _super.call(this, variableValue, variableName);
-    }
-    ArrayValidator.prototype.IsEmpty = function () {
-        return this;
-    };
-    return ArrayValidator;
 })(BaseValidator);
 /// <reference path="TypeValidators\StringValidator.ts" />
 /// <reference path="TypeValidators\BooleanValidator.ts" />

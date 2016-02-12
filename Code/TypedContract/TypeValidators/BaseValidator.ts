@@ -1,7 +1,7 @@
 /**
  * Encapsulates any validators that apply to every type and state used by the validation chain.
  */
-class BaseValidator<T> {
+class BaseValidator <T> {
     protected _variableValue: T;
     protected _variableName: string;
 
@@ -12,7 +12,7 @@ class BaseValidator<T> {
         if (variableName && variableName.length > 0) {
             this._variableName = variableName;
         } else {
-            this._variableName = "The variable"
+            this._variableName = "The variable";
         }
     }
 

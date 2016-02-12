@@ -13,5 +13,21 @@ describe("StringValidator", () => {
         // assert
         expect(result).not.toBeNull();
         expect(result).toEqual(jasmine.any(StringValidator));
+
+        it("LengthIsLessThanOrEqualTo to throw new RangeError based on the conditions result", () => {
+
+            // arrange
+            let localVar: string = "Andre Marcus Fischbacher";
+
+            // act
+            let result2: StringValidator = Contract.In(localVariable).LengthIsGreaterOrEqualThan(18);
+
+            // assert
+            return expect(result2).toThrowError();
+
+
+        });
+
     });
+
 });

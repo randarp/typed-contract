@@ -33,6 +33,6 @@ module.exports = function(grunt){
 });
 
     grunt.registerTask("publish TypedContract",function(){
-        console.log("Published");
+        console.log("Published, Yaay !");
     })
 };

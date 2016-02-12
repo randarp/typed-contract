@@ -7,11 +7,13 @@ declare class BaseValidator<T> {
 declare class StringValidator extends BaseValidator<string> {
     constructor(variableValue: string, variableName: string);
     IsNotNull(): StringValidator;
+    LengthIsGreaterOrEqualThan(): StringValidator;
 }
 declare class BooleanValidator extends BaseValidator<boolean> {
     constructor(variableValue: boolean, variableName: string);
     IsTrue(): BooleanValidator;
     IsFalse(): BooleanValidator;
+    IsNotNull(): BooleanValidator;
 }
 declare class NumberValidator extends BaseValidator<number> {
     constructor(variableValue: number, variableName: string);
