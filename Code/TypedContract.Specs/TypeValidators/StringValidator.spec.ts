@@ -16,8 +16,9 @@ describe("StringValidator", () => {
         // assert
         expect(result).not.toBeNull();
         expect(result).toEqual(jasmine.any(StringValidator));
+    });
 
-        it("IsNotNull expects a result of not null", () => {
+    it("IsNotNull expects a result of not null", () => {
 
             // arrange
             let localVariable: string = "Andre";
@@ -29,7 +30,4 @@ describe("StringValidator", () => {
             return expect(result).not.toBeNull();
 
         });
-
-    });
-
 });

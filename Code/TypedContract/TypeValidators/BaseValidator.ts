@@ -25,6 +25,11 @@ class BaseValidator <T> {
         return this._variableValue;
     }
 
+    /**
+     * Returns the variable name that was passed into the contract
+     * @returns {string}
+     * @constructor
+     */
     public Name(): string {
         return this._variableName;
     }

@@ -3,7 +3,7 @@
   <component name="TypeScriptCompiler">
     <option name="isCompilerEnabled" value="true" />
     <option name="typeScriptCompilerParams" value="--declaration" />
-    <option name="scopeName" value="Current File" />
+    <option name="scopeName" value="Default" />
     <option name="hasOutDirectory" value="true" />
     <option name="outDirectory" value="$FileDir$\typed-contract.js" />
     <option name="mainFilePath" value="C:\Projects\TypedContract\Code\TypedContract\Contract.ts" />
