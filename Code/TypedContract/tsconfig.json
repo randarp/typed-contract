@@ -1,14 +1,21 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "removeComments": true,
-        "preserveConstEnums": true,
-        "outFile": "../typed-contract.js",
-        "sourceMap": true,
-        "declaration": true
-    },
-    "files": [
-        "Contract.ts"
-    ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "outFile": "../typed-contract.js",
+    "sourceMap": true,
+    "declaration": true
+  },
+  "FilesGlob":[
+    "**/*.ts"
+  ],
+  "files": [
+    "Contract.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "typings"
+  ]
 }

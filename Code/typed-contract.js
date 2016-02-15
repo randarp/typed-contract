@@ -16,6 +16,107 @@ var BaseValidator = (function () {
     };
     return BaseValidator;
 })();
+/// <reference path="BaseValidator.ts" />
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
+var BooleanValidator = (function (_super) {
+    __extends(BooleanValidator, _super);
+    function BooleanValidator(variableValue, variableName) {
+        _super.call(this, variableValue, variableName);
+    }
+    BooleanValidator.prototype.IsTrue = function () {
+        if (!this._variableValue) {
+            throw new RangeError(this._variableName + " should be true");
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.IsFalse = function () {
+        if (this._variableValue) {
+            throw new RangeError(this._variableName + " should be false");
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.isNull = function () {
+        if (this._variableValue !== null) {
+            throw new ReferenceError(this._variableName + " should be null");
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.isNotNull = function () {
+        if (this._variableValue == null) {
+            throw new ReferenceError(this._variableName + " should not be null");
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.isDefined = function () {
+        if (typeof this._variableValue === "undefined") {
+            throw new ReferenceError(this._variableName + " should be defined");
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.isUndefined = function () {
+        if (typeof this._variableValue !== "undefined") {
+            throw new ReferenceError(this._variableName + " should be undefined");
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.isNotNullOrUndefined = function () {
+        if (this._variableValue == null || typeof this._variableValue === "undefined") {
+            throw new ReferenceError(this._variableName + " should not be null or undefined");
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.isEqualTo = function (compareTo) {
+        if (!this._variableValue === compareTo) {
+            throw new RangeError(this._variableName + " should be equal to the boolean variable " + compareTo);
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.isNotEqualTo = function (compareTo) {
+        if (this._variableValue === compareTo) {
+            throw new RangeError(this._variableName + " should not be equal to the boolean " + compareTo);
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.isTrue = function () {
+        if (this._variableValue === false) {
+            throw new RangeError(this._variableName + " should be true");
+        }
+        else {
+            return this;
+        }
+    };
+    BooleanValidator.prototype.isFalse = function () {
+        if (this._variableValue === true) {
+            throw new RangeError(this._variableName + " should be false");
+        }
+        else {
+            return this;
+        }
+    };
+    return BooleanValidator;
+})(BaseValidator);
 /// <reference path="TypeValidators\StringValidator.ts" />
 /// <reference path="TypeValidators\BooleanValidator.ts" />
 /// <reference path="TypeValidators\NumberValidator.ts" />
