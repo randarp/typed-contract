@@ -1,5 +1,8 @@
-/// <reference path="..\..\TypedContract\Contract.ts" />
-/// <reference path="..\..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
+/// <reference path="../../TypedContract/Contract.ts" />
+/// <reference path="../../TypedContract/TypeValidators/StringValidator.ts" />
+/// <reference path="../../Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
+
+// import StringValidator from "../../TypedContract/TypeValidators/StringValidator";
 
 describe("StringValidator", () => {
 
@@ -14,17 +17,16 @@ describe("StringValidator", () => {
         expect(result).not.toBeNull();
         expect(result).toEqual(jasmine.any(StringValidator));
 
-        it("LengthIsLessThanOrEqualTo to throw new RangeError based on the conditions result", () => {
+        it("IsNotNull expects a result of not null", () => {
 
             // arrange
-            let localVar: string = "Andre Marcus Fischbacher";
+            let localVariable: string = "Andre";
 
             // act
-            let result2: StringValidator = Contract.In(localVariable).LengthIsGreaterOrEqualThan(18);
+            let result: StringValidator = Contract.In(localVariable).isNotNull();
 
-            // assert
-            return expect(result2).toThrowError();
-
+           // assert
+            return expect(result).not.toBeNull();
 
         });
 

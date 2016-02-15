@@ -24,4 +24,8 @@ class BaseValidator <T> {
     public Value(): T {
         return this._variableValue;
     }
+
+    public Name(): string {
+        return this._variableName;
+    }
 }

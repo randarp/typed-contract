@@ -8,10 +8,24 @@ describe("NumberValidator", () => {
         let localVariable: number = 2;
 
         // act
-        let result: NumberValidator = Contract.In(localVariable).IsGreaterThan(0);
-
+        let result: NumberValidator = Contract.In(localVariable);
         // assert
         expect(result).not.toBeNull();
         expect(result).toEqual(jasmine.any(NumberValidator));
+    });
+
+
+    it("isNotNull returns the proper validator", () => {
+
+        // arrange
+        let localVar: number = 1;
+
+        // act
+        let result: NumberValidator = Contract.In(localVar).isNotNull();
+
+        // assert
+        if (expect(result).isNot == null) {
+            return this;
+        }
     });
 });

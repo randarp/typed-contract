@@ -1,6 +1,7 @@
 /// <reference path="BaseValidator.ts" />
 
 import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
+import StringValidator from "./";
 class StringValidator extends BaseValidator<string> {
 
     constructor(variableValue: string, variableName: string) {
@@ -78,4 +79,35 @@ class StringValidator extends BaseValidator<string> {
             return this;
         }
     }
+
+    /**
+     *
+     * Checks if the string variable is equal to the parameter passed into the function as an argument
+     * @throws RangeError if the string variable is not equal to the parameter passed into the function
+     * @param compareTo
+     * @returns {StringValidator}
+     */
+    public isEqualTo(compareTo: string): StringValidator {
+        if (this._variableValue !== compareTo) {
+            throw new RangeError(`${this._variableName} should be equal to the string variable ${compareTo}`);
+        } else {
+            return this;
+        }
+    }
+
+    /**
+     *
+     * Checks if the string variable is not equal to the parameter passed into the function as an argument
+     * @throws RangeError if the string variable is equal to the parameter passed into the function
+     * @param compareTo
+     * @returns {StringValidator}
+     */
+    public isNotEqualTo(compareTo: string): StringValidator {
+        if (this._variableValue === compareTo) {
+            throw new RangeError(`${this._variableName} should not be equal to the string variable ${compareTo}`)
+        } else {
+            return this;
+        }
+    }
+
 }

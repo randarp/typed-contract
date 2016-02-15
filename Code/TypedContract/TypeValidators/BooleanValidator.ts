@@ -3,6 +3,7 @@
 import {ExceptionInformation} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 import BooleanValidator from "./";
+import {RangeError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 class BooleanValidator extends BaseValidator<boolean> {
 
     constructor(variableValue:boolean, variableName:string) {
@@ -95,5 +96,26 @@ class BooleanValidator extends BaseValidator<boolean> {
             return this;
         }
     }
+    /**
+     *
+     * Checks if the boolean variable is equal to the parameter passed into the function as an argument
+     * @throws RangeError if the boolean variable is not equal to the parameter passed into the function
+     * @param compareTo
+     * @returns {BooleanValidator}
+     */
+    public isEqualTo(compareTo: boolean): BooleanValidator {
+        if (!this._variableValue === compareTo) {
+            throw new RangeError(`${this._variableName} should be equal to the boolean variable ${compareTo}`);
+        } else {
+            return this;
+        }
+    }
 
+    public isNotEqualTo(compareTo: boolean): BooleanValidator {
+        if (this._variableValue === compareTo) {
+            throw new RangeError(`${this.variableName} should not be equal to the boolean ${compareTo}`);
+        } else {
+            return this;
+        }
+    }
 }
