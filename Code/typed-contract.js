@@ -75,10 +75,25 @@ var ArrayValidator = (function (_super) {
     };
     return ArrayValidator;
 })(BaseValidator);
+/// <reference path="BaseValidator.ts" />
+var ObjectValidator = (function (_super) {
+    __extends(ObjectValidator, _super);
+    function ObjectValidator(variableValue, variableName) {
+        _super.call(this, variableValue, variableName);
+    }
+    ObjectValidator.prototype.IsNotNull = function () {
+        return this;
+    };
+    ObjectValidator.prototype.IsExpectedType = function () {
+        return this;
+    };
+    return ObjectValidator;
+})(BaseValidator);
 /// <reference path="TypeValidators\StringValidator.ts" />
 /// <reference path="TypeValidators\BooleanValidator.ts" />
 /// <reference path="TypeValidators\NumberValidator.ts" />
 /// <reference path="TypeValidators\ArrayValidator.ts" />
+/// <reference path="TypeValidators\ObjectValidator.ts" />
 var Contract;
 (function (Contract) {
     "use strict";
@@ -99,9 +114,5 @@ var Contract;
         return undefined;
     }
     Contract.In = In;
-    function Out(postcondition) {
-        return true;
-    }
-    Contract.Out = Out;
 })(Contract || (Contract = {}));
 //# sourceMappingURL=typed-contract.js.map

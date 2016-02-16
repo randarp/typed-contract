@@ -21,6 +21,11 @@ declare class ArrayValidator extends BaseValidator<any[]> {
     constructor(variableValue: any[], variableName: string);
     IsEmpty(): ArrayValidator;
 }
+declare class ObjectValidator<T> extends BaseValidator<T> {
+    constructor(variableValue: T, variableName: string);
+    IsNotNull(): ObjectValidator<T>;
+    IsExpectedType(): ObjectValidator<T>;
+}
 declare module Contract {
     function In(precondition: string): StringValidator;
     function In(precondition: string, name: string): StringValidator;
@@ -30,5 +35,5 @@ declare module Contract {
     function In(precondition: number, name: string): NumberValidator;
     function In(precondition: any[]): ArrayValidator;
     function In(precondition: any[], name: string): ArrayValidator;
-    function Out(postcondition: any): boolean;
+    function In<T>(precondition: T): ObjectValidator<T>;
 }
