@@ -1,7 +1,7 @@
 /// <reference path="..\TypedContract\Contract.ts" />
-/// <reference path="..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
+/// <reference path="..\Typings\http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
-import BooleanValidator from "../TypedContract/TypeValidators/BooleanValidator";
+/* import BooleanValidator from "../TypedContract/TypeValidators/BooleanValidator"; */
 describe("Contract", () => {
 
     it("will return the correct validator for a boolean", () => {
@@ -29,7 +29,7 @@ describe("Contract", () => {
     });
 
     it("will return the correct validator for a number", () => {
-        // arrange
+        // arrange m
         let localVariable: number = 2;
 
         // act

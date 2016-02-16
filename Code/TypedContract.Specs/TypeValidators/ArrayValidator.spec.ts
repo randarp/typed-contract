@@ -8,10 +8,27 @@ describe("ArrayValidator", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: ArrayValidator = Contract.In(localVariable).IsEmpty();
+        let result: ArrayValidator = Contract.In(localVariable).IsNotNull();
 
         // assert
         expect(result).not.toBeNull();
         expect(result).toEqual(jasmine.any(ArrayValidator));
+    });
+
+    it("IsNotNull returns the right validator", () => {
+        let localVar: any[] = [1, 2, 3];
+
+        let result: ArrayValidator = Contract.In(localVar).IsNotNull();
+
+        return expect(result).not.toBeNull();
+        return expect(result).toBe(this);
+    });
+
+    it("IsNull returns the right validator", () => {
+        let localVar: any[] = null;
+
+        let result: ArrayValidator = Contract.In(localVar).IsNull();
+
+        return expect(localVar).toBeNull();
     });
 });

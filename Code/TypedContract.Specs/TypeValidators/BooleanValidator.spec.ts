@@ -58,4 +58,13 @@ describe("BooleanValidator", () => {
         // assert
         expect(failure).toThrowError(<any>RangeError);
     });
+
+    it("IsDefined will return the proper result ", () => {
+       let localVar: boolean = true;
+
+       let result: BooleanValidator = Contract.In(localVar).IsDefined();
+
+       expect(result).toBeDefined();
+    });
+
 });

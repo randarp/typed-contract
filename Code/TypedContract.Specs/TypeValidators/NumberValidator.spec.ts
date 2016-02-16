@@ -21,11 +21,36 @@ describe("NumberValidator", () => {
         let localVar: number = 1;
 
         // act
-        let result: NumberValidator = Contract.In(localVar).isNotNull();
+        let result: NumberValidator = Contract.In(localVar).IsNotNull();
 
         // assert
         if (expect(result).isNot == null) {
             return this;
         }
+    });
+
+    it("isNull returns the proper validator", () => {
+        // arrange
+        let localVar: number = null;
+
+        // act
+        let result: void = () => {
+            Contract.In(localVar).IsNull();
+        }
+
+        // assert
+        expect(result);
+    });
+
+    it("IsDefined does return the proper validator", () => {
+        // arrange
+        let localVar: number = 0;
+
+        // act
+        let result: NumberValidator = Contract.In(localVar).IsDefined();
+
+        // assert
+        expect(result).toBeDefined();
+
     });
 });

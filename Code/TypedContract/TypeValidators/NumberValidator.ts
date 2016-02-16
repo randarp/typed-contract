@@ -1,9 +1,10 @@
-/// <reference path="BaseValidator.ts" />
+/// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
 
-import {RangeError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
-import NumberValidator from "./";
+/*import {RangeError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
+import NumberValidator from "./"; */
 
-    class NumberValidator extends BaseValidator<number> {
+    import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
+class NumberValidator extends BaseValidator<number> {
 
         constructor(variableValue: number, variableName: string) {
             super(variableValue, variableName);
@@ -15,7 +16,7 @@ import NumberValidator from "./";
          * @throws a ReferenceError if the variable is null
          * @returns {NumberValidator}
          */
-        public isNotNull(): NumberValidator {
+        public IsNotNull(): NumberValidator {
             if (this._variableValue === null) {
                 throw new ReferenceError(`${this._variableName} should not be null`);
             } else {
@@ -29,11 +30,11 @@ import NumberValidator from "./";
          * @throws a ReferenceError if the variable is not null
          * @returns {NumberValidator}
          */
-        public isNull(): NumberValidator {
+        public IsNull(): NumberValidator {
             if (this._variableValue !== null) {
                 throw new ReferenceError(`${this._variableName} should be null`);
             } else {
-                return this;
+                    return this;
             }
         }
 
@@ -42,7 +43,7 @@ import NumberValidator from "./";
          * @throws ReferenceError if the number variable jis not defined
          * @returns {NumberValidator}
          */
-        public isDefined(): NumberValidator {
+        public IsDefined(): NumberValidator {
             if (typeof this._variableValue === "undefined") {
                 throw new ReferenceError(`${this._variableName} should be defined`);
             } else {
@@ -55,7 +56,7 @@ import NumberValidator from "./";
          * @throws a ReferenceError if the number variable is undefined
          * @returns {NumberValidator}
          */
-        public isUndefined(): NumberValidator {
+        public IsUndefined(): NumberValidator {
             if (typeof this._variableValue !== "undefined") {
                 throw new ReferenceError(`${this._variableName} should not be defined`);
             } else {
@@ -68,7 +69,7 @@ import NumberValidator from "./";
          * @throws ReferenceError if the number variable is null or undefined
          * @returns {NumberValidator}
          */
-        public isNullOrUndefined(): NumberValidator {
+        public IsNullOrUndefined(): NumberValidator {
             if (this._variableValue == null || typeof this._variableValue === "undefined") {
                 throw new ReferenceError(`${this._variableName} should not be null or undefined`);
             } else {
@@ -83,7 +84,7 @@ import NumberValidator from "./";
          * @param compareTo
          * @returns {NumberValidator}
          */
-        public isEqualTo(compareTo: number): NumberValidator {
+        public IsEqualTo(compareTo: number): NumberValidator {
             if (this._variableValue !== compareTo) {
                 throw new RangeError(`${this._variableName} should be equal to the number variable ${compareTo}`);
             } else {
@@ -99,7 +100,7 @@ import NumberValidator from "./";
          * @param compareTo
          * @returns {NumberValidator}
          */
-        public isNotEqualTo(compareTo: number): NumberValidator {
+        public IsNotEqualTo(compareTo: number): NumberValidator {
             if (this._variableValue === compareTo) {
                 throw new RangeError(`${this._variableName} should not be equal to the number variable ${compareTo}`);
             } else {
@@ -114,7 +115,7 @@ import NumberValidator from "./";
          * @param compareTo
          * @returns {NumberValidator}
          */
-        public isGreaterThan(compareTo: number): NumberValidator {
+        public IsGreaterThan(compareTo: number): NumberValidator {
             if (this._variableValue < compareTo) {
                 throw new RangeError(`${this._variableName} should be greater than ${compareTo} but is ${this._variableValue}`);
             } else {
@@ -129,7 +130,7 @@ import NumberValidator from "./";
          * @param compareTo
          * @returns {NumberValidator}
          */
-        public isNotGreaterThan(compareTo: number): NumberValidator {
+        public IsNotGreaterThan(compareTo: number): NumberValidator {
             if (this._variableValue > compareTo) {
                 throw new RangeError(`${this._variableName} should not be greater than ${compareTo} but is ${this._variableValue}`);
             } else {
@@ -144,7 +145,7 @@ import NumberValidator from "./";
          * @param compareTo
          * @returns {NumberValidator}
          */
-        public isGreaterOrEqualThan(compareTo: number): NumberValidator {
+        public IsGreaterOrEqualThan(compareTo: number): NumberValidator {
             if (this._variableValue <=  compareTo) {
                 throw new RangeError(`${this._variableName} should be greater than ${compareTo} but is ${compareTo}`);
             } else {
@@ -158,7 +159,7 @@ import NumberValidator from "./";
          * @param compareTo
          * @returns {NumberValidator}
          */
-        public isNotGreaterOrEqualThan(compareTo: number): NumberValidator {
+        public IsNotGreaterOrEqualThan(compareTo: number): NumberValidator {
             if (this._variableValue >= compareTo) {
                 throw new RangeError(`${this._variableName} should not be greater or equal to ${compareTo} but is ${this._variableValue}`);
             } else {
@@ -172,8 +173,8 @@ import NumberValidator from "./";
          * @param compareTo
          * @returns {NumberValidator}
          */
-        public isLessThan(compareTo: number): NumberValidator {
-            if (this._variableValue > compareTo) {
+        public IsLessThan(compareTo: number): NumberValidator {
+            if (this._variableValue >= compareTo) {
                 throw new RangeError(`${this._variableName} should be less than ${compareTo} but is ${this._variableValue}`);
             } else {
                 return this;
@@ -186,11 +187,27 @@ import NumberValidator from "./";
          * @param compareTo
          * @returns {NumberValidator}
          */
-        public isNotLessThan(compareTo: number): NumberValidator {
-            if (this._variableValue < compareTo) {
+        public IsNotLessThan(compareTo: number): NumberValidator {
+            if (this._variableValue <= compareTo) {
                 throw new RangeError(`${this._variableName} should not be less than ${compareTo} but is ${this._variableValue}`);
             } else {
                 return this;
+            }
+        }
+
+        public IsLessOrEqualThan(compareTo: number): NumberValidator {
+            if (this._variableValue > compareTo) {
+                throw new ReferenceError(`${this._variableName} should be less or equal than ${compareTo} but is ${this._variableName}`);
+            } else {
+                return this;
+            }
+        }
+
+        public IsNotLessOrEqualThan(compareTo: number): NumberValidator {
+            if (this._variableValue < compareTo) {
+                throw new ReferenceError(`${this._variableName} should not be less or equal than ${compareTo} but is ${this._variableValue}`);
+            } else {
+
             }
         }
 

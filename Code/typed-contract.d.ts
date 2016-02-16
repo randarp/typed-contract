@@ -3,25 +3,57 @@ declare class BaseValidator<T> {
     protected _variableName: string;
     constructor(variableValue: T, variableName: string);
     Value(): T;
+    Name(): string;
 }
 declare class StringValidator extends BaseValidator<string> {
     constructor(variableValue: string, variableName: string);
     IsNotNull(): StringValidator;
-    LengthIsGreaterOrEqualThan(): StringValidator;
+    IsNull(): StringValidator;
+    IsDefined(): StringValidator;
+    IsNotDefined(): StringValidator;
+    IsLengthIsGreaterOrEqualThan(stringLength: number, variableName?: string): StringValidator;
+    IsNullOrUndefined(): StringValidator;
+    IsEqualTo(compareTo: string): StringValidator;
+    IsNotEqualTo(compareTo: string): StringValidator;
+    isLessThan(compareTo: string): void;
 }
 declare class BooleanValidator extends BaseValidator<boolean> {
     constructor(variableValue: boolean, variableName: string);
+    IsNull(): BooleanValidator;
+    IsNotNull(): BooleanValidator;
+    IsDefined(): BooleanValidator;
+    IsUndefined(): BooleanValidator;
+    IsNotNullOrUndefined(): BooleanValidator;
+    IsEqualTo(compareTo: boolean): BooleanValidator;
+    IsNotEqualTo(compareTo: boolean): BooleanValidator;
     IsTrue(): BooleanValidator;
     IsFalse(): BooleanValidator;
-    IsNotNull(): BooleanValidator;
 }
 declare class NumberValidator extends BaseValidator<number> {
     constructor(variableValue: number, variableName: string);
+    IsNotNull(): NumberValidator;
+    IsNull(): NumberValidator;
+    IsDefined(): NumberValidator;
+    IsUndefined(): NumberValidator;
+    IsNullOrUndefined(): NumberValidator;
+    IsEqualTo(compareTo: number): NumberValidator;
+    IsNotEqualTo(compareTo: number): NumberValidator;
     IsGreaterThan(compareTo: number): NumberValidator;
+    IsNotGreaterThan(compareTo: number): NumberValidator;
+    IsGreaterOrEqualThan(compareTo: number): NumberValidator;
+    IsNotGreaterOrEqualThan(compareTo: number): NumberValidator;
+    IsLessThan(compareTo: number): NumberValidator;
+    IsNotLessThan(compareTo: number): NumberValidator;
 }
 declare class ArrayValidator extends BaseValidator<any[]> {
     constructor(variableValue: any[], variableName: string);
-    IsEmpty(): ArrayValidator;
+    IsNull(): ArrayValidator;
+    IsNotNull(): ArrayValidator;
+    IsDefined(): ArrayValidator;
+    IsUndefined(): ArrayValidator;
+    IsNullOrUndefined(): ArrayValidator;
+    IsEqualTo(compareTo: any[], index: number): ArrayValidator;
+    IsNotEqualTo(compareTo: any[], index: number): ArrayValidator;
 }
 declare module Contract {
     function In(precondition: string): StringValidator;

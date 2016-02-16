@@ -1,9 +1,9 @@
-/// <reference path="BaseValidator.ts" />
+/// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
 
-import {ReferenceError} from "../../node_modules/typescript/lib/lib";
+/*import {ReferenceError} from "../../node_modules/typescript/lib/lib";
 import ArrayValidator from "./";
 import {RangeError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
-
+*/
 class ArrayValidator extends BaseValidator<any[]> {
 
     constructor(variableValue: any[], variableName: string) {
@@ -31,7 +31,7 @@ class ArrayValidator extends BaseValidator<any[]> {
      * @returns {ArrayValidator}
      */
 
-    public isNotNull(): ArrayValidator {
+    public IsNotNull(): ArrayValidator {
         if (this._variableValue == null) {
             throw new ReferenceError(`${this._variableName} should not be null`);
         } else {
@@ -44,7 +44,7 @@ class ArrayValidator extends BaseValidator<any[]> {
      * @throws ReferenceError if the array variable is undefined
      * @returns {ArrayValidator}
      */
-    public isDefined(): ArrayValidator {
+    public IsDefined(): ArrayValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
         } else {
@@ -57,7 +57,7 @@ class ArrayValidator extends BaseValidator<any[]> {
      * @throws ReferenceError if the array variable is defined
      * @returns {ArrayValidator}
      */
-    public isUndefined(): ArrayValidator {
+    public IsUndefined(): ArrayValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should be undefined`);
         } else {
@@ -71,7 +71,7 @@ class ArrayValidator extends BaseValidator<any[]> {
      * @returns {ArrayValidator}
      */
 
-    public isNullOrUndefined(): ArrayValidator {
+    public IsNullOrUndefined(): ArrayValidator {
         if (this._variableValue == null || typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {
@@ -85,7 +85,7 @@ class ArrayValidator extends BaseValidator<any[]> {
      * @param compareTo, index
      * @returns {ArrayValidator}
      */
-    public isEqualTo(compareTo: any[], index: number): ArrayValidator {
+    public IsEqualTo(compareTo: any[], index: number): ArrayValidator {
         if (this._variableValue[index] !== compareTo[index]) {
             throw new RangeError(`${this._variableName} should be equal to array variable ${compareTo} at the index ${index}`);
         } else {
@@ -101,7 +101,7 @@ class ArrayValidator extends BaseValidator<any[]> {
      * @returns {ArrayValidator}
      */
 
-    public isNotEqualTo(compareTo: any[], index: number): ArrayValidator {
+    public IsNotEqualTo(compareTo: any[], index: number): ArrayValidator {
         if ( this._variableValue[index] === compareTo[index]){
             throw new RangeError(`${this._variableName} should be equal to array variable ${compareTo} at the index ${index}`);
         } else {
