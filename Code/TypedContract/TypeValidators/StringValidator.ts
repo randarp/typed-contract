@@ -2,9 +2,9 @@
 
 /* import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 import StringValidator from "./"; */
+//import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
+//import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 
-import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
-import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 class StringValidator extends BaseValidator<string> {
 
     constructor(variableValue: string, variableName: string) {
@@ -30,6 +30,7 @@ class StringValidator extends BaseValidator<string> {
      * @throws a ReferenceError if the variable is not null
      */
     public IsNull(): StringValidator {
+
         if (this._variableValue !== null) {
             throw new ReferenceError(`${this._variableName} should be null`);
         } else {
@@ -76,7 +77,7 @@ class StringValidator extends BaseValidator<string> {
      * @returns {StringValidator}
      */
     public IsNullOrUndefined(): StringValidator {
-        if (this._variableValue == null || typeof this._variableValue === "undefined") {
+        if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {
             return this;
@@ -107,7 +108,7 @@ class StringValidator extends BaseValidator<string> {
      */
     public IsNotEqualTo(compareTo: string): StringValidator {
         if (this._variableValue === compareTo) {
-            throw new RangeError(`${this._variableName} should not be equal to the string variable ${compareTo}`)
+            throw new RangeError(`${this._variableName} should not be equal to the string variable ${compareTo}`);
         } else {
             return this;
         }
@@ -120,7 +121,7 @@ class StringValidator extends BaseValidator<string> {
      * @returns {StringValidator}
      */
 
-    public isLessThan(compareTo: string) {
+    public isLessThan(compareTo: string): StringValidator {
         if (this._variableValue.length > compareTo.length) {
             throw new ReferenceError(`${this._variableName} should be less than ${compareTo} but is ${this._variableValue}`);
         } else {

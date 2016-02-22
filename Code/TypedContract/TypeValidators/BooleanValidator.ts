@@ -18,12 +18,13 @@ class BooleanValidator extends BaseValidator<boolean> {
      * @throws a ReferenceError if the variable is not null
      */
     public IsNull(): BooleanValidator {
-        if (this._variableValue !== null) {
-            throw new ReferenceError(`${this._variableName} should be null`);
-        } else {
+        if (this._variableValue === null && typeof this._variableValue === "object") {
             return this;
+        } else {
+            throw new ReferenceError(`${this._variableName} should be null`);
         }
     }
+
     /**
      *
      * Checks if the boolean variable is not null
@@ -71,7 +72,7 @@ class BooleanValidator extends BaseValidator<boolean> {
      * @returns {BooleanValidator}
      */
 
-    public IsNotNullOrUndefined(): BooleanValidator {
+    public IsNullOrUndefined(): BooleanValidator {
         if (this._variableValue == null || typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {

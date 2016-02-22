@@ -67,4 +67,20 @@ describe("BooleanValidator", () => {
        expect(result).toBeDefined();
     });
 
+    it("IsNullOrUndefined returns the proper validator when given an undefined", () => {
+        let localVar: boolean = undefined;
+
+        let result: BooleanValidator = Contract.In(localVar).IsNullOrUndefined();
+
+        expect(result).not.toThrow(new ReferenceError());
+    });
+
+    it("IsNullOrUndefined returns the proper validator when given a null", () => {
+        let localVar: boolean = null;
+
+        let result: BooleanValidator = Contract.In(localVar).IsNullOrUndefined();
+
+        expect(result).not.toThrow(new ReferenceError());
+
+    });
 });
