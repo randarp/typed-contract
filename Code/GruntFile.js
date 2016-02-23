@@ -39,7 +39,9 @@ module.exports = function(grunt){
 
 });
 
-    grunt.registerTask("publish TypedContract",function(){
+    grunt.registerTask("publish",function(){
         console.log("Published, Yaay!");
-    })
+    });
+
+    grunt.task.registerTask("set-up",["uglify","copy","publish"]);
 };
