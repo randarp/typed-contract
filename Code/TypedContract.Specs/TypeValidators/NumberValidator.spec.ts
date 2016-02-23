@@ -288,4 +288,53 @@ describe("NumberValidator", () => {
 
         expect(result);
     });
+
+    it("IsNotLessThan returns the proper validator when the precondition is not less than the comparable", () => {
+        let localVar: number = 3;
+        let compareTo: number = 2;
+
+        let result: NumberValidator = Contract.In(localVar).IsNotLessThan(compareTo);
+
+        expect(result);
+    });
+
+    it("IsNotLessThan returns the proper validator when the precondition is less than the comparable", () => {
+        let localVar: number = 1;
+        let compareTo: number = 3;
+
+        let result: NumberValidator = Contract.In(localVar).IsNotLessThan(compareTo);
+        expect(result);
+    });
+
+    it("IsNotLessThan returns the proper validator when the precondition is equal to the comparable", () => {
+        let localVar: number = 2;
+        let compareTo: number = 2;
+
+        let result: NumberValidator = Contract.In(localVar).IsNotLessThan(compareTo);
+
+        expect(result);
+    });
+
+    it("IsNotLessOrEqualThan returns the proper validator when the precondition is less than the comparable", () => {
+        let localVar: number = 3;
+        let compareTo: number = 2;
+
+        let result: NumberValidator = Contract.In(localVar).IsNotLessThan(compareTo);
+
+        expect(result);
+    });
+    it("IsNotLessOrEqualThan returns the proper validator when the precondition is not less than the comparable", () => {
+        let localVar: number = 1;
+        let compareTo: number = 2;
+
+        let result: NumberValidator = Contract.In(localVar).IsNotLessThan(compareTo);
+    });
+    it("IsNotLessOrEqualThan returns the proper validator when the precondition is equal to the comparable", () => {
+        let localVar: number = 1;
+        let compareTo: number = 1;
+
+        let result: NumberValidator = Contract.In(localVar).IsNotLessOrEqualThan(compareTo);
+
+        expect(result);
+    });
 });

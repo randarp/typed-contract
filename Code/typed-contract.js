@@ -153,8 +153,8 @@ var BooleanValidator = (function (_super) {
         }
     };
     BooleanValidator.prototype.IsNullOrUndefined = function () {
-        if (this._variableValue == null || typeof this._variableValue === "undefined") {
-            throw new ReferenceError(this._variableName + " should not be null or undefined");
+        if (this._variableValue !== null || typeof this._variableValue !== undefined) {
+            throw new ReferenceError(this._variableName + " should be null or undefined");
         }
         else {
             return this;
@@ -313,7 +313,7 @@ var NumberValidator = (function (_super) {
         }
     };
     NumberValidator.prototype.IsNotLessOrEqualThan = function (compareTo) {
-        if (this._variableValue < compareTo) {
+        if (this._variableValue <= compareTo) {
             throw new ReferenceError(this._variableName + " should not be less or equal\n                 than " + compareTo + " but is " + this._variableValue);
         }
         else {

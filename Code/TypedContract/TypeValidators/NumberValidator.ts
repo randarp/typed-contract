@@ -205,7 +205,7 @@ class NumberValidator extends BaseValidator<number> {
         }
 
         public IsNotLessOrEqualThan(compareTo: number): NumberValidator {
-            if (this._variableValue < compareTo) {
+            if (this._variableValue <= compareTo) {
                 throw new ReferenceError(`${this._variableName} should not be less or equal
                  than ${compareTo} but is ${this._variableValue}`);
             } else {

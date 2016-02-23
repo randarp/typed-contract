@@ -73,8 +73,8 @@ class BooleanValidator extends BaseValidator<boolean> {
      */
 
     public IsNullOrUndefined(): BooleanValidator {
-        if (this._variableValue == null || typeof this._variableValue === "undefined") {
-            throw new ReferenceError(`${this._variableName} should not be null or undefined`);
+        if (this._variableValue !== null || typeof this._variableValue !== undefined) {
+            throw new ReferenceError(`${this._variableName} should be null or undefined`);
         } else {
             return this;
         }

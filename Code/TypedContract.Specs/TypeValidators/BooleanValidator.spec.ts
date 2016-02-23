@@ -31,7 +31,7 @@ describe("BooleanValidator", () => {
         let failure: () => void;
         failure = () => {
             Contract.In(localVariable).IsTrue();
-        }
+        };
 
         // assert
         expect(failure).toThrowError(<any>RangeError);
@@ -53,7 +53,7 @@ describe("BooleanValidator", () => {
         let failure: () => void;
         failure = () => {
             Contract.In(localVariable).IsFalse();
-        }
+        };
 
         // assert
         expect(failure).toThrowError(<any>RangeError);
@@ -72,7 +72,7 @@ describe("BooleanValidator", () => {
 
         let result: BooleanValidator = Contract.In(localVar).IsNullOrUndefined();
 
-        expect(result).not.toThrow(new ReferenceError());
+        expect(result).toThrowError();
     });
 
     it("IsNullOrUndefined returns the proper validator when given a null", () => {
@@ -80,7 +80,17 @@ describe("BooleanValidator", () => {
 
         let result: BooleanValidator = Contract.In(localVar).IsNullOrUndefined();
 
-        expect(result).not.toThrow(new ReferenceError());
+        expect(localVar).toBe(null);
 
     });
+
+    it("IsNullOrUndefined returns the proper validator when given a defined", () => {
+        let localVar: boolean;
+
+        let result: BooleanValidator = Contract.In(localVar).IsNullOrUndefined();
+
+        expect(localVar).toBeDefined();
+
+    });
+
 });

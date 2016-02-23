@@ -23,6 +23,16 @@ describe("ArrayValidator", () => {
         return expect(result).not.toBeNull();
     });
 
+    it("IsNotNull returns the right validator with an object array", () => {
+        let localVar: any[] = [{a:function(){
+            return null;
+        }},{b: "A"},{c: 1}];
+
+        let result: ArrayValidator = Contract.In(localVar).IsNotNull();
+
+        expect(result).not.toBe(null);
+    });
+
     it("IsNotNull returns an error", () => {
         let localVar: any[] = [];
 
@@ -45,7 +55,7 @@ describe("ArrayValidator", () => {
 
         let result: ArrayValidator = Contract.In(localVar).IsNull();
 
-        expect(result).toThrowError(ReferenceError);
+        expect(result).toThrowError();
     });
 
     it("IsDefined returns proper validator", () => {
