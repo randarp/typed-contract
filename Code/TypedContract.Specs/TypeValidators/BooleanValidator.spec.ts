@@ -1,6 +1,7 @@
 /// <reference path="..\..\TypedContract\Contract.ts" />
 /// <reference path="..\..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
+//import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 describe("BooleanValidator", () => {
 
     it("IsTrue returns the right validator", () => {
@@ -59,6 +60,15 @@ describe("BooleanValidator", () => {
         expect(failure).toThrowError(<any>RangeError);
     });
 
+    it("IsFalse raises an error when null", () => {
+       let localVar: boolean = null;
+
+       expect(() => {
+           Contract.In(localVar).IsFalse();
+       }).toThrow(new ReferenceError("The variable should be false"));
+
+    });
+
     it("IsDefined will return the proper result ", () => {
        let localVar: boolean = true;
 
@@ -70,26 +80,26 @@ describe("BooleanValidator", () => {
     it("IsNullOrUndefined returns the proper validator when given an undefined", () => {
         let localVar: boolean = undefined;
 
-        let result: BooleanValidator = Contract.In(localVar).IsNullOrUndefined();
-
-        expect(result).toThrowError();
+        expect( () => {
+            Contract.In(localVar).IsNullOrUndefined();
+        }).toThrow(new ReferenceError("The variable should not be null or undefined"));
     });
 
     it("IsNullOrUndefined returns the proper validator when given a null", () => {
         let localVar: boolean = null;
 
-        let result: BooleanValidator = Contract.In(localVar).IsNullOrUndefined();
-
-        expect(localVar).toBe(null);
+        expect( () => {
+            Contract.In(localVar).IsNullOrUndefined();
+        }).toThrow(new ReferenceError("The variable should not be null or undefined"));
 
     });
 
     it("IsNullOrUndefined returns the proper validator when given a defined", () => {
         let localVar: boolean;
 
-        let result: BooleanValidator = Contract.In(localVar).IsNullOrUndefined();
-
-        expect(localVar).toBeDefined();
+        expect( () => {
+            Contract.In(localVar).IsNullOrUndefined();
+        }).toThrow(new ReferenceError("The variable should not be null or undefined"));
 
     });
 

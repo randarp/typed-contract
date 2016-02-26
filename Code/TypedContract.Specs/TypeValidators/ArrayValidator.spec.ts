@@ -45,17 +45,17 @@ describe("ArrayValidator", () => {
 
         let localVar: any[] = null;
 
-        let result: ArrayValidator = Contract.In(localVar);
+        let result: ArrayValidator = Contract.In(localVar).IsNull();
 
-        expect(result).not.toBe(null);
+        expect(result);
     });
 
     it("IsNull throws an error when given an undefined array", () => {
         let localVar: any[];
 
-        let result: ArrayValidator = Contract.In(localVar).IsNull();
-
-        expect(result).toThrowError();
+        expect( () => {
+            Contract.In(localVar).IsNull();
+        }).toThrow(new ReferenceError("The variable should be null"));
     });
 
     it("IsDefined returns proper validator", () => {
@@ -69,9 +69,9 @@ describe("ArrayValidator", () => {
     it("IsDefined throws an error when given an undefined", () => {
         let localVar: any[];
 
-        let result: ArrayValidator = Contract.In(localVar).IsDefined();
-
-        expect(result);
+        expect( () => {
+            Contract.In(localVar).IsDefined();
+        }).toThrow(new ReferenceError("The variable should be defined"));
 
     });
 
@@ -114,10 +114,9 @@ describe("ArrayValidator", () => {
         let localVar: any [] = [4, 2, 3];
         let compareTo: any [] = [1, 2, 3];
 
-        let result: ArrayValidator = Contract.In(localVar).IsEqualTo(compareTo, 0);
-
-        expect(result).not.toBe(this);
-        expect(localVar).not.toEqual(compareTo);
+        expect( () => {
+            Contract.In(localVar).IsEqualTo(compareTo, 0);
+        }).toThrow(new RangeError("The variable should be equal to array variable 1,2,3 at the index 0"));
 
     });
 
@@ -125,10 +124,9 @@ describe("ArrayValidator", () => {
         let localVar: any [] = ["4", 2, 3];
         let compareTo: any [] = [1, 2, 3];
 
-        let result: ArrayValidator = Contract.In(localVar).IsEqualTo(compareTo, 0);
-
-        expect(result).not.toBe(this);
-        expect(localVar).not.toEqual(compareTo);
+        expect( () => {
+            Contract.In(localVar).IsEqualTo(compareTo, 0);
+            }).toThrow(new RangeError("The variable should be equal to array variable 1,2,3 at the index 0"));
 
     });
 
@@ -136,17 +134,17 @@ describe("ArrayValidator", () => {
     it("IsNullOrUndefined returns the proper validator when given an undefined value", () => {
         let localVar: any [];
 
-        let result: ArrayValidator = Contract.In(localVar).IsNullOrUndefined();
-
-        expect(result);
+        expect( () => {
+            Contract.In(localVar).IsNullOrUndefined();
+        }).toThrow(new ReferenceError("The variable should not be null or undefined"));
     });
 
     it("IsNullOrUndefined returns the proper validator when given a null value", () => {
         let localVar: any [] = null;
 
-        let result: ArrayValidator = Contract.In(localVar).IsNullOrUndefined();
-
-        expect(result);
+        expect( () => {
+            Contract.In(localVar).IsNullOrUndefined();
+        }).toThrow(new ReferenceError("The variable should not be null or undefined"));
     });
 
 

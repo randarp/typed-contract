@@ -16,7 +16,8 @@ declare class StringValidator extends BaseValidator<string> {
     IsEqualTo(compareTo: string): StringValidator;
     IsNotEqualTo(compareTo: string): StringValidator;
     isLessThan(compareTo: string): StringValidator;
-    isNotLessThan(compareTo: string): StringValidator;
+    IsNotLessThan(compareTo: string): StringValidator;
+    IsLengthGreaterThan(compareTo: string): StringValidator;
 }
 declare class BooleanValidator extends BaseValidator<boolean> {
     constructor(variableValue: boolean, variableName: string);
@@ -28,7 +29,7 @@ declare class BooleanValidator extends BaseValidator<boolean> {
     IsEqualTo(compareTo: boolean): BooleanValidator;
     IsNotEqualTo(compareTo: boolean): BooleanValidator;
     IsTrue(): BooleanValidator;
-    IsFalse(): BooleanValidator;
+    IsFalse: () => BooleanValidator;
 }
 declare class NumberValidator extends BaseValidator<number> {
     constructor(variableValue: number, variableName: string);
@@ -53,7 +54,7 @@ declare class ArrayValidator extends BaseValidator<any[]> {
     IsNull(): ArrayValidator;
     IsNotNull(): ArrayValidator;
     IsDefined(): ArrayValidator;
-    IsUndefined(): ArrayValidator;
+    IsUndefined: () => ArrayValidator;
     IsNullOrUndefined(): ArrayValidator;
     IsEqualTo(compareTo: any[], index: number): ArrayValidator;
     IsNotEqualTo(compareTo: any[], index: number): ArrayValidator;

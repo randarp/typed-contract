@@ -71,7 +71,7 @@ class NumberValidator extends BaseValidator<number> {
          * @returns {NumberValidator}
          */
         public IsNullOrUndefined(): NumberValidator {
-            if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
+            if (this._variableValue === null || typeof this._variableValue === undefined) {
                 throw new ReferenceError(`${this._variableName} should not be null or undefined`);
             } else {
                 return this;
@@ -147,8 +147,9 @@ class NumberValidator extends BaseValidator<number> {
          * @returns {NumberValidator}
          */
         public IsGreaterOrEqualThan(compareTo: number): NumberValidator {
+
             if (this._variableValue <  compareTo) {
-                throw new RangeError(`${this._variableName} should be greater than ${compareTo} but is ${compareTo}`);
+                throw new RangeError(`${this._variableName} should be greater than ${compareTo} but is ${this._variableValue}`);
             } else {
                 return this;
             }
@@ -206,7 +207,7 @@ class NumberValidator extends BaseValidator<number> {
 
         public IsNotLessOrEqualThan(compareTo: number): NumberValidator {
             if (this._variableValue <= compareTo) {
-                throw new ReferenceError(`${this._variableName} should not be less or equal
+                throw new RangeError(`${this._variableName} should not be less or equal
                  than ${compareTo} but is ${this._variableValue}`);
             } else {
                 return this;

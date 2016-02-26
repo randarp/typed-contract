@@ -132,11 +132,11 @@ class BooleanValidator extends BaseValidator<boolean> {
      * @returns {BooleanValidator}
      */
 
-    public IsFalse(): BooleanValidator {
+    public IsFalse = (): BooleanValidator => {
         if (this._variableValue === true) {
             throw new RangeError(`${this._variableName} should be false`);
         } else {
             return this;
         }
-    }
+    };
 }

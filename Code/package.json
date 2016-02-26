@@ -1,6 +1,6 @@
 {
   "name": "typed-contract",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "karma.chrome.conf.js",
   "dependencies": {

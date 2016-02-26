@@ -32,7 +32,7 @@ module.exports = function(grunt){
                     pushTags: true,
                     npm: true,
                     npmtag: false,
-                    folder: '/typed-contract',
+                    folder: 'C:Projects/TypedContract/Code/typed-contract',
                     commitMessage: 'check out our new typed-contract release <%= version %>', //default: 'release <%= version %>'
                 }
             }

@@ -99,9 +99,17 @@ var StringValidator = (function (_super) {
             return this;
         }
     };
-    StringValidator.prototype.isNotLessThan = function (compareTo) {
+    StringValidator.prototype.IsNotLessThan = function (compareTo) {
         if (this._variableValue.length < compareTo.length) {
             throw new ReferenceError(this._variableName + " should not be less that " + compareTo + " but is " + this._variableValue + " ");
+        }
+        else {
+            return this;
+        }
+    };
+    StringValidator.prototype.IsLengthGreaterThan = function (compareTo) {
+        if (this._variableValue.length < compareTo.length) {
+            throw new RangeError(this._variableName + " should have a length greater than " + compareTo.length + " but is " + this._variableValue.length);
         }
         else {
             return this;
@@ -118,7 +126,16 @@ import {RangeError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 
 var BooleanValidator = (function (_super) {
     __extends(BooleanValidator, _super);
     function BooleanValidator(variableValue, variableName) {
+        var _this = this;
         _super.call(this, variableValue, variableName);
+        this.IsFalse = function () {
+            if (_this._variableValue === true) {
+                throw new RangeError(_this._variableName + " should be false");
+            }
+            else {
+                return _this;
+            }
+        };
     }
     BooleanValidator.prototype.IsNull = function () {
         if (this._variableValue === null && typeof this._variableValue === "object") {
@@ -184,14 +201,6 @@ var BooleanValidator = (function (_super) {
             return this;
         }
     };
-    BooleanValidator.prototype.IsFalse = function () {
-        if (this._variableValue === true) {
-            throw new RangeError(this._variableName + " should be false");
-        }
-        else {
-            return this;
-        }
-    };
     return BooleanValidator;
 })(BaseValidator);
 /// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
@@ -233,7 +242,7 @@ var NumberValidator = (function (_super) {
         }
     };
     NumberValidator.prototype.IsNullOrUndefined = function () {
-        if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
+        if (this._variableValue === null || typeof this._variableValue === undefined) {
             throw new ReferenceError(this._variableName + " should not be null or undefined");
         }
         else {
@@ -274,7 +283,7 @@ var NumberValidator = (function (_super) {
     };
     NumberValidator.prototype.IsGreaterOrEqualThan = function (compareTo) {
         if (this._variableValue < compareTo) {
-            throw new RangeError(this._variableName + " should be greater than " + compareTo + " but is " + compareTo);
+            throw new RangeError(this._variableName + " should be greater than " + compareTo + " but is " + this._variableValue);
         }
         else {
             return this;
@@ -314,7 +323,7 @@ var NumberValidator = (function (_super) {
     };
     NumberValidator.prototype.IsNotLessOrEqualThan = function (compareTo) {
         if (this._variableValue <= compareTo) {
-            throw new ReferenceError(this._variableName + " should not be less or equal\n                 than " + compareTo + " but is " + this._variableValue);
+            throw new RangeError(this._variableName + " should not be less or equal\n                 than " + compareTo + " but is " + this._variableValue);
         }
         else {
             return this;
@@ -326,7 +335,16 @@ var NumberValidator = (function (_super) {
 var ArrayValidator = (function (_super) {
     __extends(ArrayValidator, _super);
     function ArrayValidator(variableValue, variableName) {
+        var _this = this;
         _super.call(this, variableValue, variableName);
+        this.IsUndefined = function () {
+            if (_this._variableValue !== undefined) {
+                throw new ReferenceError(_this._variableName + " should be undefined");
+            }
+            else {
+                return _this;
+            }
+        };
     }
     ArrayValidator.prototype.IsNull = function () {
         if (this._variableValue !== null) {
@@ -347,14 +365,6 @@ var ArrayValidator = (function (_super) {
     ArrayValidator.prototype.IsDefined = function () {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this._variableName + " should be defined");
-        }
-        else {
-            return this;
-        }
-    };
-    ArrayValidator.prototype.IsUndefined = function () {
-        if (this._variableValue !== undefined) {
-            throw new ReferenceError(this._variableName + " should be undefined");
         }
         else {
             return this;

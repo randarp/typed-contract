@@ -60,13 +60,14 @@ class ArrayValidator extends BaseValidator <any[]> {
      * @throws ReferenceError if the array variable is defined
      * @returns {ArrayValidator}
      */
-    public IsUndefined(): ArrayValidator {
-        if ( this._variableValue !== undefined) {
-            throw new ReferenceError(`${this._variableName} should be undefined`);
-        } else {
-            return this;
+
+public IsUndefined = (): ArrayValidator => {
+            if ( this._variableValue !== undefined) {
+                throw new ReferenceError(`${this._variableName} should be undefined`);
+            } else {
+                return this;
+            }
         }
-    }
 
     /**
      * Checks if the array variable is not null or undefined

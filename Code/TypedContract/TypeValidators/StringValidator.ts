@@ -137,9 +137,17 @@ class StringValidator extends BaseValidator<string> {
      * @returns {StringValidator}
      */
 
-    public isNotLessThan(compareTo: string): StringValidator {
+    public IsNotLessThan(compareTo: string): StringValidator {
         if (this._variableValue.length < compareTo.length) {
             throw new ReferenceError(`${this._variableName} should not be less that ${compareTo} but is ${this._variableValue} `);
+        } else {
+            return this;
+        }
+    }
+
+    public IsLengthGreaterThan(compareTo: string): StringValidator {
+        if (this._variableValue.length < compareTo.length) {
+            throw new RangeError(`${this._variableName} should have a length greater than ${compareTo.length} but is ${this._variableValue.length}`);
         } else {
             return this;
         }

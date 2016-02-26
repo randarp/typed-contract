@@ -30,7 +30,7 @@ module Contract {
         return undefined;
     }
 
-    export function Out(postcondition:any):boolean {
+    export function Out(postcondition: any): boolean {
         return true;
     }
 }
