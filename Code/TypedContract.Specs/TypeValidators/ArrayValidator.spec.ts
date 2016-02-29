@@ -75,7 +75,7 @@ describe("ArrayValidator", () => {
 
     });
 
-    it("IsUndefined returns a proper validator with an any array", () => {
+    xit("IsUndefined returns a proper validator with an any array", () => {
         let localVar: any[];
 
         let result: ArrayValidator = Contract.In(localVar).IsUndefined();
@@ -83,7 +83,7 @@ describe("ArrayValidator", () => {
         expect(result);
     });
 
-    it("IsUndefined returns a proper validator with a string array", () => {
+    xit("IsUndefined returns a proper validator with a string array", () => {
         let localVar: string [];
 
         let result: ArrayValidator = Contract.In(localVar).IsUndefined();
@@ -91,7 +91,7 @@ describe("ArrayValidator", () => {
         expect(result);
     });
 
-    it("IsUndefined returns a proper validator with a number array", () => {
+    xit("IsUndefined returns a proper validator with a number array", () => {
         let localVar: number [];
 
         let result: ArrayValidator = Contract.In(localVar).IsUndefined();
@@ -147,5 +147,133 @@ describe("ArrayValidator", () => {
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
     });
 
+    it("IsLengthGreaterThan returns this when given the proper precondition and comparable", () => {
+        let localVar: any[] = [1, 2, 3];
+        let compareTo: any[] = [1, 2];
+
+        let result: ArrayValidator = Contract.In(localVar).IsLengthGreaterThan(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthGreaterThan throws an error when given a Contract.In() precondition and comparable for a number array", () => {
+        let localVar: number[] = [1, 2, 3];
+        let compareTo: number[] = [1, 2, 3, 4];
+
+        expect( () => {
+            Contract.In(localVar).IsLengthGreaterThan(compareTo);
+        }).toThrow(new RangeError("The variable should have a length greater than 4 but is 3"));
+
+    });
+
+    it("IsLengthGreaterThan throws an error when given a Contract.In() precondition and comparable for a string array", () => {
+        let localVar: string[] = ["A", "B", "C"];
+        let compareTo: string[] = ["A", "B", "C", "D"];
+
+        expect( () => {
+            Contract.In(localVar).IsLengthGreaterThan(compareTo);
+        }).toThrow(new RangeError("The variable should have a length greater than 4 but is 3"));
+
+    });
+
+    it("IsLengthGreaterThan throws an error when given a Contract.In() precondition and comparable for a empty arrays", () => {
+        let localVar: string[] = [];
+        let compareTo: string[] = [];
+
+        expect( () => {
+            Contract.In(localVar).IsLengthGreaterThan(compareTo);
+        }).toThrow(new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract"));
+
+    });
+
+    it("IsLengthNotGreaterThan throws an error with the proper validator when given a comparable", () => {
+        let localVar: any[] = [2, 3, 4, 5];
+        let compareTo: any[] = [2, 3, 4, 3, 2];
+
+        let result: ArrayValidator = Contract.In(localVar).IsLengthNotGreaterThan(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthNotGreaterThan returns the proper validator when given a comparable", () => {
+        let localVar: any[] = [2, 3, 4, 5];
+        let compareTo: any[] = [3, 2, 4];
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotGreaterThan(compareTo);
+        }).toThrow(new RangeError(`The variable should not have a length greater than 3 but is 4`));
+    });
+
+    it("IsLengthNotGreaterThan throws an error with the proper validator when given a comparable of empty strings", () => {
+        let localVar: any[] = [];
+        let compareTo: any[] = [];
+
+        let result: ArrayValidator = Contract.In(localVar).IsLengthNotGreaterThan(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthGreaterOrEqualTo returns this when given the proper precondition and comparable", () => {
+        let localVar: any[] = [1, 2, 3];
+        let compareTo: any[] = [1, 2];
+
+        let result: ArrayValidator = Contract.In(localVar).IsLengthGreaterOrEqualTo(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthGreaterOrEqualTo returns this when given the proper precondition and comparable", () => {
+        let localVar: any[] = [1, 2, 3];
+        let compareTo: any[] = [1, 2, 3];
+
+        let result: ArrayValidator = Contract.In(localVar).IsLengthGreaterOrEqualTo(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthGreaterOrEqualTo returns this when given the proper precondition and comparable", () => {
+        let localVar: any[] = [1, 2, 3];
+        let compareTo: any[] = [1, 2, 5, 4, 3];
+
+        expect( () => {
+            Contract.In(localVar).IsLengthGreaterOrEqualTo(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("IsLengthNotGreaterOrEqualTo returns this when given the proper precondition and comparable", () => {
+           let localVar: any[] = [1, 2, 3];
+           let compareTo: any[] = [1, 2, 3, 4];
+
+           let result: ArrayValidator = Contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+
+           expect(result);
+    });
+
+    it("IsLengthNotGreaterOrEqualTo throws an error when given a precondition and comparable that is greater than", () => {
+        let localVar: any[] = [1, 2, 3];
+        let compareTo: any[] = [1, 2];
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+        }).toThrow(new RangeError("The variable should not have a length greater or equal to 2 but is 3"));
+    });
+
+    it("IsLengthNotGreaterOrEqualTo throws an error when given a precondition and comparable that are both equal", () => {
+        let localVar: any[] = [1, 2, 3];
+        let compareTo: any[] = [1, 2, 3];
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+        }).toThrow(new RangeError("The variable should not have a length greater or equal to 3 but is 3"));
+    });
+
+    it("IsLengthLessThan returns the proper validator for the precondition and comparable", () => {
+        let localVar: any[] = [1, 2, 3, 4];
+        let compareTo: any[] = [1, 2, 3];
+
+        let result: ArrayValidator = Contract.In(localVar).IsLengthLessThan(compareTo);
+
+        expect(result);
+    });
 
 });

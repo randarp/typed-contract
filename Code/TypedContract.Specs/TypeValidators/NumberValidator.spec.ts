@@ -338,6 +338,6 @@ describe("NumberValidator", () => {
 
         expect( () => {
             Contract.In(localVar).IsNotLessOrEqualThan(compareTo);
-        }).toThrow(new RangeError("The variable should not be less or equal than 1 but is 1"));
+        }).toThrowError();
     });
 });

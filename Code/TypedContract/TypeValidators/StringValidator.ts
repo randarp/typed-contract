@@ -144,10 +144,77 @@ class StringValidator extends BaseValidator<string> {
             return this;
         }
     }
-
+    /**
+     *
+     * Checks if the string variable length is greater than to the parameter passed into the function as an argument
+     * @throws RangeError if the string variable is not greater than to the parameter passed into the function
+     * @param compareTo
+     * @returns {StringValidator}
+     */
     public IsLengthGreaterThan(compareTo: string): StringValidator {
-        if (this._variableValue.length < compareTo.length) {
-            throw new RangeError(`${this._variableName} should have a length greater than ${compareTo.length} but is ${this._variableValue.length}`);
+        if (this._variableValue.length <= compareTo.length) {
+            throw new RangeError(`${this._variableName} should have a length greater
+            than ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
+            return this;
+        }
+    }
+    /**
+     *
+     * Checks if the string variable length is greater or equal than to the parameter passed into the function as an argument
+     * @throws RangeError if the string variable is not greater or equal than to the parameter passed into the function
+     * @param compareTo
+     * @returns {StringValidator}
+     */
+    public IsLengthGreaterOrEqualTo(compareTo: string): StringValidator {
+
+        if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
+            return this;
+        } else {
+            throw new RangeError(`${this._variableName} should have a length
+            greater or equal to ${compareTo.length} but is ${this._variableValue.length}`);
+        }
+    }
+
+    /**
+     *
+     * Checks if the string variable length is not greater or equal than to the parameter passed into the function as an argument
+     * @throws RangeError if the string variable is greater or equal than to the parameter passed into the function
+     * @param compareTo
+     * @returns {StringValidator}
+     */
+
+    public IsLengthNotGreaterThan(compareTo: string): StringValidator {
+        if (this._variableValue.length <= compareTo.length) {
+            return this;
+        } else {
+            throw new RangeError(`${this._variableName} should not have a
+            length greater than ${compareTo.length} but is ${this._variableValue.length}`);
+        }
+    }
+
+    public IsLengthNotGreaterOrEqualTo(compareTo: string): StringValidator {
+         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
+             throw new RangeError(`${this._variableName} should not have a length greater or equal to ${compareTo.length}
+              but is ${this._variableValue.length}`);
+         } else {
+            return this;
+         }
+    }
+
+    public IsLengthLessThan(compareTo: string): StringValidator {
+     if (this._variableValue.length >= compareTo.length) {
+        throw new RangeError(`${this._variableName} should have a length
+        less than ${compareTo.length} but is ${this._variableValue.length}`);
+     } else {
+            return this;
+        }
+    }
+
+    public IsLengthNotLessThan(compareTo: string): StringValidator {
+        if (this._variableValue.length <= compareTo.length) {
+            throw new RangeError(`${this._variableName} should not have a length
+        less than ${compareTo.length} but is ${this._variableValue.length}`);
         } else {
             return this;
         }

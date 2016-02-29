@@ -4,8 +4,6 @@
 /// <reference path="..\..\TypedContract\Contract.ts" />
 /// <reference path="..\..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
-// import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
-
 // import {ReferenceError} from "../../node_modules/typescript/lib/lib";
 
 describe("StringValidator", () => {
@@ -192,18 +190,165 @@ describe("StringValidator", () => {
 
         expect(() => {
             Contract.In(localVar).IsLengthGreaterThan(compareTo);
-        }).toThrow(new RangeError("The variable should have a length greater than 13 but is 10"));
+        }).toThrowError(<any>RangeError);
 
     });
 
-    it("IsLengthGreater than returns this when given a string with equal length for both the comparable and the precondition", () => {
+    it("IsLengthGreaterThan returns this when given a string with equal length for both the comparable and the precondition", () => {
 
         let localVar: string = "TypeScript";
         let compareTo: string = "TypeScript";
 
-        let result: StringValidator = Contract.In(localVar).IsLengthGreaterThan(compareTo);
+        expect( () => {
+            Contract.In(localVar).IsLengthGreaterThan(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
 
-        expect(result).not.toBe(this);
+    it("IsLengthGreaterOrEqualTo returns the proper validator when given an string the is smaller than the comparable", () => {
+            let localVar: string = "Andre";
+            let compareTo: string = "Andy";
+
+            let result: StringValidator = Contract.In(localVar).IsLengthGreaterOrEqualTo(compareTo);
+
+            expect(result);
 
     });
+
+    it("IsLengthGreaterOrEqualTo returns the proper validator when given a string equal to the comparable", () => {
+            let localVar: string = "TypedContract";
+            let compareTo: string = "TypedContract";
+
+            let result: StringValidator = Contract.In(localVar).IsLengthGreaterOrEqualTo(compareTo);
+
+            expect(result);
+    });
+
+    it("IsLengthGreaterOrEqualTo throws an error when given a string larger than the precondition", () => {
+            let localVar: string = "TypeScript";
+            let compareTo: string = "TypedContract";
+
+            expect( () => {
+                Contract.In(localVar).IsLengthGreaterOrEqualTo(compareTo);
+            }).toThrowError(<any>RangeError);
+    });
+
+    it("IsLengthNotGreaterThan throws an error with the proper validator when given a comparable", () => {
+            let localVar: string = "TypeScript";
+            let compareTo: string = "ECMAScript 6";
+
+            let result: StringValidator = Contract.In(localVar).IsLengthNotGreaterThan(compareTo);
+
+            expect(result);
+    });
+
+    it("IsLengthNotGreaterThan returns the proper validator when given a comparable", () => {
+        let localVar: string = "TypedContract";
+        let compareTo: string = "TypeScript";
+
+        expect( () => {
+           Contract.In(localVar).IsLengthNotGreaterThan(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("IsLengthNotGreaterThan throws an error with the proper validator when given a comparable of empty strings", () => {
+        let localVar: string = "";
+        let compareTo: string = "";
+        let result: StringValidator = Contract.In(localVar).IsLengthNotGreaterThan(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that is not greater in length", () => {
+        let localVar: string = "Python";
+        let compareTo: string = "JavaScript";
+
+        let result: StringValidator = Contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that is equal in length", () => {
+        let localVar: string = "JavaScript";
+        let compareTo: string = "JavaScript";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("IsLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that is greater in length", () => {
+        let localVar: string = "Andre Fischbacher";
+        let compareTo: string = "JavaScript";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("IsLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that are both empty", () => {
+        let localVar: string = "";
+        let compareTo: string = "";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("IsLengthLessThan returns the proper validator when given a string argument that is less than the comparable", () => {
+        let localVar: string = "Randar";
+        let compareTo: string  = "Andre";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthLessThan(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+
+    it("IsLengthLessThan returns the proper validator when given a string argument that is equal to the comparable", () => {
+        let compareTo: string = "TypedContract";
+        let localVar: string = "TypedContract";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthLessThan(compareTo);
+        }).toThrowError(<any>RangeError);
+
+    });
+
+    it("IsLengthLessThan returns the proper validator when given a string argument that is greater than comparable", () => {
+        let localVar: string = "TypeScript";
+        let compareTo: string  = "TypedContract";
+
+        let result: StringValidator = Contract.In(localVar).IsLengthLessThan(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthNotLessThan returns the proper validator when given a string argument that is smaller than comparable", () => {
+        let localVar: string = "TypeScript";
+        let compareTo: string  = "TypedContract";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotLessThan(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("IsLengthNotLessThan returns the proper validator when given a string argument that is greater than the comparable", () => {
+        let localVar: string = "TypedContract";
+        let compareTo: string  = "TypeScript";
+
+        let result: StringValidator = Contract.In(localVar).IsLengthNotLessThan(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthNotLessThan returns the proper validator when given a string argument that is equal to the comparable", () => {
+        let localVar: string = "TypeScript";
+        let compareTo: string  = "TypeScript";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotLessThan(compareTo);
+        }).toThrowError(<any>RangeError);
+
+    });
+
 });

@@ -113,4 +113,57 @@ public IsUndefined = (): ArrayValidator => {
             return this;
         }
     }
+
+    /**
+     *
+     * Checks if the array variable length is greater than the parameter passed into the function as an argument
+     * @throws RangeError if the array is not greater than the parameter passed into the function
+     * @param compareTo
+     * @returns {ArrayValidator}
+     */
+
+    public IsLengthGreaterThan(compareTo: any[]): ArrayValidator {
+         if (this._variableValue == null || compareTo == null) {
+                throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+          } else  if (this._variableValue.length <= 0 || compareTo.length <= 0) {
+             throw new RangeError(`Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract`);
+      }     else if (this._variableValue.length < compareTo.length) {
+             throw new RangeError(`${this._variableName} should have a length greater than ${compareTo.length} but is ${this._variableValue.length}`);
+        }   else {
+             return this;
+        }
+    }
+
+    public IsLengthNotGreaterThan(compareTo: any[]): ArrayValidator {
+        if (this._variableValue.length <= compareTo.length) {
+            return this;
+        } else {
+            throw new RangeError(`${this._variableName} should not have a length greater than ${compareTo.length} but is ${this._variableValue.length}`);
+        }
+    }
+
+    public IsLengthGreaterOrEqualTo(compareTo: any[]): ArrayValidator {
+        if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
+            return this;
+        } else {
+            throw new RangeError(`${this._variableName} should have a length
+            greater or equal to ${compareTo.length} but is ${this._variableValue.length}`);
+        }
+    }
+
+    public IsLengthNotGreaterOrEqualTo(compareTo: any[]): ArrayValidator {
+        if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
+             throw new RangeError(`${this._variableName} should not have a length greater or equal to ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
+            return this;
+        }
+    }
+
+    public IsLengthLessThan(compareTo: any[]): ArrayValidator {
+        return this;
+    }
+
+    public IsLengthNotLessThan(compareTo: any[]): ArrayValidator {
+        return this;
+    }
 }

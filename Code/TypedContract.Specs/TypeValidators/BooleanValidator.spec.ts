@@ -65,7 +65,7 @@ describe("BooleanValidator", () => {
 
        expect(() => {
            Contract.In(localVar).IsFalse();
-       }).toThrow(new ReferenceError("The variable should be false"));
+       }).toThrowError(<any>TypeError);
 
     });
 

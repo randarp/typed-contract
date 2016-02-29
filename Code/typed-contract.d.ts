@@ -18,6 +18,11 @@ declare class StringValidator extends BaseValidator<string> {
     isLessThan(compareTo: string): StringValidator;
     IsNotLessThan(compareTo: string): StringValidator;
     IsLengthGreaterThan(compareTo: string): StringValidator;
+    IsLengthGreaterOrEqualTo(compareTo: string): StringValidator;
+    IsLengthNotGreaterThan(compareTo: string): StringValidator;
+    IsLengthNotGreaterOrEqualTo(compareTo: string): StringValidator;
+    IsLengthLessThan(compareTo: string): StringValidator;
+    IsLengthNotLessThan(compareTo: string): StringValidator;
 }
 declare class BooleanValidator extends BaseValidator<boolean> {
     constructor(variableValue: boolean, variableName: string);
@@ -58,6 +63,12 @@ declare class ArrayValidator extends BaseValidator<any[]> {
     IsNullOrUndefined(): ArrayValidator;
     IsEqualTo(compareTo: any[], index: number): ArrayValidator;
     IsNotEqualTo(compareTo: any[], index: number): ArrayValidator;
+    IsLengthGreaterThan(compareTo: any[]): ArrayValidator;
+    IsLengthNotGreaterThan(compareTo: any[]): ArrayValidator;
+    IsLengthGreaterOrEqualTo(compareTo: any[]): ArrayValidator;
+    IsLengthNotGreaterOrEqualTo(compareTo: any[]): ArrayValidator;
+    IsLengthLessThan(compareTo: any[]): ArrayValidator;
+    IsLengthNotLessThan(compareTo: any[]): ArrayValidator;
 }
 declare module Contract {
     function In(precondition: string): StringValidator;
