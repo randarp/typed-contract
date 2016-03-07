@@ -219,4 +219,58 @@ class StringValidator extends BaseValidator<string> {
             return this;
         }
     }
+
+    public IsLengthLessOrEqualThan(compareTo: string): StringValidator {
+        if (this._variableValue.length > compareTo.length) {
+            throw new RangeError(`${this._variableName} should have a
+            length less or equal to ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
+            return this;
+        }
+    }
+
+    public IsLengthNotLessOrEqualThan(compareTo: string): StringValidator {
+        if (this._variableValue.length <= compareTo.length ) {
+            throw new RangeError(`${this._variableName} should not have a length less
+            or equal to ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
+            return this;
+        }
+    }
+
+    public ToMatch(regExp: any): StringValidator {
+        if (!regExp.test(this._variableValue)) {
+            throw new RangeError(`${this._variableName} should match
+            the pattern ${regExp} but the value of ${this._variableValue} does not match`);
+        } else {
+            return this;
+        }
+    }
+
+    public ToNotMatch(regExp: any): StringValidator {
+        if (regExp.test(this._variableValue)) {
+            throw new RangeError(`${this._variableName} should not match
+            the pattern ${regExp} but the value of ${this._variableValue} matches`);
+        } else {
+            return this;
+        }
+    }
+
+    public Contains(compareTo: string): StringValidator {
+       if (this._variableValue.indexOf(compareTo) <= - 1) {
+           throw new RangeError(`${this._variableName} should contain
+           the pattern ${compareTo} but the pattern is not found in ${this._variableValue}`);
+       } else {
+           return this;
+       }
+    }
+
+    public NotContains(compareTo: string): StringValidator {
+        if (this._variableValue.indexOf(compareTo) > -1) {
+            throw new RangeError(`${this._variableName} should not contain
+           the pattern ${compareTo} but the pattern is found in ${this._variableValue}`);
+        } else {
+            return this;
+        }
+    }
 }

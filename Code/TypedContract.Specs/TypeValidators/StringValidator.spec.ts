@@ -351,4 +351,285 @@ describe("StringValidator", () => {
 
     });
 
+    it("IsLengthLessOrEqual to returns the proper validator when given a precondition that is less than in length than the comparable", () => {
+
+        let localVar: string = "Andre";
+        let compareTo: string = "Randar";
+
+        let result: StringValidator = Contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthLessOrEqual to returns the proper validator when given a precondition that is equal than in length than the comparable", () => {
+
+        let localVar: string = "Andre";
+        let compareTo: string = "Andre";
+
+        let result: StringValidator = Contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
+
+        expect(result);
+    });
+
+    xit("IsLengthLessOrEqual to returns the proper validator when given a precondition that is greater than in length than the comparable", () => {
+
+        let localVar: string = "Randar";
+        let compareTo: string = "Andre";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
+        }).toThrow(new RangeError(`The variable should have a length less or equal to 5 but is 6`));
+    });
+
+    it("IsLengthLessOrEqual to throw an error when given undefined strings", () => {
+       let localVar: string;
+       let compareTo: string;
+
+       expect( () => {
+           Contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
+       }).toThrowError();
+    });
+
+    it("IsLengthNotLessOrEqual to return the proper validator when given a string not smaller than the comparable", () => {
+        let localVar: string = "TypedContract";
+        let compareTo: string = "TypeScript";
+
+        let result: StringValidator = Contract.In(localVar).IsLengthNotLessOrEqualThan(compareTo);
+
+        expect(result);
+    });
+
+    it("IsLengthNotLessOrEqual to throw an error when given a string that is equal to the comparable", () => {
+        let localVar: string = "TypedContract";
+        let compareTo: string = "TypedContract";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotLessOrEqualThan(compareTo);
+        }).toThrowError();
+
+    });
+
+    it("IsLengthNotLessOrEqual to throw an error when given a string that is smaller in length to the comparable", () => {
+        let localVar: string = "TypeScript";
+        let compareTo: string = "TypedContract";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotLessOrEqualThan(compareTo);
+        }).toThrowError();
+
+    });
+
+    it("IsLengthNotLessOrEqual to throw an error when given a strings that are undefined", () => {
+        let localVar: string = "TypedContract";
+        let compareTo: string = "TypedContract";
+
+        expect( () => {
+            Contract.In(localVar).IsLengthNotLessOrEqualThan(compareTo);
+        }).toThrowError();
+
+    });
+
+    it("ToMatch returns true when given the proper regular expression with a case insensitive regular expression", () => {
+        let localVar: string = "Hello my name is andre";
+        let regExp: any = /andre/i;
+
+        let result: StringValidator = Contract.In(localVar).ToMatch(regExp);
+
+        expect(result);
+    });
+
+    it("ToMatch returns true when given the proper regular expression with a global string expression", () => {
+        let localVar: string = "Hello my name is andre";
+        let regExp: any = /andre/g;
+
+        let result: StringValidator = Contract.In(localVar).ToMatch(regExp);
+
+        expect(result);
+    });
+
+    it("ToMatch returns true when given the proper regular expression with multiline matching", () => {
+        let localVar: string = "Hello my name" +
+            " is andre and I am the guy who created this spec";
+        let regExp: any = /andre/i;
+
+        let result: StringValidator = Contract.In(localVar).ToMatch(regExp);
+
+        expect(result);
+    });
+
+    it("ToMatch returns true when given the proper regular expression that is case insensitive that will return false", () => {
+        let localVar: string = "Hello my name is bob";
+        let regExp: any = /andre/i;
+
+        expect( () => {
+            Contract.In(localVar).ToMatch(regExp);
+        }).toThrowError();
+    });
+
+    it("ToMatch returns true when given the proper regular expression that is case insensitive that will return false", () => {
+        let localVar: string = "Hello my name " +
+            "is bob and I did not make this spec";
+        let regExp: any = /andre/m;
+
+        expect( () => {
+            Contract.In(localVar).ToMatch(regExp);
+        }).toThrowError();
+    });
+
+    it("ToNotMatch returns the proper validator when given the proper regular expression with a case insensitive regular expression that does not match the string", () => {
+        let localVar: string = "Hello my name is andre";
+        let regExp: any = /bob/i;
+
+        let result: StringValidator = Contract.In(localVar).ToNotMatch(regExp);
+
+        expect(result);
+    });
+
+    it("ToNotMatch returns the proper validator when given the proper regular expression with a global match regular expression that does not match the string", () => {
+        let localVar: string = "Hello my name is andre";
+        let regExp: any = /bob/g;
+
+        let result: StringValidator = Contract.In(localVar).ToNotMatch(regExp);
+
+        expect(result);
+    });
+
+    it("ToNotMatch returns the proper validator when given the proper regular expression with a multiline regular expression that does not match the string", () => {
+        let localVar: string = "Hello my name is andre";
+        let regExp: any = /bob/i;
+
+        let result: StringValidator = Contract.In(localVar).ToNotMatch(regExp);
+
+        expect(result);
+    });
+
+    it("ToNotMatch throws an error when given a case insensitive regular expression with that does match the string", () => {
+        let localVar: string = "Hello my name is bob";
+        let regExp: any = /bob/i;
+
+        expect( () => {
+            Contract.In(localVar).ToNotMatch(regExp);
+        }).toThrowError();
+    });
+
+    it("ToNotMatch throws an error when given a global regular expression with that does match the string", () => {
+        let localVar: string = "Hello my name is bob";
+        let regExp: any = /bob/g;
+
+        expect( () => {
+            Contract.In(localVar).ToNotMatch(regExp);
+        }).toThrowError();
+    });
+
+    it("ToNotMatch throws an error when given a multiline regular expression with that does match the string", () => {
+        let localVar: string = "Hello my name is bob";
+        let regExp: any = /bob/m;
+
+        expect( () => {
+            Contract.In(localVar).ToNotMatch(regExp);
+        }).toThrowError();
+
+    });
+
+    it("Contains returns the proper validator when given a string that contains the same characters as the contract precondition", () => {
+       let localVar: string = "This is a TypeScript library";
+       let compareTo: string = "TypeScript";
+
+       let result: StringValidator = Contract.In(localVar).Contains(compareTo);
+
+       expect(result);
+    });
+
+    it("Contains returns the proper validator when given a string that is only a white space to be compared to the contract precondition", () => {
+        let localVar: string = " ";
+        let compareTo: string = " ";
+
+        let result: StringValidator = Contract.In(localVar).Contains(compareTo);
+
+        expect(result);
+    });
+
+    it("Contains returns the proper validator when given a string that contains the same characters as the contract precondition with only one word", () => {
+        let localVar: string = "This is a TypeScript library";
+        let compareTo: string = "T";
+
+        let result: StringValidator = Contract.In(localVar).Contains(compareTo);
+
+        expect(result);
+    });
+
+
+    it("Contains throws an error when given a string that does not contain the same characters as the contract precondition", () => {
+        let localVar: string = "This is a TypeScript library";
+        let compareTo: string = "Contract";
+
+        expect( () => {
+            Contract.In(localVar).Contains(compareTo);
+        }).toThrow(new RangeError(`The variable should contain the pattern Contract but the pattern is not found in This is a TypeScript library`));
+    });
+
+    it("Contains returns the proper validator when given a string that is empty", () => {
+        let localVar: string = "";
+        let compareTo: string = "";
+
+        let result: StringValidator = Contract.In(localVar).Contains(compareTo);
+
+        expect(result);
+    });
+
+    it("NotContains returns the proper valuidator when given a string that does not contain the same characters as the contract precondition", () => {
+        let localVar: string = "This is a TypeScript library";
+        let compareTo: string = "Contract";
+
+        let result: StringValidator = Contract.In(localVar).NotContains(compareTo);
+
+        expect(result);
+    });
+
+    it("NotContains returns the proper validator when given a string that does not contain the same characters as the contract precondition", () => {
+        let localVar: string = "This is a TypeScript library";
+        let compareTo: string = "Contract";
+
+        let result: StringValidator = Contract.In(localVar).NotContains(compareTo);
+
+        expect(result);
+    });
+
+    it("NotContains returns the proper validator when given a string that does not contain the same characters as the contract precondition in capitals", () => {
+        let localVar: string = "This is a TypeScript library";
+        let compareTo: string = "ANDRE";
+
+        let result: StringValidator = Contract.In(localVar).NotContains(compareTo);
+
+        expect(result);
+    });
+
+    it("NotContains throws an error when given a string that does contain the same characters as the contract precondition", () => {
+        let localVar: string = "This is a TypeScript library";
+        let compareTo: string = "TypeScript";
+
+        expect( () => {
+            Contract.In(localVar).NotContains(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+
+    it("NotContains throws an error when given a letter that does contain the same characters as the contract precondition", () => {
+        let localVar: string = "This is a TypeScript library";
+        let compareTo: string = "a";
+
+        expect( () => {
+            Contract.In(localVar).NotContains(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+
+    it("NotContains throws an error when given a string that contains a whitespace as compared to the contract precondition", () => {
+        let localVar: string = " ";
+        let compareTo: string = " ";
+
+        expect( () => {
+            Contract.In(localVar).NotContains(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
 });

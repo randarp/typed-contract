@@ -4,10 +4,11 @@
  import ArrayValidator from "./";
  import {RangeError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
  */
+//import {RangeError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 
 class ArrayValidator extends BaseValidator <any[]> {
 
-    constructor(variableValue: any[], variableName:string) {
+    constructor(variableValue:any[], variableName:string) {
         super(variableValue, variableName);
     }
 
@@ -17,14 +18,14 @@ class ArrayValidator extends BaseValidator <any[]> {
      * @throws ReferenceError if the variable is not null
      * @returns {ArrayValidator}
      */
-    public IsNull(): ArrayValidator {
+    public IsNull():ArrayValidator {
 
         if (this._variableValue !== null) {
-                throw new ReferenceError(`${this._variableName} should be null`);
-            } else {
-                return this;
-            }
+            throw new ReferenceError(`${this._variableName} should be null`);
+        } else {
+            return this;
         }
+    }
 
 
     /**
@@ -34,7 +35,7 @@ class ArrayValidator extends BaseValidator <any[]> {
      * @returns {ArrayValidator}
      */
 
-    public IsNotNull(): ArrayValidator {
+    public IsNotNull():ArrayValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(`${this._variableName} should not be null`);
         } else {
@@ -47,7 +48,7 @@ class ArrayValidator extends BaseValidator <any[]> {
      * @throws ReferenceError if the array variable is undefined
      * @returns {ArrayValidator}
      */
-    public IsDefined(): ArrayValidator {
+    public IsDefined():ArrayValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
         } else {
@@ -61,13 +62,13 @@ class ArrayValidator extends BaseValidator <any[]> {
      * @returns {ArrayValidator}
      */
 
-public IsUndefined = (): ArrayValidator => {
-            if ( this._variableValue !== undefined) {
-                throw new ReferenceError(`${this._variableName} should be undefined`);
-            } else {
-                return this;
-            }
+    public IsUndefined():ArrayValidator {
+        if (this._variableValue !== undefined) {
+            throw new ReferenceError(`${this._variableName} should be undefined`);
+        } else {
+            return this;
         }
+    }
 
     /**
      * Checks if the array variable is not null or undefined
@@ -75,7 +76,7 @@ public IsUndefined = (): ArrayValidator => {
      * @returns {ArrayValidator}
      */
 
-    public IsNullOrUndefined(): ArrayValidator {
+    public IsNullOrUndefined():ArrayValidator {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should be null or undefined`);
         } else {
@@ -90,7 +91,7 @@ public IsUndefined = (): ArrayValidator => {
      * @param compareTo, index
      * @returns {ArrayValidator}
      */
-    public IsEqualTo(compareTo: any[], index: number): ArrayValidator {
+    public IsEqualTo(compareTo:any[], index:number):ArrayValidator {
         if (this._variableValue[index] !== compareTo[index]) {
             throw new RangeError(`${this._variableName} should be equal to array variable ${compareTo} at the index ${index}`);
         } else {
@@ -106,7 +107,7 @@ public IsUndefined = (): ArrayValidator => {
      * @returns {ArrayValidator}
      */
 
-    public IsNotEqualTo(compareTo: any[], index: number): ArrayValidator {
+    public IsNotEqualTo(compareTo:any[], index:number):ArrayValidator {
         if (this._variableValue[index] === compareTo[index]) {
             throw new RangeError(`${this._variableName} should be equal to array variable ${compareTo} at the index ${index}`);
         } else {
@@ -122,19 +123,19 @@ public IsUndefined = (): ArrayValidator => {
      * @returns {ArrayValidator}
      */
 
-    public IsLengthGreaterThan(compareTo: any[]): ArrayValidator {
-         if (this._variableValue == null || compareTo == null) {
-                throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
-          } else  if (this._variableValue.length <= 0 || compareTo.length <= 0) {
-             throw new RangeError(`Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract`);
-      }     else if (this._variableValue.length < compareTo.length) {
-             throw new RangeError(`${this._variableName} should have a length greater than ${compareTo.length} but is ${this._variableValue.length}`);
-        }   else {
-             return this;
+    public IsLengthGreaterThan(compareTo:any[]):ArrayValidator {
+        if (this._variableValue == null || compareTo == null) {
+            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+        } else if (this._variableValue.length <= 0 || compareTo.length <= 0) {
+            throw new RangeError(`Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract`);
+        } else if (this._variableValue.length < compareTo.length) {
+            throw new RangeError(`${this._variableName} should have a length greater than ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
+            return this;
         }
     }
 
-    public IsLengthNotGreaterThan(compareTo: any[]): ArrayValidator {
+    public IsLengthNotGreaterThan(compareTo:any[]):ArrayValidator {
         if (this._variableValue.length <= compareTo.length) {
             return this;
         } else {
@@ -142,7 +143,7 @@ public IsUndefined = (): ArrayValidator => {
         }
     }
 
-    public IsLengthGreaterOrEqualTo(compareTo: any[]): ArrayValidator {
+    public IsLengthGreaterOrEqualTo(compareTo:any[]):ArrayValidator {
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             return this;
         } else {
@@ -151,19 +152,63 @@ public IsUndefined = (): ArrayValidator => {
         }
     }
 
-    public IsLengthNotGreaterOrEqualTo(compareTo: any[]): ArrayValidator {
+    public IsLengthNotGreaterOrEqualTo(compareTo:any[]):ArrayValidator {
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
-             throw new RangeError(`${this._variableName} should not have a length greater or equal to ${compareTo.length} but is ${this._variableValue.length}`);
+            throw new RangeError(`${this._variableName} should not have a length greater or equal to ${compareTo.length} but is ${this._variableValue.length}`);
         } else {
             return this;
         }
     }
 
-    public IsLengthLessThan(compareTo: any[]): ArrayValidator {
-        return this;
+    public IsLengthLessThan(compareTo:any[]):ArrayValidator {
+        if (this._variableValue.length >= compareTo.length) {
+            throw new RangeError(`${this._variableName} should have a length
+        less than ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
+            return this;
+        }
     }
 
-    public IsLengthNotLessThan(compareTo: any[]): ArrayValidator {
+    public IsLengthNotLessThan(compareTo:any[]):ArrayValidator {
+        if (this._variableValue.length <= compareTo.length) {
+            throw new RangeError(`${this._variableName} should have a length
+        not less than ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
+            return this;
+        }
+    }
+
+    public IsLengthLessOrEqualThan(compareTo:any[]):ArrayValidator {
+        if (this._variableValue.length > compareTo.length) {
+            throw new RangeError(`${this._variableName} should have a length less or equal to ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
+            return this;
+        }
+    }
+
+    public IsLengthNotLessOrEqualThan(compareTo:any[]):ArrayValidator {
+        if (this._variableValue.length <= compareTo.length) {
+            throw new RangeError(`${this._variableName} should not have a
+             length less or equal to ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
+            return this;
+        }
+    }
+
+    public Contains(compareTo: any[]): ArrayValidator {
+        var count = 0;
+        if (this._variableValue.every( elem => elem !== compareTo.indexOf(elem))) {
+            count++ ;
+        }
+        if (count > 0) {
+            throw new RangeError(`${this._variableName} should contain
+            the pattern ${compareTo} but the pattern is not found in ${this._variableValue}`)
+        } else {
+            return this;
+        }
+    }
+
+    public NotContains(compareTo: any[]): ArrayValidator {
         return this;
     }
 }
