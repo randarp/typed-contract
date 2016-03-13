@@ -311,7 +311,7 @@ describe("ArrayValidator", () => {
     });
 
     it("IsLengthLessThan throws an error when the lengths are equal of array type object ", () => {
-        let localVar:  any[] = [{a: '1', b: '2', c: '3'}];
+        let localVar:  any[] = [{a: "1", b: "2", c: "3"},{a: "1", b: "2", c: "3"},{a: "1", b: "2", c: "3"}];
         let compareTo:  any[] = [1, 2, 3];
 
         expect(() => {
@@ -432,7 +432,7 @@ describe("ArrayValidator", () => {
 
         expect( () => {
             Contract.In(localVar).IsLengthNotLessOrEqualThan(compareTo);
-        }).toThrow(new RangeError(`The variable should not have a length less or equal to 13 but is 13`));
+        }).toThrow(new RangeError(`The variable should not have a length less or equal to 4 but is 3`));
 
     });
 
@@ -446,13 +446,13 @@ describe("ArrayValidator", () => {
         expect(result);
     });
 
-    it("Contains returns the proper validator when given an array that is only a white space to be compared to the contract precondition", () => {
+    it("Contains throws an error when given an array that is only a white space to be compared to the contract precondition", () => {
         let localVar: any[] = [ ];
         let compareTo: any[] = [ ];
 
-        let result: ArrayValidator = Contract.In(localVar).Contains(compareTo);
-
-        expect(result);
+        expect( () => {
+            Contract.In(localVar).Contains(compareTo);
+        }).toThrowError(<any>Error);
     });
 
     it("Contains returns the proper validator when given an array that contains the same characters as the contract precondition with mixed types", () => {
@@ -472,7 +472,7 @@ describe("ArrayValidator", () => {
 
         expect( () => {
             Contract.In(localVar).Contains(compareTo);
-        }).toThrowError();
+        }).toThrow(new RangeError(`The variable should contain the pattern 197,195 but the pattern is not found in 70,95`));
     });
 
     it("Contains returns the proper validator when given an array with string white spaces", () => {

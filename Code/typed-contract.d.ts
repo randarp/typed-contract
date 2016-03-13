@@ -29,6 +29,10 @@ declare class StringValidator extends BaseValidator<string> {
     ToNotMatch(regExp: any): StringValidator;
     Contains(compareTo: string): StringValidator;
     NotContains(compareTo: string): StringValidator;
+    StartsWith(compareTo: string, position?: number): StringValidator;
+    NotStartsWith(compareTo: string, position?: number): StringValidator;
+    IsBetween(compareTo: string, contractStartIndex: number, contractEndIndex?: number, compareToStartIndex?: number, compareToEndIndex?: number): StringValidator;
+    IsNotBetween(compareTo: string, contractStartIndex: number, contractEndIndex?: number, compareToStartIndex?: number, compareToEndIndex?: number): StringValidator;
 }
 declare class BooleanValidator extends BaseValidator<boolean> {
     constructor(variableValue: boolean, variableName: string);
@@ -61,6 +65,7 @@ declare class NumberValidator extends BaseValidator<number> {
     IsNotLessOrEqualThan(compareTo: number): NumberValidator;
 }
 declare class ArrayValidator extends BaseValidator<any[]> {
+    count: number;
     constructor(variableValue: any[], variableName: string);
     IsNull(): ArrayValidator;
     IsNotNull(): ArrayValidator;

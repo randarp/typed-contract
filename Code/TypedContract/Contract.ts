@@ -15,7 +15,7 @@ module Contract {
     export function In(precondition: any[]): ArrayValidator;
     export function In(precondition: any[], name: string): ArrayValidator;
 
-    export function In(precondition:any, name:string = undefined):any {
+    export function In(precondition: any, name: string = undefined): any {
 
         if (typeof precondition === "string" || precondition === null || precondition === undefined ) {
             return new StringValidator(precondition, name);
@@ -33,4 +33,5 @@ module Contract {
     export function Out(postcondition: any): boolean {
         return true;
     }
+
 }

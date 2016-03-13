@@ -1,9 +1,8 @@
 /// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
 
-/* import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
-import StringValidator from "./"; */
-//import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
-//import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
+// import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
+// import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
+
 
 class StringValidator extends BaseValidator<string> {
 
@@ -19,7 +18,7 @@ class StringValidator extends BaseValidator<string> {
     public IsNotNull(): StringValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(`${this._variableName} should not be null`);
-        }else {
+        } else {
             return this;
         }
     }
@@ -29,7 +28,7 @@ class StringValidator extends BaseValidator<string> {
      * Checks if the string variable is null
      * @throws a ReferenceError if the variable is not null
      */
-    public IsNull(): StringValidator {
+    public IsNull():StringValidator {
 
         if (this._variableValue !== null) {
             throw new ReferenceError(`${this._variableName} should be null`);
@@ -42,7 +41,7 @@ class StringValidator extends BaseValidator<string> {
      * Checks if the string variable is defined
      * @throws ReferenceError if the string is not defined
      */
-    public IsDefined(): StringValidator {
+    public IsDefined():StringValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
         } else {
@@ -54,7 +53,7 @@ class StringValidator extends BaseValidator<string> {
      * Checks if the string variable is not defined
      * @throws ReferenceError if variable is defined
      */
-    public IsNotDefined(): StringValidator {
+    public IsNotDefined():StringValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be defined`);
         } else {
@@ -62,7 +61,7 @@ class StringValidator extends BaseValidator<string> {
         }
     }
 
-    public IsLengthIsGreaterOrEqualThan(stringLength: number, variableName?: string): StringValidator {
+    public IsLengthIsGreaterOrEqualThan(stringLength:number, variableName?:string):StringValidator {
         if (this._variableValue.length < stringLength) {
             throw new RangeError(`${this._variableValue} is out of length range by a of ${this._variableValue.length - stringLength},
             your specified range was ${stringLength} for ${this._variableName} `);
@@ -76,7 +75,7 @@ class StringValidator extends BaseValidator<string> {
      * @throws ReferenceError if a string variable is null or not undefined
      * @returns {StringValidator}
      */
-    public IsNullOrUndefined(): StringValidator {
+    public IsNullOrUndefined():StringValidator {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {
@@ -91,7 +90,7 @@ class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {StringValidator}
      */
-    public IsEqualTo(compareTo: string): StringValidator {
+    public IsEqualTo(compareTo:string):StringValidator {
         if (this._variableValue !== compareTo) {
             throw new RangeError(`${this._variableName} should be equal to the string variable ${compareTo}`);
         } else {
@@ -106,13 +105,14 @@ class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {StringValidator}
      */
-    public IsNotEqualTo(compareTo: string): StringValidator {
+    public IsNotEqualTo(compareTo:string):StringValidator {
         if (this._variableValue === compareTo) {
             throw new RangeError(`${this._variableName} should not be equal to the string variable ${compareTo}`);
         } else {
             return this;
         }
     }
+
     /**
      *
      * Checks if the string variable is less than to the parameter passed into the function as an argument
@@ -121,7 +121,7 @@ class StringValidator extends BaseValidator<string> {
      * @returns {StringValidator}
      */
 
-    public isLessThan(compareTo: string): StringValidator {
+    public isLessThan(compareTo:string):StringValidator {
         if (this._variableValue.length > compareTo.length) {
             throw new ReferenceError(`${this._variableName} should be less than ${compareTo} but is ${this._variableValue}`);
         } else {
@@ -144,6 +144,7 @@ class StringValidator extends BaseValidator<string> {
             return this;
         }
     }
+
     /**
      *
      * Checks if the string variable length is greater than to the parameter passed into the function as an argument
@@ -151,7 +152,7 @@ class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {StringValidator}
      */
-    public IsLengthGreaterThan(compareTo: string): StringValidator {
+    public IsLengthGreaterThan(compareTo:string):StringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(`${this._variableName} should have a length greater
             than ${compareTo.length} but is ${this._variableValue.length}`);
@@ -159,6 +160,7 @@ class StringValidator extends BaseValidator<string> {
             return this;
         }
     }
+
     /**
      *
      * Checks if the string variable length is greater or equal than to the parameter passed into the function as an argument
@@ -166,7 +168,7 @@ class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {StringValidator}
      */
-    public IsLengthGreaterOrEqualTo(compareTo: string): StringValidator {
+    public IsLengthGreaterOrEqualTo(compareTo:string):StringValidator {
 
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             return this;
@@ -184,7 +186,7 @@ class StringValidator extends BaseValidator<string> {
      * @returns {StringValidator}
      */
 
-    public IsLengthNotGreaterThan(compareTo: string): StringValidator {
+    public IsLengthNotGreaterThan(compareTo:string):StringValidator {
         if (this._variableValue.length <= compareTo.length) {
             return this;
         } else {
@@ -193,25 +195,25 @@ class StringValidator extends BaseValidator<string> {
         }
     }
 
-    public IsLengthNotGreaterOrEqualTo(compareTo: string): StringValidator {
-         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
-             throw new RangeError(`${this._variableName} should not have a length greater or equal to ${compareTo.length}
+    public IsLengthNotGreaterOrEqualTo(compareTo:string):StringValidator {
+        if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
+            throw new RangeError(`${this._variableName} should not have a length greater or equal to ${compareTo.length}
               but is ${this._variableValue.length}`);
-         } else {
-            return this;
-         }
-    }
-
-    public IsLengthLessThan(compareTo: string): StringValidator {
-     if (this._variableValue.length >= compareTo.length) {
-        throw new RangeError(`${this._variableName} should have a length
-        less than ${compareTo.length} but is ${this._variableValue.length}`);
-     } else {
+        } else {
             return this;
         }
     }
 
-    public IsLengthNotLessThan(compareTo: string): StringValidator {
+    public IsLengthLessThan(compareTo:string):StringValidator {
+        if (this._variableValue.length >= compareTo.length) {
+            throw new RangeError(`${this._variableName} should have a length
+        less than ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
+            return this;
+        }
+    }
+
+    public IsLengthNotLessThan(compareTo:string):StringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(`${this._variableName} should not have a length
         less than ${compareTo.length} but is ${this._variableValue.length}`);
@@ -220,7 +222,7 @@ class StringValidator extends BaseValidator<string> {
         }
     }
 
-    public IsLengthLessOrEqualThan(compareTo: string): StringValidator {
+    public IsLengthLessOrEqualThan(compareTo:string):StringValidator {
         if (this._variableValue.length > compareTo.length) {
             throw new RangeError(`${this._variableName} should have a
             length less or equal to ${compareTo.length} but is ${this._variableValue.length}`);
@@ -229,8 +231,8 @@ class StringValidator extends BaseValidator<string> {
         }
     }
 
-    public IsLengthNotLessOrEqualThan(compareTo: string): StringValidator {
-        if (this._variableValue.length <= compareTo.length ) {
+    public IsLengthNotLessOrEqualThan(compareTo:string):StringValidator {
+        if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(`${this._variableName} should not have a length less
             or equal to ${compareTo.length} but is ${this._variableValue.length}`);
         } else {
@@ -238,7 +240,7 @@ class StringValidator extends BaseValidator<string> {
         }
     }
 
-    public ToMatch(regExp: any): StringValidator {
+    public ToMatch(regExp:any):StringValidator {
         if (!regExp.test(this._variableValue)) {
             throw new RangeError(`${this._variableName} should match
             the pattern ${regExp} but the value of ${this._variableValue} does not match`);
@@ -247,7 +249,7 @@ class StringValidator extends BaseValidator<string> {
         }
     }
 
-    public ToNotMatch(regExp: any): StringValidator {
+    public ToNotMatch(regExp:any):StringValidator {
         if (regExp.test(this._variableValue)) {
             throw new RangeError(`${this._variableName} should not match
             the pattern ${regExp} but the value of ${this._variableValue} matches`);
@@ -257,12 +259,12 @@ class StringValidator extends BaseValidator<string> {
     }
 
     public Contains(compareTo: string): StringValidator {
-       if (this._variableValue.indexOf(compareTo) <= - 1) {
-           throw new RangeError(`${this._variableName} should contain
+        if (this._variableValue.indexOf(compareTo) <= -1) {
+            throw new RangeError(`${this._variableName} should contain
            the pattern ${compareTo} but the pattern is not found in ${this._variableValue}`);
-       } else {
-           return this;
-       }
+        } else {
+            return this;
+        }
     }
 
     public NotContains(compareTo: string): StringValidator {
@@ -271,6 +273,50 @@ class StringValidator extends BaseValidator<string> {
            the pattern ${compareTo} but the pattern is found in ${this._variableValue}`);
         } else {
             return this;
+        }
+    }
+
+    public StartsWith(compareTo: string, position?: number): StringValidator {
+
+        (<any>this._variableValue).startsWith(compareTo, position);
+        return this;
+    }
+
+
+    public NotStartsWith(compareTo: string, position?: number): StringValidator {
+        return this;
+    }
+
+    public IsBetween(compareTo: string, contractStartIndex: number, contractEndIndex?: number, compareToStartIndex?: number, compareToEndIndex?: number): StringValidator {
+        if (compareToStartIndex || compareToEndIndex) {
+            if (this._variableValue.substring(contractStartIndex, contractEndIndex) !== compareTo.substring(compareToStartIndex, compareToEndIndex)) {
+                throw new RangeError(`${this._variableName} should be between ${contractStartIndex} and ${contractEndIndex} but the value of ${compareTo} is not in that range`);
+            } else {
+                return this;
+            }
+        } else {
+            if (this._variableValue.substring(contractStartIndex, contractEndIndex) !== compareTo.substring(contractStartIndex, contractEndIndex)) {
+                throw new RangeError(`${this._variableName} should be between ${contractStartIndex} and ${contractEndIndex} but the value of ${compareTo} is not in that range`);
+            } else {
+                return this;
+            }
+        }
+    }
+
+
+    public IsNotBetween(compareTo: string, contractStartIndex: number, contractEndIndex?: number, compareToStartIndex?: number, compareToEndIndex?: number): StringValidator {
+        if (compareToStartIndex || compareToEndIndex) {
+            if (this._variableValue.substring(contractStartIndex, contractEndIndex) === compareTo.substring(compareToStartIndex, compareToEndIndex)) {
+                throw new RangeError(`${this._variableName} should be between ${contractStartIndex} and ${contractEndIndex} but the value of ${compareTo} is not in that range`);
+            } else {
+                return this;
+            }
+        } else {
+            if (this._variableValue.substring(contractStartIndex, contractEndIndex) === compareTo.substring(contractStartIndex, contractEndIndex)) {
+                throw new RangeError(`${this._variableName} should be between ${contractStartIndex} and ${contractEndIndex} but the value of ${compareTo} is not in that range`);
+            } else {
+                return this;
+            }
         }
     }
 }

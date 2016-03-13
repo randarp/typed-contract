@@ -213,4 +213,5 @@ class NumberValidator extends BaseValidator<number> {
                 return this;
             }
         }
+
 }
