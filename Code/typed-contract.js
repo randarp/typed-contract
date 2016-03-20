@@ -111,6 +111,9 @@ var Contract;
         else if (precondition instanceof Array) {
             return new ArrayValidator(precondition, name);
         }
+        else {
+            return new ObjectValidator(precondition, name);
+        }
         return undefined;
     }
     Contract.In = In;

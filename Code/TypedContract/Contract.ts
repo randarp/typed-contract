@@ -28,6 +28,9 @@ module Contract {
         } /*else if (typeof precondition === T.toString()) {
             return new ObjectValidator<T>(precondition, name);
         }*/
+        else {
+            return new ObjectValidator<T>(precondition, name);
+        }
 
         return undefined;
     }
