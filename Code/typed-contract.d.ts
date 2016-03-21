@@ -11,11 +11,10 @@ declare class StringValidator extends BaseValidator<string> {
     IsNull(): StringValidator;
     IsDefined(): StringValidator;
     IsNotDefined(): StringValidator;
-    IsLengthIsGreaterOrEqualThan(stringLength: number, variableName?: string): StringValidator;
     IsNullOrUndefined(): StringValidator;
     IsEqualTo(compareTo: string): StringValidator;
     IsNotEqualTo(compareTo: string): StringValidator;
-    isLessThan(compareTo: string): StringValidator;
+    IsLessThan(compareTo: string): StringValidator;
     IsNotLessThan(compareTo: string): StringValidator;
     IsLengthGreaterThan(compareTo: string): StringValidator;
     IsLengthGreaterOrEqualTo(compareTo: string): StringValidator;
@@ -29,10 +28,12 @@ declare class StringValidator extends BaseValidator<string> {
     ToNotMatch(regExp: any): StringValidator;
     Contains(compareTo: string): StringValidator;
     NotContains(compareTo: string): StringValidator;
-    StartsWith(compareTo: string, position?: number): StringValidator;
-    NotStartsWith(compareTo: string, position?: number): StringValidator;
-    IsBetween(compareTo: string, contractStartIndex: number, contractEndIndex?: number, compareToStartIndex?: number, compareToEndIndex?: number): StringValidator;
-    IsNotBetween(compareTo: string, contractStartIndex: number, contractEndIndex?: number, compareToStartIndex?: number, compareToEndIndex?: number): StringValidator;
+    StartsWith(compareTo: string): StringValidator;
+    NotStartsWith(compareTo: string): StringValidator;
+    EndsWith(compareTo: string): StringValidator;
+    NotEndsWith(compareTo: string): StringValidator;
+    IsBetween(startRange: string, endRange: string): StringValidator;
+    IsNotBetween(startRange: string, endRange: string): StringValidator;
 }
 declare class BooleanValidator extends BaseValidator<boolean> {
     constructor(variableValue: boolean, variableName: string);
@@ -44,7 +45,7 @@ declare class BooleanValidator extends BaseValidator<boolean> {
     IsEqualTo(compareTo: boolean): BooleanValidator;
     IsNotEqualTo(compareTo: boolean): BooleanValidator;
     IsTrue(): BooleanValidator;
-    IsFalse: () => BooleanValidator;
+    IsFalse(): BooleanValidator;
 }
 declare class NumberValidator extends BaseValidator<number> {
     constructor(variableValue: number, variableName: string);

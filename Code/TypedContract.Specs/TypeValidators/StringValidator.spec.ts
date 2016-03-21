@@ -75,13 +75,13 @@ describe("StringValidator", () => {
         expect(result);
     });
 
-    xit("IsNullOrUndefined returns proper validator with a undefined variable", () => {
+    it("IsNullOrUndefined returns proper validator with a undefined variable", () => {
 
         let localVar: string;
 
-        let result: StringValidator = Contract.In(localVar).IsNullOrUndefined();
-
-        expect(!result);
+        expect( () => {
+            Contract.In(localVar).IsNullOrUndefined();
+        }).toThrowError(<any>ReferenceError);
     });
 
     it("IsNullOrUndefined returns the proper validator with a defined variable", () => {
@@ -105,14 +105,13 @@ describe("StringValidator", () => {
 
     });
 
-    xit("IsEqualTo returns the proper validator when given a string that is not equal", () => {
+    it("IsEqualTo returns the proper validator when given a string that is not equal", () => {
         let localVar: string = "TypedContract";
-
         let compareTo: string = "TypeScript";
 
-        let result: StringValidator =  Contract.In(localVar).IsEqualTo(compareTo);
-
-        expect(result);
+        expect( () => {
+            Contract.In(localVar).IsEqualTo(compareTo);
+        }).toThrowError(<any>RangeError);
     });
 
     it("IsEqualTo returns the proper validator when given a string that has white spaces", () => {
@@ -371,23 +370,24 @@ describe("StringValidator", () => {
         expect(result);
     });
 
-    xit("IsLengthLessOrEqual to returns the proper validator when given a precondition that is greater than in length than the comparable", () => {
+    it("IsLengthLessOrEqual to returns the proper validator when given a precondition that is greater than in length than the comparable", () => {
 
         let localVar: string = "Randar";
         let compareTo: string = "Andre";
 
         expect( () => {
             Contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
-        }).toThrow(new RangeError(`The variable should have a length less or equal to 5 but is 6`));
+        }).toThrowError(<any>RangeError);
     });
 
-    it("IsLengthLessOrEqual to throw an error when given undefined strings", () => {
-       let localVar: string;
-       let compareTo: string;
+    it("IsLengthLessOrEqual to throw an error when given empty strings", () => {
+       let localVar: string = "";
+       let compareTo: string = "";
 
-       expect( () => {
-           Contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
-       }).toThrowError();
+       let result: StringValidator = Contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
+
+       expect(result);
+
     });
 
     it("IsLengthNotLessOrEqual to return the proper validator when given a string not smaller than the comparable", () => {
@@ -635,8 +635,8 @@ describe("StringValidator", () => {
 
     it("StartsWith returns the proper validator when given a string that starts with the same characters as the contract precondition", () => {
 
-        let localVar: string = "Type Contract";
-        let compareTo: string = "Type Script";
+        let localVar: string = "The Lazy Brown Dog Jumped Over The Fence";
+        let compareTo: string = "The Lazy Brown Dog Jumped Over The Fence";
 
         let result: StringValidator = Contract.In(localVar).StartsWith(compareTo);
 
@@ -657,139 +657,170 @@ describe("StringValidator", () => {
 
     it("StartsWith throws an error when given a string that does not start with the same characters as the contract precondition", () => {
 
-        let localVar: string = "TypedContract";
+        let localVar: string = "It is a wonderful";
+        let compareTo: string = "It's";
+
+        expect( () => {
+            Contract.In(localVar).StartsWith(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("StartsWith returns the proper validator when given a string that starts with the same characters", () => {
+        let localVar: string = "Typed Contract";
+        let compareTo: string = "Typed";
+
+        let result: StringValidator = Contract.In(localVar).StartsWith(compareTo);
+
+        expect(result);
+    });
+
+    it("StartsWith throws an error when given a string that does not start with the same characters as the contract precondition", () => {
+
+        let localVar: string = "TypedContract is the best code contract library ever";
         let compareTo: string = "TypeScript";
 
         expect( () => {
             Contract.In(localVar).StartsWith(compareTo);
-        }).toThrow(<any>RangeError);
+        }).toThrowError(<any>RangeError);
     });
 
-    it("StartsWith returns the proper validator when given a string that starts with the same characters as the contract precondition with different starting points", () => {
+    it("EndsWith returns the proper validator when given to identical strings", () => {
+        let localVar: string = "Hi my name is Randar";
+        let compareTo: string = "Randar";
 
-        let localVar: string = "TypedContract";
-        let compareTo: string = "AndreContract";
-
-        let result: StringValidator = Contract.In(localVar).StartsWith(compareTo, 4);
+        let result: StringValidator = Contract.In(localVar).EndsWith(compareTo);
 
         expect(result);
     });
 
-    it("StartsWith returns the proper validator when given a string that starts with the same characters as the contract precondition", () => {
 
-        let localVar: string = "Typed Contract";
-        let compareTo: string = "Type Script";
+    it("EndsWith returns the proper validator when given to identical strings of longer length", () => {
+        let localVar: string = "The quick fox jumped over the lazy brown dog";
+        let compareTo: string = "dog";
+
+        let result: StringValidator = Contract.In(localVar).EndsWith(compareTo);
+
+        expect(result);
+    });
+
+    it("EndsWith returns the proper validator with string interpolation", () => {
+        let localVar: string = "This is TypedContract";
+        let stringWord: string = "TypedContract";
+        let compareTo: string = `${stringWord}`;
+
+        let result: StringValidator = Contract.In(localVar).EndsWith(compareTo);
+
+        expect(result);
+    });
+
+    it("EndsWith throws an error when given a two strings that are not identical ", () => {
+        let localVar: string = "I am typing a sentence";
+        let compareTo: string = "There was a sentence I just coded";
 
         expect( () => {
-            Contract.In(localVar).StartsWith(compareTo, 0);
-        }).toThrow(<any>RangeError);
+                Contract.In(localVar).EndsWith(compareTo);
+            }).toThrowError(<any>RangeError);
+
+    });
+
+    it("EndsWith throws an error when given a two strings that are not identical, one word strings", () => {
+        let localVar: string = "Sentence";
+        let compareTo: string = "Coded";
+
+        expect( () => {
+            Contract.In(localVar).EndsWith(compareTo);
+        }).toThrowError(<any>RangeError);
+
     });
 
     it("IsBetween returns the proper validator when given two strings", () => {
-        let localVar: string = "TypeScript";
-        let compareTo: string = "TypedContract";
+        let localVar: string = "T";
 
-        let result: StringValidator = Contract.In(localVar).IsBetween(compareTo, 0, 3);
+        let result: StringValidator = Contract.In(localVar).IsBetween("A", "Z");
 
         expect(result);
     });
     it("IsBetween returns the proper validator when given two identical strings", () => {
-        let localVar: string = "TypeScript";
-        let compareTo: string = "TypedScript";
+        let localVar: string = "b";
 
-        let result: StringValidator = Contract.In(localVar).IsBetween(compareTo, 1, 3);
-
-        expect(result);
-    });
-    it("IsBetween throws an error with when given two strings that do not have the same value", () => {
-        let localVar: string = "TypeScript";
-        let compareTo: string = "TypedContract";
-
-        let result: StringValidator = Contract.In(localVar).IsBetween(compareTo, 0, 3);
+        let result: StringValidator = Contract.In(localVar).IsBetween("a", "c");
 
         expect(result);
     });
 
-    it("IsBetween returns the proper validator when given two identical strings", () => {
-        let localVar: string = "TypeScript";
-        let compareTo: string = "TypedScript";
+    it("IsBetween throws an error with when given two strings that are not in the range of the precondition value", () => {
+        let localVar: string = "Ali";
 
-        let result: StringValidator = Contract.In(localVar).IsBetween(compareTo, 4, undefined, 5, undefined);
-
-        expect(result);
+        expect( () => {
+            Contract.In(localVar).IsBetween("Amy", "Johnathan");
+        });
     });
+
 
     it("IsBetween throws an error when given two non-identical strings", () => {
         let localVar: string = "TypeScript";
-        let compareTo: string = "TypedContract";
+
         expect( () => {
-            Contract.In(localVar).IsBetween(compareTo, 3, undefined, 4, undefined);
+            Contract.In(localVar).IsBetween("Tz", "Typz");
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsBetween throws an error when given an empty string and a string ", () => {
-        let localVar: string = "TypeScript";
-        let compareTo: string = "TypedContract";
+    it("IsBetween throws an error when given the wrong range for the precondition", () => {
+        let localVar: string = "A";
 
         expect( () => {
-            Contract.In(localVar).IsBetween(compareTo, 3, undefined, 4, undefined);
-        }).toThrowError(<any>RangeError);
+            Contract.In(localVar).IsBetween("B", "A");
+        }).toThrowError(<any>Error);
     });
 
-    it("IsNotBetween returns the proper validator when given two non-identical strings", () => {
-        let localVar: string = "TypeScript";
-        let compareTo: string = "C-Sharp";
+    it("IsNotBetween returns the proper validator when given two strings that are not in the range of the precondition", () => {
+        let localVar: string = "Cxy";
 
-        let result: StringValidator = Contract.In(localVar).IsNotBetween(compareTo, 0, undefined, 0, undefined);
+        let result: StringValidator = Contract.In(localVar).IsNotBetween("Dzz", "Aab");
 
         expect(result);
     });
 
 
     it("IsNotBetween returns the proper validator when given two non-identical strings", () => {
-        let localVar: string = "TypeScript";
-        let compareTo: string = "C-Sharp";
+        let localVar: string = "Free";
 
-        let result: StringValidator = Contract.In(localVar).IsNotBetween(compareTo, 2, 4, 2, 4);
+        let result: StringValidator = Contract.In(localVar).IsNotBetween("Guy", "Acd");
 
         expect(result);
     });
 
 
     it("IsNotBetween returns the proper validator when given two non-identical strings", () => {
-        let localVar: string = "TypeScript";
-        let compareTo: string = "C-Sharp";
+        let localVar: string = "Type";
 
         expect( () => {
-            Contract.In(localVar).IsNotBetween(compareTo, 8, 9, 6, undefined);
+            Contract.In(localVar).IsNotBetween("Ace", "Xzq");
         }).toThrowError(<any>RangeError);
     });
 
 
-    it("IsNotBetween returns the proper validator when given two non-identical strings", () => {
+    it("IsNotBetween returns an error strings that are not specfying a range for the pre-condition", () => {
         let localVar: string = "TypeScript";
-        let compareTo: string = "C-Sharp";
-
-        let result: StringValidator = Contract.In(localVar).IsNotBetween(compareTo, 0, 2, 0, 2);
-
-        expect(result);
-    });
-
-    it("IsNotBetween throws an error when given two identical inbetweens", () => {
-        let localVar: string = "F-Sharp";
-        let compareTo: string = "C-Sharp";
 
         expect( () => {
-            Contract.In(localVar).IsNotBetween(compareTo, 1, undefined, 1, undefined);
+            Contract.In(localVar).IsNotBetween("", "");
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsNotBetween throws an error when given two identical inbetweens", () => {
-        let localVar: string = "F-Sharp";
-        let compareTo: string = "C-Sharp";
+    it("IsNotBetween throws an error when given two identical ranges", () => {
+        let localVar: string = "A";
 
         expect( () => {
-            Contract.In(localVar).IsNotBetween(compareTo, 1, undefined, 1, undefined);
+            Contract.In(localVar).IsNotBetween("Z", "A");
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("IsNotBetween throws an error when given two identical ranges, longer words", () => {
+        let localVar: string = "Ac";
+
+        expect( () => {
+           Contract.In(localVar).IsNotBetween("Dy", "Zx");
         }).toThrowError(<any>RangeError);
     });
 });

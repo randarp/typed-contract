@@ -22,4 +22,12 @@ describe("BaseValidator", () => {
         expect(result).toEqual("My var");
 
     });
+
+    it("Name returns the original variable name with a variable", () => {
+        let localVariable: string = "A string";
+        let varName: string = "My var";
+        let result: string = Contract.In(localVariable, varName).IsNotNull().Name();
+
+        expect(result).toEqual("My var");
+    });
 });

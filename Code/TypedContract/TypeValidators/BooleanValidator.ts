@@ -14,7 +14,7 @@ class BooleanValidator extends BaseValidator<boolean> {
 
     /**
      *
-     * Checks if the boolean variable is null
+     * IsNull checks if the boolean variable is null
      * @throws a ReferenceError if the variable is not null
      */
     public IsNull(): BooleanValidator {
@@ -27,7 +27,7 @@ class BooleanValidator extends BaseValidator<boolean> {
 
     /**
      *
-     * Checks if the boolean variable is not null
+     * IsNotNull checks if the boolean variable is not null
      * @throws a ReferenceError if the variable is null
      */
     public IsNotNull(): BooleanValidator {
@@ -39,7 +39,7 @@ class BooleanValidator extends BaseValidator<boolean> {
     }
 
     /**
-     * Checks if the boolean variable is defined
+     * IsDefined checks if the boolean variable is defined
      * @throws a ReferenceError if the boolen variable is undefined
      * @returns {BooleanValidator}
      */
@@ -53,7 +53,7 @@ class BooleanValidator extends BaseValidator<boolean> {
     }
 
     /**
-     * Checks if the boolean variable is undefined
+     * IsUndefined checks if the boolean variable is undefined
      * @throws ReferenceError if the boolean variable is defined
      * @returns {BooleanValidator}
      */
@@ -67,13 +67,13 @@ class BooleanValidator extends BaseValidator<boolean> {
     }
 
     /**
-     * Checks if the boolean variable is not null or undefined
+     * IsNullOrUndefined checks if the boolean variable is not null or undefined
      * @throws ReferenceError if the boolean variable is null or undefined
      * @returns {BooleanValidator}
      */
 
     public IsNullOrUndefined(): BooleanValidator {
-        if (this._variableValue !== null || typeof this._variableValue !== undefined) {
+        if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should be null or undefined`);
         } else {
             return this;
@@ -81,7 +81,7 @@ class BooleanValidator extends BaseValidator<boolean> {
     }
     /**
      *
-     * Checks if the boolean variable is equal to the parameter passed into the function as an argument
+     * IsEqualTo checks if the boolean variable is equal to the parameter passed into the function as an argument
      * @throws RangeError if the boolean variable is not equal to the parameter passed into the function
      * @param compareTo
      * @returns {BooleanValidator}
@@ -96,7 +96,7 @@ class BooleanValidator extends BaseValidator<boolean> {
 
     /**
      *
-     * Checks if the boolean variable is not equal to the parameter passed into the function as an argument
+     * IsNotEqualTo checks if the boolean variable is not equal to the parameter passed into the function as an argument
      * @throws RangeError if the boolean variable is equal to the parameter passed into the function
      * @param compareTo
      * @returns {BooleanValidator}
@@ -111,7 +111,7 @@ class BooleanValidator extends BaseValidator<boolean> {
     }
     /**
      *
-     * Checks if the boolean variable is true
+     * IsTrue checks if the boolean variable is true
      * @throws RangeError if the boolean variable is false
      * @param compareTo
      * @returns {BooleanValidator}
@@ -126,13 +126,13 @@ class BooleanValidator extends BaseValidator<boolean> {
 
     /**
      *
-     * Checks if the boolean variable is false
+     * IsFalse checks if the boolean variable is false
      * @throws RangeError if the boolean variable is alse
      * @param compareTo
      * @returns {BooleanValidator}
      */
 
-    public IsFalse = (): BooleanValidator => {
+    public IsFalse(): BooleanValidator {
         if (this._variableValue === true) {
             throw new RangeError(`${this._variableName} should be false`);
         } else {

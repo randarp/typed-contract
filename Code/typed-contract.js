@@ -59,14 +59,6 @@ var StringValidator = (function (_super) {
             return this;
         }
     };
-    StringValidator.prototype.IsLengthIsGreaterOrEqualThan = function (stringLength, variableName) {
-        if (this._variableValue.length < stringLength) {
-            throw new RangeError(this._variableValue + " is out of length range by a of " + (this._variableValue.length - stringLength) + ",\n            your specified range was " + stringLength + " for " + this._variableName + " ");
-        }
-        else {
-            return this;
-        }
-    };
     StringValidator.prototype.IsNullOrUndefined = function () {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this._variableName + " should not be null or undefined");
@@ -91,7 +83,7 @@ var StringValidator = (function (_super) {
             return this;
         }
     };
-    StringValidator.prototype.isLessThan = function (compareTo) {
+    StringValidator.prototype.IsLessThan = function (compareTo) {
         if (this._variableValue.length > compareTo.length) {
             throw new ReferenceError(this._variableName + " should be less than " + compareTo + " but is " + this._variableValue);
         }
@@ -203,47 +195,52 @@ var StringValidator = (function (_super) {
             return this;
         }
     };
-    StringValidator.prototype.StartsWith = function (compareTo, position) {
-        this._variableValue.startsWith(compareTo, position);
-        return this;
-    };
-    StringValidator.prototype.NotStartsWith = function (compareTo, position) {
-        return this;
-    };
-    StringValidator.prototype.IsBetween = function (compareTo, contractStartIndex, contractEndIndex, compareToStartIndex, compareToEndIndex) {
-        if (compareToStartIndex || compareToEndIndex) {
-            if (this._variableValue.substring(contractStartIndex, contractEndIndex) !== compareTo.substring(compareToStartIndex, compareToEndIndex)) {
-                throw new RangeError(this._variableName + " should be between " + contractStartIndex + " and " + contractEndIndex + " but the value of " + compareTo + " is not in that range");
-            }
-            else {
-                return this;
-            }
+    StringValidator.prototype.StartsWith = function (compareTo) {
+        if (this._variableValue.startsWith(compareTo)) {
+            return this;
         }
         else {
-            if (this._variableValue.substring(contractStartIndex, contractEndIndex) !== compareTo.substring(contractStartIndex, contractEndIndex)) {
-                throw new RangeError(this._variableName + " should be between " + contractStartIndex + " and " + contractEndIndex + " but the value of " + compareTo + " is not in that range");
-            }
-            else {
-                return this;
-            }
+            throw new RangeError(this._variableName + " should start with " + this._variableValue + ", but " + compareTo + " does not");
         }
     };
-    StringValidator.prototype.IsNotBetween = function (compareTo, contractStartIndex, contractEndIndex, compareToStartIndex, compareToEndIndex) {
-        if (compareToStartIndex || compareToEndIndex) {
-            if (this._variableValue.substring(contractStartIndex, contractEndIndex) === compareTo.substring(compareToStartIndex, compareToEndIndex)) {
-                throw new RangeError(this._variableName + " should be between " + contractStartIndex + " and " + contractEndIndex + " but the value of " + compareTo + " is not in that range");
-            }
-            else {
-                return this;
-            }
+    StringValidator.prototype.NotStartsWith = function (compareTo) {
+        if (this._variableValue.startsWith(compareTo)) {
+            throw new RangeError(this._variableName + " should not start with " + compareTo + " but " + this._variableValue + " does not");
         }
         else {
-            if (this._variableValue.substring(contractStartIndex, contractEndIndex) === compareTo.substring(contractStartIndex, contractEndIndex)) {
-                throw new RangeError(this._variableName + " should be between " + contractStartIndex + " and " + contractEndIndex + " but the value of " + compareTo + " is not in that range");
-            }
-            else {
-                return this;
-            }
+            return this;
+        }
+    };
+    StringValidator.prototype.EndsWith = function (compareTo) {
+        if (!this._variableValue.endsWith(compareTo)) {
+            throw new RangeError(this._variableName + " should end with " + compareTo + ", but " + this._variableValue + " does not");
+        }
+        else {
+            return this;
+        }
+    };
+    StringValidator.prototype.NotEndsWith = function (compareTo) {
+        if (this._variableValue.endsWith(compareTo)) {
+            throw new RangeError(this._variableName + " should not end with " + compareTo + ", but " + this._variableValue + " does not");
+        }
+        else {
+            return this;
+        }
+    };
+    StringValidator.prototype.IsBetween = function (startRange, endRange) {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
+            return this;
+        }
+        else {
+            throw new RangeError(this._variableName + " should be between\n            " + startRange + " and " + endRange + ", but the value of\n            " + this._variableValue + " is not in that range");
+        }
+    };
+    StringValidator.prototype.IsNotBetween = function (startRange, endRange) {
+        if (this._variableValue < startRange && this._variableValue > endRange) {
+            return this;
+        }
+        else {
+            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
         }
     };
     return StringValidator;
@@ -257,16 +254,7 @@ import {RangeError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 
 var BooleanValidator = (function (_super) {
     __extends(BooleanValidator, _super);
     function BooleanValidator(variableValue, variableName) {
-        var _this = this;
         _super.call(this, variableValue, variableName);
-        this.IsFalse = function () {
-            if (_this._variableValue === true) {
-                throw new RangeError(_this._variableName + " should be false");
-            }
-            else {
-                return _this;
-            }
-        };
     }
     BooleanValidator.prototype.IsNull = function () {
         if (this._variableValue === null && typeof this._variableValue === "object") {
@@ -301,7 +289,7 @@ var BooleanValidator = (function (_super) {
         }
     };
     BooleanValidator.prototype.IsNullOrUndefined = function () {
-        if (this._variableValue !== null || typeof this._variableValue !== undefined) {
+        if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this._variableName + " should be null or undefined");
         }
         else {
@@ -332,6 +320,15 @@ var BooleanValidator = (function (_super) {
             return this;
         }
     };
+    BooleanValidator.prototype.IsFalse = function () {
+        if (this._variableValue === true) {
+            throw new RangeError(this._variableName + " should be false");
+        }
+        else {
+            return this;
+        }
+    };
+    ;
     return BooleanValidator;
 })(BaseValidator);
 /// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
@@ -510,7 +507,8 @@ var ArrayValidator = (function (_super) {
     };
     ArrayValidator.prototype.IsEqualTo = function (compareTo, index) {
         if (compareTo.length === 0 || this._variableValue.length === 0) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
+                "please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue[index] !== compareTo[index]) {
             throw new RangeError(this._variableName + " should be equal to array variable " + compareTo + " at the index " + index);
@@ -532,7 +530,8 @@ var ArrayValidator = (function (_super) {
     };
     ArrayValidator.prototype.IsLengthGreaterThan = function (compareTo) {
         if (compareTo.length === 0 || this._variableValue.length === 0) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
+                "please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue.length < compareTo.length) {
             throw new RangeError(this._variableName + " should have a\n            length greater than " + compareTo.length + " but is " + this._variableValue.length);
@@ -554,7 +553,8 @@ var ArrayValidator = (function (_super) {
     };
     ArrayValidator.prototype.IsLengthGreaterOrEqualTo = function (compareTo) {
         if (compareTo.length === 0 || this._variableValue.length === 0) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+            throw new RangeError("Can't compare the length's of uninitialized arrays," +
+                "please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             return this;
@@ -565,7 +565,8 @@ var ArrayValidator = (function (_super) {
     };
     ArrayValidator.prototype.IsLengthNotGreaterOrEqualTo = function (compareTo) {
         if (compareTo.length === 0 || this._variableValue.length === 0) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+            throw new RangeError("Can't compare the length's of uninitialized arrays," +
+                "please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             throw new RangeError(this._variableName + " should not have a\n             length greater or equal to " + compareTo.length + " but is " + this._variableValue.length);
@@ -576,7 +577,8 @@ var ArrayValidator = (function (_super) {
     };
     ArrayValidator.prototype.IsLengthLessThan = function (compareTo) {
         if (compareTo.length === 0 || this._variableValue.length === 0) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
+                "please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue.length >= compareTo.length) {
             throw new RangeError(this._variableName + " should have a length\n        less than " + compareTo.length + " but is " + this._variableValue.length);
@@ -587,7 +589,8 @@ var ArrayValidator = (function (_super) {
     };
     ArrayValidator.prototype.IsLengthNotLessThan = function (compareTo) {
         if (compareTo.length === 0 || this._variableValue.length === 0) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
+                "please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(this._variableName + " should have a length\n        not less than " + compareTo.length + " but is " + this._variableValue.length);
@@ -598,7 +601,8 @@ var ArrayValidator = (function (_super) {
     };
     ArrayValidator.prototype.IsLengthLessOrEqualThan = function (compareTo) {
         if (compareTo.length === 0 || this._variableValue.length === 0) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
+                "please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue.length > compareTo.length) {
             throw new RangeError(this._variableName + " should have a length less or equal\n            to " + compareTo.length + " but is " + this._variableValue.length);
@@ -609,7 +613,8 @@ var ArrayValidator = (function (_super) {
     };
     ArrayValidator.prototype.IsLengthNotLessOrEqualThan = function (compareTo) {
         if (compareTo.length === 0 || this._variableValue.length === 0) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
+                "please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(this._variableName + " should not have a\n             length less or equal to " + compareTo.length + " but is " + this._variableValue.length);

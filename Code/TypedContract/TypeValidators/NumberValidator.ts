@@ -1,8 +1,10 @@
 /// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
 
-/*import {RangeError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
+/*import {RangeError} from "../../../../../Program Files (x86)/
+JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 import NumberValidator from "./"; */
-//import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
+//import {ReferenceError} from "../../../../../
+// Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 
 class NumberValidator extends BaseValidator<number> {
 
@@ -12,7 +14,7 @@ class NumberValidator extends BaseValidator<number> {
 
         /**
          *
-         * Checks if the type number variable is not null
+         * IsNotNull checks if the type number variable is not null
          * @throws a ReferenceError if the variable is null
          * @returns {NumberValidator}
          */
@@ -26,7 +28,7 @@ class NumberValidator extends BaseValidator<number> {
 
         /**
          *
-         * Checks if the string variable is null
+         * IsNull checks if the string variable is null
          * @throws a ReferenceError if the variable is not null
          * @returns {NumberValidator}
          */
@@ -40,7 +42,7 @@ class NumberValidator extends BaseValidator<number> {
 
 
         /**
-         * Checks if the number variable is defined
+         * IsDefined checks if the number variable is defined
          * @throws ReferenceError if the number variable jis not defined
          * @returns {NumberValidator}
          */
@@ -53,7 +55,7 @@ class NumberValidator extends BaseValidator<number> {
         }
 
         /**
-         * Checks if the number variable is undefined
+         * IsUndefined checks if the number variable is undefined
          * @throws a ReferenceError if the number variable is undefined
          * @returns {NumberValidator}
          */
@@ -66,7 +68,7 @@ class NumberValidator extends BaseValidator<number> {
         }
 
         /**
-         * Checks if the number variable is not null or undefined
+         * IsNullOrUndefined checks if the number variable is not null or undefined
          * @throws ReferenceError if the number variable is null or undefined
          * @returns {NumberValidator}
          */
@@ -80,7 +82,7 @@ class NumberValidator extends BaseValidator<number> {
 
         /**
          *
-         * Checks if the number variable is equal to the parameter passed into the function as an argument
+         * IsEqualTo checks if the number variable is equal to the parameter passed into the function as an argument
          * @throws RangeError if the number variable is not equal to the parameter passed into the function
          * @param compareTo
          * @returns {NumberValidator}
@@ -96,7 +98,7 @@ class NumberValidator extends BaseValidator<number> {
 
         /**
          *
-         * Checks if the number variable is not equal to the parameter passed into the function as an argument
+         * IsNotEqualTo checks if the number variable is not equal to the parameter passed into the function as an argument
          * @throws RangeError if the number variable is equal to the parameter passed into the function
          * @param compareTo
          * @returns {NumberValidator}
@@ -111,7 +113,7 @@ class NumberValidator extends BaseValidator<number> {
 
         /**
          *
-         * Checks if the number variable is not greater than the parameter passed into the function as an argument
+         * IsGreaterThan checks if the number variable is not greater than the parameter passed into the function as an argument
          * @throws RangeError if the number variable is less or equal to the parameter passed into the function
          * @param compareTo
          * @returns {NumberValidator}
@@ -126,7 +128,7 @@ class NumberValidator extends BaseValidator<number> {
 
         /**
          *
-         * Checks if the number variable is not greater to the parameter passed into the function as an argument
+         * IsNotGreaterThan checks if the number variable is not greater to the parameter passed into the function as an argument
          * @throws RangeError if the number variable is equal to the parameter passed into the function
          * @param compareTo
          * @returns {NumberValidator}
@@ -141,7 +143,7 @@ class NumberValidator extends BaseValidator<number> {
 
         /**
          *
-         * Checks if the number variable is greater or equal than the parameter passed into the function as an argument
+         * IsGreaterOrEqualThan checks if the number variable is greater or equal than the parameter passed into the function as an argument
          * @throws RangeError if the number variable is equal to the parameter passed into the function
          * @param compareTo
          * @returns {NumberValidator}
@@ -156,7 +158,7 @@ class NumberValidator extends BaseValidator<number> {
         }
         /**
          *
-         * Checks if the number variable is not greater or equal than the parameter passed into the function as an argument
+         * IsNotGreaterOrEqualThan checks if the number variable is not greater or equal than the parameter passed into the function as an argument
          * @throws RangeError if the number variable is equal or greater than parameter passed into the function
          * @param compareTo
          * @returns {NumberValidator}
@@ -170,7 +172,7 @@ class NumberValidator extends BaseValidator<number> {
         }
         /**
          *
-         * Checks if the number variable is less than the parameter passed into the function as an argument
+         * IsLessThan checks if the number variable is less than the parameter passed into the function as an argument
          * @throws RangeError if the number variable is greater to the parameter passed into the function
          * @param compareTo
          * @returns {NumberValidator}
@@ -184,7 +186,7 @@ class NumberValidator extends BaseValidator<number> {
         }
         /**
          *
-         * Checks if the number variable is not less than the parameter passed into the function as an argument
+         * IsNotLessThan checks if the number variable is not less than the parameter passed into the function as an argument
          * @throws RangeError if the number variable is greater to the parameter passed into the function
          * @param compareTo
          * @returns {NumberValidator}
@@ -197,6 +199,14 @@ class NumberValidator extends BaseValidator<number> {
             }
         }
 
+    /**
+     *
+     * IsLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
+     * @throws RangeError if the number variable is greater or equal than the parameter passed into the function
+     * @param compareTo
+     * @returns {NumberValidator}
+     */
+
         public IsLessOrEqualThan(compareTo: number): NumberValidator {
             if (this._variableValue > compareTo) {
                 throw new ReferenceError(`${this._variableName} should be less or equal than ${compareTo} but is ${this._variableName}`);
@@ -204,14 +214,20 @@ class NumberValidator extends BaseValidator<number> {
                 return this;
             }
         }
+    /**
+     *
+     * IsNotLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
+     * @throws RangeError if the number variable is greater or equal than the parameter passed into the function
+     * @param compareTo
+     * @returns {NumberValidator}
+     */
 
-        public IsNotLessOrEqualThan(compareTo: number): NumberValidator {
-            if (this._variableValue <= compareTo) {
-                throw new RangeError(`${this._variableName} should not be less or equal
+    public IsNotLessOrEqualThan(compareTo: number): NumberValidator {
+        if (this._variableValue <= compareTo) {
+            throw new RangeError(`${this._variableName} should not be less or equal
                  than ${compareTo} but is ${this._variableValue}`);
-            } else {
-                return this;
-            }
+        } else {
+            return this;
         }
-
+    }
 }

@@ -17,7 +17,7 @@ class BaseValidator <T> {
     }
 
     /**
-     * Returns the value that was passed into the contract
+     * Value returns the value that was passed into the contract
      * @returns {T}
      * @constructor
      */
@@ -26,7 +26,7 @@ class BaseValidator <T> {
     }
 
     /**
-     * Returns the variable name that was passed into the contract
+     * Name returns the variable name that was passed into the contract
      * @returns {string}
      * @constructor
      */
