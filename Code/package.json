@@ -1,7 +1,7 @@
 {
   "name": "typed-contract",
-  "version": "0.0.2",
-  "description": "",
+  "version": "1.0.0",
+  "description": "A wonderfully simple, yet powerful TypeScript and JavaScript code contract library",
   "main": "karma.chrome.conf.js",
   "dependencies": {
     "typescript": "^1.7.5"
@@ -17,6 +17,13 @@
     "tslint": "^3.3.0",
     "typescript": "^1.7.5"
   },
+  "keywords":[
+    "typed-contract",
+    "code-contract",
+    "npm code contract",
+    "TypeScript code contract",
+    "JavaScript code contract"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

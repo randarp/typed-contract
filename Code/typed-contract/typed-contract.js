@@ -236,11 +236,11 @@ var StringValidator = (function (_super) {
         }
     };
     StringValidator.prototype.IsNotBetween = function (startRange, endRange) {
-        if (this._variableValue < startRange && this._variableValue > endRange) {
-            return this;
+        if (this._variableValue > startRange && this._variableValue < endRange) {
+            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
         }
         else {
-            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
+            return this;
         }
     };
     return StringValidator;
@@ -452,6 +452,22 @@ var NumberValidator = (function (_super) {
     NumberValidator.prototype.IsNotLessOrEqualThan = function (compareTo) {
         if (this._variableValue <= compareTo) {
             throw new RangeError(this._variableName + " should not be less or equal\n                 than " + compareTo + " but is " + this._variableValue);
+        }
+        else {
+            return this;
+        }
+    };
+    NumberValidator.prototype.IsBetween = function (startRange, endRange) {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
+            return this;
+        }
+        else {
+            throw new RangeError(this._variableName + " should be between\n            " + startRange + " and " + endRange + ", but the value of\n            " + this._variableValue + " is not in that range");
+        }
+    };
+    NumberValidator.prototype.IsNotBetween = function (startRange, endRange) {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
+            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
         }
         else {
             return this;

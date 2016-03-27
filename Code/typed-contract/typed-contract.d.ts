@@ -64,9 +64,11 @@ declare class NumberValidator extends BaseValidator<number> {
     IsNotLessThan(compareTo: number): NumberValidator;
     IsLessOrEqualThan(compareTo: number): NumberValidator;
     IsNotLessOrEqualThan(compareTo: number): NumberValidator;
+    IsBetween(startRange: number, endRange: number): NumberValidator;
+    IsNotBetween(startRange: number, endRange: number): NumberValidator;
 }
 declare class ArrayValidator extends BaseValidator<any[]> {
-    count: number;
+    private count;
     constructor(variableValue: any[], variableName: string);
     IsNull(): ArrayValidator;
     IsNotNull(): ArrayValidator;

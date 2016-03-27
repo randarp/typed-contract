@@ -18,7 +18,7 @@ module.exports = function(grunt){
         copy:{
             files:{
                 cwd: 'C:/Projects/TypedContract/Code/',
-                src: ["typed-contract.d.ts","typed-contract.js","package.json","typed-contract.js.map","typed-contract.min.js"],
+                src: ["typed-contract.d.ts","typed-contract.js","package.json","typed-contract.js.map","typed-contract.min.js","ReadMe.md"],
                 dest: 'C:/Projects/TypedContract/Code/typed-contract',
                 expand: true
 

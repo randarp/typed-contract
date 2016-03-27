@@ -9,7 +9,7 @@
 // (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 
 class  ArrayValidator extends BaseValidator <any[]> {
-    public count: number;
+    private count: number;
 
     constructor(variableValue: any[], variableName: string) {
         super(variableValue, variableName);
