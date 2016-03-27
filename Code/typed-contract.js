@@ -236,11 +236,11 @@ var StringValidator = (function (_super) {
         }
     };
     StringValidator.prototype.IsNotBetween = function (startRange, endRange) {
-        if (this._variableValue < startRange && this._variableValue > endRange) {
-            return this;
+        if (this._variableValue > startRange && this._variableValue < endRange) {
+            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
         }
         else {
-            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
+            return this;
         }
     };
     return StringValidator;

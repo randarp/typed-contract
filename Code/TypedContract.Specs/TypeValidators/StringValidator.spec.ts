@@ -791,36 +791,36 @@ describe("StringValidator", () => {
     });
 
 
-    it("IsNotBetween returns the proper validator when given two non-identical strings", () => {
-        let localVar: string = "Type";
+    it("IsNotBetween returns the proper validator when given a range not in the specified range, longer words", () => {
+        let localVar: string = "Ba";
 
         expect( () => {
-            Contract.In(localVar).IsNotBetween("Ace", "Xzq");
+            Contract.In(localVar).IsNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 
 
     it("IsNotBetween returns an error strings that are not specfying a range for the pre-condition", () => {
-        let localVar: string = "TypeScript";
+        let localVar: string = "Bb";
 
         expect( () => {
-            Contract.In(localVar).IsNotBetween("", "");
+            Contract.In(localVar).IsNotBetween("Aa", "De");
         }).toThrowError(<any>RangeError);
     });
 
     it("IsNotBetween throws an error when given two identical ranges", () => {
-        let localVar: string = "A";
+        let localVar: string = "C";
 
         expect( () => {
-            Contract.In(localVar).IsNotBetween("Z", "A");
+            Contract.In(localVar).IsNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 
     it("IsNotBetween throws an error when given two identical ranges, longer words", () => {
-        let localVar: string = "Ac";
+        let localVar: string = "CA";
 
         expect( () => {
-           Contract.In(localVar).IsNotBetween("Dy", "Zx");
+           Contract.In(localVar).IsNotBetween("AB", "FG");
         }).toThrowError(<any>RangeError);
     });
 });

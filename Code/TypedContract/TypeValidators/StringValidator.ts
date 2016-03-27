@@ -459,11 +459,11 @@ class StringValidator extends BaseValidator<string> {
      */
 
     public IsNotBetween(startRange: string, endRange: string): StringValidator {
-        if (this._variableValue < startRange && this._variableValue > endRange) {
-            return this;
-        } else {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
             throw new RangeError(`${this._variableName} should not be between
             ${startRange} and ${endRange}, but the value of ${this._variableValue} is in that range`);
+        } else {
+           return this;
         }
     }
 }
