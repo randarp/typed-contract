@@ -1,6 +1,6 @@
 {
   "name": "typed-contract",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "karma.chrome.conf.js",
   "dependencies": {
@@ -24,6 +24,6 @@
     "type": "git",
     "url": "https://github.com/randarp/typed-contract.git"
   },
-  "author": "Randar Puust & Andre Fischbacher",
+  "author": "Andre Fischbacher",
   "license": "MIT"
 }

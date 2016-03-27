@@ -64,6 +64,8 @@ declare class NumberValidator extends BaseValidator<number> {
     IsNotLessThan(compareTo: number): NumberValidator;
     IsLessOrEqualThan(compareTo: number): NumberValidator;
     IsNotLessOrEqualThan(compareTo: number): NumberValidator;
+    IsBetween(startRange: number, endRange: number): NumberValidator;
+    IsNotBetween(startRange: number, endRange: number): NumberValidator;
 }
 declare class ArrayValidator extends BaseValidator<any[]> {
     count: number;
@@ -95,5 +97,5 @@ declare module Contract {
     function In(precondition: number, name: string): NumberValidator;
     function In(precondition: any[]): ArrayValidator;
     function In(precondition: any[], name: string): ArrayValidator;
-    function Out(postcondition: any): boolean;
+    function Out(postcondition: any, name?: string): any;
 }

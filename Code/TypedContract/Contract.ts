@@ -23,15 +23,27 @@ module Contract {
             return new BooleanValidator(precondition, name);
         } else if (typeof precondition === "number" || precondition === null || precondition === undefined ) {
             return new NumberValidator(precondition, name);
-        } else if (precondition instanceof Array || precondition instanceof Array === null || precondition instanceof Array === undefined ) {
+        } else if (precondition instanceof Array ||
+            precondition instanceof Array === null
+            || precondition instanceof Array === undefined ) {
             return new ArrayValidator(precondition, name);
         }
 
         return undefined;
     }
 
-    export function Out(postcondition: any): boolean {
-        return true;
+    export function Out(postcondition: any, name: string = undefined): any {
+        if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
+            return new StringValidator(postcondition, name);
+        } else if (typeof postcondition === "boolean" || postcondition === null || postcondition === undefined) {
+            return new BooleanValidator(postcondition, name);
+        } else if (typeof postcondition === "number" || postcondition === null || postcondition === undefined) {
+            return new NumberValidator(postcondition, name);
+        } else if (postcondition instanceof Array ||
+            postcondition instanceof Array === null ||
+            postcondition instanceof Array === undefined) {
+            return new ArrayValidator(postcondition, name);
+        }
+        return undefined;
     }
-
 }

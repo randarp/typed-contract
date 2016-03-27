@@ -340,4 +340,115 @@ describe("NumberValidator", () => {
             Contract.In(localVar).IsNotLessOrEqualThan(compareTo);
         }).toThrowError();
     });
+
+    it("IsBetween returns the proper validator when the precondition is in the range specified", () => {
+        let localVar: number = 95;
+
+        let startRange: number = 60;
+        let endRange: number = 100;
+
+        let result: NumberValidator = Contract.In(localVar).IsBetween(startRange, endRange);
+
+        expect(result);
+
+    });
+
+    it("IsBetween returns the proper validator when the precondition is in the range specified with double values", () => {
+        let localVar: number = 99.9;
+
+        let startRange: number = 0.00;
+        let endRange: number = 100.0;
+
+        let result: NumberValidator = Contract.In(localVar).IsBetween(startRange, endRange);
+
+        expect(result);
+
+    });
+
+    it("IsBetween throws an error when the precondition is not in the range specified", () => {
+        let localVar: number = 1000;
+
+        let startRange: number = 60;
+        let endRange: number = 100;
+
+        expect( () => {
+            Contract.In(localVar).IsBetween(startRange, endRange);
+        }).toThrowError(<any>RangeError);
+
+    });
+
+    it("IsBetween throws an error when the precondition is not in the range specified using double values", () => {
+        let localVar: number = 1000.005;
+
+        let startRange: number = 60.258;
+        let endRange: number = 100.216;
+
+        expect( () => {
+            Contract.In(localVar).IsBetween(startRange, endRange);
+        }).toThrowError(<any>RangeError);
+
+    });
+
+    it("IsNotBetween returns the proper validator when the precondition is not in the range specified", () => {
+        let localVar: number = 101;
+
+        let startRange: number = 60;
+        let endRange: number = 100;
+
+        let result: NumberValidator = Contract.In(localVar).IsNotBetween(startRange, endRange);
+
+        expect(result);
+
+    });
+
+    it("IsNotBetween returns the proper validator when the precondition" +
+        " is not in the range specified using double values", () => {
+        let localVar: number = 99.1;
+
+        let startRange: number = 100;
+        let endRange: number = 200.00;
+
+        let result: NumberValidator = Contract.In(localVar).IsNotBetween(startRange, endRange);
+
+        expect(result);
+
+    });
+
+    it("IsNotBetween returns the proper validator when the precondition is not in the range specified", () => {
+        let localVar: number = 101;
+
+        let startRange: number = 60;
+        let endRange: number = 100;
+
+        let result: NumberValidator = Contract.In(localVar).IsNotBetween(startRange, endRange);
+
+        expect(result);
+
+    });
+
+    it("IsNotBetween returns the proper validator when the precondition is not in the range specified -- PASS", () => {
+        let localVar: number = 50;
+
+        let startRange: number = 60;
+        let endRange: number = 100;
+
+        let result: NumberValidator = Contract.In(localVar).IsNotBetween(startRange, endRange);
+
+        expect(result);
+
+    });
+
+    it("IsNotBetween returns the proper validator when the precondition is not in the range specified", () => {
+        let localVar: number = 75;
+
+        let startRange: number = 60;
+        let endRange: number = 100;
+
+        expect( () => {
+            Contract.In(localVar).IsNotBetween(startRange, endRange);
+
+        }).toThrowError(<any>RangeError);
+
+    });
+
 });

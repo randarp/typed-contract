@@ -457,6 +457,22 @@ var NumberValidator = (function (_super) {
             return this;
         }
     };
+    NumberValidator.prototype.IsBetween = function (startRange, endRange) {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
+            return this;
+        }
+        else {
+            throw new RangeError(this._variableName + " should be between\n            " + startRange + " and " + endRange + ", but the value of\n            " + this._variableValue + " is not in that range");
+        }
+    };
+    NumberValidator.prototype.IsNotBetween = function (startRange, endRange) {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
+            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
+        }
+        else {
+            return this;
+        }
+    };
     return NumberValidator;
 })(BaseValidator);
 /// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
@@ -675,14 +691,31 @@ var Contract;
         else if (typeof precondition === "number" || precondition === null || precondition === undefined) {
             return new NumberValidator(precondition, name);
         }
-        else if (precondition instanceof Array || precondition instanceof Array === null || precondition instanceof Array === undefined) {
+        else if (precondition instanceof Array ||
+            precondition instanceof Array === null
+            || precondition instanceof Array === undefined) {
             return new ArrayValidator(precondition, name);
         }
         return undefined;
     }
     Contract.In = In;
-    function Out(postcondition) {
-        return true;
+    function Out(postcondition, name) {
+        if (name === void 0) { name = undefined; }
+        if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
+            return new StringValidator(postcondition, name);
+        }
+        else if (typeof postcondition === "boolean" || postcondition === null || postcondition === undefined) {
+            return new BooleanValidator(postcondition, name);
+        }
+        else if (typeof postcondition === "number" || postcondition === null || postcondition === undefined) {
+            return new NumberValidator(postcondition, name);
+        }
+        else if (postcondition instanceof Array ||
+            postcondition instanceof Array === null ||
+            postcondition instanceof Array === undefined) {
+            return new ArrayValidator(postcondition, name);
+        }
+        return undefined;
     }
     Contract.Out = Out;
 })(Contract || (Contract = {}));

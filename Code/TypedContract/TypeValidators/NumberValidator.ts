@@ -230,4 +230,24 @@ class NumberValidator extends BaseValidator<number> {
             return this;
         }
     }
+
+    public IsBetween(startRange: number, endRange: number): NumberValidator {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
+            return this;
+        } else {
+            throw new RangeError(`${this._variableName} should be between
+            ${startRange} and ${endRange}, but the value of
+            ${this._variableValue} is not in that range`);
+        }
+
+    }
+
+    public IsNotBetween(startRange: number, endRange: number): NumberValidator {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
+            throw new RangeError(`${this._variableName} should not be between
+            ${startRange} and ${endRange}, but the value of ${this._variableValue} is in that range`);
+        } else {
+            return this;
+        }
+    }
 }
