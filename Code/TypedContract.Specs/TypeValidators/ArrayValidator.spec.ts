@@ -319,6 +319,15 @@ describe("ArrayValidator", () => {
         }).toThrowError(<any>RangeError);
     });
 
+    it("IsLengthLessThan throws an error when the lengths are equal, Out condition ", () => {
+        let localVar:  any[] = [1, 2, 3];
+        let compareTo:  any[] = [1, 2, 3];
+
+        expect(() => {
+            Contract.Out(localVar).IsLengthLessThan(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
     it("IsLengthLessThan throws an error when the lengths are equal of two different array types", () => {
         let localVar:  any[] = ["1", "2", "3"];
         let compareTo:  any[] = [1, 2, 3];
@@ -352,7 +361,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3];
 
         let result: ArrayValidator = Contract.In(localVar).IsLengthNotLessThan(compareTo);
-
+        
         expect(result);
 
     });
