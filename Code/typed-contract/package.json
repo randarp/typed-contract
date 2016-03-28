@@ -2,7 +2,7 @@
   "name": "typed-contract",
   "version": "1.0.0",
   "description": "A wonderfully simple, yet powerful TypeScript and JavaScript code contract library",
-  "main": "typed-contract.d.ts",
+  "main": "karma.chrome.conf.js",
   "dependencies": {
     "typescript": "^1.7.5"
   },

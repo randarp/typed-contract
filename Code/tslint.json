@@ -25,7 +25,7 @@
     "label-position": true,
     "label-undefined": true,
     "max-line-length": [
-      false,
+      false ,
       140
     ],
     "member-access": true,
@@ -86,7 +86,7 @@
     "semicolon": true,
     "switch-default": true,
     "trailing-comma": [
-      true,
+      false,
       {
         "multiline": "always",
         "singleline": "never"

@@ -350,8 +350,7 @@ describe("StringValidator", () => {
 
     });
 
-    it("IsLengthLessOrEqual to returns the proper validator when given a" +
-        " precondition that is less than in length than the comparable", () => {
+    it("IsLengthLessOrEqual to returns the proper validator when given a precondition that is less than in length than the comparable", () => {
 
         let localVar: string = "Andre";
         let compareTo: string = "Randar";
