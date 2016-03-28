@@ -350,7 +350,8 @@ describe("StringValidator", () => {
 
     });
 
-    it("IsLengthLessOrEqual to returns the proper validator when given a precondition that is less than in length than the comparable", () => {
+    it("IsLengthLessOrEqual to returns the proper validator when given a" +
+        " precondition that is less than in length than the comparable", () => {
 
         let localVar: string = "Andre";
         let compareTo: string = "Randar";
@@ -360,7 +361,8 @@ describe("StringValidator", () => {
         expect(result);
     });
 
-    it("IsLengthLessOrEqual to returns the proper validator when given a precondition that is equal than in length than the comparable", () => {
+    it("IsLengthLessOrEqual to returns the proper validator when given a precondition " +
+        "that is equal than in length than the comparable", () => {
 
         let localVar: string = "Andre";
         let compareTo: string = "Andre";
@@ -447,7 +449,7 @@ describe("StringValidator", () => {
         expect(result);
     });
 
-    it("ToMatch returns true when given the proper regular expression with multiline matching", () => {
+    it("ToMatch returns true when given the proper regular expression with multiple line matching", () => {
         let localVar: string = "Hello my name" +
             " is andre and I am the guy who created this spec";
         let regExp: any = /andre/i;
@@ -577,7 +579,8 @@ describe("StringValidator", () => {
         expect(result);
     });
 
-    it("NotContains returns the proper valuidator when given a string that does not contain the same characters as the contract precondition", () => {
+    it("NotContains returns the proper valuidator when given a string that does" +
+        " not contain the same characters as the contract precondition", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "Contract";
 
@@ -586,7 +589,8 @@ describe("StringValidator", () => {
         expect(result);
     });
 
-    it("NotContains returns the proper validator when given a string that does not contain the same characters as the contract precondition", () => {
+    it("NotContains returns the proper validator when given a string" +
+        "that does not contain the same characters as the contract precondition", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "Contract";
 
@@ -595,7 +599,8 @@ describe("StringValidator", () => {
         expect(result);
     });
 
-    it("NotContains returns the proper validator when given a string that does not contain the same characters as the contract precondition in capitals", () => {
+    it("NotContains returns the proper validator when given a string that does " +
+        "not contain the same characters as the contract precondition in capitals", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "ANDRE";
 
@@ -633,7 +638,8 @@ describe("StringValidator", () => {
         }).toThrowError(<any>RangeError);
     });
 
-    it("StartsWith returns the proper validator when given a string that starts with the same characters as the contract precondition", () => {
+    it("StartsWith returns the proper validator when given a string " +
+        "that starts with the same characters as the contract precondition", () => {
 
         let localVar: string = "The Lazy Brown Dog Jumped Over The Fence";
         let compareTo: string = "The Lazy Brown Dog Jumped Over The Fence";
