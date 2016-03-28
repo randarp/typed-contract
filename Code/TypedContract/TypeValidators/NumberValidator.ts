@@ -158,7 +158,8 @@ class NumberValidator extends BaseValidator<number> {
         }
         /**
          *
-         * IsNotGreaterOrEqualThan checks if the number variable is not greater or equal than the parameter passed into the function as an argument
+         * IsNotGreaterOrEqualThan checks if the number variable is not greater or equal than the
+         * parameter passed into the function as an argument
          * @throws RangeError if the number variable is equal or greater than parameter passed into the function
          * @param compareTo
          * @returns {NumberValidator}

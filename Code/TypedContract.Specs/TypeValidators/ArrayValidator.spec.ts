@@ -37,7 +37,8 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [{
             a: function () {
                 return null;
-            }}, {b: "A"}, {c: 1}];
+            }}, {b: "A"}, {c: 1
+        }];
 
         let result: ArrayValidator = Contract.In(localVar).IsNotNull();
 
@@ -361,7 +362,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3];
 
         let result: ArrayValidator = Contract.In(localVar).IsLengthNotLessThan(compareTo);
-        
+
         expect(result);
 
     });

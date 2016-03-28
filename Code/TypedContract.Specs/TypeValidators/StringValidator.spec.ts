@@ -800,7 +800,7 @@ describe("StringValidator", () => {
     });
 
 
-    it("IsNotBetween returns an error strings that are not specfying a range for the pre-condition", () => {
+    it("IsNotBetween returns an error strings that are not specifying a range for the pre-condition", () => {
         let localVar: string = "Bb";
 
         expect( () => {

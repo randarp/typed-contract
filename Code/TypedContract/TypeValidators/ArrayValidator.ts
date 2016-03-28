@@ -1,12 +1,7 @@
 /// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
-
-/*import {ReferenceError} from "../../node_modules/typescript/lib/lib";
- import  ArrayValidator from "./";
- import {RangeError} from "../../../../../Program Files
-  (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
- */
-// import {RangeError} from "../../../../../Program Files
-// (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
+// import {ReferenceError} from "../../node_modules/typescript/lib/lib";
+// import {RangeError} from "../../../../../Program Files(x86)/JetBrains/
+// webStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 
 class  ArrayValidator extends BaseValidator <any[]> {
     private count: number;
@@ -96,7 +91,7 @@ class  ArrayValidator extends BaseValidator <any[]> {
      */
 
     public IsEqualTo(compareTo: any[], index: number): ArrayValidator {
-        if (compareTo.length  === 0 || this._variableValue.length === 0) {
+        if (!compareTo.length || this._variableValue.length === 0) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
         }
@@ -116,8 +111,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
      */
 
     public IsNotEqualTo(compareTo: any[], index: number): ArrayValidator {
-        if (compareTo.length  === 0 || this._variableValue.length === 0) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+        if (!compareTo.length  || !this._variableValue.length) {
+            throw new RangeError("Can't compare the length's of uninitialized arrays," +
+                " please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue[index] === compareTo[index]) {
             throw new RangeError(`${this._variableName} should be equal to array variable ${compareTo} at the index ${index}`);
@@ -135,7 +131,7 @@ class  ArrayValidator extends BaseValidator <any[]> {
      */
 
     public IsLengthGreaterThan(compareTo: any[]): ArrayValidator {
-        if (compareTo.length  === 0 || this._variableValue.length === 0) {
+        if (!compareTo.length || !this._variableValue.length) {
         throw new RangeError("Can't compare the length's of uninitialized arrays, " +
             "please append values to the array's in the instance of this TypedContract");
        }
@@ -156,8 +152,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
      */
 
     public IsLengthNotGreaterThan(compareTo: any[]): ArrayValidator {
-        if (compareTo.length  === 0 || this._variableValue.length === 0) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract");
+        if (!compareTo.length || !this._variableValue.length ) {
+            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
+                "please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue.length <= compareTo.length) {
             return this;
@@ -177,7 +174,7 @@ class  ArrayValidator extends BaseValidator <any[]> {
      */
 
     public IsLengthGreaterOrEqualTo(compareTo: any[]): ArrayValidator {
-        if (compareTo.length  === 0 || this._variableValue.length === 0) {
+        if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
                 "please append values to the array's in the instance of this TypedContract");
         }
@@ -199,7 +196,7 @@ class  ArrayValidator extends BaseValidator <any[]> {
      */
 
     public IsLengthNotGreaterOrEqualTo(compareTo: any[]):  ArrayValidator {
-        if (compareTo.length  === 0 || this._variableValue.length === 0) {
+        if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
                 "please append values to the array's in the instance of this TypedContract");
         }
@@ -221,7 +218,7 @@ class  ArrayValidator extends BaseValidator <any[]> {
      */
 
     public IsLengthLessThan(compareTo: any[]):  ArrayValidator {
-        if (compareTo.length  === 0 || this._variableValue.length === 0) {
+        if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
         }
@@ -243,7 +240,7 @@ class  ArrayValidator extends BaseValidator <any[]> {
      */
 
     public IsLengthNotLessThan(compareTo: any[]):  ArrayValidator {
-        if (compareTo.length  === 0 || this._variableValue.length === 0) {
+        if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
         }
@@ -264,7 +261,7 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * @returns { ArrayValidator}
      */
     public IsLengthLessOrEqualThan(compareTo: any[]):  ArrayValidator {
-        if (compareTo.length  === 0 || this._variableValue.length === 0) {
+        if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
         }
@@ -286,11 +283,11 @@ class  ArrayValidator extends BaseValidator <any[]> {
      */
 
     public IsLengthNotLessOrEqualThan(compareTo: any[]): ArrayValidator {
-         if (compareTo.length  === 0 || this._variableValue.length === 0) {
+         if (!compareTo.length || !this._variableValue.length) {
                 throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                     "please append values to the array's in the instance of this TypedContract");
         }
-        if (this._variableValue.length <= compareTo.length) {
+         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(`${this._variableName} should not have a
              length less or equal to ${compareTo.length} but is ${this._variableValue.length}`);
         } else {
@@ -311,7 +308,7 @@ class  ArrayValidator extends BaseValidator <any[]> {
     public Contains(compareTo: any[]): ArrayValidator {
         this.count = 0;
 
-        if (compareTo.length === 0 || this._variableValue.length === 0) {
+        if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError(`The length of either your contract precondition
             or comparable have a length of zero, please enter in values`);
         }
