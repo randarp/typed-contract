@@ -32,6 +32,16 @@ module Contract {
         return undefined;
     }
 
+    export function Out(precondition: string): StringValidator;
+    export function Out(precondition: string, name: string): StringValidator;
+    export function Out(precondition: boolean): BooleanValidator;
+    export function Out(precondition: boolean, name: string): BooleanValidator;
+    export function Out(precondition: number): NumberValidator;
+    export function Out(precondition: number, name: string): NumberValidator;
+    export function Out(precondition: any[]): ArrayValidator;
+    export function Out(precondition: any[], name: string): ArrayValidator;
+
+
     export function Out(postcondition: any, name: string = undefined): any {
         if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
             return new StringValidator(postcondition, name);
