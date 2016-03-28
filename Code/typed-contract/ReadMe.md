@@ -11,21 +11,19 @@ JavaScript has quickly become the most popular programming language in the last 
  (Clears *throat*)
  
  <em>The simple definition of what TypeScript is, is this.... </em><br/>
- "TypeScript is a superset of JavaScript which primarily provides optional static typing, classes and interfaces. This allows much more insightful and transparent JavaScript and TypeScript application development. Allowing Integrated Development Environments to provide a richer environment for spotting common errors as you type and build your application." - <em> Ande Fischbacher</em>
+ "TypeScript is a superset of JavaScript which primarily provides optional static typing, classes and interfaces. This allows much more insightful and transparent JavaScript and TypeScript application development. Allowing Integrated Development Environments to provide a richer environment for spotting common errors as you type and build your application." - <em> Andre Fischbacher</em>
 
-<h3> What is a Code Contract anyways, and why would I want to use one ? </h3>
-By professional definition : 
+<h3> What is a Code Contract anyways, and why would I want to use one ? </h3> 
 
-"Code contracts provide a way to specify preconditions, postconditions, and object invariants in your code. Preconditions are requirements that must be met when entering a method or property. Postconditions describe expectations at the time the method or property code exits. Object invariants describe the expected state for a class that is in a good state." - <em> Microsoft Developer Network</em>
+Code contracts allow you to ensure that your intentions for any property or method are ensured using a code contract. When you are developing an application you can list and specify as many preconditions and postconditions in your code as needed. In TypedContract preconditions are strict requirements that must be met when entering executing an application at runtime. Postconditions describe expectations at the time the method or property code exits at runtime.
 
 TypedContract allows you to set pre and postconditions in your code to check for certain invariants that you set while writing out a TypedContract. Once you execute a project, a set of classes or functions, the TypedContract can then check that every condition successfully passes, which allows your intentions when building your app to run as smooth as butter. 
 
-<!-- This will change before launch --> 
 TypedContract will allow you and your projects to have more descriptive syntax for your variables, functions, interfaces and classes
 <h3> How to implement into your project </h3>
 TypedContract can be used in either JavaScript or TypeScript environments so the freedom of choice is always yours.
 Just open your BASH, Command Line or Terminal and type in
-<code> npm install -g typed-contract --save-dev</code> to get it into your current project or....
+<code> npm install typed-contract --save-dev</code> to get it into your current project or....
  you can use any variation of commands to get it into your project as long as you include <code>npm install typed-contract</code>
 
 <h3> How do I use a code contract in TypeScript ?</h3> 
@@ -43,8 +41,7 @@ IsNotLessThan(3);
 
 and the same goes for postconditions as well 
 
-<code>
-myVar: number = 3.14159265359;
+<code>myVar: number = 3.14159265359;
 ...... // code being written
 Contract.Out(myVar, "PI").
 IsNotNull().
