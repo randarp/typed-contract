@@ -19,7 +19,7 @@ var BaseValidator = (function () {
     };
     return BaseValidator;
 })();
-/// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
+/// <reference path="../TypeValidators/BaseValidator.ts" />
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -248,7 +248,7 @@ var StringValidator = (function (_super) {
     };
     return StringValidator;
 })(BaseValidator);
-/// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
+/// <reference path="../TypeValidators/BaseValidator.ts" />
 var BooleanValidator = (function (_super) {
     __extends(BooleanValidator, _super);
     function BooleanValidator(variableValue, variableName) {
@@ -329,7 +329,7 @@ var BooleanValidator = (function (_super) {
     ;
     return BooleanValidator;
 })(BaseValidator);
-/// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
+/// <reference path="../TypeValidators/BaseValidator.ts" />
 var NumberValidator = (function (_super) {
     __extends(NumberValidator, _super);
     function NumberValidator(variableValue, variableName) {
@@ -473,7 +473,7 @@ var NumberValidator = (function (_super) {
     };
     return NumberValidator;
 })(BaseValidator);
-/// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
+/// <reference path="../TypeValidators/BaseValidator.ts" />
 var ArrayValidator = (function (_super) {
     __extends(ArrayValidator, _super);
     function ArrayValidator(variableValue, variableName) {

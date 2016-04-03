@@ -1,5 +1,4 @@
-/// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
-
+/// <reference path="../TypeValidators/BaseValidator.ts" />
 
 class StringValidator extends BaseValidator<string> {
 
