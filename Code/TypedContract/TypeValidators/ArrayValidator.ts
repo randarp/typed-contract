@@ -1,7 +1,4 @@
 /// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
-// import {ReferenceError} from "../../node_modules/typescript/lib/lib";
-// import {RangeError} from "../../../../../Program Files(x86)/JetBrains/
-// webStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 
 class  ArrayValidator extends BaseValidator <any[]> {
     private count: number;

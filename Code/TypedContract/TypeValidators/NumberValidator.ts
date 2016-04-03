@@ -1,11 +1,5 @@
 /// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
 
-/*import {RangeError} from "../../../../../Program Files (x86)/
-JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
-import NumberValidator from "./"; */
-//import {ReferenceError} from "../../../../../
-// Program Files (x86)/JetBrains/WebStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
-
 class NumberValidator extends BaseValidator<number> {
 
         constructor(variableValue: number, variableName: string) {

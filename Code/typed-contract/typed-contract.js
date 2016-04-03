@@ -1,3 +1,6 @@
+/**
+ * Encapsulates any validators that apply to every type and state used by the validation chain.
+ */
 var BaseValidator = (function () {
     function BaseValidator(variableValue, variableName) {
         this._variableValue = variableValue;
@@ -471,9 +474,6 @@ var NumberValidator = (function (_super) {
     return NumberValidator;
 })(BaseValidator);
 /// <reference path="C:\Projects\TypedContract\Code\TypedContract\TypeValidators\BaseValidator.ts" />
-// import {ReferenceError} from "../../node_modules/typescript/lib/lib";
-// import {RangeError} from "../../../../../Program Files(x86)/JetBrains/
-// webStorm 11.0/plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 var ArrayValidator = (function (_super) {
     __extends(ArrayValidator, _super);
     function ArrayValidator(variableValue, variableName) {

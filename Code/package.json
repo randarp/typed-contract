@@ -2,7 +2,7 @@
   "name": "typed-contract",
   "version": "1.0.0",
   "description": "A wonderfully simple, yet powerful TypeScript and JavaScript code contract library",
-  "main": "karma.chrome.conf.js",
+  "main": "typed-contract.js",
   "dependencies": {
     "typescript": "^1.7.5"
   },
@@ -22,7 +22,8 @@
     "code-contract",
     "npm code contract",
     "TypeScript code contract",
-    "JavaScript code contract"
+    "JavaScript code contract",
+    "code contract library"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
