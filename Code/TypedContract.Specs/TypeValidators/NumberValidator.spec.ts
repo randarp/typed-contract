@@ -57,7 +57,7 @@ describe("NumberValidator", () => {
         let result: NumberValidator = Contract.In(localVar).IsDefined();
 
         // assert
-        expect(localVar).toBeDefined();
+        expect(result).toBeDefined();
 
     });
 
@@ -132,7 +132,7 @@ describe("NumberValidator", () => {
         expect(result);
     });
 
-    it("IsGreaterThan returns the proper validator when given a value that is greater than the precondition", ()=> {
+    it("IsGreaterThan returns the proper validator when given a value that is greater than the precondition", () => {
 
         let localVar: number = 1;
         let compareTo: number = 0;
@@ -401,8 +401,7 @@ describe("NumberValidator", () => {
 
     });
 
-    it("IsNotBetween returns the proper validator when the precondition" +
-        " is not in the range specified using double values", () => {
+    it("IsNotBetween returns the proper validator when the precondition is not in the range specified using double values", () => {
         let localVar: number = 99.1;
 
         let startRange: number = 100;
