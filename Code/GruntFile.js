@@ -49,5 +49,5 @@ module.exports = function(grunt){
         console.log("Published, Yaay!");
     });
 
-    grunt.task.registerTask("set-up",["uglify","copy","publish"]);
+    grunt.task.registerTask("release and set-up",["uglify","copy","publish"]);
 };
