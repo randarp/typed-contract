@@ -23,8 +23,8 @@ TypedContract will allow you and your projects to have more descriptive syntax f
 <h3> How to implement into your project </h3>
 TypedContract can be used in either JavaScript or TypeScript environments so the freedom of choice is always yours.
 Just open your BASH, Command Line or Terminal and type in
-<code> npm install typed-contract --save-dev</code> to get it into your current project or....
- you can use any variation of commands to get it into your project as long as you include <code>npm install typed-contract</code>
+<code> npm install -g typed-contract --save-dev</code> to get it into your current project or....
+ you can use any variation of commands to get it into your project as long as you include <code>npm install -g typed-contract</code>
 
 <h3> How do I use a code contract in TypeScript ?</h3> 
 It's pretty simple really, once it is in your project and it's included in you node modules folder. You then should be able to use it in almost any function or class as you code your way through your project.
