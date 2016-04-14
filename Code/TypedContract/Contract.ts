@@ -3,7 +3,7 @@
 /// <reference path="TypeValidators\NumberValidator.ts" />
 /// <reference path="TypeValidators\ArrayValidator.ts" />
 
-module Contract {
+  module Contract {
     "use strict";
 
     export function In(precondition: string): StringValidator;
@@ -57,3 +57,5 @@ module Contract {
         return undefined;
     }
 }
+ declare var module: any;
+ (module).exports = Contract;
