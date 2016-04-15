@@ -83,6 +83,7 @@ Here are the list of the classes that are included in this npm module, and were 
 <li>ArrayValidator</li>
 <li>NumberValidator</li>
 <li>StringValidator</li>
+<li>AnyValidator</li>
 </ul>
 
 <h4 id="docs"> Functions </h4>
