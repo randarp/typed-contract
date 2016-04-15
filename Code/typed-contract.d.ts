@@ -117,3 +117,4 @@ declare module Contract {
     function Out(postcondition: any, name: string): AnyValidator;
     function Out(postcondition: any): AnyValidator;
 }
+declare var module: any;

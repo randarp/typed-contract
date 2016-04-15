@@ -775,4 +775,5 @@ var Contract;
     }
     Contract.Out = Out;
 })(Contract || (Contract = {}));
+module.exports = Contract;
 //# sourceMappingURL=typed-contract.js.map

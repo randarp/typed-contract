@@ -63,5 +63,5 @@
     }
 }
 
- // declare var module: any;
- // module.exports = Contract;
+ declare var module: any;
+ module.exports = Contract;

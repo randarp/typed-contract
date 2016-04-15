@@ -54,7 +54,7 @@ var StringValidator = (function (_super) {
             return this;
         }
     };
-    StringValidator.prototype.IsNotDefined = function () {
+    StringValidator.prototype.IsUndefined = function () {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this._variableName + " should not be defined");
         }
@@ -673,4 +673,107 @@ var ArrayValidator = (function (_super) {
     };
     return ArrayValidator;
 })(BaseValidator);
+/**
+ * Created by Andre on 4/14/2016.
+ */
+/// <reference path="BaseValidator.ts" />
+var AnyValidator = (function (_super) {
+    __extends(AnyValidator, _super);
+    function AnyValidator() {
+        _super.apply(this, arguments);
+    }
+    AnyValidator.prototype.IsNotNull = function () {
+        if (this._variableValue === null) {
+            throw new ReferenceError(this._variableName + " should not be null");
+        }
+        else {
+            return this;
+        }
+    };
+    AnyValidator.prototype.IsNull = function () {
+        if (this._variableValue !== null) {
+            throw new ReferenceError(this._variableName + " should be null");
+        }
+        else {
+            return this;
+        }
+    };
+    AnyValidator.prototype.IsDefined = function () {
+        if (typeof this._variableValue === "undefined") {
+            throw new ReferenceError(this._variableName + " should be defined");
+        }
+        else {
+            return this;
+        }
+    };
+    AnyValidator.prototype.IsUndefined = function () {
+        if (typeof this._variableValue !== "undefined") {
+            throw new ReferenceError(this._variableName + " should not be defined");
+        }
+        else {
+            return this;
+        }
+    };
+    AnyValidator.prototype.IsNullOrUndefined = function () {
+        if (this._variableValue === null || typeof this._variableValue === undefined) {
+            throw new ReferenceError(this._variableName + " should not be null or undefined");
+        }
+        else {
+            return this;
+        }
+    };
+    return AnyValidator;
+})(BaseValidator);
+/// <reference path="TypeValidators\StringValidator.ts" />
+/// <reference path="TypeValidators\BooleanValidator.ts" />
+/// <reference path="TypeValidators\NumberValidator.ts" />
+/// <reference path="TypeValidators\ArrayValidator.ts" />
+/// <reference path="TypeValidators\AnyValidator.ts" />
+var Contract;
+(function (Contract) {
+    "use strict";
+    function In(precondition, name) {
+        if (name === void 0) { name = undefined; }
+        if (typeof precondition === "string" || precondition === null || precondition === undefined) {
+            return new StringValidator(precondition, name);
+        }
+        else if (typeof precondition === "boolean" || precondition === null || precondition === undefined) {
+            return new BooleanValidator(precondition, name);
+        }
+        else if (typeof precondition === "number" || precondition === null || precondition === undefined) {
+            return new NumberValidator(precondition, name);
+        }
+        else if (precondition instanceof Array ||
+            precondition instanceof Array === null
+            || precondition instanceof Array === undefined) {
+            return new ArrayValidator(precondition, name);
+        }
+        else {
+            return new AnyValidator(precondition, name);
+        }
+    }
+    Contract.In = In;
+    function Out(postcondition, name) {
+        if (name === void 0) { name = undefined; }
+        if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
+            return new StringValidator(postcondition, name);
+        }
+        else if (typeof postcondition === "boolean" || postcondition === null || postcondition === undefined) {
+            return new BooleanValidator(postcondition, name);
+        }
+        else if (typeof postcondition === "number" || postcondition === null || postcondition === undefined) {
+            return new NumberValidator(postcondition, name);
+        }
+        else if (postcondition instanceof Array ||
+            postcondition instanceof Array === null ||
+            postcondition instanceof Array === undefined) {
+            return new ArrayValidator(postcondition, name);
+        }
+        else {
+            return new AnyValidator(postcondition, name);
+        }
+    }
+    Contract.Out = Out;
+})(Contract || (Contract = {}));
+module.exports = Contract;
 //# sourceMappingURL=typed-contract.js.map
