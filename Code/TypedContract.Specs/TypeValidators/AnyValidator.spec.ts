@@ -14,6 +14,7 @@ describe("AnyValidator", () => {
         expect(result);
     });
 
+
     it("IsNotNull returns the right validator", () => {
         // arrange
         let localVariable: any = "A string";
@@ -100,4 +101,13 @@ describe("AnyValidator", () => {
 
     });
 
+    it("IsNotNull on an HTMLDivElement type for an AnyValidator", () => {
+        let localVar: HTMLDivElement = document.createElement('div');
+
+        localVar.innerHTML = "Hello World";
+
+        let result: AnyValidator = Contract.In(localVar).IsNotNull();
+
+        expect(result).not.toBe(null);
+    });
 });
