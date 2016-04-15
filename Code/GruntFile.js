@@ -18,7 +18,7 @@ module.exports = function(grunt){
         copy:{
             files:{
                 cwd: 'C:/Projects/TypedContract/Code/',
-                src: ["typed-contract.d.ts",
+                src: [
                     "typed-contract.js",
                     "package.json",
                     "typed-contract.js.map",
@@ -34,8 +34,8 @@ module.exports = function(grunt){
                 options: {
                     bump: true,
                     file: 'package.json',
-                    push: true,
-                    pushTags: true,
+                    push:false,
+                    pushTags: false,
                     npm: true,
                     npmtag: false,
                     folder: 'C:Projects/TypedContract/Code/typed-contract',
@@ -49,5 +49,5 @@ module.exports = function(grunt){
         console.log("Published, Yaay!");
     });
 
-    grunt.task.registerTask("release and set-up",["uglify","copy","publish"]);
+    grunt.task.registerTask("release and set-up",["uglify","copy","npmrelease"]);
 };
