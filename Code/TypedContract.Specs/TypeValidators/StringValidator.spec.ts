@@ -70,7 +70,7 @@ describe("StringValidator", () => {
     it("IsNotDefined return the proper result", () => {
         let localVar: string = undefined;
 
-        let result: StringValidator = Contract.In(localVar).IsNotDefined();
+        let result: StringValidator = Contract.In(localVar).IsUndefined();
 
         expect(result);
     });

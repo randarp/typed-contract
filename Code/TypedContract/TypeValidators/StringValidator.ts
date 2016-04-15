@@ -57,7 +57,7 @@ class StringValidator extends BaseValidator<string> {
      * @returns {StringValidator}
      */
 
-    public IsNotDefined(): StringValidator {
+    public IsUndefined(): StringValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be defined`);
         } else {

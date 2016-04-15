@@ -10,7 +10,7 @@ declare class StringValidator extends BaseValidator<string> {
     IsNotNull(): StringValidator;
     IsNull(): StringValidator;
     IsDefined(): StringValidator;
-    IsNotDefined(): StringValidator;
+    IsUndefined(): StringValidator;
     IsNullOrUndefined(): StringValidator;
     IsEqualTo(compareTo: string): StringValidator;
     IsNotEqualTo(compareTo: string): StringValidator;
@@ -88,6 +88,13 @@ declare class ArrayValidator extends BaseValidator<any[]> {
     Contains(compareTo: any[]): ArrayValidator;
     NotContains(compareTo: any[]): ArrayValidator;
 }
+declare class AnyValidator extends BaseValidator<any> {
+    IsNotNull(): AnyValidator;
+    IsNull(): AnyValidator;
+    IsDefined(): AnyValidator;
+    IsUndefined(): AnyValidator;
+    IsNullOrUndefined(): AnyValidator;
+}
 declare module Contract {
     function In(precondition: string): StringValidator;
     function In(precondition: string, name: string): StringValidator;
@@ -97,13 +104,16 @@ declare module Contract {
     function In(precondition: number, name: string): NumberValidator;
     function In(precondition: any[]): ArrayValidator;
     function In(precondition: any[], name: string): ArrayValidator;
-    function Out(precondition: string): StringValidator;
-    function Out(precondition: string, name: string): StringValidator;
-    function Out(precondition: boolean): BooleanValidator;
-    function Out(precondition: boolean, name: string): BooleanValidator;
-    function Out(precondition: number): NumberValidator;
-    function Out(precondition: number, name: string): NumberValidator;
-    function Out(precondition: any[]): ArrayValidator;
-    function Out(precondition: any[], name: string): ArrayValidator;
+    function In(precondition: any, name: string): AnyValidator;
+    function In(precondition: any): AnyValidator;
+    function Out(postcondition: string): StringValidator;
+    function Out(postcondition: string, name: string): StringValidator;
+    function Out(postcondition: boolean): BooleanValidator;
+    function Out(postcondition: boolean, name: string): BooleanValidator;
+    function Out(postcondition: number): NumberValidator;
+    function Out(postcondition: number, name: string): NumberValidator;
+    function Out(postcondition: any[]): ArrayValidator;
+    function Out(postcondition: any[], name: string): ArrayValidator;
+    function Out(postcondition: any, name: string): AnyValidator;
+    function Out(postcondition: any): AnyValidator;
 }
-declare var module: any;
