@@ -316,5 +316,5 @@ compareTo: string = "typing";
 * NotEndsWith - Checks if the variable passed into the TypedContract as a pre or post condition does not end with a certain value, which is specified in the argument passed into the function. The TypedContract will throw an error if the pre or post condition does end with the value passed into the function as an argument. 
 `myVar: string = "This is a TypeScript Library";
  compareTo: string= "Library";
- Contract.In(myVar).EndsWith(compareTo);
+ Contract.In(myVar).NotEndsWith(compareTo);
 // throws a RangeError`
