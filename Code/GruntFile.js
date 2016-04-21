@@ -8,6 +8,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks("grunt-contrib-copy");
 
     grunt.initConfig({
+
         uglify: {
             dev: {
                 files: {
@@ -32,7 +33,7 @@ module.exports = function(grunt){
         },
             npmrelease: {
                 options: {
-                    bump: true,
+                    bump: false,
                     file: 'package.json',
                     push:false,
                     pushTags: false,
@@ -49,5 +50,5 @@ module.exports = function(grunt){
         console.log("Published, Yaay!");
     });
 
-    grunt.task.registerTask("release and set-up",["uglify","copy","npmrelease"]);
+    grunt.task.registerTask("release and set-up",["uglify","copy"]);
 };

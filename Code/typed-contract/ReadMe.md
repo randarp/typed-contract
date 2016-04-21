@@ -23,14 +23,17 @@ TypedContract will allow you and your projects to have more descriptive syntax f
 <h3> How to implement into your project </h3>
 TypedContract can be used in either JavaScript or TypeScript environments so the freedom of choice is always yours.
 Just open your BASH, Command Line or Terminal and type in
-<code> npm install typed-contract --save-dev</code> to get it into your current project or....
+<code> npm install typed-contract --save</code> to get it into your current project or....
  you can use any variation of commands to get it into your project as long as you include <code>npm install typed-contract</code>
-
+Once it is in your node_modules folder, then use your <code> require()</code> commonjs function, which look something like this <code> var Contract = require('typed-contract');</code>
 <h3> How do I use a code contract in TypeScript ?</h3> 
-It's pretty simple really, once it is in your project and it's included in you node modules folder. You then should be able to use it in almost any function or class as you code your way through your project.
+It's pretty simple really, once it is in your project and it's included in you node modules folder and you have used
+the <code> require() </code> function your ready to use TypedContract. You then should be able to use it in almost any function or class as you code your way through your project.
 
 Here is an example of what a TypedContract looks like...
 <code>
+var Contract = require('typed-contract');
+...some fancy code...
 myVar: number = 3.14159265359;
 Contract.In(myVar, "PI").
 IsNotNull().
@@ -41,7 +44,9 @@ IsNotLessThan(3);
 
 and the same goes for postconditions as well 
 
-<code>myVar: number = 3.14159265359;
+<code>
+var Contract = require('typed-contract');
+myVar: number = 3.14159265359;
 ...... // code being written
 Contract.Out(myVar, "PI").
 IsNotNull().
@@ -83,7 +88,9 @@ Here are the list of the classes that are included in this npm module, and were 
 <li>ArrayValidator</li>
 <li>NumberValidator</li>
 <li>StringValidator</li>
+<li>AnyValidator </li>
 </ul>
+and many more to come.....
 
 <h4 id="docs"> Functions </h4>
 <h5><strong>This section of documentation outlines the purpose and functionality of each function built into the library <em>regardless</em> of data type or class. But if there is a function (which there is) that has the same name but different implementation based on the data type, both examples and documentation will be listed accordingly. </strong></h5>
@@ -315,5 +322,5 @@ compareTo: string = "typing";
 * NotEndsWith - Checks if the variable passed into the TypedContract as a pre or post condition does not end with a certain value, which is specified in the argument passed into the function. The TypedContract will throw an error if the pre or post condition does end with the value passed into the function as an argument. 
 `myVar: string = "This is a TypeScript Library";
  compareTo: string= "Library";
- Contract.In(myVar).EndsWith(compareTo);
+ Contract.In(myVar).NotEndsWith(compareTo);
 // throws a RangeError`

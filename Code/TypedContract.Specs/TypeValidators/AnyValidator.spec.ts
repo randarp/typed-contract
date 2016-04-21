@@ -1,8 +1,9 @@
 /**
  * Created by Andre on 4/14/2016.
  */
+/// <reference path="..\..\TypedContract\TypeValidators\AnyValidator.ts" />
 /// <reference path="..\..\TypedContract\Contract.ts" />
-/// <reference path="..\..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
+/// <reference path="..\..\Typings\http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
 describe("AnyValidator", () => {
 
@@ -101,10 +102,18 @@ describe("AnyValidator", () => {
 
     });
 
-    it("IsNotNull on an HTMLDivElement type for an AnyValidator", () => {
-        let localVar: HTMLDivElement = document.createElement('div');
+    it("IsNotNull on an MouseEvent type for an AnyValidator to return true", () => {
+       let divElement: HTMLElement = document.createElement("div");
 
-        localVar.innerHTML = "Hello World";
+       let localVar: void = divElement.addEventListener("click", (e: MouseEvent) => {e.preventDefault(); }, false);
+
+       let result: AnyValidator = Contract.In(localVar).IsNotNull();
+
+       expect(result).not.toBe(null);
+    });
+
+    it("IsNotNull on an anonymous function for an AnyValidator", () => {
+        let localVar: any = () => {var x = 1; return x; };
 
         let result: AnyValidator = Contract.In(localVar).IsNotNull();
 

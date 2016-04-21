@@ -89,11 +89,22 @@ declare class ArrayValidator extends BaseValidator<any[]> {
     NotContains(compareTo: any[]): ArrayValidator;
 }
 declare class AnyValidator extends BaseValidator<any> {
+    constructor(variableValue: any, variableName: string);
     IsNotNull(): AnyValidator;
     IsNull(): AnyValidator;
     IsDefined(): AnyValidator;
     IsUndefined(): AnyValidator;
     IsNullOrUndefined(): AnyValidator;
+}
+declare class HTMLValidator extends BaseValidator<HTMLElement> {
+    constructor(variableValue: HTMLElement, variableName: string);
+    IsNotNull(): HTMLValidator;
+    IsNull(): HTMLValidator;
+    IsDefined(): HTMLValidator;
+    IsUndefined(): HTMLValidator;
+    IsNullOrUndefined(): HTMLValidator;
+    HasAttribute(attributeName: string): HTMLValidator;
+    NotHasAttribute(attributeName: string): HTMLValidator;
 }
 declare module Contract {
     function In(precondition: string): StringValidator;
@@ -104,6 +115,8 @@ declare module Contract {
     function In(precondition: number, name: string): NumberValidator;
     function In(precondition: any[]): ArrayValidator;
     function In(precondition: any[], name: string): ArrayValidator;
+    function In(precondition: HTMLElement): HTMLValidator;
+    function In(precondition: HTMLElement, name: string): HTMLValidator;
     function In(precondition: any, name: string): AnyValidator;
     function In(precondition: any): AnyValidator;
     function Out(postcondition: string): StringValidator;
@@ -116,5 +129,6 @@ declare module Contract {
     function Out(postcondition: any[], name: string): ArrayValidator;
     function Out(postcondition: any, name: string): AnyValidator;
     function Out(postcondition: any): AnyValidator;
+    function Out(postcondition: HTMLElement): HTMLValidator;
+    function Out(postcondition: HTMLElement, name: string): HTMLValidator;
 }
-declare var module: any;

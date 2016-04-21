@@ -679,8 +679,8 @@ var ArrayValidator = (function (_super) {
 /// <reference path="BaseValidator.ts" />
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
-    function AnyValidator() {
-        _super.apply(this, arguments);
+    function AnyValidator(variableValue, variableName) {
+        _super.call(this, variableValue, variableName);
     }
     AnyValidator.prototype.IsNotNull = function () {
         if (this._variableValue === null) {
@@ -724,11 +724,76 @@ var AnyValidator = (function (_super) {
     };
     return AnyValidator;
 })(BaseValidator);
+/// <reference path="../TypeValidators/BaseValidator.ts" />
+var HTMLValidator = (function (_super) {
+    __extends(HTMLValidator, _super);
+    function HTMLValidator(variableValue, variableName) {
+        _super.call(this, variableValue, variableName);
+    }
+    HTMLValidator.prototype.IsNotNull = function () {
+        if (this._variableValue === null) {
+            throw new ReferenceError(this._variableName + " should not be null");
+        }
+        else {
+            return this;
+        }
+    };
+    HTMLValidator.prototype.IsNull = function () {
+        if (this._variableValue !== null) {
+            throw new ReferenceError(this._variableName + " should be null");
+        }
+        else {
+            return this;
+        }
+    };
+    HTMLValidator.prototype.IsDefined = function () {
+        if (typeof this._variableValue === "undefined") {
+            throw new ReferenceError(this._variableName + " should be defined");
+        }
+        else {
+            return this;
+        }
+    };
+    HTMLValidator.prototype.IsUndefined = function () {
+        if (typeof this._variableValue !== "undefined") {
+            throw new ReferenceError(this._variableName + " should not be defined");
+        }
+        else {
+            return this;
+        }
+    };
+    HTMLValidator.prototype.IsNullOrUndefined = function () {
+        if (this._variableValue === null || typeof this._variableValue === undefined) {
+            throw new ReferenceError(this._variableName + " should not be null or undefined");
+        }
+        else {
+            return this;
+        }
+    };
+    HTMLValidator.prototype.HasAttribute = function (attributeName) {
+        if (!this._variableValue.hasAttribute(attributeName)) {
+            throw new ReferenceError(this._variableName + " does not have HTML attribute " + attributeName);
+        }
+        else {
+            return this;
+        }
+    };
+    HTMLValidator.prototype.NotHasAttribute = function (attributeName) {
+        if (this._variableValue.hasAttribute(attributeName)) {
+            throw new ReferenceError(this._variableName + " does not have HTML attribute " + attributeName);
+        }
+        else {
+            return this;
+        }
+    };
+    return HTMLValidator;
+})(BaseValidator);
 /// <reference path="TypeValidators\StringValidator.ts" />
 /// <reference path="TypeValidators\BooleanValidator.ts" />
 /// <reference path="TypeValidators\NumberValidator.ts" />
 /// <reference path="TypeValidators\ArrayValidator.ts" />
 /// <reference path="TypeValidators\AnyValidator.ts" />
+/// <reference path="TypeValidators\HTMLValidator.ts"/>
 var Contract;
 (function (Contract) {
     "use strict";
@@ -747,6 +812,9 @@ var Contract;
             precondition instanceof Array === null
             || precondition instanceof Array === undefined) {
             return new ArrayValidator(precondition, name);
+        }
+        else if (precondition.tagName) {
+            return new HTMLValidator(precondition, name);
         }
         else {
             return new AnyValidator(precondition, name);
@@ -769,11 +837,13 @@ var Contract;
             postcondition instanceof Array === undefined) {
             return new ArrayValidator(postcondition, name);
         }
+        else if (postcondition.tagName || postcondition === null || postcondition === undefined) {
+            return new HTMLValidator(postcondition, name);
+        }
         else {
             return new AnyValidator(postcondition, name);
         }
     }
     Contract.Out = Out;
 })(Contract || (Contract = {}));
-module.exports = Contract;
 //# sourceMappingURL=typed-contract.js.map

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target":"ES5",
     "module": "commonjs",
     "noImplicitAny": true,
     "removeComments": true,
@@ -9,7 +10,6 @@
     "declaration": true
   },
   "files": [
-    "Contract.ts",
-    "Contract.d.ts"
+    "Contract.ts"
   ]
 }

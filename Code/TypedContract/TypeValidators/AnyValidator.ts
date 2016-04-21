@@ -4,6 +4,10 @@
 /// <reference path="BaseValidator.ts" />
 
     class AnyValidator extends BaseValidator<any> {
+
+        constructor(variableValue: any, variableName: string) {
+            super(variableValue, variableName);
+        }
     /**
      *
      * IsNotNull checks if the type any variable is not null
