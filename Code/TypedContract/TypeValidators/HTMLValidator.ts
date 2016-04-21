@@ -75,7 +75,7 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
 
     public HasAttribute(attributeName: string): HTMLValidator {
         if (!this._variableValue.hasAttribute(attributeName)) {
-            throw new ReferenceError(`${this._variableName} does not have HTML attribute ${attributeName}`);
+            throw new ReferenceError(`${this._variableName} does not have the HTML attribute ${attributeName}`);
         } else {
             return this;
         }
@@ -83,9 +83,26 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
 
     public NotHasAttribute(attributeName: string): HTMLValidator {
         if (this._variableValue.hasAttribute(attributeName)) {
-            throw new ReferenceError(`${this._variableName} does have HTML attribute ${attributeName}`)
+            throw new ReferenceError(`${this._variableName} does have the HTML attribute ${attributeName}`);
         } else {
             return this;
         }
+    }
+
+    public HasInnerHTML(stringEval: string, regex ?: RegExp ): HTMLValidator {
+        return this;
+    }
+
+    public NotHasInnerHTML(stringEval: string, regExp ?: RegExp): HTMLValidator {
+        return this;
+    }
+
+    public OffsetHeightInRange(startRange: number, endRange: number): HTMLValidator {
+
+        return this;
+    }
+
+    public OffsetHeightNotInRange(startRange: number, endRange: number): HTMLValidator {
+        return this;
     }
 }

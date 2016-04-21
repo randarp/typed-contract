@@ -25,7 +25,7 @@ declare class StringValidator extends BaseValidator<string> {
     IsLengthLessOrEqualThan(compareTo: string): StringValidator;
     IsLengthNotLessOrEqualThan(compareTo: string): StringValidator;
     ToMatch(regExp: any): StringValidator;
-    ToNotMatch(regExp: any): StringValidator;
+    ToNotMatch(regExp: RegExp): StringValidator;
     Contains(compareTo: string): StringValidator;
     NotContains(compareTo: string): StringValidator;
     StartsWith(compareTo: string): StringValidator;
@@ -105,6 +105,10 @@ declare class HTMLValidator extends BaseValidator<HTMLElement> {
     IsNullOrUndefined(): HTMLValidator;
     HasAttribute(attributeName: string): HTMLValidator;
     NotHasAttribute(attributeName: string): HTMLValidator;
+    HasInnerHTML(stringEval: string, regex?: RegExp): HTMLValidator;
+    NotHasInnerHTML(stringEval: string, regExp?: RegExp): HTMLValidator;
+    OffsetHeightInRange(startRange: number, endRange: number): HTMLValidator;
+    OffsetHeightNotInRange(startRange: number, endRange: number): HTMLValidator;
 }
 declare module Contract {
     function In(precondition: string): StringValidator;

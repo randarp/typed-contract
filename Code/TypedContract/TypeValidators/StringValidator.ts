@@ -307,7 +307,7 @@ class StringValidator extends BaseValidator<string> {
      * @returns {StringValidator}
      */
 
-    public ToNotMatch(regExp: any): StringValidator {
+    public ToNotMatch(regExp: RegExp): StringValidator {
         if (regExp.test(this._variableValue)) {
             throw new RangeError(`${this._variableName} should not match
             the pattern ${regExp} but the value of ${this._variableValue} matches`);

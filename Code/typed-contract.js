@@ -772,7 +772,7 @@ var HTMLValidator = (function (_super) {
     };
     HTMLValidator.prototype.HasAttribute = function (attributeName) {
         if (!this._variableValue.hasAttribute(attributeName)) {
-            throw new ReferenceError(this._variableName + " does not have HTML attribute " + attributeName);
+            throw new ReferenceError(this._variableName + " does not have the HTML attribute " + attributeName);
         }
         else {
             return this;
@@ -780,11 +780,23 @@ var HTMLValidator = (function (_super) {
     };
     HTMLValidator.prototype.NotHasAttribute = function (attributeName) {
         if (this._variableValue.hasAttribute(attributeName)) {
-            throw new ReferenceError(this._variableName + " does have HTML attribute " + attributeName);
+            throw new ReferenceError(this._variableName + " does have the HTML attribute " + attributeName);
         }
         else {
             return this;
         }
+    };
+    HTMLValidator.prototype.HasInnerHTML = function (stringEval, regex) {
+        return this;
+    };
+    HTMLValidator.prototype.NotHasInnerHTML = function (stringEval, regExp) {
+        return this;
+    };
+    HTMLValidator.prototype.OffsetHeightInRange = function (startRange, endRange) {
+        return this;
+    };
+    HTMLValidator.prototype.OffsetHeightNotInRange = function (startRange, endRange) {
+        return this;
     };
     return HTMLValidator;
 })(BaseValidator);
