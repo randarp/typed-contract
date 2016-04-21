@@ -99,4 +99,40 @@ describe("Contract", () => {
         expect(result).not.toBeNull();
         expect(result).toEqual(jasmine.any(ArrayValidator));
     });
+
+    it("will return the correct validator for an any type", () => {
+        let localVariable: any = /[A-Z]/;
+
+        let result: AnyValidator = Contract.In(localVariable);
+
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(AnyValidator));
+    });
+
+    it("will return the correct validator for an any type with a variable name", () => {
+        let localVariable: any = /[A-Z]/;
+
+        let result: AnyValidator = Contract.In(localVariable, "myVar");
+
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(AnyValidator));
+    });
+
+    it("will return the correct validator for an HTMLElement type with a variable name", () => {
+        let localVariable: HTMLElement = document.createElement("div");
+
+        let result: AnyValidator = Contract.In(localVariable, "myVar");
+
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(HTMLValidator));
+    });
+
+    it("will return the correct validator for an HTMLElement type", () => {
+        let localVariable: HTMLElement = document.createElement("div");
+
+        let result: AnyValidator = Contract.In(localVariable);
+
+        expect(result).not.toBeNull();
+        expect(result).toEqual(jasmine.any(HTMLValidator));
+    });
 });
