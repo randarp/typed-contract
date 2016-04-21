@@ -780,7 +780,7 @@ var HTMLValidator = (function (_super) {
     };
     HTMLValidator.prototype.NotHasAttribute = function (attributeName) {
         if (this._variableValue.hasAttribute(attributeName)) {
-            throw new ReferenceError(this._variableName + " does not have HTML attribute " + attributeName);
+            throw new ReferenceError(this._variableName + " does have HTML attribute " + attributeName);
         }
         else {
             return this;

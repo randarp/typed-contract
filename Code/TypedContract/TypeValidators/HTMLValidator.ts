@@ -82,8 +82,8 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
     }
 
     public NotHasAttribute(attributeName: string): HTMLValidator {
-        if(this._variableValue.hasAttribute(attributeName)){
-            throw new ReferenceError(`${this._variableName} does not have HTML attribute ${attributeName}`)
+        if (this._variableValue.hasAttribute(attributeName)) {
+            throw new ReferenceError(`${this._variableName} does have HTML attribute ${attributeName}`)
         } else {
             return this;
         }
