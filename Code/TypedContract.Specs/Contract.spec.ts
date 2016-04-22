@@ -124,7 +124,7 @@ describe("Contract", () => {
         let result: AnyValidator = Contract.In(localVariable, "myVar");
 
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(HTMLValidator));
+        expect(result).toEqual(jasmine.any(DOMValidator));
     });
 
     it("will return the correct validator for an HTMLElement type", () => {
@@ -133,6 +133,6 @@ describe("Contract", () => {
         let result: AnyValidator = Contract.In(localVariable);
 
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(HTMLValidator));
+        expect(result).toEqual(jasmine.any(DOMValidator));
     });
 });
