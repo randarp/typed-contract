@@ -96,19 +96,19 @@ declare class AnyValidator extends BaseValidator<any> {
     IsUndefined(): AnyValidator;
     IsNullOrUndefined(): AnyValidator;
 }
-declare class HTMLValidator extends BaseValidator<HTMLElement> {
+declare class DOMValidator extends BaseValidator<HTMLElement> {
     constructor(variableValue: HTMLElement, variableName: string);
-    IsNotNull(): HTMLValidator;
-    IsNull(): HTMLValidator;
-    IsDefined(): HTMLValidator;
-    IsUndefined(): HTMLValidator;
-    IsNullOrUndefined(): HTMLValidator;
-    HasAttribute(attributeName: string): HTMLValidator;
-    NotHasAttribute(attributeName: string): HTMLValidator;
-    HasInnerHTML(stringEval: string, regex?: RegExp): HTMLValidator;
-    NotHasInnerHTML(stringEval: string, regExp?: RegExp): HTMLValidator;
-    OffsetHeightInRange(startRange: number, endRange: number): HTMLValidator;
-    OffsetHeightNotInRange(startRange: number, endRange: number): HTMLValidator;
+    IsNotNull(): DOMValidator;
+    IsNull(): DOMValidator;
+    IsDefined(): DOMValidator;
+    IsUndefined(): DOMValidator;
+    IsNullOrUndefined(): DOMValidator;
+    HasAttribute(attributeName: string): DOMValidator;
+    NotHasAttribute(attributeName: string): DOMValidator;
+    HasInnerHTML(stringEval: string, regex?: RegExp): DOMValidator;
+    NotHasInnerHTML(stringEval: string, regExp?: RegExp): DOMValidator;
+    OffsetHeightInRange(startRange: number, endRange: number): DOMValidator;
+    OffsetHeightNotInRange(startRange: number, endRange: number): DOMValidator;
 }
 declare module Contract {
     function In(precondition: string): StringValidator;
@@ -119,8 +119,8 @@ declare module Contract {
     function In(precondition: number, name: string): NumberValidator;
     function In(precondition: any[]): ArrayValidator;
     function In(precondition: any[], name: string): ArrayValidator;
-    function In(precondition: HTMLElement): HTMLValidator;
-    function In(precondition: HTMLElement, name: string): HTMLValidator;
+    function In(precondition: HTMLElement): DOMValidator;
+    function In(precondition: HTMLElement, name: string): DOMValidator;
     function In(precondition: any, name: string): AnyValidator;
     function In(precondition: any): AnyValidator;
     function Out(postcondition: string): StringValidator;
@@ -133,6 +133,6 @@ declare module Contract {
     function Out(postcondition: any[], name: string): ArrayValidator;
     function Out(postcondition: any, name: string): AnyValidator;
     function Out(postcondition: any): AnyValidator;
-    function Out(postcondition: HTMLElement): HTMLValidator;
-    function Out(postcondition: HTMLElement, name: string): HTMLValidator;
+    function Out(postcondition: HTMLElement): DOMValidator;
+    function Out(postcondition: HTMLElement, name: string): DOMValidator;
 }

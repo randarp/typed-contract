@@ -1,6 +1,6 @@
 /// <reference path="../TypeValidators/BaseValidator.ts" />
 
-class HTMLValidator extends BaseValidator<HTMLElement> {
+class DOMValidator extends BaseValidator<HTMLElement> {
     constructor(variableValue: HTMLElement, variableName: string) {
         super(variableValue, variableName);
     }
@@ -9,9 +9,9 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
      *
      * IsNotNull checks if the type HTMLElement variable is not null
      * @throws a ReferenceError if the HTMLElement is null
-     * @returns {HTMLValidator}
+     * @returns {DOMValidator}
      */
-    public IsNotNull(): HTMLValidator {
+    public IsNotNull(): DOMValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(`${this._variableName} should not be null`);
         } else {
@@ -23,9 +23,9 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
      *
      * IsNull checks if the HTMLElement variable is null
      * @throws a ReferenceError if the HTMLElement variable is not null
-     * @returns {HTMLValidator}
+     * @returns {DOMValidator}
      */
-    public IsNull(): HTMLValidator {
+    public IsNull(): DOMValidator {
         if (this._variableValue !== null) {
             throw new ReferenceError(`${this._variableName} should be null`);
         } else {
@@ -37,9 +37,9 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
     /**
      * IsDefined checks if the HTMLElement variable is defined
      * @throws ReferenceError if the HTMLElement variable jis not defined
-     * @returns {HTMLValidator}
+     * @returns {DOMValidator}
      */
-    public IsDefined(): HTMLValidator {
+    public IsDefined(): DOMValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
         } else {
@@ -50,9 +50,9 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
     /**
      * IsUndefined checks if the HTMLElement variable is undefined
      * @throws a ReferenceError if the HTMLElement variable is undefined
-     * @returns {HTMLValidator}
+     * @returns {DOMValidator}
      */
-    public IsUndefined(): HTMLValidator {
+    public IsUndefined(): DOMValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be defined`);
         } else {
@@ -63,9 +63,9 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
     /**
      * IsNullOrUndefined checks if the HTMLElement variable is not null or undefined
      * @throws ReferenceError if the HTMLElement variable is null or undefined
-     * @returns {HTMLValidator}
+     * @returns {DOMValidator}
      */
-    public IsNullOrUndefined(): HTMLValidator {
+    public IsNullOrUndefined(): DOMValidator {
         if (this._variableValue === null || typeof this._variableValue === undefined) {
             throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {
@@ -73,7 +73,7 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
         }
     }
 
-    public HasAttribute(attributeName: string): HTMLValidator {
+    public HasAttribute(attributeName: string): DOMValidator {
         if (!this._variableValue.hasAttribute(attributeName)) {
             throw new ReferenceError(`${this._variableName} does not have the HTML attribute ${attributeName}`);
         } else {
@@ -81,7 +81,7 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
         }
     }
 
-    public NotHasAttribute(attributeName: string): HTMLValidator {
+    public NotHasAttribute(attributeName: string): DOMValidator {
         if (this._variableValue.hasAttribute(attributeName)) {
             throw new ReferenceError(`${this._variableName} does have the HTML attribute ${attributeName}`);
         } else {
@@ -89,20 +89,20 @@ class HTMLValidator extends BaseValidator<HTMLElement> {
         }
     }
 
-    public HasInnerHTML(stringEval: string, regex ?: RegExp ): HTMLValidator {
+    public HasInnerHTML(stringEval: string, regex ?: RegExp ): DOMValidator {
         return this;
     }
 
-    public NotHasInnerHTML(stringEval: string, regExp ?: RegExp): HTMLValidator {
+    public NotHasInnerHTML(stringEval: string, regExp ?: RegExp): DOMValidator {
         return this;
     }
 
-    public OffsetHeightInRange(startRange: number, endRange: number): HTMLValidator {
+    public OffsetHeightInRange(startRange: number, endRange: number): DOMValidator {
 
         return this;
     }
 
-    public OffsetHeightNotInRange(startRange: number, endRange: number): HTMLValidator {
+    public OffsetHeightNotInRange(startRange: number, endRange: number): DOMValidator {
         return this;
     }
 }

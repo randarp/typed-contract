@@ -1,4 +1,5 @@
 /// <reference path="../typed-contract.d.ts" />
+
 export declare function Out(postcondition: string): StringValidator;
 export declare function Out(postcondition: string, name: string): StringValidator;
 export declare function Out(postcondition: boolean): BooleanValidator;
@@ -9,5 +10,5 @@ export declare function Out(postcondition: any[]): ArrayValidator;
 export declare function Out(postcondition: any[], name: string): ArrayValidator;
 export declare function Out(postcondition: any, name: string): AnyValidator;
 export declare function Out(postcondition: any): AnyValidator;
-export declare function Out(postcondition: HTMLElement): HTMLValidator;
-export declare function Out(postcondition: HTMLElement, name: string): HTMLValidator;
+export declare function Out(postcondition: HTMLElement): DOMValidator;
+export declare function Out(postcondition: HTMLElement, name: string): DOMValidator;

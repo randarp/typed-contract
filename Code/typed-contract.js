@@ -725,12 +725,12 @@ var AnyValidator = (function (_super) {
     return AnyValidator;
 })(BaseValidator);
 /// <reference path="../TypeValidators/BaseValidator.ts" />
-var HTMLValidator = (function (_super) {
-    __extends(HTMLValidator, _super);
-    function HTMLValidator(variableValue, variableName) {
+var DOMValidator = (function (_super) {
+    __extends(DOMValidator, _super);
+    function DOMValidator(variableValue, variableName) {
         _super.call(this, variableValue, variableName);
     }
-    HTMLValidator.prototype.IsNotNull = function () {
+    DOMValidator.prototype.IsNotNull = function () {
         if (this._variableValue === null) {
             throw new ReferenceError(this._variableName + " should not be null");
         }
@@ -738,7 +738,7 @@ var HTMLValidator = (function (_super) {
             return this;
         }
     };
-    HTMLValidator.prototype.IsNull = function () {
+    DOMValidator.prototype.IsNull = function () {
         if (this._variableValue !== null) {
             throw new ReferenceError(this._variableName + " should be null");
         }
@@ -746,7 +746,7 @@ var HTMLValidator = (function (_super) {
             return this;
         }
     };
-    HTMLValidator.prototype.IsDefined = function () {
+    DOMValidator.prototype.IsDefined = function () {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this._variableName + " should be defined");
         }
@@ -754,7 +754,7 @@ var HTMLValidator = (function (_super) {
             return this;
         }
     };
-    HTMLValidator.prototype.IsUndefined = function () {
+    DOMValidator.prototype.IsUndefined = function () {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this._variableName + " should not be defined");
         }
@@ -762,7 +762,7 @@ var HTMLValidator = (function (_super) {
             return this;
         }
     };
-    HTMLValidator.prototype.IsNullOrUndefined = function () {
+    DOMValidator.prototype.IsNullOrUndefined = function () {
         if (this._variableValue === null || typeof this._variableValue === undefined) {
             throw new ReferenceError(this._variableName + " should not be null or undefined");
         }
@@ -770,7 +770,7 @@ var HTMLValidator = (function (_super) {
             return this;
         }
     };
-    HTMLValidator.prototype.HasAttribute = function (attributeName) {
+    DOMValidator.prototype.HasAttribute = function (attributeName) {
         if (!this._variableValue.hasAttribute(attributeName)) {
             throw new ReferenceError(this._variableName + " does not have the HTML attribute " + attributeName);
         }
@@ -778,7 +778,7 @@ var HTMLValidator = (function (_super) {
             return this;
         }
     };
-    HTMLValidator.prototype.NotHasAttribute = function (attributeName) {
+    DOMValidator.prototype.NotHasAttribute = function (attributeName) {
         if (this._variableValue.hasAttribute(attributeName)) {
             throw new ReferenceError(this._variableName + " does have the HTML attribute " + attributeName);
         }
@@ -786,26 +786,26 @@ var HTMLValidator = (function (_super) {
             return this;
         }
     };
-    HTMLValidator.prototype.HasInnerHTML = function (stringEval, regex) {
+    DOMValidator.prototype.HasInnerHTML = function (stringEval, regex) {
         return this;
     };
-    HTMLValidator.prototype.NotHasInnerHTML = function (stringEval, regExp) {
+    DOMValidator.prototype.NotHasInnerHTML = function (stringEval, regExp) {
         return this;
     };
-    HTMLValidator.prototype.OffsetHeightInRange = function (startRange, endRange) {
+    DOMValidator.prototype.OffsetHeightInRange = function (startRange, endRange) {
         return this;
     };
-    HTMLValidator.prototype.OffsetHeightNotInRange = function (startRange, endRange) {
+    DOMValidator.prototype.OffsetHeightNotInRange = function (startRange, endRange) {
         return this;
     };
-    return HTMLValidator;
+    return DOMValidator;
 })(BaseValidator);
 /// <reference path="TypeValidators\StringValidator.ts" />
 /// <reference path="TypeValidators\BooleanValidator.ts" />
 /// <reference path="TypeValidators\NumberValidator.ts" />
 /// <reference path="TypeValidators\ArrayValidator.ts" />
 /// <reference path="TypeValidators\AnyValidator.ts" />
-/// <reference path="TypeValidators\HTMLValidator.ts"/>
+/// <reference path="TypeValidators\DOMValidator.ts"/>
 var Contract;
 (function (Contract) {
     "use strict";
@@ -826,7 +826,7 @@ var Contract;
             return new ArrayValidator(precondition, name);
         }
         else if (precondition.tagName) {
-            return new HTMLValidator(precondition, name);
+            return new DOMValidator(precondition, name);
         }
         else {
             return new AnyValidator(precondition, name);
@@ -850,7 +850,7 @@ var Contract;
             return new ArrayValidator(postcondition, name);
         }
         else if (postcondition.tagName || postcondition === null || postcondition === undefined) {
-            return new HTMLValidator(postcondition, name);
+            return new DOMValidator(postcondition, name);
         }
         else {
             return new AnyValidator(postcondition, name);

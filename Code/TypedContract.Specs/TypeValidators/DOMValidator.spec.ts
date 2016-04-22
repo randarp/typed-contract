@@ -1,16 +1,16 @@
 /// <reference path="..\..\TypedContract\Contract.ts" />
 /// <reference path="..\..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
-/// <reference path="..\..\TypedContract\TypeValidators\HTMLValidator.ts" />
+/// <reference path="../../TypedContract/TypeValidators/DOMValidator.ts" />
 
 /**
  * Created by Andre on 2016-04-19.
  */
-describe("HTMLValidator", () => {
+describe("DOMValidator", () => {
 
     it("Returns true if there is a matching HTML attribute based on the parameters given", () => {
         let divElem: HTMLElement = document.createElement("DIV");
         divElem.setAttribute("id", "test");
-        let result: HTMLValidator = Contract.In(divElem).HasAttribute("id");
+        let result: DOMValidator = Contract.In(divElem).HasAttribute("id");
 
         expect(result);
     });
@@ -28,7 +28,7 @@ describe("HTMLValidator", () => {
         let h1Elem: HTMLElement = document.createElement("H1");
         h1Elem.setAttribute("style", "color: black;");
 
-        let result: HTMLValidator = Contract.In(h1Elem).HasAttribute("style");
+        let result: DOMValidator = Contract.In(h1Elem).HasAttribute("style");
 
         expect(result);
     });
@@ -37,7 +37,7 @@ describe("HTMLValidator", () => {
         let htmlElem: HTMLElement = document.createElement("div");
         htmlElem.setAttribute("class", "typed-contract");
 
-        let result: HTMLValidator = Contract.In(htmlElem).NotHasAttribute("id");
+        let result: DOMValidator = Contract.In(htmlElem).NotHasAttribute("id");
 
         expect(result);
     });

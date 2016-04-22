@@ -46,8 +46,8 @@
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/utils.js" />
       <root url="file://$PROJECT_DIR$/node_modules/tslint/node_modules/grunt-ts/tasks/modules/compile.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/EnumValidator.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/HTMLValidator.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/HTMLValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/DOMValidator.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/DOMValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
