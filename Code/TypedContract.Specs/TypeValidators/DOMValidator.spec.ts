@@ -51,4 +51,60 @@ describe("DOMValidator", () => {
             Contract.In(htmlElem).NotHasAttribute("id");
         }).toThrowError(<any>ReferenceError);
     });
+
+    it("Returns true, when checking if the innerHTML of an element has the same contents as the argument passed", () => {
+
+        let divElem: HTMLElement = document.createElement("div");
+        divElem.innerHTML = "TypedContract rocks!";
+
+        let result: DOMValidator = Contract.In(divElem).HasInnerHTML("TypedContract rocks!");
+
+        expect(result);
+    });
+
+    it("Throws error, when checking if the innerHTML of an element does not have the same contents as the argument passed",() => {
+
+        let divElem: HTMLElement = document.createElement("div");
+        divElem.innerHTML = "TypeScript rocks!";
+
+        expect( () => {
+            Contract.In(divElem).HasInnerHTML("TypedContract rocks!");
+        }).toThrowError(<any>ReferenceError);
+    });
+
+    it("Returns true when given a Regular Expression that matches in the innerHTML for the H1 element", () => {
+        let divElem: HTMLElement = document.createElement("h1");
+        divElem.innerHTML = "This is a sentence for TypedContract";
+
+        let result: DOMValidator = Contract.In(divElem).ToMatchInnerHTML(/TypedContract/i);
+
+        expect(result);
+    });
+
+    it("Throws an error when given a Regular Expression that does not match the pattern for the HTML element innerHTML string contents", () => {
+        let divElem: HTMLElement = document.createElement("h1");
+        divElem.innerHTML = "This is a sentence for TypedContract";
+
+        expect( () => {
+            Contract.In(divElem).ToMatchInnerHTML(/TypeScript/);
+        });
+    });
+
+    it("Throws an error when given a Regular Expression that matches in the innerHTML for the H1 element", () => {
+        let divElem: HTMLElement = document.createElement("h1");
+        divElem.innerHTML = "This is a sentence for TypedContract";
+
+        expect( () => {
+            Contract.In(divElem).NotToMatchInnerHTML(/TypedContract/);
+        }).toThrowError(<any>ReferenceError);
+    });
+
+    it("Returns true when given a Regular Expression that does not match the pattern for the HTML element innerHTML string contents", () => {
+        let divElem: HTMLElement = document.createElement("h1");
+        divElem.innerHTML = "This is a sentence for TypedContract";
+
+        expect( () => {
+            Contract.In(divElem).NotToMatchInnerHTML(/TypeScript/);
+        }).not.toThrowError(<any>ReferenceError);
+    });
 });

@@ -105,8 +105,10 @@ declare class DOMValidator extends BaseValidator<HTMLElement> {
     IsNullOrUndefined(): DOMValidator;
     HasAttribute(attributeName: string): DOMValidator;
     NotHasAttribute(attributeName: string): DOMValidator;
-    HasInnerHTML(stringEval: string, regex?: RegExp): DOMValidator;
-    NotHasInnerHTML(stringEval: string, regExp?: RegExp): DOMValidator;
+    HasInnerHTML(stringEval?: string): DOMValidator;
+    NotHasInnerHTML(stringEval?: string): DOMValidator;
+    ToMatchInnerHTML(regExp: any): DOMValidator;
+    NotToMatchInnerHTML(regExp: any): DOMValidator;
     OffsetHeightInRange(startRange: number, endRange: number): DOMValidator;
     OffsetHeightNotInRange(startRange: number, endRange: number): DOMValidator;
 }

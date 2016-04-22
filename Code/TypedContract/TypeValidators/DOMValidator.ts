@@ -89,12 +89,36 @@ class DOMValidator extends BaseValidator<HTMLElement> {
         }
     }
 
-    public HasInnerHTML(stringEval: string, regex ?: RegExp ): DOMValidator {
-        return this;
+    public HasInnerHTML(stringEval ?: string): DOMValidator {
+       if (this._variableValue.innerHTML !== stringEval) {
+            throw new ReferenceError(`${this._variableName} innerHTML does not match the contents given in the contract argument`);
+       } else {
+           return this;
+       }
     }
 
-    public NotHasInnerHTML(stringEval: string, regExp ?: RegExp): DOMValidator {
-        return this;
+    public NotHasInnerHTML(stringEval ?: string ): DOMValidator {
+        if (this._variableValue.innerHTML === stringEval) {
+            throw new ReferenceError(`${this._variableName} innerHTML does not match the contents given in the contract argument`);
+        } else {
+            return this;
+        }
+    }
+
+    public ToMatchInnerHTML(regExp: any): DOMValidator {
+        if (!regExp.test(this._variableValue.innerHTML)) {
+            throw new ReferenceError(`${this._variableValue} does not match the regular expression ${regExp} for the variable ${this._variableName} `);
+        } else {
+            return this;
+        }
+    }
+
+    public NotToMatchInnerHTML(regExp: any): DOMValidator {
+        if (regExp.test(this._variableValue.innerHTML)) {
+            throw new ReferenceError(`${this._variableValue} matches the regular expression ${regExp} for the variable ${this._variableName} `);
+        } else {
+            return this;
+        }
     }
 
     public OffsetHeightInRange(startRange: number, endRange: number): DOMValidator {

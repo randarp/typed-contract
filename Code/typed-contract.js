@@ -786,11 +786,37 @@ var DOMValidator = (function (_super) {
             return this;
         }
     };
-    DOMValidator.prototype.HasInnerHTML = function (stringEval, regex) {
-        return this;
+    DOMValidator.prototype.HasInnerHTML = function (stringEval) {
+        if (this._variableValue.innerHTML !== stringEval) {
+            throw new ReferenceError(this._variableName + " innerHTML does not match the contents given in the contract argument");
+        }
+        else {
+            return this;
+        }
     };
-    DOMValidator.prototype.NotHasInnerHTML = function (stringEval, regExp) {
-        return this;
+    DOMValidator.prototype.NotHasInnerHTML = function (stringEval) {
+        if (this._variableValue.innerHTML === stringEval) {
+            throw new ReferenceError(this._variableName + " innerHTML does not match the contents given in the contract argument");
+        }
+        else {
+            return this;
+        }
+    };
+    DOMValidator.prototype.ToMatchInnerHTML = function (regExp) {
+        if (!regExp.test(this._variableValue.innerHTML)) {
+            throw new ReferenceError(this._variableValue + " does not match the regular expression " + regExp + " for the variable " + this._variableName + " ");
+        }
+        else {
+            return this;
+        }
+    };
+    DOMValidator.prototype.NotToMatchInnerHTML = function (regExp) {
+        if (regExp.test(this._variableValue.innerHTML)) {
+            throw new ReferenceError(this._variableValue + " matches the regular expression " + regExp + " for the variable " + this._variableName + " ");
+        }
+        else {
+            return this;
+        }
     };
     DOMValidator.prototype.OffsetHeightInRange = function (startRange, endRange) {
         return this;
