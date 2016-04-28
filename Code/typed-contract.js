@@ -183,7 +183,10 @@ var StringValidator = (function (_super) {
         }
     };
     StringValidator.prototype.Contains = function (compareTo) {
-        if (this._variableValue.indexOf(compareTo) <= -1) {
+        if (this._variableValue.length === 0 && compareTo.length === 0) {
+            return this;
+        }
+        if (compareTo.length === 0 || this._variableValue.indexOf(compareTo) <= -1) {
             throw new RangeError(this._variableName + " should contain\n           the pattern " + compareTo + " but the pattern is not found in " + this._variableValue);
         }
         else {

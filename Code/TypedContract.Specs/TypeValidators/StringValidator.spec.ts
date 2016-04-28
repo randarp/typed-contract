@@ -559,6 +559,14 @@ describe("StringValidator", () => {
         expect(result);
     });
 
+    it("Contains returns the proper validator when given a string that contains nothing", () => {
+        let localVar: string = "This is a TypeScript library";
+        let compareTo: string = "";
+
+        expect( () => {
+            Contract.In(localVar).Contains(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
 
     it("Contains throws an error when given a string that does not contain the same characters as the contract precondition", () => {
         let localVar: string = "This is a TypeScript library";
@@ -569,7 +577,7 @@ describe("StringValidator", () => {
         }).toThrowError(<any>RangeError);
     });
 
-    it("Contains returns the proper validator when given a string that is empty", () => {
+    it("Returns proper validator when when given a string that are both empty empty", () => {
         let localVar: string = "";
         let compareTo: string = "";
 
@@ -602,6 +610,16 @@ describe("StringValidator", () => {
         "not contain the same characters as the contract precondition in capitals", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "ANDRE";
+
+        let result: StringValidator = Contract.In(localVar).NotContains(compareTo);
+
+        expect(result);
+    });
+
+    it("NotContains returns the proper validator when given a string that does " +
+        "not contain any characters as the contract precondition", () => {
+        let localVar: string = "This is a TypeScript library";
+        let compareTo: string = "";
 
         let result: StringValidator = Contract.In(localVar).NotContains(compareTo);
 
