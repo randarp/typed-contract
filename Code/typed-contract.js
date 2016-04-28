@@ -676,7 +676,7 @@ var ArrayValidator = (function (_super) {
 /**
  * Created by Andre on 4/14/2016.
  */
-/// <reference path="BaseValidator.ts" />
+/// <reference path="../TypeValidators/BaseValidator.ts" />
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
     function AnyValidator(variableValue, variableName) {
@@ -772,7 +772,7 @@ var DOMValidator = (function (_super) {
     };
     DOMValidator.prototype.HasAttribute = function (attributeName) {
         if (!this._variableValue.hasAttribute(attributeName)) {
-            throw new ReferenceError(this._variableName + " does not have the HTML attribute " + attributeName);
+            throw new RangeError(this._variableName + " does not have the HTML attribute " + attributeName);
         }
         else {
             return this;
@@ -780,7 +780,7 @@ var DOMValidator = (function (_super) {
     };
     DOMValidator.prototype.NotHasAttribute = function (attributeName) {
         if (this._variableValue.hasAttribute(attributeName)) {
-            throw new ReferenceError(this._variableName + " does have the HTML attribute " + attributeName);
+            throw new RangeError(this._variableName + " does have the HTML attribute " + attributeName);
         }
         else {
             return this;
@@ -788,7 +788,7 @@ var DOMValidator = (function (_super) {
     };
     DOMValidator.prototype.HasInnerHTML = function (stringEval) {
         if (this._variableValue.innerHTML !== stringEval) {
-            throw new ReferenceError(this._variableName + " innerHTML does not match the contents given in the contract argument");
+            throw new RangeError(this._variableName + " innerHTML does not match the contents given in the contract argument");
         }
         else {
             return this;
@@ -796,7 +796,7 @@ var DOMValidator = (function (_super) {
     };
     DOMValidator.prototype.NotHasInnerHTML = function (stringEval) {
         if (this._variableValue.innerHTML === stringEval) {
-            throw new ReferenceError(this._variableName + " innerHTML does not match the contents given in the contract argument");
+            throw new RangeError(this._variableName + " innerHTML does not match the contents given in the contract argument");
         }
         else {
             return this;
@@ -804,7 +804,7 @@ var DOMValidator = (function (_super) {
     };
     DOMValidator.prototype.ToMatchInnerHTML = function (regExp) {
         if (!regExp.test(this._variableValue.innerHTML)) {
-            throw new ReferenceError(this._variableValue + " does not match the regular expression " + regExp + " for the variable " + this._variableName + " ");
+            throw new RangeError(this._variableValue + " does not match the regular expression " + regExp + " for the variable " + this._variableName + " ");
         }
         else {
             return this;
@@ -812,16 +812,66 @@ var DOMValidator = (function (_super) {
     };
     DOMValidator.prototype.NotToMatchInnerHTML = function (regExp) {
         if (regExp.test(this._variableValue.innerHTML)) {
-            throw new ReferenceError(this._variableValue + " matches the regular expression " + regExp + " for the variable " + this._variableName + " ");
+            throw new RangeError(this._variableValue + " matches the regular expression " + regExp + " for the variable " + this._variableName + " ");
         }
         else {
             return this;
         }
     };
-    DOMValidator.prototype.OffsetHeightInRange = function (startRange, endRange) {
+    DOMValidator.prototype.HasClass = function (className) {
+        if (this._variableValue.className !== className) {
+            throw new RangeError("");
+        }
+        else {
+            return this;
+        }
+    };
+    DOMValidator.prototype.NotHasClass = function (className) {
+        if (this._variableValue.className === className) {
+            throw new RangeError("");
+        }
+        else {
+            return this;
+        }
+    };
+    DOMValidator.prototype.HasId = function (idName) {
+        if (this._variableValue.id !== idName) {
+            throw new RangeError("");
+        }
+        else {
+            return this;
+        }
+    };
+    DOMValidator.prototype.NotHasId = function (idName) {
+        if (this._variableValue.id === idName) {
+            throw new RangeError("");
+        }
+        else {
+            return this;
+        }
+    };
+    DOMValidator.prototype.HasElementPaddingGreaterThan = function (paddingValue) {
         return this;
     };
-    DOMValidator.prototype.OffsetHeightNotInRange = function (startRange, endRange) {
+    DOMValidator.prototype.HasElementPaddingLessThan = function (paddingValue) {
+        return this;
+    };
+    DOMValidator.prototype.HasElementPaddingGreaterOrEqualThan = function (paddingValue) {
+        return this;
+    };
+    DOMValidator.prototype.HasElementPaddingLessOrEqualThan = function (paddingValue) {
+        return this;
+    };
+    DOMValidator.prototype.HasElementMarginGreaterThan = function (paddingValue) {
+        return this;
+    };
+    DOMValidator.prototype.HasElementMarginLessThan = function (paddingValue) {
+        return this;
+    };
+    DOMValidator.prototype.HasElementMarginGreaterOrEqualThan = function (paddingValue) {
+        return this;
+    };
+    DOMValidator.prototype.HasElementMarginLessOrEqualThan = function (paddingValue) {
         return this;
     };
     return DOMValidator;

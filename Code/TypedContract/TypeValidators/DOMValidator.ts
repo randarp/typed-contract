@@ -75,7 +75,7 @@ class DOMValidator extends BaseValidator<HTMLElement> {
 
     public HasAttribute(attributeName: string): DOMValidator {
         if (!this._variableValue.hasAttribute(attributeName)) {
-            throw new ReferenceError(`${this._variableName} does not have the HTML attribute ${attributeName}`);
+            throw new RangeError(`${this._variableName} does not have the HTML attribute ${attributeName}`);
         } else {
             return this;
         }
@@ -83,7 +83,7 @@ class DOMValidator extends BaseValidator<HTMLElement> {
 
     public NotHasAttribute(attributeName: string): DOMValidator {
         if (this._variableValue.hasAttribute(attributeName)) {
-            throw new ReferenceError(`${this._variableName} does have the HTML attribute ${attributeName}`);
+            throw new RangeError(`${this._variableName} does have the HTML attribute ${attributeName}`);
         } else {
             return this;
         }
@@ -91,7 +91,7 @@ class DOMValidator extends BaseValidator<HTMLElement> {
 
     public HasInnerHTML(stringEval ?: string): DOMValidator {
        if (this._variableValue.innerHTML !== stringEval) {
-            throw new ReferenceError(`${this._variableName} innerHTML does not match the contents given in the contract argument`);
+            throw new RangeError(`${this._variableName} innerHTML does not match the contents given in the contract argument`);
        } else {
            return this;
        }
@@ -99,7 +99,7 @@ class DOMValidator extends BaseValidator<HTMLElement> {
 
     public NotHasInnerHTML(stringEval ?: string ): DOMValidator {
         if (this._variableValue.innerHTML === stringEval) {
-            throw new ReferenceError(`${this._variableName} innerHTML does not match the contents given in the contract argument`);
+            throw new RangeError(`${this._variableName} innerHTML does not match the contents given in the contract argument`);
         } else {
             return this;
         }
@@ -107,7 +107,7 @@ class DOMValidator extends BaseValidator<HTMLElement> {
 
     public ToMatchInnerHTML(regExp: any): DOMValidator {
         if (!regExp.test(this._variableValue.innerHTML)) {
-            throw new ReferenceError(`${this._variableValue} does not match the regular expression ${regExp} for the variable ${this._variableName} `);
+            throw new RangeError(`${this._variableValue} does not match the regular expression ${regExp} for the variable ${this._variableName} `);
         } else {
             return this;
         }
@@ -115,18 +115,74 @@ class DOMValidator extends BaseValidator<HTMLElement> {
 
     public NotToMatchInnerHTML(regExp: any): DOMValidator {
         if (regExp.test(this._variableValue.innerHTML)) {
-            throw new ReferenceError(`${this._variableValue} matches the regular expression ${regExp} for the variable ${this._variableName} `);
+            throw new RangeError(`${this._variableValue} matches the regular expression ${regExp} for the variable ${this._variableName} `);
         } else {
             return this;
         }
     }
 
-    public OffsetHeightInRange(startRange: number, endRange: number): DOMValidator {
+    public HasClass(className: any): DOMValidator {
+        if (this._variableValue.className !== className) {
+            throw new RangeError(``);
+        } else {
+            return this;
+        }
+    }
 
+    public NotHasClass(className: any): DOMValidator {
+        if (this._variableValue.className === className) {
+            throw new RangeError(``);
+        } else {
+            return this;
+        }
+    }
+
+    public HasId(idName: string): DOMValidator {
+       if (this._variableValue.id !== idName) {
+           throw new RangeError(``);
+       } else {
+           return this;
+       }
+   }
+
+   public NotHasId(idName: string): DOMValidator {
+        if (this._variableValue.id === idName) {
+            throw new RangeError(``);
+        } else {
+            return this;
+        }
+   }
+
+
+   public HasElementPaddingGreaterThan(paddingValue: any): DOMValidator {
+       return this;
+   }
+
+   public HasElementPaddingLessThan(paddingValue: any): DOMValidator {
         return this;
     }
 
-    public OffsetHeightNotInRange(startRange: number, endRange: number): DOMValidator {
+   public HasElementPaddingGreaterOrEqualThan(paddingValue: any): DOMValidator {
+       return this;
+   }
+
+   public HasElementPaddingLessOrEqualThan(paddingValue: any): DOMValidator {
+       return this;
+   }
+
+   public HasElementMarginGreaterThan(paddingValue: any): DOMValidator {
+        return this;
+    }
+
+   public HasElementMarginLessThan(paddingValue: any): DOMValidator {
+        return this;
+    }
+
+   public HasElementMarginGreaterOrEqualThan(paddingValue: any): DOMValidator {
+        return this;
+    }
+
+   public HasElementMarginLessOrEqualThan(paddingValue: any): DOMValidator {
         return this;
     }
 }

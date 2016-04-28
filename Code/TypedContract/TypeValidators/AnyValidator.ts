@@ -1,7 +1,7 @@
 /**
  * Created by Andre on 4/14/2016.
  */
-/// <reference path="BaseValidator.ts" />
+/// <reference path="../TypeValidators/BaseValidator.ts" />
 
     class AnyValidator extends BaseValidator<any> {
 

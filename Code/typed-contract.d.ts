@@ -109,8 +109,18 @@ declare class DOMValidator extends BaseValidator<HTMLElement> {
     NotHasInnerHTML(stringEval?: string): DOMValidator;
     ToMatchInnerHTML(regExp: any): DOMValidator;
     NotToMatchInnerHTML(regExp: any): DOMValidator;
-    OffsetHeightInRange(startRange: number, endRange: number): DOMValidator;
-    OffsetHeightNotInRange(startRange: number, endRange: number): DOMValidator;
+    HasClass(className: any): DOMValidator;
+    NotHasClass(className: any): DOMValidator;
+    HasId(idName: string): DOMValidator;
+    NotHasId(idName: string): DOMValidator;
+    HasElementPaddingGreaterThan(paddingValue: any): DOMValidator;
+    HasElementPaddingLessThan(paddingValue: any): DOMValidator;
+    HasElementPaddingGreaterOrEqualThan(paddingValue: any): DOMValidator;
+    HasElementPaddingLessOrEqualThan(paddingValue: any): DOMValidator;
+    HasElementMarginGreaterThan(paddingValue: any): DOMValidator;
+    HasElementMarginLessThan(paddingValue: any): DOMValidator;
+    HasElementMarginGreaterOrEqualThan(paddingValue: any): DOMValidator;
+    HasElementMarginLessOrEqualThan(paddingValue: any): DOMValidator;
 }
 declare module Contract {
     function In(precondition: string): StringValidator;

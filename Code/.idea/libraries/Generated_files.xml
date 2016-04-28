@@ -2,8 +2,8 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
-        <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/HTMLValidator.js" />
-        <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/HTMLValidator.spec.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/DOMValidator.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/DOMValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
@@ -17,7 +17,9 @@
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/StringValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/ArrayValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/AnyValidator.spec.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NodeValidator.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/ExpressValidator.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -61,7 +63,9 @@
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/StringValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/ArrayValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/AnyValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NodeValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/ExpressValidator.js" />
     </CLASSES>
     <SOURCES />
   </library>
