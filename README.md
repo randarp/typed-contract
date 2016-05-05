@@ -1,11 +1,17 @@
 # typed-contract
 
-A wonderfully simple, yet powerful TypeScript and JavaScript code contract library 
-
 <h3> Why use typed-contract ? </h3> 
-JavaScript and TypeScript applications are becoming much more larger and more powerful, each web application's code base is becoming much larger, more complex and writing application scale JavaScript and TypeScript is becoming harder and harder for developers.
 
-JavaScript has quickly become the most popular programming language in the last couple years for developers of all kinds and we hope this will help.
+typed-contract is a library to help guard against invalid function inputs and outputs.  Using a fluent syntax, it allows a short and descriptive way to protect the system and return useful error messages.
+
+Our goals are:
+
+<ul>
+  <li>Provide a consistent way of defining pre and post conditions for functions</li>
+  <li>Describe to other developers what the code expects in and what will be returned</li>
+</ul>
+
+The size and complexity of JavaScript and TypeScript projects continues to grow.  Edge cases and regressions happen.  Help find them quickly before your customers do!
 
 <h3>TypeScript, what is it and why would I ever want to use it ?</h3>
  (Clears *throat*)
