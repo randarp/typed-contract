@@ -1,8 +1,8 @@
 # typed-contract
 
-<h3> Why use typed-contract ? </h3> 
+<h3> Why use typed-contract ? </h3>
 
-typed-contract is a library to help guard against invalid function inputs and outputs.  Using a fluent syntax, it allows a short and descriptive way to protect the system and return useful error messages.
+typed-contract is a library to help guard against invalid function inputs and outputs. Using a fluent syntax, it allows a short and descriptive way to protect the system and return useful error messages.
 
 Our goals are:
 
@@ -11,29 +11,29 @@ Our goals are:
   <li>Describe to other developers what the code expects in and what will be returned</li>
 </ul>
 
-The size and complexity of JavaScript and TypeScript projects continues to grow.  Edge cases and regressions happen.  Help find them quickly before your customers do!
+As the size and complexity of your JavaScript and TypeScript projects continues to grow, edge cases and regressions will occur. Help find them quickly before your users do!
 
 <h3>TypeScript, what is it and why would I ever want to use it ?</h3>
  (Clears *throat*)
- 
+
  <em>The simple definition of what TypeScript is, is this.... </em><br/>
  "TypeScript is a superset of JavaScript which primarily provides optional static typing, classes and interfaces. This allows much more insightful and transparent JavaScript and TypeScript application development. Allowing Integrated Development Environments to provide a richer environment for spotting common errors as you type and build your application." - <em> Andre Fischbacher</em>
 
-<h3> What is a Code Contract anyways, and why would I want to use one ? </h3> 
+<h3> What is a Code Contract anyways, and why would I want to use one ? </h3>
 
 Code contracts allow you to ensure that your intentions for any property or method are ensured using a code contract. When you are developing an application you can list and specify as many preconditions and postconditions in your code as needed. In TypedContract preconditions are strict requirements that must be met when entering executing an application at runtime. Postconditions describe expectations at the time the method or property code exits at runtime.
 
-TypedContract allows you to set pre and postconditions in your code to check for certain invariants that you set while writing out a TypedContract. Once you execute a project, a set of classes or functions, the TypedContract can then check that every condition successfully passes, which allows your intentions when building your app to run as smooth as butter. 
+TypedContract allows you to set pre and postconditions in your code to check for certain invariants that you set while writing out a TypedContract. Once you execute a project, a set of classes or functions, the TypedContract can then check that every condition successfully passes, which allows your intentions when building your app to run as smooth as butter.
 
 TypedContract will allow you and your projects to have more descriptive syntax for your variables, functions, interfaces and classes
 <h3> How to implement into your project </h3>
 TypedContract can be used in either JavaScript or TypeScript environments so the freedom of choice is always yours.
 Just open your BASH, Command Line or Terminal and type in
-<code> npm i typed-contract -save</code> to get it into your current project or....
- you can use any variation of commands to get it into your project as long as you include <code>npm install typed-contract</code>
+<code> npm install -g typed-contract --save-dev</code> to get it into your current project or....
+ you can use any variation of commands to get it into your project as long as you include <code>npm install -g typed-contract</code>
 
-<h3> How do I use a code contract in TypeScript ?</h3> 
-It's pretty simple really, once it is in your project using the "require()" function and it's included in you node modules folder. You then should be able to use it in almost any function or class as you code your way through your project.
+<h3> How do I use a code contract in TypeScript ?</h3>
+It's pretty simple really, once it is in your project and it's included in you node modules folder. You then should be able to use it in almost any function or class as you code your way through your project.
 
 Here is an example of what a TypedContract looks like...
 <code>
@@ -45,7 +45,7 @@ IsGreaterThan(3.13).
 IsNotLessThan(3);
 </code>
 
-and the same goes for postconditions as well 
+and the same goes for postconditions as well
 
 <code>myVar: number = 3.14159265359;
 ...... // code being written
@@ -74,12 +74,12 @@ Contains("Hello").
 NotContains("Goodbye");
 etc...
 </code>
-If you would like to see all of the documentation click <a href="#docs">me</a> 
+If you would like to see all of the documentation click <a href="#docs">me</a>
 <h3> Would you like to contribute to this project ? </h3>
 Check out the GitHub repository to see where we can make TypedContract even better <a href="https://github.com/randarp/typed-contract/">Here</a>
-<h3> Class and Function Documentation </h3> 
+<h3> Class and Function Documentation </h3>
 
-Of course you would like to know what is included in this wonderful code contract library so you can utilize it to the best of it's ability. 
+Of course you would like to know what is included in this wonderful code contract library so you can utilize it to the best of it's ability.
 
 Here are the list of the classes that are included in this npm module, and were always thinking of adding more to make the experience even better!
 <h4>Classes </h4>
@@ -89,7 +89,6 @@ Here are the list of the classes that are included in this npm module, and were 
 <li>ArrayValidator</li>
 <li>NumberValidator</li>
 <li>StringValidator</li>
-<li>AnyValidator</li>
 </ul>
 
 <h4 id="docs"> Functions </h4>
@@ -113,23 +112,23 @@ Contract.In(myVar,"my var").IsNotNull();
 // throws a ReferenceError`
 
 * IsNull - Checks if any variable in the pre or post condition passed into the TypedContract is null. The TypedContract will throw an error if the variable is not null
-`myVar: number =  1; 
-Contract.In(myVar,"my var").IsNull();		
+`myVar: number =  1;
+Contract.In(myVar,"my var").IsNull();
 // throws a ReferenceError	`
 
 * IsDefined - Checks if any variable passed into the TypedContract as a pre or post condition is defined with a value. The TypedContract will throw an error if the variable is not defined.
-`myVar: any[]; 
-Contract.In(myVar).IsDefined();			    
+`myVar: any[];
+Contract.In(myVar).IsDefined();
 // throws a ReferenceError`
 
-* IsNotDefined - Checks if any variable passed into the TypedContract as a pre or post condition is not defined with a value. The TypedContract will throw an error if the variable is defined. 
- `myVar: any[] = [1, 2, 3]; 
-Contract.In(myVar).IsNotDefined();			    
+* IsNotDefined - Checks if any variable passed into the TypedContract as a pre or post condition is not defined with a value. The TypedContract will throw an error if the variable is defined.
+ `myVar: any[] = [1, 2, 3];
+Contract.In(myVar).IsNotDefined();
 // throws a ReferenceError`
 
 * IsNullOrUndefined - Checks if any variable passed into the TypedContract as a pre or post condition is not null or undefined. The TypedContract will throw an error if the variable is null or undefined.
- `myVar: any = null;  // or myVar: any; 
-Contract.In(myVar).IsNullOrUndefined();			    
+ `myVar: any = null;  // or myVar: any;
+Contract.In(myVar).IsNullOrUndefined();
 // throws a ReferenceError`
 
 * IsEqualTo - Checks if the variable passed into the TypedContract as a pre or post condition equals the same value as the argument passed into the "IsEqualTo" function. The TypedContract will throw an error if the variable is not equal to the argument passed into this function.
@@ -156,12 +155,12 @@ compareTo: number = 4;
 // throws a RangeError`
 
 <strong>For the array data type, an array index must be specified when comparing array's with the "IsNotEqualTo" function</strong>
- 
+
  myVar: any[] = [1, 2, 3];
 compareTo: number[] = [5, 2, 9];
 Contract.In(myVar).IsNotEqualTo(compareTo, 0); // take note of the second argument that is required, an array index.
 // returns true, no error thrown`
- 
+
 * IsLessThan - Checks if the variables passed into the TypedContract as a pre or post condition is less than the contract pre or post condition passed into the TypedContract. The TypedContract will throw an error if the contract is equal or greater than the argument passed into the function.
 `myVar: number = 3;
 compareTo: number = 5;
@@ -174,13 +173,13 @@ compareTo: number = 5;
  Contract.In(myVar).IsNotLessThan(compareTo);
 // throws a RangeError`
 
-* IsLessOrEqualTo - Checks if the variables passed into the TypedContract as a pre or post condition is less or equal to the pre or post condition passed into the contract. The TypedContract will throw an error if the argument passed into the function is greater than the contract pre or post condition. 
+* IsLessOrEqualTo - Checks if the variables passed into the TypedContract as a pre or post condition is less or equal to the pre or post condition passed into the contract. The TypedContract will throw an error if the argument passed into the function is greater than the contract pre or post condition.
 `myVar: number = 3;
 compareTo: number = 5;
  Contract.In(myVar).IsLessOrEqualThan(compareTo);
 // returns true, no error thrown`
 
-* IsNotLessOrEqualTo - Checks if the variables passed into the TypedContract as a pre or post condition is not less or equal to the pre or post condition passed into the contract. The TypedContract will throw an error if the argument passed into the function is less or equal than the contract pre or post condition. 
+* IsNotLessOrEqualTo - Checks if the variables passed into the TypedContract as a pre or post condition is not less or equal to the pre or post condition passed into the contract. The TypedContract will throw an error if the argument passed into the function is less or equal than the contract pre or post condition.
 `myVar: number = 3;
 compareTo: number = 5;
  Contract.In(myVar).IsNotLessOrEqualThan(compareTo);
@@ -202,43 +201,43 @@ compareTo: number = 7;
 `myVar: number = 6;
 compareTo: number = 5;
  Contract.In(myVar).IsGreaterOrEqualThan(compareTo);
-// returns true` 
+// returns true`
 
 * IsNotGreaterOrEqualThan - Checks if the variable passed into the TypedContract as a pre or post condition is not greater or equal than the variables passed into the contract. The TypedContract will throw an error if the values passed into the function are greater or equal than the contract pre or post condition.
 `myVar: number = 6;
 compareTo: number = 5;
  Contract.In(myVar).IsNotGreaterOrEqualThan(compareTo);
-// throws a RangeError` 
+// throws a RangeError`
 
 * IsLengthGreaterThan - Checks if the variable value that is passed into the TypedContract as a pre or post condition is length is greater than the argument passed into the function. The TypedContract will throw an error if the contract length is not greater than the pre or post condition contract.
 `myVar: string = "TypedContract";
 compareTo: string = "TypeScript";
  Contract.In(myVar).IsLengthGreaterThan(compareTo);
-// returns true, no error thrown` 
+// returns true, no error thrown`
 
 * IsLengthNotGreaterThan - Checks if the variable value that is passed into the TypedContract as a pre or post condition is length is not greater than the argument passed into the function. The TypedContract will throw an error if the contract length is greater than the pre or post condition contract.
 `myVar: string = "TypedContract";
 compareTo: string = "TypeScript";
  Contract.In(myVar).IsLengthNotGreaterThan(compareTo);
-// throws a RangeError` 
+// throws a RangeError`
 
-* IsLengthGreaterOrEqualThan - Checks if the variable value passed into the TypedContract as a pre or postconditions length is greater or equal than the argument passed into the function. The TypedContract will throw an error if the pre or postconditions length is less than the argument value. 
+* IsLengthGreaterOrEqualThan - Checks if the variable value passed into the TypedContract as a pre or postconditions length is greater or equal than the argument passed into the function. The TypedContract will throw an error if the pre or postconditions length is less than the argument value.
 `myVar: string = "TypedContract";
 compareTo: string = "TypeScript";
  Contract.In(myVar).IsLengthGreaterOrEqualThan(compareTo);
-// returns true, no error thrown` 
+// returns true, no error thrown`
 
-* IsLengthNotGreaterOrEqualThan - Checks if the variable value passed into the TypedContract as a pre or postconditions length is not greater or equal than  the argument passed into the function. The TypedContract will throw an error if the pre or postconditions length is equal or greater than the argument value. 
+* IsLengthNotGreaterOrEqualThan - Checks if the variable value passed into the TypedContract as a pre or postconditions length is not greater or equal than  the argument passed into the function. The TypedContract will throw an error if the pre or postconditions length is equal or greater than the argument value.
 `myVar: string = "TypedContract";
 compareTo: string = "TypeScript";
  Contract.In(myVar).IsLengthGreaterOrEqualThan(compareTo);
-// throws a RangeError` 
+// throws a RangeError`
 
 * IsLengthLessThan - Checks if the variable value passed into the TypedContract as a pre or postconditions length is less than the argument passed into the function. The TypedContract will thrown an error if the length of the pre or post condition is equal or greater than the argument passed into the function.
 `myVar: string = "TypedContract";
 compareTo: string = "TypeScript";
  Contract.In(myVar).IsLengthLessThan(compareTo);
-// throws a RangeError` 
+// throws a RangeError`
 
 * IsLengthNotLessThan - Checks if the variable value passed into the TypedContract as a pre or postconditions length is not less than the argument passed into the function. The TypedContract will thrown an error if the length of the pre or post condition is less or equal than the argument passed into the function.
 `myVar: string = "TypedContract";
@@ -246,25 +245,25 @@ compareTo: string = "TypeScript";
  Contract.In(myVar).IsLengthNotLessThan(compareTo);
 // returns true, no error thrown`
 
-* IsLengthLessOrEqualTo - Checks if the variable value passed into the TypedContract as a pre or postconditions length is less or equal to the argument passed into the function. The TypedContract will throw an error if the length of the pre or post condition is greater than the argument passed into the function. 
+* IsLengthLessOrEqualTo - Checks if the variable value passed into the TypedContract as a pre or postconditions length is less or equal to the argument passed into the function. The TypedContract will throw an error if the length of the pre or post condition is greater than the argument passed into the function.
 `myVar: string = "TypedScript";
 compareTo: string = "TypeScript";
  Contract.In(myVar).IsLengthLessOrEqual(compareTo);
 // returns true, no error thrown`
 
-* IsLengthNotLessOrEqualTo - Checks if the variable value passed into the TypedContract as a pre or postconditions length is not less or equal to the argument passed into the function. The TypedContract will throw an error if the length of the pre or post condition is less or equal than the argument passed into the function. 
+* IsLengthNotLessOrEqualTo - Checks if the variable value passed into the TypedContract as a pre or postconditions length is not less or equal to the argument passed into the function. The TypedContract will throw an error if the length of the pre or post condition is less or equal than the argument passed into the function.
 `myVar: string = "TypedScript";
 compareTo: string = "TypeScript";
  Contract.In(myVar).IsLengthNotLessOrEqual(compareTo);
 // throws a RangeError`
 
-* ToMatch - Checks if the variable passed into the TypedContract as a pre or post condition matches the value passed into the function using a <strong><em>regular expression</em></strong> as an argument. The TypedContract will throw an error if the <strong> <em>regular expression</em> </strong> does not match the contract pre or post condition. 
+* ToMatch - Checks if the variable passed into the TypedContract as a pre or post condition matches the value passed into the function using a <strong><em>regular expression</em></strong> as an argument. The TypedContract will throw an error if the <strong> <em>regular expression</em> </strong> does not match the contract pre or post condition.
 `myVar: any = "This is a TypeScript library";
 compareTo: string = /TypeScript/g;
  Contract.In(myVar).ToMatch(compareTo);
 // returns true, no error thrown`
 
-* ToNotMatch - Checks if the variable passed into the TypedContract as a pre or post condition does not match the value passed into the function using a <strong><em>regular expression</em></strong> as an argument. The TypedContract will throw an error if the <strong> <em>regular expression</em> </strong> does match the contract pre or post condition. 
+* ToNotMatch - Checks if the variable passed into the TypedContract as a pre or post condition does not match the value passed into the function using a <strong><em>regular expression</em></strong> as an argument. The TypedContract will throw an error if the <strong> <em>regular expression</em> </strong> does match the contract pre or post condition.
 `myVar: any = "This is a TypeScript library";
 compareTo: string = /TypeScript/g;
  Contract.In(myVar).ToNotMatch(compareTo);
@@ -301,26 +300,26 @@ compareTo: string = "typing";
  Contract.In(myVar).InBetween(startRange, endRange);
 // throws a RangeError`
 
-* StartsWith - Checks if the variable passed into the TypedContract as a pre or post condition starts with a certain value, which is specified in the argument passed into the function. The TypedContract will throw an error if the pre or post condition does not start with the value passed into the function as an argument. 
+* StartsWith - Checks if the variable passed into the TypedContract as a pre or post condition starts with a certain value, which is specified in the argument passed into the function. The TypedContract will throw an error if the pre or post condition does not start with the value passed into the function as an argument.
 `myVar: string = "This is a TypeScript Library";
  compareTo: string= "TypeScript";
  Contract.In(myVar).StartsWith(compareTo);
 // returns true, no error thrown`
 
-* NotStartsWith - Checks if the variable passed into the TypedContract as a pre or post condition does not start with a certain value, which is specified in the argument passed into the function. The TypedContract will throw an error if the pre or post condition does start with the value passed into the function as an argument. 
+* NotStartsWith - Checks if the variable passed into the TypedContract as a pre or post condition does not start with a certain value, which is specified in the argument passed into the function. The TypedContract will throw an error if the pre or post condition does start with the value passed into the function as an argument.
 `myVar: string = "This is a TypeScript Library";
  compareTo: string= "TypeScript";
  Contract.In(myVar).NotStartsWith(compareTo);
 // throws a RangeError`
 
-* EndsWith - Checks if the variable passed into the TypedContract as a pre or post condition ends with a certain value, which is specified in the argument passed into the function. The TypedContract will throw an error if the pre or post condition does not end with the value passed into the function as an argument. 
+* EndsWith - Checks if the variable passed into the TypedContract as a pre or post condition ends with a certain value, which is specified in the argument passed into the function. The TypedContract will throw an error if the pre or post condition does not end with the value passed into the function as an argument.
 `myVar: string = "This is a TypeScript Library";
  compareTo: string= "Library";
  Contract.In(myVar).EndsWith(compareTo);
 // returns true, no error thrown`
 
-* NotEndsWith - Checks if the variable passed into the TypedContract as a pre or post condition does not end with a certain value, which is specified in the argument passed into the function. The TypedContract will throw an error if the pre or post condition does end with the value passed into the function as an argument. 
+* NotEndsWith - Checks if the variable passed into the TypedContract as a pre or post condition does not end with a certain value, which is specified in the argument passed into the function. The TypedContract will throw an error if the pre or post condition does end with the value passed into the function as an argument.
 `myVar: string = "This is a TypeScript Library";
  compareTo: string= "Library";
- Contract.In(myVar).NotEndsWith(compareTo);
+ Contract.In(myVar).EndsWith(compareTo);
 // throws a RangeError`

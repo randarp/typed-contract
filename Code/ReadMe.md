@@ -2,7 +2,7 @@
 
 <h3> Why use typed-contract ? </h3>
 
-typed-contract is a library to help guard against invalid function inputs and outputs.  Using a fluent syntax, it allows a short and descriptive way to protect the system and return useful error messages.
+typed-contract is a library to help guard against invalid function inputs and outputs. Using a fluent syntax, it allows a short and descriptive way to protect the system and return useful error messages.
 
 Our goals are:
 
@@ -11,7 +11,7 @@ Our goals are:
   <li>Describe to other developers what the code expects in and what will be returned</li>
 </ul>
 
-The size and complexity of JavaScript and TypeScript projects continues to grow.  Edge cases and regressions happen.  Help find them quickly before your customers do!
+As the size and complexity of your JavaScript and TypeScript projects continues to grow, edge cases and regressions will occur. Help find them quickly before your users do!
 
 <h3>TypeScript, what is it and why would I ever want to use it ?</h3>
  (Clears *throat*)
