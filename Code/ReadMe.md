@@ -13,8 +13,6 @@ Our goals are:
 
 As the size and complexity of your JavaScript and TypeScript projects continues to grow, edge cases and regressions will occur. Help find them quickly before your users do!
 
-As the size and complexity of your JavaScript and TypeScript projects continues to grow, edge cases and regressions will occur. Help find them quickly before your users do!
-
 <h3>TypeScript, what is it and why would I ever want to use it ?</h3>
  (Clears *throat*)
 
