@@ -33,11 +33,11 @@ module.exports = function(grunt){
         },
             npmrelease: {
                 options: {
-                    bump: false,
+                    bump: true,
                     file: 'package.json',
-                    push:false,
+                    push: false,
                     pushTags: false,
-                    npm: true,
+                    npm: false,
                     npmtag: false,
                     folder: 'C:Projects/TypedContract/Code/typed-contract',
                     commitMessage: 'check out our new typed-contract release <%= version %>', //default: 'release <%= version %>'

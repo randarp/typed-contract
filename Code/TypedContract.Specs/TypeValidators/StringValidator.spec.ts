@@ -617,9 +617,9 @@ describe("StringValidator", () => {
     });
 
     it("NotContains returns the proper validator when given a string that does " +
-        "not contain any characters as the contract precondition", () => {
+        "not contain any characters like the the contract precondition", () => {
         let localVar: string = "This is a TypeScript library";
-        let compareTo: string = "";
+        let compareTo: string = "Not Contains";
 
         let result: StringValidator = Contract.In(localVar).NotContains(compareTo);
 

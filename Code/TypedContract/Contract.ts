@@ -3,7 +3,6 @@
 /// <reference path="TypeValidators\NumberValidator.ts" />
 /// <reference path="TypeValidators\ArrayValidator.ts" />
 /// <reference path="TypeValidators\AnyValidator.ts" />
-/// <reference path="TypeValidators\DOMValidator.ts"/>
 
   module Contract {
     "use strict";
@@ -16,8 +15,6 @@
     export function In(precondition: number, name: string): NumberValidator;
     export function In(precondition: any[]): ArrayValidator;
     export function In(precondition: any[], name: string): ArrayValidator;
-    export function In(precondition: HTMLElement): DOMValidator;
-    export function In (precondition: HTMLElement, name: string): DOMValidator;
     export function In(precondition: any, name: string): AnyValidator;
     export function In(precondition: any): AnyValidator;
 
@@ -33,8 +30,6 @@
             precondition instanceof Array === null
             || precondition instanceof Array === undefined ) {
             return new ArrayValidator(precondition, name);
-        } else if (precondition.tagName) {
-            return new DOMValidator(precondition, name);
         } else {
             return new AnyValidator(precondition, name);
         }
@@ -50,8 +45,6 @@
     export function Out(postcondition: any[], name: string): ArrayValidator;
     export function Out(postcondition: any, name: string): AnyValidator;
     export function Out(postcondition: any): AnyValidator;
-    export function Out(postcondition: HTMLElement): DOMValidator;
-    export function Out(postcondition: HTMLElement, name: string): DOMValidator;
     export function Out(postcondition: any, name: string = undefined): any {
 
         if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
@@ -64,15 +57,12 @@
             postcondition instanceof Array === null ||
             postcondition instanceof Array === undefined) {
             return new ArrayValidator(postcondition, name);
-        } else if (postcondition.tagName || postcondition === null || postcondition === undefined) {
-            return new DOMValidator(postcondition, name);
         } else {
             return new AnyValidator(postcondition, name);
         }
-
     }
 }
 
-/*declare var module: any;
-module.exports = Contract;
-*/
+ declare var module: any;
+ module.exports = Contract;
+

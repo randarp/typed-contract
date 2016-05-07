@@ -10,5 +10,3 @@ export declare function Out(postcondition: any[]): ArrayValidator;
 export declare function Out(postcondition: any[], name: string): ArrayValidator;
 export declare function Out(postcondition: any, name: string): AnyValidator;
 export declare function Out(postcondition: any): AnyValidator;
-export declare function Out(postcondition: HTMLElement): DOMValidator;
-export declare function Out(postcondition: HTMLElement, name: string): DOMValidator;

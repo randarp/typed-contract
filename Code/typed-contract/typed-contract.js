@@ -1,6 +1,8 @@
-/**
- * Encapsulates any validators that apply to every type and state used by the validation chain.
- */
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var BaseValidator = (function () {
     function BaseValidator(variableValue, variableName) {
         this._variableValue = variableValue;
@@ -18,13 +20,7 @@ var BaseValidator = (function () {
         return this._variableName;
     };
     return BaseValidator;
-})();
-/// <reference path="../TypeValidators/BaseValidator.ts" />
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+}());
 var StringValidator = (function (_super) {
     __extends(StringValidator, _super);
     function StringValidator(variableValue, variableName) {
@@ -183,7 +179,10 @@ var StringValidator = (function (_super) {
         }
     };
     StringValidator.prototype.Contains = function (compareTo) {
-        if (this._variableValue.indexOf(compareTo) <= -1) {
+        if (this._variableValue.length === 0 && compareTo.length === 0) {
+            return this;
+        }
+        if (compareTo.length === 0 || this._variableValue.indexOf(compareTo) <= -1) {
             throw new RangeError(this._variableName + " should contain\n           the pattern " + compareTo + " but the pattern is not found in " + this._variableValue);
         }
         else {
@@ -247,8 +246,7 @@ var StringValidator = (function (_super) {
         }
     };
     return StringValidator;
-})(BaseValidator);
-/// <reference path="../TypeValidators/BaseValidator.ts" />
+}(BaseValidator));
 var BooleanValidator = (function (_super) {
     __extends(BooleanValidator, _super);
     function BooleanValidator(variableValue, variableName) {
@@ -328,8 +326,7 @@ var BooleanValidator = (function (_super) {
     };
     ;
     return BooleanValidator;
-})(BaseValidator);
-/// <reference path="../TypeValidators/BaseValidator.ts" />
+}(BaseValidator));
 var NumberValidator = (function (_super) {
     __extends(NumberValidator, _super);
     function NumberValidator(variableValue, variableName) {
@@ -472,8 +469,7 @@ var NumberValidator = (function (_super) {
         }
     };
     return NumberValidator;
-})(BaseValidator);
-/// <reference path="../TypeValidators/BaseValidator.ts" />
+}(BaseValidator));
 var ArrayValidator = (function (_super) {
     __extends(ArrayValidator, _super);
     function ArrayValidator(variableValue, variableName) {
@@ -672,15 +668,11 @@ var ArrayValidator = (function (_super) {
         return this;
     };
     return ArrayValidator;
-})(BaseValidator);
-/**
- * Created by Andre on 4/14/2016.
- */
-/// <reference path="BaseValidator.ts" />
+}(BaseValidator));
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
-    function AnyValidator() {
-        _super.apply(this, arguments);
+    function AnyValidator(variableValue, variableName) {
+        _super.call(this, variableValue, variableName);
     }
     AnyValidator.prototype.IsNotNull = function () {
         if (this._variableValue === null) {
@@ -723,12 +715,7 @@ var AnyValidator = (function (_super) {
         }
     };
     return AnyValidator;
-})(BaseValidator);
-/// <reference path="TypeValidators\StringValidator.ts" />
-/// <reference path="TypeValidators\BooleanValidator.ts" />
-/// <reference path="TypeValidators\NumberValidator.ts" />
-/// <reference path="TypeValidators\ArrayValidator.ts" />
-/// <reference path="TypeValidators\AnyValidator.ts" />
+}(BaseValidator));
 var Contract;
 (function (Contract) {
     "use strict";
