@@ -1,5 +1,5 @@
 # typed-contract
-
+<h5> By Randar Puust and Andre Fischbacher </h5>
 <h3> Why use typed-contract ? </h3>
 
 typed-contract is a library to help guard against invalid function inputs and outputs. Using a fluent syntax, it allows a short and descriptive way to protect the system and return useful error messages.
