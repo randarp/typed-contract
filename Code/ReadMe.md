@@ -1,4 +1,17 @@
 # typed-contract
+<h5> By Andre Fischbacher and Randar Puust </h5>
+<h3> Why use typed-contract ? </h3>
+
+typed-contract is a library to help guard against invalid function inputs and outputs. Using a fluent syntax, it allows a short and descriptive way to protect the system and return useful error messages.
+
+Our goals are:
+
+<ul>
+  <li>Provide a consistent way of defining pre and post conditions for functions</li>
+  <li>Describe to other developers what the code expects in and what will be returned</li>
+</ul>
+
+As the size and complexity of your JavaScript and TypeScript projects continues to grow, edge cases and regressions will occur. Help find them quickly before your users do!
 
 As the size and complexity of your JavaScript and TypeScript projects continues to grow, edge cases and regressions will occur. Help find them quickly before your users do!
 
