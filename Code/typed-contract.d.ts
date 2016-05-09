@@ -1,3 +1,4 @@
+/// <reference path="Typings/node.d.ts" />
 declare class BaseValidator<T> {
     protected _variableValue: T;
     protected _variableName: string;
@@ -118,4 +119,4 @@ declare module Contract {
     function Out(postcondition: any, name: string): AnyValidator;
     function Out(postcondition: any): AnyValidator;
 }
-declare var module: any;
+declare var module: NodeModule;

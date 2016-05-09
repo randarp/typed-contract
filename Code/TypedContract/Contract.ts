@@ -3,8 +3,9 @@
 /// <reference path="TypeValidators\NumberValidator.ts" />
 /// <reference path="TypeValidators\ArrayValidator.ts" />
 /// <reference path="TypeValidators\AnyValidator.ts" />
+/// <reference path="C:\Projects\TypedContract\Code\Typings\node.d.ts" />
 
-  module Contract {
+ module Contract {
     "use strict";
 
     export function In(precondition: string): StringValidator;
@@ -63,6 +64,5 @@
     }
 }
 
- declare var module: any;
- module.exports = Contract;
-
+declare var module: NodeModule;
+module.exports = Contract;
