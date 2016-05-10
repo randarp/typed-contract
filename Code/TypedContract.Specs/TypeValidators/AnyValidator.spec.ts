@@ -10,7 +10,7 @@ describe("AnyValidator", () => {
     it("IsNotNull returns the proper validator when given an undefined", () => {
         let localVar: any;
 
-        let result: AnyValidator = Contract.In(localVar).IsNotNull();
+        let result: AnyValidator = contract.In(localVar).IsNotNull();
 
         expect(result);
     });
@@ -21,7 +21,7 @@ describe("AnyValidator", () => {
         let localVariable: any = "A string";
 
         // act
-        let result: AnyValidator = Contract.In(localVariable).IsNotNull();
+        let result: AnyValidator = contract.In(localVariable).IsNotNull();
 
         // assert
         expect(result).not.toBeNull();
@@ -31,7 +31,7 @@ describe("AnyValidator", () => {
     it("IsNotNull is passed the an empty string", () => {
         let localVar: string = "";
 
-        let result: AnyValidator = Contract.In(localVar).IsNotNull();
+        let result: AnyValidator = contract.In(localVar).IsNotNull();
 
         expect(result).not.toBe(null);
         expect(result).toEqual(jasmine.any(StringValidator));
@@ -40,7 +40,7 @@ describe("AnyValidator", () => {
     it("IsNotNull is passed in a defined number variable", () => {
        let localVar: any = 100;
 
-       let result: AnyValidator = Contract.In(localVar).IsNotNull();
+       let result: AnyValidator = contract.In(localVar).IsNotNull();
 
        expect(result).not.toBe(null);
     });
@@ -52,7 +52,7 @@ describe("AnyValidator", () => {
 
         // act/assert
         expect(() => {
-            Contract.In(localVariable).IsNull();
+            contract.In(localVariable).IsNull();
         }).toThrow(new ReferenceError("The variable should be null")); // getting right result, assertion statement wrong
     });
 
@@ -60,7 +60,7 @@ describe("AnyValidator", () => {
 
         let localVar: string = "Andre";
 
-        let result: AnyValidator = Contract.In(localVar).IsDefined();
+        let result: AnyValidator = contract.In(localVar).IsDefined();
 
         expect(result).toBeDefined();
 
@@ -69,7 +69,7 @@ describe("AnyValidator", () => {
     it("IsNull should return the proper result", () => {
         let localVar: string = null;
 
-        let result: AnyValidator = Contract.In(localVar).IsNull();
+        let result: AnyValidator = contract.In(localVar).IsNull();
 
         expect(result);
 
@@ -78,7 +78,7 @@ describe("AnyValidator", () => {
     it("IsNotDefined return the proper result", () => {
         let myVar: any;
 
-        let result: AnyValidator = Contract.In(myVar, "").IsUndefined();
+        let result: AnyValidator = contract.In(myVar, "").IsUndefined();
 
         expect(result);
     });
@@ -88,7 +88,7 @@ describe("AnyValidator", () => {
         let localVar: any;
 
         expect( () => {
-            Contract.In(localVar).IsNullOrUndefined();
+            contract.In(localVar).IsNullOrUndefined();
         }).toThrowError(<any>ReferenceError);
     });
 
@@ -97,7 +97,7 @@ describe("AnyValidator", () => {
         let localVar: any = "Hello World";
 
         expect( () => {
-            Contract.In(localVar).IsNullOrUndefined();
+            contract.In(localVar).IsNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
 
     });
@@ -107,7 +107,7 @@ describe("AnyValidator", () => {
 
        let localVar: void = divElement.addEventListener("click", (e: MouseEvent) => {e.preventDefault(); }, false);
 
-       let result: AnyValidator = Contract.In(localVar).IsNotNull();
+       let result: AnyValidator = contract.In(localVar).IsNotNull();
 
        expect(result).not.toBe(null);
     });
@@ -115,7 +115,7 @@ describe("AnyValidator", () => {
     it("IsNotNull on an anonymous function for an AnyValidator", () => {
         let localVar: any = () => {var x = 1; return x; };
 
-        let result: AnyValidator = Contract.In(localVar).IsNotNull();
+        let result: AnyValidator = contract.In(localVar).IsNotNull();
 
         expect(result).not.toBe(null);
     });

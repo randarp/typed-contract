@@ -1,4 +1,4 @@
-/// <reference path="..\TypedContract\Contract.ts" />
+/// <reference path="..\typed-contract.d.ts" />
 /// <reference path="..\Typings\http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
 describe("Contract", () => {
@@ -8,7 +8,7 @@ describe("Contract", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: BooleanValidator = Contract.In(localVariable);
+        let result: BooleanValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -20,7 +20,7 @@ describe("Contract", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: BooleanValidator = Contract.In(localVariable, "localVariable");
+        let result: BooleanValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -32,7 +32,7 @@ describe("Contract", () => {
         let localVariable: number = 2;
 
         // act
-        let result: NumberValidator = Contract.In(localVariable);
+        let result: NumberValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -44,7 +44,7 @@ describe("Contract", () => {
         let localVariable: number = 2;
 
         // act
-        let result: NumberValidator = Contract.In(localVariable, "localVariable");
+        let result: NumberValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -56,7 +56,7 @@ describe("Contract", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: StringValidator = Contract.In(localVariable);
+        let result: StringValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -68,7 +68,7 @@ describe("Contract", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: StringValidator = Contract.In(localVariable, "localVariable");
+        let result: StringValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -80,7 +80,7 @@ describe("Contract", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: ArrayValidator = Contract.In(localVariable);
+        let result: ArrayValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -92,7 +92,7 @@ describe("Contract", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: ArrayValidator = Contract.In(localVariable, "localVariable");
+        let result: ArrayValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -102,7 +102,7 @@ describe("Contract", () => {
     it("will return the correct validator for an any type", () => {
         let localVariable: any = /[A-Z]/;
 
-        let result: AnyValidator = Contract.In(localVariable);
+        let result: AnyValidator = contract.In(localVariable);
 
         expect(result).not.toBeNull();
         expect(result).toEqual(jasmine.any(AnyValidator));
@@ -111,7 +111,7 @@ describe("Contract", () => {
     it("will return the correct validator for an any type with a variable name", () => {
         let localVariable: any = /[A-Z]/;
 
-        let result: AnyValidator = Contract.In(localVariable, "myVar");
+        let result: AnyValidator = contract.In(localVariable, "myVar");
 
         expect(result).not.toBeNull();
         expect(result).toEqual(jasmine.any(AnyValidator));

@@ -9,7 +9,7 @@ describe("NumberValidator", () => {
         let localVariable: number = 2;
 
         // act
-        let result: NumberValidator = Contract.In(localVariable).IsGreaterThan(1);
+        let result: NumberValidator = contract.In(localVariable).IsGreaterThan(1);
 
         // assert
         expect(result);
@@ -21,7 +21,7 @@ describe("NumberValidator", () => {
         let comparableVar: number = 1;
 
         // act
-        let result: NumberValidator = Contract.In(localVariable).IsGreaterThan(comparableVar);
+        let result: NumberValidator = contract.In(localVariable).IsGreaterThan(comparableVar);
 
         // assert
         expect(result);
@@ -33,7 +33,7 @@ describe("NumberValidator", () => {
         let localVar: number = 1;
 
         // act
-        let result: NumberValidator = Contract.In(localVar).IsNotNull();
+        let result: NumberValidator = contract.In(localVar).IsNotNull();
 
         // assert
         expect(result);
@@ -44,7 +44,7 @@ describe("NumberValidator", () => {
         let localVar: number = null;
 
         // act
-        let result: NumberValidator = Contract.In(localVar).IsNull();
+        let result: NumberValidator = contract.In(localVar).IsNull();
 
         // assert
         expect(result);
@@ -55,7 +55,7 @@ describe("NumberValidator", () => {
         let localVar: number = 0;
 
         // act
-        let result: NumberValidator = Contract.In(localVar).IsDefined();
+        let result: NumberValidator = contract.In(localVar).IsDefined();
 
         // assert
         expect(result).toBeDefined();
@@ -65,7 +65,7 @@ describe("NumberValidator", () => {
     it("IsNullOrUndefined returns proper validator if defined", () => {
         let localVar: number = 0;
 
-        let result: NumberValidator = Contract.In(localVar).IsNullOrUndefined();
+        let result: NumberValidator = contract.In(localVar).IsNullOrUndefined();
 
         expect(result);
     });
@@ -73,7 +73,7 @@ describe("NumberValidator", () => {
     it("IsEqualTo returns the proper validator when given an equal value", () => {
         let localVar: number = 1;
 
-        let result: NumberValidator = Contract.In(localVar).IsEqualTo(1);
+        let result: NumberValidator = contract.In(localVar).IsEqualTo(1);
 
         expect(result);
 
@@ -83,14 +83,14 @@ describe("NumberValidator", () => {
         let localVar: number = 1;
 
         expect( () => {
-            Contract.In(localVar).IsEqualTo(2);
+            contract.In(localVar).IsEqualTo(2);
         }).toThrow(new RangeError("The variable should be equal to the number variable 2"));
     });
 
     it("IsEqualTo returns the proper validator when given a double value", () => {
         let localVar: number = 10.00;
 
-        let result: NumberValidator = Contract.In(localVar).IsEqualTo(10.00);
+        let result: NumberValidator = contract.In(localVar).IsEqualTo(10.00);
 
         expect(result);
     });
@@ -99,7 +99,7 @@ describe("NumberValidator", () => {
         let localVar: number = 24.45;
 
         expect( () => {
-            Contract.In(localVar).IsEqualTo(24.46);
+            contract.In(localVar).IsEqualTo(24.46);
         }).toThrow(new RangeError("The variable should be equal to the number variable 24.46"));
     });
 
@@ -108,7 +108,7 @@ describe("NumberValidator", () => {
 
         let compareTo: number = 2;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotEqualTo(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsNotEqualTo(compareTo);
 
         expect(result);
     });
@@ -119,7 +119,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 1;
 
         expect( () => {
-            Contract.In(localVar).IsNotEqualTo(compareTo);
+            contract.In(localVar).IsNotEqualTo(compareTo);
         }).toThrow(new RangeError("The variable should not be equal to the number variable 1"));
 
     });
@@ -128,7 +128,7 @@ describe("NumberValidator", () => {
         let localVar: number = null;
         let compareTo: number = undefined;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotEqualTo(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsNotEqualTo(compareTo);
 
         expect(result);
     });
@@ -138,7 +138,7 @@ describe("NumberValidator", () => {
         let localVar: number = 1;
         let compareTo: number = 0;
 
-        let result: NumberValidator = Contract.In(localVar).IsGreaterThan(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsGreaterThan(compareTo);
 
         expect(result);
     });
@@ -147,7 +147,7 @@ describe("NumberValidator", () => {
         let localVar: number = 1;
         let compareTo: number = 1;
 
-        let result: NumberValidator = Contract.In(localVar).IsGreaterThan(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsGreaterThan(compareTo);
 
         expect(result);
     });
@@ -157,7 +157,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 23;
 
         expect( () => {
-            Contract.In(localVar).IsGreaterThan(compareTo);
+            contract.In(localVar).IsGreaterThan(compareTo);
         }).toThrow(new RangeError("The variable should be greater than 23 but is 1"));
 
     });
@@ -166,7 +166,7 @@ describe("NumberValidator", () => {
         let localVar: number = 1;
         let compareTo: number = 3;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotGreaterThan(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsNotGreaterThan(compareTo);
 
         expect(result);
     });
@@ -176,7 +176,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 1;
 
         expect( () => {
-            Contract.In(localVar).IsNotGreaterThan(compareTo);
+            contract.In(localVar).IsNotGreaterThan(compareTo);
         }).toThrow(new RangeError("The variable should not be greater than 1 but is 2"));
 
     });
@@ -185,7 +185,7 @@ describe("NumberValidator", () => {
         let localVar: number = 1;
         let compareTo: number = 1;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotGreaterThan(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsNotGreaterThan(compareTo);
 
         expect(result);
 
@@ -195,7 +195,7 @@ describe("NumberValidator", () => {
         let localVar: number = 4;
         let compareTo: number = 3;
 
-        let result: NumberValidator = Contract.In(localVar).IsGreaterOrEqualThan(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsGreaterOrEqualThan(compareTo);
 
         expect(result);
 
@@ -205,7 +205,7 @@ describe("NumberValidator", () => {
         let localVar: number = 3;
         let compareTo: number = 3;
 
-        let result: NumberValidator = Contract.In(localVar).IsGreaterOrEqualThan(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsGreaterOrEqualThan(compareTo);
 
         expect(result);
     });
@@ -216,7 +216,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 5;
 
         expect( () => {
-            Contract.In(localVar).IsGreaterOrEqualThan(compareTo);
+            contract.In(localVar).IsGreaterOrEqualThan(compareTo);
         }).toThrow(new RangeError("The variable should be greater than 5 but is 4"));
 
     });
@@ -225,7 +225,7 @@ describe("NumberValidator", () => {
         let localVar: number = 4;
         let compareTo: number = 4;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotGreaterOrEqualThan(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsNotGreaterOrEqualThan(compareTo);
 
         expect(result);
 
@@ -237,7 +237,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 2;
 
         expect( () => {
-            Contract.In(localVar).IsNotGreaterOrEqualThan(compareTo);
+            contract.In(localVar).IsNotGreaterOrEqualThan(compareTo);
         }).toThrow(new RangeError("The variable should not be greater or equal to 2 but is 4"));
 
     });
@@ -248,7 +248,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 4;
 
         expect( () => {
-            Contract.In(localVar).IsNotGreaterOrEqualThan(compareTo);
+            contract.In(localVar).IsNotGreaterOrEqualThan(compareTo);
         }).toThrow(new RangeError("The variable should not be greater or equal to 4 but is 6"));
 
     });
@@ -257,7 +257,7 @@ describe("NumberValidator", () => {
         let localVar: number = 6;
         let compareTo: number = 10;
 
-        let result: NumberValidator = Contract.In(localVar).IsLessThan(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsLessThan(compareTo);
 
         expect(result);
     });
@@ -268,7 +268,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 10;
 
         expect( () => {
-            Contract.In(localVar).IsLessThan(compareTo);
+            contract.In(localVar).IsLessThan(compareTo);
         }).toThrow(new RangeError("The variable should be less than 10 but is 10"));
     });
 
@@ -277,7 +277,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 10;
 
         expect( () => {
-            Contract.In(localVar).IsLessThan(compareTo);
+            contract.In(localVar).IsLessThan(compareTo);
         }).toThrow(new RangeError("The variable should be less than 10 but is 10.1"));
     });
     it("IsLessThan returns the proper validator when the precondition is greater than the comparable", () => {
@@ -285,7 +285,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 10;
 
         expect( () => {
-            Contract.In(localVar).IsLessThan(compareTo);
+            contract.In(localVar).IsLessThan(compareTo);
         }).toThrow(new RangeError("The variable should be less than 10 but is 11"));
     });
 
@@ -293,7 +293,7 @@ describe("NumberValidator", () => {
         let localVar: number = 3;
         let compareTo: number = 2;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotLessThan(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsNotLessThan(compareTo);
 
         expect(result);
     });
@@ -303,7 +303,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 3;
 
         expect( () => {
-            Contract.In(localVar).IsNotLessThan(compareTo);
+            contract.In(localVar).IsNotLessThan(compareTo);
         }).toThrow(new RangeError("The variable should not be less than 3 but is 1"));
     });
 
@@ -312,7 +312,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 2;
 
         expect( () => {
-            Contract.In(localVar).IsNotLessThan(compareTo);
+            contract.In(localVar).IsNotLessThan(compareTo);
         }).toThrow(new RangeError("The variable should not be less than 2 but is 2"));
     });
 
@@ -320,7 +320,7 @@ describe("NumberValidator", () => {
         let localVar: number = 3;
         let compareTo: number = 2;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotLessThan(compareTo);
+        let result: NumberValidator = contract.In(localVar).IsNotLessThan(compareTo);
 
         expect(result);
     });
@@ -329,7 +329,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 2;
 
         expect( () => {
-            Contract.In(localVar).IsNotLessThan(compareTo);
+            contract.In(localVar).IsNotLessThan(compareTo);
         }).toThrow(new RangeError("The variable should not be less than 2 but is 1"));
 
     });
@@ -338,7 +338,7 @@ describe("NumberValidator", () => {
         let compareTo: number = 1;
 
         expect( () => {
-            Contract.In(localVar).IsNotLessOrEqualThan(compareTo);
+            contract.In(localVar).IsNotLessOrEqualThan(compareTo);
         }).toThrowError();
     });
 
@@ -348,7 +348,7 @@ describe("NumberValidator", () => {
         let startRange: number = 60;
         let endRange: number = 100;
 
-        let result: NumberValidator = Contract.In(localVar).IsBetween(startRange, endRange);
+        let result: NumberValidator = contract.In(localVar).IsBetween(startRange, endRange);
 
         expect(result);
 
@@ -360,7 +360,7 @@ describe("NumberValidator", () => {
         let startRange: number = 0.00;
         let endRange: number = 100.0;
 
-        let result: NumberValidator = Contract.In(localVar).IsBetween(startRange, endRange);
+        let result: NumberValidator = contract.In(localVar).IsBetween(startRange, endRange);
 
         expect(result);
 
@@ -373,7 +373,7 @@ describe("NumberValidator", () => {
         let endRange: number = 100;
 
         expect( () => {
-            Contract.In(localVar).IsBetween(startRange, endRange);
+            contract.In(localVar).IsBetween(startRange, endRange);
         }).toThrowError(<any>RangeError);
 
     });
@@ -385,7 +385,7 @@ describe("NumberValidator", () => {
         let endRange: number = 100.216;
 
         expect( () => {
-            Contract.In(localVar).IsBetween(startRange, endRange);
+            contract.In(localVar).IsBetween(startRange, endRange);
         }).toThrowError(<any>RangeError);
 
     });
@@ -396,7 +396,7 @@ describe("NumberValidator", () => {
         let startRange: number = 60;
         let endRange: number = 100;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotBetween(startRange, endRange);
+        let result: NumberValidator = contract.In(localVar).IsNotBetween(startRange, endRange);
 
         expect(result);
 
@@ -408,7 +408,7 @@ describe("NumberValidator", () => {
         let startRange: number = 100;
         let endRange: number = 200.00;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotBetween(startRange, endRange);
+        let result: NumberValidator = contract.In(localVar).IsNotBetween(startRange, endRange);
 
         expect(result);
 
@@ -420,7 +420,7 @@ describe("NumberValidator", () => {
         let startRange: number = 60;
         let endRange: number = 100;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotBetween(startRange, endRange);
+        let result: NumberValidator = contract.In(localVar).IsNotBetween(startRange, endRange);
 
         expect(result);
 
@@ -432,7 +432,7 @@ describe("NumberValidator", () => {
         let startRange: number = 60;
         let endRange: number = 100;
 
-        let result: NumberValidator = Contract.In(localVar).IsNotBetween(startRange, endRange);
+        let result: NumberValidator = contract.In(localVar).IsNotBetween(startRange, endRange);
 
         expect(result);
 
@@ -445,7 +445,7 @@ describe("NumberValidator", () => {
         let endRange: number = 100;
 
         expect( () => {
-            Contract.In(localVar).IsNotBetween(startRange, endRange);
+            contract.In(localVar).IsNotBetween(startRange, endRange);
 
         }).toThrowError(<any>RangeError);
 

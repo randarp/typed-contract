@@ -1,3 +1,4 @@
+/// <reference path="TypedContract/Contract.d.ts" />
 declare class BaseValidator<T> {
     protected _variableValue: T;
     protected _variableName: string;
@@ -96,28 +97,29 @@ declare class AnyValidator extends BaseValidator<any> {
     IsUndefined(): AnyValidator;
     IsNullOrUndefined(): AnyValidator;
 }
-declare module "Contract" {
-    module Contract {
-        function In(precondition: string): StringValidator;
-        function In(precondition: string, name: string): StringValidator;
-        function In(precondition: boolean): BooleanValidator;
-        function In(precondition: boolean, name: string): BooleanValidator;
-        function In(precondition: number): NumberValidator;
-        function In(precondition: number, name: string): NumberValidator;
-        function In(precondition: any[]): ArrayValidator;
-        function In(precondition: any[], name: string): ArrayValidator;
-        function In(precondition: any, name: string): AnyValidator;
-        function In(precondition: any): AnyValidator;
-        function Out(postcondition: string): StringValidator;
-        function Out(postcondition: string, name: string): StringValidator;
-        function Out(postcondition: boolean): BooleanValidator;
-        function Out(postcondition: boolean, name: string): BooleanValidator;
-        function Out(postcondition: number): NumberValidator;
-        function Out(postcondition: number, name: string): NumberValidator;
-        function Out(postcondition: any[]): ArrayValidator;
-        function Out(postcondition: any[], name: string): ArrayValidator;
-        function Out(postcondition: any, name: string): AnyValidator;
-        function Out(postcondition: any): AnyValidator;
-    }
-    export = Contract;
+declare class Contract implements IContractStatic {
+    In(precondition: string): StringValidator;
+    In(precondition: string, name: string): StringValidator;
+    In(precondition: boolean): BooleanValidator;
+    In(precondition: boolean, name: string): BooleanValidator;
+    In(precondition: number): NumberValidator;
+    In(precondition: number, name: string): NumberValidator;
+    In(precondition: any[]): ArrayValidator;
+    In(precondition: any[], name: string): ArrayValidator;
+    In(precondition: any, name: string): AnyValidator;
+    In(precondition: any): AnyValidator;
+    Out(postcondition: string): StringValidator;
+    Out(postcondition: string, name: string): StringValidator;
+    Out(postcondition: boolean): BooleanValidator;
+    Out(postcondition: boolean, name: string): BooleanValidator;
+    Out(postcondition: number): NumberValidator;
+    Out(postcondition: number, name: string): NumberValidator;
+    Out(postcondition: any[]): ArrayValidator;
+    Out(postcondition: any[], name: string): ArrayValidator;
+    Out(postcondition: any, name: string): AnyValidator;
+    Out(postcondition: any): AnyValidator;
+}
+declare var contract: IContractStatic;
+declare module "contract" {
+    export = contract;
 }

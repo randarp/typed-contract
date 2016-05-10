@@ -716,4 +716,53 @@ var AnyValidator = (function (_super) {
     };
     return AnyValidator;
 }(BaseValidator));
+var Contract = (function () {
+    function Contract() {
+    }
+    Contract.prototype.In = function (precondition, name) {
+        if (name === void 0) { name = undefined; }
+        if (typeof precondition === "string" || precondition === null || precondition === undefined) {
+            return new StringValidator(precondition, name);
+        }
+        else if (typeof precondition === "boolean" || precondition === null || precondition === undefined) {
+            return new BooleanValidator(precondition, name);
+        }
+        else if (typeof precondition === "number" || precondition === null || precondition === undefined) {
+            return new NumberValidator(precondition, name);
+        }
+        else if (precondition instanceof Array ||
+            precondition instanceof Array === null
+            || precondition instanceof Array === undefined) {
+            return new ArrayValidator(precondition, name);
+        }
+        else {
+            return new AnyValidator(precondition, name);
+        }
+    };
+    Contract.prototype.Out = function (postcondition, name) {
+        if (name === void 0) { name = undefined; }
+        if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
+            return new StringValidator(postcondition, name);
+        }
+        else if (typeof postcondition === "boolean" || postcondition === null || postcondition === undefined) {
+            return new BooleanValidator(postcondition, name);
+        }
+        else if (typeof postcondition === "number" || postcondition === null || postcondition === undefined) {
+            return new NumberValidator(postcondition, name);
+        }
+        else if (postcondition instanceof Array ||
+            postcondition instanceof Array === null ||
+            postcondition instanceof Array === undefined) {
+            return new ArrayValidator(postcondition, name);
+        }
+        else {
+            return new AnyValidator(postcondition, name);
+        }
+    };
+    return Contract;
+}());
+var contract = function () {
+    return new Contract();
+};
+;
 //# sourceMappingURL=typed-contract.js.map
