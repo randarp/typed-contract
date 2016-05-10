@@ -1,4 +1,3 @@
-/// <reference path="Typings/node.d.ts" />
 declare class BaseValidator<T> {
     protected _variableValue: T;
     protected _variableName: string;
@@ -97,26 +96,28 @@ declare class AnyValidator extends BaseValidator<any> {
     IsUndefined(): AnyValidator;
     IsNullOrUndefined(): AnyValidator;
 }
-declare module Contract {
-    function In(precondition: string): StringValidator;
-    function In(precondition: string, name: string): StringValidator;
-    function In(precondition: boolean): BooleanValidator;
-    function In(precondition: boolean, name: string): BooleanValidator;
-    function In(precondition: number): NumberValidator;
-    function In(precondition: number, name: string): NumberValidator;
-    function In(precondition: any[]): ArrayValidator;
-    function In(precondition: any[], name: string): ArrayValidator;
-    function In(precondition: any, name: string): AnyValidator;
-    function In(precondition: any): AnyValidator;
-    function Out(postcondition: string): StringValidator;
-    function Out(postcondition: string, name: string): StringValidator;
-    function Out(postcondition: boolean): BooleanValidator;
-    function Out(postcondition: boolean, name: string): BooleanValidator;
-    function Out(postcondition: number): NumberValidator;
-    function Out(postcondition: number, name: string): NumberValidator;
-    function Out(postcondition: any[]): ArrayValidator;
-    function Out(postcondition: any[], name: string): ArrayValidator;
-    function Out(postcondition: any, name: string): AnyValidator;
-    function Out(postcondition: any): AnyValidator;
+declare module "Contract" {
+    module Contract {
+        function In(precondition: string): StringValidator;
+        function In(precondition: string, name: string): StringValidator;
+        function In(precondition: boolean): BooleanValidator;
+        function In(precondition: boolean, name: string): BooleanValidator;
+        function In(precondition: number): NumberValidator;
+        function In(precondition: number, name: string): NumberValidator;
+        function In(precondition: any[]): ArrayValidator;
+        function In(precondition: any[], name: string): ArrayValidator;
+        function In(precondition: any, name: string): AnyValidator;
+        function In(precondition: any): AnyValidator;
+        function Out(postcondition: string): StringValidator;
+        function Out(postcondition: string, name: string): StringValidator;
+        function Out(postcondition: boolean): BooleanValidator;
+        function Out(postcondition: boolean, name: string): BooleanValidator;
+        function Out(postcondition: number): NumberValidator;
+        function Out(postcondition: number, name: string): NumberValidator;
+        function Out(postcondition: any[]): ArrayValidator;
+        function Out(postcondition: any[], name: string): ArrayValidator;
+        function Out(postcondition: any, name: string): AnyValidator;
+        function Out(postcondition: any): AnyValidator;
+    }
+    export = Contract;
 }
-declare var module: NodeModule;

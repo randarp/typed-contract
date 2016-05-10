@@ -3,7 +3,6 @@
 /// <reference path="TypeValidators\NumberValidator.ts" />
 /// <reference path="TypeValidators\ArrayValidator.ts" />
 /// <reference path="TypeValidators\AnyValidator.ts" />
-/// <reference path="C:\Projects\TypedContract\Code\Typings\node.d.ts" />
 
  module Contract {
     "use strict";
@@ -64,5 +63,4 @@
     }
 }
 
-declare var module: NodeModule;
-module.exports = Contract;
+export = Contract;
