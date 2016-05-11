@@ -3,7 +3,7 @@
   <component name="TypeScriptCompiler">
     <option name="isCompilerEnabled" value="true" />
     <option name="typeScriptCompilerParams" value="--module commonjs Contract.ts --sourcemap $FilePath$" />
-    <option name="scopeName" value="Project Test Files" />
+    <option name="scopeName" value="Module 'Code'" />
     <option name="hasOutDirectory" value="true" />
     <option name="outDirectory" value="$FileDir$\typed-contract.js" />
     <option name="mainFilePath" value="C:\Projects\TypedContract\Code\TypedContract\Contract.ts" />
