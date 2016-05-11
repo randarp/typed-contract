@@ -86,16 +86,10 @@ declare interface IContractStatic {
     }
 }
 
-// Define a local copy of contract
-// TODO: Why can't I use IContractStatic?
-// var contract: IContractStatic = () => {
-/*var contract: any = () => {
-    return new Contract();
-};*/
-
-var contract: IContractStatic = new Contract();
-
-
-/*declare module "typed-contract" {
-    export = contract;
-};*/
+// Define a local instance of contract that can be re-used due to the fluent style
+/* tslint:disable */
+var contract: IContractStatic;
+if (!contract) {
+    contract = new Contract();
+}
+/* tslint:enable */
