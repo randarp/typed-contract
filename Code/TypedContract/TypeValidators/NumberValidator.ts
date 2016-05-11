@@ -1,4 +1,4 @@
-/// <reference path="../TypeValidators/BaseValidator.ts" />
+/// <reference path="BaseValidator.ts" />
 
 class NumberValidator extends BaseValidator<number> {
 

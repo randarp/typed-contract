@@ -1,4 +1,4 @@
-/// <reference path="../TypeValidators/BaseValidator.ts" />
+/// <reference path="BaseValidator.ts" />
 
 class BooleanValidator extends BaseValidator<boolean> {
 
