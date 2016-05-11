@@ -1,7 +1,4 @@
-/// <reference path="../../TypedContract/Contract.ts" />
-/// <reference path="../../TypedContract/TypeValidators/StringValidator.ts" />
-/// <reference path="../../Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
-/// <reference path="..\..\TypedContract\Contract.ts" />
+/// <reference path="..\..\typed-contract.d.ts" />
 /// <reference path="..\..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
 // import {ReferenceError} from "../../node_modules/typescript/lib/lib";

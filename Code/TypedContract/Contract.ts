@@ -59,7 +59,7 @@
 // Define a local copy of contract
 var contract: IContractStatic = function()
 {
-        return new Contract();
+    return new Contract();
 };
 
 declare module "contract" {

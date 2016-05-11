@@ -1,8 +1,4 @@
-/**
- * Created by Andre on 4/14/2016.
- */
-/// <reference path="..\..\TypedContract\TypeValidators\AnyValidator.ts" />
-/// <reference path="..\..\TypedContract\Contract.ts" />
+/// <reference path="..\..\typed-contract.d.ts" />
 /// <reference path="..\..\Typings\http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
 describe("AnyValidator", () => {

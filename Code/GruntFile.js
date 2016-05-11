@@ -1,6 +1,3 @@
-/**
- * Created by Andre on 2016-02-07.
- */
 module.exports = function(grunt){
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-publish");
