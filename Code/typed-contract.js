@@ -198,7 +198,7 @@ var StringValidator = (function (_super) {
         }
     };
     StringValidator.prototype.StartsWith = function (compareTo) {
-        if (this._variableValue.startsWith(compareTo)) {
+        if ((this._variableValue).lastIndexOf(compareTo, 0) === 0) {
             return this;
         }
         else {
@@ -206,7 +206,7 @@ var StringValidator = (function (_super) {
         }
     };
     StringValidator.prototype.NotStartsWith = function (compareTo) {
-        if (this._variableValue.startsWith(compareTo)) {
+        if ((this._variableValue).lastIndexOf(compareTo, 0) !== 0) {
             throw new RangeError(this._variableName + " should not start with " + compareTo + " but " + this._variableValue + " does not");
         }
         else {
@@ -214,7 +214,7 @@ var StringValidator = (function (_super) {
         }
     };
     StringValidator.prototype.EndsWith = function (compareTo) {
-        if (!this._variableValue.endsWith(compareTo)) {
+        if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) === -1) {
             throw new RangeError(this._variableName + " should end with " + compareTo + ", but " + this._variableValue + " does not");
         }
         else {
@@ -222,7 +222,7 @@ var StringValidator = (function (_super) {
         }
     };
     StringValidator.prototype.NotEndsWith = function (compareTo) {
-        if (this._variableValue.endsWith(compareTo)) {
+        if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) !== -1) {
             throw new RangeError(this._variableName + " should not end with " + compareTo + ", but " + this._variableValue + " does not");
         }
         else {

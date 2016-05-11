@@ -366,7 +366,7 @@ class StringValidator extends BaseValidator<string> {
      */
     public StartsWith(compareTo: string): StringValidator {
 
-        if ((<any>this._variableValue).startsWith(compareTo)) {
+        if ((this._variableValue).lastIndexOf(compareTo, 0) === 0) {
             return this;
         } else {
             throw new RangeError(`${this._variableName} should start with ${this._variableValue}, but ${compareTo} does not`);
@@ -384,7 +384,7 @@ class StringValidator extends BaseValidator<string> {
 
     public NotStartsWith(compareTo: string): StringValidator {
 
-        if ((<any>this._variableValue).startsWith(compareTo)) {
+        if ((this._variableValue).lastIndexOf(compareTo, 0) !== 0) {
             throw new RangeError(`${this._variableName} should not start with ${compareTo} but ${this._variableValue} does not`);
         } else {
             return this;
@@ -401,8 +401,7 @@ class StringValidator extends BaseValidator<string> {
      */
 
     public EndsWith(compareTo: string): StringValidator {
-
-        if (!(<any>this._variableValue).endsWith(compareTo)) {
+        if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) === -1) {
             throw new RangeError(`${this._variableName} should end with ${compareTo}, but ${this._variableValue} does not`);
         } else {
             return this;
@@ -420,7 +419,7 @@ class StringValidator extends BaseValidator<string> {
 
     public NotEndsWith(compareTo: string): StringValidator {
 
-        if ((<any>this._variableValue).endsWith(compareTo)) {
+        if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) !== -1) {
             throw new RangeError(`${this._variableName} should not end with ${compareTo}, but ${this._variableValue} does not`);
         } else {
             return this;
