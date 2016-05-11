@@ -1,8 +1,6 @@
 /// <reference path="..\..\typed-contract.d.ts" />
 /// <reference path="..\..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
 
-// import {ReferenceError} from "../../node_modules/typescript/lib/lib";
-
 describe("StringValidator", () => {
 
     it("IsNotNull returns the proper validator when given an undefined", () => {
