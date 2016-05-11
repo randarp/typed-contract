@@ -761,8 +761,5 @@ var Contract = (function () {
     };
     return Contract;
 }());
-var contract = function () {
-    return new Contract();
-};
-;
+var contract = new Contract();
 //# sourceMappingURL=typed-contract.js.map

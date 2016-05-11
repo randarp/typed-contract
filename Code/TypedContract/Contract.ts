@@ -89,10 +89,13 @@ declare interface IContractStatic {
 // Define a local copy of contract
 // TODO: Why can't I use IContractStatic?
 // var contract: IContractStatic = () => {
-var contract: any = () => {
+/*var contract: any = () => {
     return new Contract();
-};
+};*/
 
-declare module "contract" {
+var contract: IContractStatic = new Contract();
+
+
+/*declare module "typed-contract" {
     export = contract;
-};
+};*/

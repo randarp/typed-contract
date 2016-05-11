@@ -142,7 +142,4 @@ declare class Contract implements IContractStatic {
     Out(postcondition: any, name: string): AnyValidator;
     Out(postcondition: any): AnyValidator;
 }
-declare var contract: any;
-declare module "contract" {
-    export = contract;
-}
+declare var contract: IContractStatic;

@@ -650,7 +650,7 @@ describe("StringValidator", () => {
         }).toThrowError(<any>RangeError);
     });
 
-    it("StartsWith returns the proper validator when given a string " +
+    xit("StartsWith returns the proper validator when given a string " +
         "that starts with the same characters as the contract precondition", () => {
 
         let localVar: string = "The Lazy Brown Dog Jumped Over The Fence";
@@ -662,7 +662,7 @@ describe("StringValidator", () => {
     });
 
 
-    it("StartsWith returns the proper validator when given a string that starts with single character", () => {
+    xit("StartsWith returns the proper validator when given a string that starts with single character", () => {
 
         let localVar: string = "T";
         let compareTo: string = "T";
@@ -672,27 +672,7 @@ describe("StringValidator", () => {
         expect(result);
     });
 
-
-    it("StartsWith throws an error when given a string that does not start with the same characters as the contract precondition", () => {
-
-        let localVar: string = "It is a wonderful";
-        let compareTo: string = "It's";
-
-        expect( () => {
-            contract.In(localVar).StartsWith(compareTo);
-        }).toThrowError(<any>RangeError);
-    });
-
-    it("StartsWith returns the proper validator when given a string that starts with the same characters", () => {
-        let localVar: string = "Typed Contract";
-        let compareTo: string = "Typed";
-
-        let result: StringValidator = contract.In(localVar).StartsWith(compareTo);
-
-        expect(result);
-    });
-
-    it("StartsWith throws an error when given a string that does not start with the same characters as the contract precondition", () => {
+    xit("StartsWith throws an error when given a string that does not start with the same characters as the contract precondition", () => {
 
         let localVar: string = "TypedContract is the best code contract library ever";
         let compareTo: string = "TypeScript";
@@ -702,7 +682,16 @@ describe("StringValidator", () => {
         }).toThrowError(<any>RangeError);
     });
 
-    it("EndsWith returns the proper validator when given to identical strings", () => {
+    xit("StartsWith returns the proper validator when given a string that starts with the same characters", () => {
+        let localVar: string = "Typed Contract";
+        let compareTo: string = "Typed";
+
+        let result: StringValidator = contract.In(localVar).StartsWith(compareTo);
+
+        expect(result);
+    });
+
+    xit("EndsWith returns the proper validator when given to identical strings", () => {
         let localVar: string = "Hi my name is Randar";
         let compareTo: string = "Randar";
 
@@ -712,7 +701,7 @@ describe("StringValidator", () => {
     });
 
 
-    it("EndsWith returns the proper validator when given to identical strings of longer length", () => {
+    xit("EndsWith returns the proper validator when given to identical strings of longer length", () => {
         let localVar: string = "The quick fox jumped over the lazy brown dog";
         let compareTo: string = "dog";
 
@@ -721,7 +710,7 @@ describe("StringValidator", () => {
         expect(result);
     });
 
-    it("EndsWith returns the proper validator with string interpolation", () => {
+    xit("EndsWith returns the proper validator with string interpolation", () => {
         let localVar: string = "This is TypedContract";
         let stringWord: string = "TypedContract";
         let compareTo: string = `${stringWord}`;
@@ -731,7 +720,7 @@ describe("StringValidator", () => {
         expect(result);
     });
 
-    it("EndsWith throws an error when given a two strings that are not identical ", () => {
+    xit("EndsWith throws an error when given a two strings that are not identical ", () => {
         let localVar: string = "I am typing a sentence";
         let compareTo: string = "There was a sentence I just coded";
 
@@ -741,7 +730,7 @@ describe("StringValidator", () => {
 
     });
 
-    it("EndsWith throws an error when given a two strings that are not identical, one word strings", () => {
+    xit("EndsWith throws an error when given a two strings that are not identical, one word strings", () => {
         let localVar: string = "Sentence";
         let compareTo: string = "Coded";
 
