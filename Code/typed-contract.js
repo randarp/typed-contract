@@ -1227,11 +1227,11 @@ var AnyValidator = (function (_super) {
     };
     return AnyValidator;
 }(BaseValidator));
-/// <reference path="TypeValidators\StringValidator.ts" />
-/// <reference path="TypeValidators\BooleanValidator.ts" />
-/// <reference path="TypeValidators\NumberValidator.ts" />
-/// <reference path="TypeValidators\ArrayValidator.ts" />
-/// <reference path="TypeValidators\AnyValidator.ts" />
+/// <reference path="../TypeValidators/StringValidator.ts" />
+/// <reference path="../TypeValidators/BooleanValidator.ts" />
+/// <reference path="../TypeValidators/NumberValidator.ts" />
+/// <reference path="../TypeValidators/ArrayValidator.ts" />
+/// <reference path="../TypeValidators/AnyValidator.ts" />
 var Contract = (function () {
     function Contract() {
     }
@@ -1281,4 +1281,5 @@ var Contract = (function () {
     ;
     return Contract;
 }());
+/// <reference path="../TypedContract/Contract/Contract.ts" />
 //# sourceMappingURL=typed-contract.js.map

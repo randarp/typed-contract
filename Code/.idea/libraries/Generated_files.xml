@@ -50,7 +50,7 @@
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/EnumValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/DOMValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/DOMValidator.spec.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/Contract.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/Contract/Contract.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/AnyValidator.js" />

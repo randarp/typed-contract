@@ -647,8 +647,5 @@ declare class Contract implements IContractStatic {
     Out(postcondition: any[], name: string): ArrayValidator;
     Out(postcondition: any, name: string): AnyValidator;
     Out(postcondition: any): AnyValidator;
-    foo2(): string;
-}
-declare module "TypedContractExport/contract-export" {
-    export = Contract;
+    foo3(): string;
 }
