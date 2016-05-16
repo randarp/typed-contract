@@ -706,31 +706,7 @@ declare module "typed-contract" {
         Out(postcondition:any):AnyValidator;
         Out(postcondition:any, name:string):any;
     }
-    class Contract implements IContractStatic {
-        public In(precondition:string):StringValidator;
-        public In(precondition:string, name:string):StringValidator;
-        public In(precondition:boolean):BooleanValidator;
-        public In(precondition:boolean, name:string):BooleanValidator;
-        public In(precondition:number):NumberValidator;
-        public In(precondition:number, name:string):NumberValidator;
-        public In(precondition:any[]):ArrayValidator;
-        public In(precondition:any[], name:string):ArrayValidator;
-        public In(precondition:any, name:string):AnyValidator;
-        public In(precondition:any):AnyValidator;
 
-        public Out(postcondition:string):StringValidator;
-        public Out(postcondition:string, name:string):StringValidator;
-        public Out(postcondition:boolean):BooleanValidator;
-        public Out(postcondition:boolean, name:string):BooleanValidator;
-        public Out(postcondition:number):NumberValidator;
-        public Out(postcondition:number, name:string):NumberValidator;
-        public Out(postcondition:any[]):ArrayValidator;
-        public Out(postcondition:any[], name:string):ArrayValidator;
-        public Out(postcondition:any, name:string):AnyValidator;
-        public Out(postcondition:any):AnyValidator;
-
-        public foo4():string;
-    }
-    function c(): Contract;
-    export = c;
+    var contract: IContractStatic;
+    export = contract;
 }
