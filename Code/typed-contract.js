@@ -1281,5 +1281,6 @@ var Contract = (function () {
     ;
     return Contract;
 }());
+module.exports = Contract;
 /// <reference path="../TypedContract/Contract/Contract.ts" />
 //# sourceMappingURL=typed-contract.js.map

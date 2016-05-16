@@ -31,17 +31,17 @@ declare interface IContractStatic {
 }
 
  class Contract implements IContractStatic {
-    In(precondition: string): StringValidator;
-    In(precondition: string, name: string): StringValidator;
-    In(precondition: boolean): BooleanValidator;
-    In(precondition: boolean, name: string): BooleanValidator;
-    In(precondition: number): NumberValidator;
-    In(precondition: number, name: string): NumberValidator;
-    In(precondition: any[]): ArrayValidator;
-    In(precondition: any[], name: string): ArrayValidator;
-    In(precondition: any, name: string): AnyValidator;
-    In(precondition: any): AnyValidator;
-    In(precondition: any, name: string = undefined): any {
+     public In(precondition: string): StringValidator;
+     public In(precondition: string, name: string): StringValidator;
+     public In(precondition: boolean): BooleanValidator;
+     public In(precondition: boolean, name: string): BooleanValidator;
+     public In(precondition: number): NumberValidator;
+     public In(precondition: number, name: string): NumberValidator;
+     public In(precondition: any[]): ArrayValidator;
+     public In(precondition: any[], name: string): ArrayValidator;
+     public In(precondition: any, name: string): AnyValidator;
+     public In(precondition: any): AnyValidator;
+     public In(precondition: any, name: string = undefined): any {
 
         if (typeof precondition === "string" || precondition === null || precondition === undefined ) {
             return new StringValidator(precondition, name);
@@ -58,17 +58,17 @@ declare interface IContractStatic {
         }
     }
 
-    Out(postcondition: string): StringValidator;
-    Out(postcondition: string, name: string): StringValidator;
-    Out(postcondition: boolean): BooleanValidator;
-    Out(postcondition: boolean, name: string): BooleanValidator;
-    Out(postcondition: number): NumberValidator;
-    Out(postcondition: number, name: string): NumberValidator;
-    Out(postcondition: any[]): ArrayValidator;
-    Out(postcondition: any[], name: string): ArrayValidator;
-    Out(postcondition: any, name: string): AnyValidator;
-    Out(postcondition: any): AnyValidator;
-    Out(postcondition: any, name: string = undefined): any {
+     public Out(postcondition: string): StringValidator;
+     public Out(postcondition: string, name: string): StringValidator;
+     public Out(postcondition: boolean): BooleanValidator;
+     public Out(postcondition: boolean, name: string): BooleanValidator;
+     public Out(postcondition: number): NumberValidator;
+     public Out(postcondition: number, name: string): NumberValidator;
+     public Out(postcondition: any[]): ArrayValidator;
+     public Out(postcondition: any[], name: string): ArrayValidator;
+     public Out(postcondition: any, name: string): AnyValidator;
+     public Out(postcondition: any): AnyValidator;
+     public Out(postcondition: any, name: string = undefined): any {
 
         if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
             return new StringValidator(postcondition, name);
@@ -85,7 +85,7 @@ declare interface IContractStatic {
         }
     }
 
-    foo3(): string {
+     public foo5(): string {
         return "foo";
     };
 }
