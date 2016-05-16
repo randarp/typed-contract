@@ -86,10 +86,4 @@ declare interface IContractStatic {
     }
 }
 
-// Define a local instance of contract that can be re-used due to the fluent style
-/* tslint:disable */
-var contract: IContractStatic;
-if (!contract) {
-    contract = new Contract();
-}
-/* tslint:enable */
+export = Contract;
