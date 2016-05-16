@@ -84,6 +84,9 @@ declare interface IContractStatic {
             return new AnyValidator(postcondition, name);
         }
     }
+
+    foo2(): string {
+        return "foo";
+    };
 }
 
-export = Contract;
