@@ -1,5 +1,5 @@
-/// <reference path="..\..\typed-contract.d.ts" />
-/// <reference path="..\..\Typings\http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
+/// <reference path="../../typed-contract.d.ts" />
+/// <reference path="../../Typings/jasmine/jasmine.d.ts" />
 
 describe("AnyValidator", () => {
 
