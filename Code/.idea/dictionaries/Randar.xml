@@ -5,9 +5,11 @@
       <w>arrayvalidator</w>
       <w>basevalidator</w>
       <w>booleanvalidator</w>
+      <w>contractmodule</w>
       <w>numbervalidator</w>
       <w>postcondition</w>
       <w>stringvalidator</w>
+      <w>typedcontract</w>
     </words>
   </dictionary>
 </component>

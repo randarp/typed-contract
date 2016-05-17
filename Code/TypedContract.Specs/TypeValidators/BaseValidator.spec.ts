@@ -1,5 +1,5 @@
-/// <reference path="../../typed-contract.d.ts" />
 /// <reference path="../../Typings/jasmine/jasmine.d.ts" />
+import contract from "../../TypedContract/typed-contract";
 
 describe("BaseValidator", () => {
 

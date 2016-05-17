@@ -4,7 +4,7 @@ import * as numbervalidator from "../TypeValidators/NumberValidator";
 import * as arrayvalidator from "../TypeValidators/ArrayValidator";
 import * as anyvalidator from "../TypeValidators/AnyValidator";
 
-declare interface IContractStatic {
+export interface IContractStatic {
     In(precondition: string): stringvalidator.StringValidator;
     In(precondition: string, name: string): stringvalidator.StringValidator;
     In(precondition: boolean): booleanvalidator.BooleanValidator;
@@ -90,10 +90,4 @@ declare interface IContractStatic {
     };
 }
 
-declare let contract: IContractStatic;
-if (!contract) {
-    contract = new Contract();
-};
-
-export default contract;
 
