@@ -1,8 +1,13 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Randar">
     <words>
+      <w>anyvalidator</w>
+      <w>arrayvalidator</w>
       <w>basevalidator</w>
+      <w>booleanvalidator</w>
+      <w>numbervalidator</w>
       <w>postcondition</w>
+      <w>stringvalidator</w>
     </words>
   </dictionary>
 </component>
