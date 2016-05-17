@@ -2,7 +2,7 @@
  * Encapsulates any validators that apply to every type and state used by the validation chain.
  */
 
-class BaseValidator <T> {
+export class BaseValidator<T> {
     protected _variableValue: T;
     protected _variableName: string;
 
@@ -35,3 +35,4 @@ class BaseValidator <T> {
         return this._variableName;
     }
 }
+

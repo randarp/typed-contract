@@ -1,6 +1,6 @@
-/// <reference path="BaseValidator.ts" />
+import * as basevalidator from "./BaseValidator";
 
-class  ArrayValidator extends BaseValidator <any[]> {
+export class  ArrayValidator extends basevalidator.BaseValidator <any[]> {
     private count: number;
 
     constructor(variableValue: any[], variableName: string) {

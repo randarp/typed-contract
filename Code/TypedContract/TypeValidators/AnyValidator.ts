@@ -1,6 +1,6 @@
-/// <reference path="BaseValidator.ts" />
+import * as basevalidator from "./BaseValidator";
 
-class AnyValidator extends BaseValidator<any> {
+export class AnyValidator extends basevalidator.BaseValidator<any> {
 
         constructor(variableValue: any, variableName: string) {
             super(variableValue, variableName);

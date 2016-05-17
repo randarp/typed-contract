@@ -1,87 +1,87 @@
-/// <reference path="../TypeValidators/StringValidator.ts" />
-/// <reference path="../TypeValidators/BooleanValidator.ts" />
-/// <reference path="../TypeValidators/NumberValidator.ts" />
-/// <reference path="../TypeValidators/ArrayValidator.ts" />
-/// <reference path="../TypeValidators/AnyValidator.ts" />
+import * as stringvalidator from "../TypeValidators/StringValidator";
+import * as booleanvalidator from "../TypeValidators/BooleanValidator";
+import * as numbervalidator from "../TypeValidators/NumberValidator";
+import * as arrayvalidator from "../TypeValidators/ArrayValidator";
+import * as anyvalidator from "../TypeValidators/AnyValidator";
 
 declare interface IContractStatic {
-    In(precondition: string): StringValidator;
-    In(precondition: string, name: string): StringValidator;
-    In(precondition: boolean): BooleanValidator;
-    In(precondition: boolean, name: string): BooleanValidator;
-    In(precondition: number): NumberValidator;
-    In(precondition: number, name: string): NumberValidator;
-    In(precondition: any[]): ArrayValidator;
-    In(precondition: any[], name: string): ArrayValidator;
-    In(precondition: any, name: string): AnyValidator;
-    In(precondition: any): AnyValidator;
+    In(precondition: string): stringvalidator.StringValidator;
+    In(precondition: string, name: string): stringvalidator.StringValidator;
+    In(precondition: boolean): booleanvalidator.BooleanValidator;
+    In(precondition: boolean, name: string): booleanvalidator.BooleanValidator;
+    In(precondition: number): numbervalidator.NumberValidator;
+    In(precondition: number, name: string): numbervalidator.NumberValidator;
+    In(precondition: any[]): arrayvalidator.ArrayValidator;
+    In(precondition: any[], name: string): arrayvalidator.ArrayValidator;
+    In(precondition: any, name: string): anyvalidator.AnyValidator;
+    In(precondition: any): anyvalidator.AnyValidator;
     In(precondition: any, name: string): any;
 
-    Out(postcondition: string): StringValidator;
-    Out(postcondition: string, name: string): StringValidator;
-    Out(postcondition: boolean): BooleanValidator;
-    Out(postcondition: boolean, name: string): BooleanValidator;
-    Out(postcondition: number): NumberValidator;
-    Out(postcondition: number, name: string): NumberValidator;
-    Out(postcondition: any[]): ArrayValidator;
-    Out(postcondition: any[], name: string): ArrayValidator;
-    Out(postcondition: any, name: string): AnyValidator;
-    Out(postcondition: any): AnyValidator;
+    Out(postcondition: string): stringvalidator.StringValidator;
+    Out(postcondition: string, name: string): stringvalidator.StringValidator;
+    Out(postcondition: boolean): booleanvalidator.BooleanValidator;
+    Out(postcondition: boolean, name: string): booleanvalidator.BooleanValidator;
+    Out(postcondition: number): numbervalidator.NumberValidator;
+    Out(postcondition: number, name: string): numbervalidator.NumberValidator;
+    Out(postcondition: any[]): arrayvalidator.ArrayValidator;
+    Out(postcondition: any[], name: string): arrayvalidator.ArrayValidator;
+    Out(postcondition: any, name: string): anyvalidator.AnyValidator;
+    Out(postcondition: any): anyvalidator.AnyValidator;
     Out(postcondition: any, name: string): any;
 }
 
- class Contract implements IContractStatic {
-     public In(precondition: string): StringValidator;
-     public In(precondition: string, name: string): StringValidator;
-     public In(precondition: boolean): BooleanValidator;
-     public In(precondition: boolean, name: string): BooleanValidator;
-     public In(precondition: number): NumberValidator;
-     public In(precondition: number, name: string): NumberValidator;
-     public In(precondition: any[]): ArrayValidator;
-     public In(precondition: any[], name: string): ArrayValidator;
-     public In(precondition: any, name: string): AnyValidator;
-     public In(precondition: any): AnyValidator;
+ export class Contract implements IContractStatic {
+     public In(precondition: string): stringvalidator.StringValidator;
+     public In(precondition: string, name: string): stringvalidator.StringValidator;
+     public In(precondition: boolean): booleanvalidator.BooleanValidator;
+     public In(precondition: boolean, name: string): booleanvalidator.BooleanValidator;
+     public In(precondition: number): numbervalidator.NumberValidator;
+     public In(precondition: number, name: string): numbervalidator.NumberValidator;
+     public In(precondition: any[]): arrayvalidator.ArrayValidator;
+     public In(precondition: any[], name: string): arrayvalidator.ArrayValidator;
+     public In(precondition: any, name: string): anyvalidator.AnyValidator;
+     public In(precondition: any): anyvalidator.AnyValidator;
      public In(precondition: any, name: string = undefined): any {
 
         if (typeof precondition === "string" || precondition === null || precondition === undefined ) {
-            return new StringValidator(precondition, name);
+            return new stringvalidator.StringValidator(precondition, name);
         } else if (typeof precondition === "boolean" || precondition === null || precondition === undefined ) {
-            return new BooleanValidator(precondition, name);
+            return new booleanvalidator.BooleanValidator(precondition, name);
         } else if (typeof precondition === "number" || precondition === null || precondition === undefined ) {
-            return new NumberValidator(precondition, name);
+            return new numbervalidator.NumberValidator(precondition, name);
         } else if (precondition instanceof Array ||
             precondition instanceof Array === null
             || precondition instanceof Array === undefined ) {
-            return new ArrayValidator(precondition, name);
+            return new arrayvalidator.ArrayValidator(precondition, name);
         } else {
-            return new AnyValidator(precondition, name);
+            return new anyvalidator.AnyValidator(precondition, name);
         }
     }
 
-     public Out(postcondition: string): StringValidator;
-     public Out(postcondition: string, name: string): StringValidator;
-     public Out(postcondition: boolean): BooleanValidator;
-     public Out(postcondition: boolean, name: string): BooleanValidator;
-     public Out(postcondition: number): NumberValidator;
-     public Out(postcondition: number, name: string): NumberValidator;
-     public Out(postcondition: any[]): ArrayValidator;
-     public Out(postcondition: any[], name: string): ArrayValidator;
-     public Out(postcondition: any, name: string): AnyValidator;
-     public Out(postcondition: any): AnyValidator;
+     public Out(postcondition: string): stringvalidator.StringValidator;
+     public Out(postcondition: string, name: string): stringvalidator.StringValidator;
+     public Out(postcondition: boolean): booleanvalidator.BooleanValidator;
+     public Out(postcondition: boolean, name: string): booleanvalidator.BooleanValidator;
+     public Out(postcondition: number): numbervalidator.NumberValidator;
+     public Out(postcondition: number, name: string): numbervalidator.NumberValidator;
+     public Out(postcondition: any[]): arrayvalidator.ArrayValidator;
+     public Out(postcondition: any[], name: string): arrayvalidator.ArrayValidator;
+     public Out(postcondition: any, name: string): anyvalidator.AnyValidator;
+     public Out(postcondition: any): anyvalidator.AnyValidator;
      public Out(postcondition: any, name: string = undefined): any {
 
         if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
-            return new StringValidator(postcondition, name);
+            return new stringvalidator.StringValidator(postcondition, name);
         } else if (typeof postcondition === "boolean" || postcondition === null || postcondition === undefined) {
-            return new BooleanValidator(postcondition, name);
+            return new booleanvalidator.BooleanValidator(postcondition, name);
         } else if (typeof postcondition === "number" || postcondition === null || postcondition === undefined) {
-            return new NumberValidator(postcondition, name);
+            return new numbervalidator.NumberValidator(postcondition, name);
         } else if (postcondition instanceof Array ||
             postcondition instanceof Array === null ||
             postcondition instanceof Array === undefined) {
-            return new ArrayValidator(postcondition, name);
+            return new arrayvalidator.ArrayValidator(postcondition, name);
         } else {
-            return new AnyValidator(postcondition, name);
+            return new anyvalidator.AnyValidator(postcondition, name);
         }
     }
 
