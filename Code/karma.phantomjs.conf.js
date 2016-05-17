@@ -15,7 +15,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'typed-contract.js',
+      'lib/typed-contract.js',
       'TypedContract.Specs/**/*.js'
     ],
 
