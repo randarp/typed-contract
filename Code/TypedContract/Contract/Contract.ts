@@ -90,3 +90,10 @@ declare interface IContractStatic {
     };
 }
 
+declare let contract: IContractStatic;
+if (!contract) {
+    contract = new Contract();
+};
+
+export default contract;
+

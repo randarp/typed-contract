@@ -7,14 +7,5 @@
     "preserveConstEnums": true,
     "sourceMap": true/*,
     "declaration": true*/
-  }/*,
-  "files": [
-    "Contract/Contract.ts",
-    "TypeValidators/BaseValidator.ts",
-    "TypeValidators/AnyValidator.ts",
-    "TypeValidators/ArrayValidator.ts",
-    "TypeValidators/BooleanValidator.ts",
-    "TypeValidators/NumberValidator.ts",
-    "TypeValidators/StringValidator.ts"
-  ]*/
+  }
 }
