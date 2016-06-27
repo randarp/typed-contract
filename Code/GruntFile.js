@@ -47,10 +47,18 @@ module.exports = function(grunt){
             },
             build: {
                 // webpack options
-                entry: "./TypedContract/Contract/Contract.js",
+                entry: "./TypedContract/Contract/Contract.ts",
                 output: {
                     path: __dirname,
                     filename: "typed-contract.js"
+                },
+                resolve: {
+                    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+                },
+                module: {
+                    loaders: [
+                        { test: /\.ts$/, loader: 'ts-loader' }
+                    ]
                 }
             }
         }

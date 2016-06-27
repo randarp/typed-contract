@@ -34,5 +34,8 @@
     "url": "https://github.com/randarp/typed-contract.git"
   },
   "author": "Randar Puust & Andre Fischbacher",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "ts-loader": "^0.8.2"
+  }
 }
