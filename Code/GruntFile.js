@@ -3,6 +3,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks("grunt-publish");
     grunt.loadNpmTasks("grunt-npm-release");
     grunt.loadNpmTasks("grunt-contrib-copy");
+    grunt.loadNpmTasks('grunt-webpack');
 
     grunt.initConfig({
 
@@ -28,20 +29,32 @@ module.exports = function(grunt){
 
             }
         },
-            npmrelease: {
-                options: {
-                    bump: true,
-                    file: 'package.json',
-                    push: false,
-                    pushTags: false,
-                    npm: false,
-                    npmtag: false,
-                    folder: 'C:Projects/TypedContract/Code/typed-contract',
-                    commitMessage: 'check out our new typed-contract release <%= version %>', //default: 'release <%= version %>'
+        npmrelease: {
+            options: {
+                bump: true,
+                file: 'package.json',
+                push: false,
+                pushTags: false,
+                npm: false,
+                npmtag: false,
+                folder: 'C:Projects/TypedContract/Code/typed-contract',
+                commitMessage: 'check out our new typed-contract release <%= version %>', //default: 'release <%= version %>'
+            }
+        },
+        webpack: {
+            options: {
+                // configuration for all builds
+            },
+            build: {
+                // webpack options
+                entry: "./TypedContract/Contract/Contract.js",
+                output: {
+                    path: __dirname,
+                    filename: "typed-contract.js"
                 }
             }
-
-});
+        }
+    });
 
     grunt.registerTask("publish",function(){
         console.log("Published, Yaay!");
