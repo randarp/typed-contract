@@ -1,5 +1,4 @@
 import { BaseValidator } from "./BaseValidator";
-import { BaseValidator2 } from "./BaseValidator2";
 
 export class  ArrayValidator extends BaseValidator <any[]> {
     private count: number;
