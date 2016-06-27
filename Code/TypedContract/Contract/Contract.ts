@@ -1,8 +1,8 @@
-/// <reference path="../TypeValidators/StringValidator.ts" />
-/// <reference path="../TypeValidators/BooleanValidator.ts" />
-/// <reference path="../TypeValidators/NumberValidator.ts" />
-/// <reference path="../TypeValidators/ArrayValidator.ts" />
-/// <reference path="../TypeValidators/AnyValidator.ts" />
+import { StringValidator } from "../TypeValidators/StringValidator";
+import { BooleanValidator } from "../TypeValidators/BooleanValidator";
+import { NumberValidator } from "../TypeValidators/NumberValidator";
+import { ArrayValidator } from "../TypeValidators/ArrayValidator";
+import { AnyValidator } from "../TypeValidators/AnyValidator";
 
 declare interface IContractStatic {
     In(precondition: string): StringValidator;
@@ -30,7 +30,7 @@ declare interface IContractStatic {
     Out(postcondition: any, name: string): any;
 }
 
- class Contract implements IContractStatic {
+ export class Contract implements IContractStatic {
      public In(precondition: string): StringValidator;
      public In(precondition: string, name: string): StringValidator;
      public In(precondition: boolean): BooleanValidator;

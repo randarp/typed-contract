@@ -1,5 +1,5 @@
-/// <reference path="BaseValidator.d.ts" />
-declare class BooleanValidator extends BaseValidator<boolean> {
+import { BaseValidator } from "./BaseValidator";
+export declare class BooleanValidator extends BaseValidator<boolean> {
     constructor(variableValue: boolean, variableName: string);
     /**
      *

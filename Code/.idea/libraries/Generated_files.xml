@@ -9,6 +9,7 @@
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/ArrayValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/StringValidator.spec.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract/Contract/Contract.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BaseValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NumberValidator.js" />
