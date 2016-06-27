@@ -85,7 +85,7 @@ declare interface IContractStatic {
         }
     }
 
-     public foo5(): string {
+     public foo6(): string {
         return "foo";
     };
 }

@@ -93,7 +93,7 @@
 	            return new AnyValidator_1.AnyValidator(postcondition, name);
 	        }
 	    };
-	    Contract.prototype.foo5 = function () {
+	    Contract.prototype.foo6 = function () {
 	        return "foo";
 	    };
 	    ;
@@ -540,18 +540,19 @@
 /* 2 */
 /***/ function(module, exports) {
 
+	"use strict";
 	/**
 	 * Encapsulates any validators that apply to every type and state used by the validation chain.
 	 */
-	"use strict";
 	var BaseValidator = (function () {
 	    function BaseValidator(variableValue, variableName) {
-	        this._variableValue = variableValue;
+	        var self = this;
+	        self._variableValue = variableValue;
 	        if (variableName && variableName.length > 0) {
-	            this._variableName = variableName;
+	            self._variableName = variableName;
 	        }
 	        else {
-	            this._variableName = "The variable";
+	            self._variableName = "The variable";
 	        }
 	    }
 	    /**
