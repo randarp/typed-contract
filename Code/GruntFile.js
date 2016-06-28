@@ -45,8 +45,7 @@ module.exports = function(grunt){
             options: {
                 name: "typed-contract",
                 project: "./TypedContract",
-                out: "typed-contract.d.ts",
-                baseDir: "" // as per https://github.com/SitePen/dts-generator/issues/46
+                out: "typed-contract.d.ts"
             },
             default: {
                 src: [ "/TypedContract/**/*.ts" ]
