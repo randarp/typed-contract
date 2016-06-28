@@ -110,7 +110,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return new AnyValidator_1.AnyValidator(postcondition, name);
 	        }
 	    };
-	    Contract.prototype.foo6 = function () {
+	    Contract.prototype.foo7 = function () {
 	        return "foo";
 	    };
 	    ;

@@ -1,9 +1,9 @@
 module.exports = function(grunt){
     grunt.loadNpmTasks("grunt-contrib-uglify");
-    grunt.loadNpmTasks("grunt-publish");
     grunt.loadNpmTasks("grunt-npm-release");
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks('grunt-webpack');
+    grunt.loadNpmTasks('dts-generator');
 
     grunt.initConfig({
 
@@ -41,8 +41,19 @@ module.exports = function(grunt){
                 commitMessage: 'check out our new typed-contract release <%= version %>', //default: 'release <%= version %>'
             }
         },
+        dtsGenerator: {
+            options: {
+                name: "typed-contract",
+                project: "./TypedContract",
+                out: "typed-contract.d.ts",
+                baseDir: "" // as per https://github.com/SitePen/dts-generator/issues/46
+            },
+            default: {
+                src: [ "/TypedContract/**/*.ts" ]
+            }
+        },
         webpack: {
-            build: require("./webpack.config.js")
+            default: require("./webpack.config.js")
         }
     });
 
