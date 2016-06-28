@@ -4,7 +4,6 @@
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/ArrayValidator.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/AnyValidator.js" />
-        <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator2.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/NumberValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
@@ -12,7 +11,7 @@
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/StringValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/Contract/Contract.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BaseValidator.spec.js" />
-        <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator2.js" />
+        <item url="file://$PROJECT_DIR$/node_modules/tslint/scripts/buildDocs.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NumberValidator.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
@@ -50,9 +49,10 @@
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/DOMValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NodeValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/ExpressValidator.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator2.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator2.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/ArrayValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/AnyValidator.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator2.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/NumberValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.spec.js" />
@@ -60,7 +60,7 @@
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/StringValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/Contract/Contract.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BaseValidator.spec.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator2.js" />
+      <root url="file://$PROJECT_DIR$/node_modules/tslint/scripts/buildDocs.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NumberValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
