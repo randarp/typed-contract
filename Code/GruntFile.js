@@ -50,7 +50,9 @@ module.exports = function(grunt){
                 entry: "./TypedContract/Contract/Contract.ts",
                 output: {
                     path: __dirname,
-                    filename: "typed-contract.js"
+                    filename: "typed-contract.js",
+                    library: "contract",
+                    libraryTarget: "umd"
                 },
                 resolve: {
                     extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
