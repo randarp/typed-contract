@@ -2,50 +2,50 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define([], factory);
+		define("typed-contract", [], factory);
 	else if(typeof exports === 'object')
-		exports["contract"] = factory();
+		exports["typed-contract"] = factory();
 	else
-		root["contract"] = factory();
+		root["typed-contract"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
-
+/******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			exports: {},
 /******/ 			id: moduleId,
 /******/ 			loaded: false
 /******/ 		};
-
+/******/
 /******/ 		// Execute the module function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-
+/******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-
-
+/******/
+/******/
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
-
+/******/
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
-
+/******/
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
-
+/******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
 /******/ })
@@ -54,12 +54,19 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__(1);
+
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
-	var StringValidator_1 = __webpack_require__(1);
-	var BooleanValidator_1 = __webpack_require__(3);
-	var NumberValidator_1 = __webpack_require__(4);
-	var ArrayValidator_1 = __webpack_require__(5);
-	var AnyValidator_1 = __webpack_require__(6);
+	var StringValidator_1 = __webpack_require__(2);
+	var BooleanValidator_1 = __webpack_require__(4);
+	var NumberValidator_1 = __webpack_require__(5);
+	var ArrayValidator_1 = __webpack_require__(6);
+	var AnyValidator_1 = __webpack_require__(7);
 	var Contract = (function () {
 	    function Contract() {
 	    }
@@ -113,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 1 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -122,7 +129,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var BaseValidator_1 = __webpack_require__(2);
+	var BaseValidator_1 = __webpack_require__(3);
 	var StringValidator = (function (_super) {
 	    __extends(StringValidator, _super);
 	    function StringValidator(variableValue, variableName) {
@@ -544,10 +551,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return StringValidator;
 	}(BaseValidator_1.BaseValidator));
 	exports.StringValidator = StringValidator;
-
+	//# sourceMappingURL=StringValidator.js.map
 
 /***/ },
-/* 2 */
+/* 3 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -584,10 +591,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return BaseValidator;
 	}());
 	exports.BaseValidator = BaseValidator;
-
+	//# sourceMappingURL=BaseValidator.js.map
 
 /***/ },
-/* 3 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -596,7 +603,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var BaseValidator_1 = __webpack_require__(2);
+	var BaseValidator_1 = __webpack_require__(3);
 	var BooleanValidator = (function (_super) {
 	    __extends(BooleanValidator, _super);
 	    function BooleanValidator(variableValue, variableName) {
@@ -731,10 +738,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return BooleanValidator;
 	}(BaseValidator_1.BaseValidator));
 	exports.BooleanValidator = BooleanValidator;
-
+	//# sourceMappingURL=BooleanValidator.js.map
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -743,7 +750,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var BaseValidator_1 = __webpack_require__(2);
+	var BaseValidator_1 = __webpack_require__(3);
 	var NumberValidator = (function (_super) {
 	    __extends(NumberValidator, _super);
 	    function NumberValidator(variableValue, variableName) {
@@ -986,10 +993,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return NumberValidator;
 	}(BaseValidator_1.BaseValidator));
 	exports.NumberValidator = NumberValidator;
-
+	//# sourceMappingURL=NumberValidator.js.map
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -998,7 +1005,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var BaseValidator_1 = __webpack_require__(2);
+	var BaseValidator_1 = __webpack_require__(3);
 	var ArrayValidator = (function (_super) {
 	    __extends(ArrayValidator, _super);
 	    function ArrayValidator(variableValue, variableName) {
@@ -1320,10 +1327,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return ArrayValidator;
 	}(BaseValidator_1.BaseValidator));
 	exports.ArrayValidator = ArrayValidator;
-
+	//# sourceMappingURL=ArrayValidator.js.map
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1332,7 +1339,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function __() { this.constructor = d; }
 	    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 	};
-	var BaseValidator_1 = __webpack_require__(2);
+	var BaseValidator_1 = __webpack_require__(3);
 	var AnyValidator = (function (_super) {
 	    __extends(AnyValidator, _super);
 	    function AnyValidator(variableValue, variableName) {
@@ -1408,9 +1415,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return AnyValidator;
 	}(BaseValidator_1.BaseValidator));
 	exports.AnyValidator = AnyValidator;
-
+	//# sourceMappingURL=AnyValidator.js.map
 
 /***/ }
 /******/ ])
 });
 ;
+//# sourceMappingURL=typed-contract.js.map
