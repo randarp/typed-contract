@@ -28,7 +28,8 @@
     "code contract library"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "webpack --debug; webpack -p"
   },
   "repository": {
     "type": "git",

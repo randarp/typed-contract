@@ -42,27 +42,7 @@ module.exports = function(grunt){
             }
         },
         webpack: {
-            options: {
-                // configuration for all builds
-            },
-            build: {
-                // webpack options
-                entry: "./TypedContract/Contract/Contract.ts",
-                output: {
-                    path: __dirname,
-                    filename: "typed-contract.js",
-                    library: "contract",
-                    libraryTarget: "umd"
-                },
-                resolve: {
-                    extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
-                },
-                module: {
-                    loaders: [
-                        { test: /\.ts$/, loader: 'ts-loader' }
-                    ]
-                }
-            }
+            build: require("./webpack.config.js")
         }
     });
 
