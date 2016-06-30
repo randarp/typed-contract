@@ -1,5 +1,6 @@
 /// <reference path="../../typed-contract.d.ts" />
 /// <reference path="../../Typings/jasmine/jasmine.d.ts" />
+/*
 
 describe("StringValidator", () => {
 
@@ -841,3 +842,4 @@ describe("StringValidator", () => {
         }).toThrowError(<any>RangeError);
     });
 });
+*/

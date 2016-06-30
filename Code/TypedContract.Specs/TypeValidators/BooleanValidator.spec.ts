@@ -1,5 +1,6 @@
 /// <reference path="../../typed-contract.d.ts" />
 /// <reference path="../../Typings/jasmine/jasmine.d.ts" />
+/*
 
 describe("BooleanValidator", () => {
 
@@ -103,3 +104,4 @@ describe("BooleanValidator", () => {
     });
 
 });
+*/

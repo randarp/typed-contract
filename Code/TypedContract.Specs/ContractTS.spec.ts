@@ -1,7 +1,7 @@
 /// <reference path="../typed-contract.d.ts" />
 /// <reference path="../Typings/jasmine/jasmine.d.ts" />
-
-describe("Contract", () => {
+/*
+describe("ContractTS", () => {
 
     it("will return the correct validator for a boolean", () => {
         // arrange
@@ -117,4 +117,4 @@ describe("Contract", () => {
         expect(result).toEqual(jasmine.any(AnyValidator));
     });
 
-});
+});*/

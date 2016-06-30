@@ -1,5 +1,6 @@
 /// <reference path="../../typed-contract.d.ts" />
 /// <reference path="../../Typings/jasmine/jasmine.d.ts" />
+/*
 
 describe("BaseValidator", () => {
 
@@ -31,3 +32,4 @@ describe("BaseValidator", () => {
         expect(result).toEqual("My var");
     });
 });
+*/

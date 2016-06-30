@@ -61,4 +61,7 @@ module.exports = function(grunt){
     });
 
     grunt.task.registerTask("release and set-up",["uglify","copy"]);
+
+    // Run all grunt tasks required to build the solution
+    grunt.task.registerTask("build",["webpack","dtsGenerator","uglify","copy"]);
 };

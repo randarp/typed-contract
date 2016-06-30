@@ -4,16 +4,22 @@
   "description": "A wonderfully simple, yet powerful TypeScript and JavaScript code contract library",
   "main": "typed-contract.js",
   "devDependencies": {
+    "dts-generator": "^1.7.0",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-uglify": "^1.0.0",
     "grunt-npm-release": "0.0.2",
     "grunt-release": "^0.13.0",
-    "grunt-contrib-uglify":"^1.0.0",
+    "grunt-webpack": "^1.0.11",
     "jasmine": "^2.4.1",
     "karma-chrome-launcher": "^0.2.2",
+    "ts-loader": "^0.8.2",
     "tslint": "^3.3.0",
-    "typescript": "^1.7.5"
+    "typescript": "^1.7.5",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "yargs": "^4.7.1"
   },
   "keywords": [
     "typed-contract",
@@ -24,7 +30,8 @@
     "code contract library"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "webpack --debug; webpack -p"
   },
   "repository": {
     "type": "git",

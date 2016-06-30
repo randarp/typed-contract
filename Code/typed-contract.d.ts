@@ -1,3 +1,5 @@
+declare var contract: any;
+declare var typedcontract: any;
 declare module 'typed-contract/TypeValidators/BaseValidator' {
 	/**
 	 * Encapsulates any validators that apply to every type and state used by the validation chain.
