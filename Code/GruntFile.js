@@ -1,4 +1,5 @@
 module.exports = function(grunt){
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks("grunt-contrib-uglify");
     grunt.loadNpmTasks("grunt-npm-release");
     grunt.loadNpmTasks("grunt-contrib-copy");
@@ -53,6 +54,16 @@ module.exports = function(grunt){
         },
         webpack: {
             default: require("./webpack.config.js")
+        },
+        concat: {
+            options: {
+                sourceMap: true,
+                sourceMapName: "typed-contract.js.map"
+            },
+            dist: {
+                src: ['./TypedContract/typed-contract-lib.js', './TypedContract/typed-contract-bootstrapper.js'],
+                dest: 'typed-contract.js'
+            }
         }
     });
 

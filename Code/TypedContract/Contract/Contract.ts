@@ -58,9 +58,5 @@ export class Contract {
             return new AnyValidator(postcondition, name);
         }
     }
-
-    public foo7():string {
-        return "foo";
-    };
 }
 

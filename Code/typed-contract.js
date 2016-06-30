@@ -110,10 +110,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return new AnyValidator_1.AnyValidator(postcondition, name);
 	        }
 	    };
-	    Contract.prototype.foo7 = function () {
-	        return "foo";
-	    };
-	    ;
 	    return Contract;
 	}());
 	exports.Contract = Contract;
@@ -1421,4 +1417,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
+// TODO: Strongly type these
+var contract;
+var typedcontract;
+if (!contract) {
+    contract = new typedcontract.Contract();
+}
 //# sourceMappingURL=typed-contract.js.map

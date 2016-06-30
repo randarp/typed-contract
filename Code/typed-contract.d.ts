@@ -654,7 +654,6 @@ declare module 'typed-contract/Contract/Contract' {
 	    Out(postcondition: any[], name: string): ArrayValidator;
 	    Out(postcondition: any, name: string): AnyValidator;
 	    Out(postcondition: any): AnyValidator;
-	    foo7(): string;
 	}
 
 }

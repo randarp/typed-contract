@@ -4,11 +4,22 @@
  * Loads typed-contract from JS directly
  */
 describe("ContractJS", function () {
-    it("will return the function when accessing through global scope object", function () {
+    it("will return function through global scope prototype object", function () {
         // arrange
 
         // act
         var result = typedcontract.Contract.prototype.In;
+
+        // assert
+        expect(result).not.toBeUndefined();
+        expect(typeof result).toBe("function")
+    });
+
+    it("will return function through global scope object", function () {
+        // arrange
+
+        // act
+        var result = contract.In;
 
         // assert
         expect(result).not.toBeUndefined();

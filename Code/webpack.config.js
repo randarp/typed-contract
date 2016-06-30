@@ -3,9 +3,9 @@ var webpack = require("webpack"),
     yargs = require("yargs");
 
 var libraryName = "typedcontract",
-    libraryFileName = "typed-contract",
+    libraryFileName = "typed-contract-lib",
     plugins = [],
-    outputFile = libraryFileName + ".js";
+    outputFile = "./TypedContract/" + libraryFileName + ".js";
 
 var config = {
     entry: [
@@ -20,6 +20,7 @@ var config = {
         umdNamedDefine: true
     },
     module: {
+        //TODO: Re-enable the tslint pre-loader to make sure out code is clean
 /*        preLoaders: [
             { test: /\.tsx?$/, loader: "tslint", exclude: /node_modules/ }
         ],*/

@@ -64,7 +64,7 @@
       <root url="file://$PROJECT_DIR$/node_modules/tslint/scripts/buildDocs.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NumberValidator.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract/ContractBootstrapper.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/typed-contract-bootstrapper.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/StringValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BaseValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/AnyValidator.spec.js" />

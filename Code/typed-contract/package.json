@@ -7,6 +7,7 @@
     "dts-generator": "^1.7.0",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
+    "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^0.8.2",
     "grunt-contrib-uglify": "^1.0.0",
     "grunt-npm-release": "0.0.2",
