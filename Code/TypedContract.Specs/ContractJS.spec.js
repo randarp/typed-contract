@@ -1,19 +1,19 @@
 //var contract = require('../typed-contract.js');
 
 /**
- * Loads typed contract from JS directly
+ * Loads typed-contract from JS directly
  */
 describe("ContractJS", function () {
-    /*it("will return the function when accessing through global scope object", function () {
+    it("will return the function when accessing through global scope object", function () {
         // arrange
 
         // act
-        var result = contract.In;
+        var result = typedcontract.Contract.prototype.In;
 
         // assert
-        expect(result).not.toBeNull();
-        //expect(result).toEqual(jasmine.any(BooleanValidator));
-    });*/
+        expect(result).not.toBeUndefined();
+        expect(typeof result).toBe("function")
+    });
 
     it("will return the function when creating an object in the global library", function () {
         // arrange
@@ -23,7 +23,7 @@ describe("ContractJS", function () {
         var result = resultNew.In;
 
         // assert
-        expect(result).not.toBeNull();
-        //expect(result).toEqual(jasmine.any(BooleanValidator));
+        expect(result).not.toBeUndefined();
+         expect(typeof result).toBe("function")
     });
 });
