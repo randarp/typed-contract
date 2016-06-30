@@ -1417,4 +1417,10 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
+// TODO: Strongly type these
+var contract;
+var typedcontract;
+if (!contract) {
+    contract = new typedcontract.Contract();
+}
 //# sourceMappingURL=typed-contract.js.map

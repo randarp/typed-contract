@@ -8,16 +8,18 @@ module.exports = function(grunt){
 
     grunt.initConfig({
 
+        // Creates a minified version of the library
         uglify: {
             dev: {
                 files: {
-                    "typed-contract.min.js": "C:/Projects/TypedContract/Code/typed-contract.js"
+                    "typed-contract.min.js": "./typed-contract.js"
                 }
             }
         },
+        // Copies the files over to the directory used to deploy to NuGet
         copy:{
             files:{
-                cwd: 'C:/Projects/TypedContract/Code/',
+                cwd: './',
                 src: [
                     "typed-contract.js",
                     "package.json",
@@ -25,11 +27,12 @@ module.exports = function(grunt){
                     "typed-contract.min.js",
                     "ReadMe.md",
                     "LICENSE-MIT"],
-                dest: 'C:/Projects/TypedContract/Code/typed-contract',
+                dest: './typed-contract',
                 expand: true
 
             }
         },
+        // Push the code up to NPM
         npmrelease: {
             options: {
                 bump: true,
@@ -38,10 +41,11 @@ module.exports = function(grunt){
                 pushTags: false,
                 npm: false,
                 npmtag: false,
-                folder: 'C:Projects/TypedContract/Code/typed-contract',
+                folder: './typed-contract',
                 commitMessage: 'check out our new typed-contract release <%= version %>', //default: 'release <%= version %>'
             }
         },
+        // Generate the TypeScript .d.ts file
         dtsGenerator: {
             options: {
                 name: "typed-contract",
@@ -52,9 +56,11 @@ module.exports = function(grunt){
                 src: [ "/TypedContract/**/*.ts" ]
             }
         },
+        // Merge all of the the TypeScript files into a single, transpiled file
         webpack: {
             default: require("./webpack.config.js")
         },
+        // Merge the library (from WebPack) and the bootstrapper
         concat: {
             options: {
                 sourceMap: true,
@@ -71,8 +77,8 @@ module.exports = function(grunt){
         console.log("Published, Yaay!");
     });
 
-    grunt.task.registerTask("release and set-up",["uglify","copy"]);
+    grunt.task.registerTask("release and set-up", ["uglify", "copy"]);
 
-    // Run all grunt tasks required to build the solution
-    grunt.task.registerTask("build",["webpack","dtsGenerator","uglify","copy"]);
+    // Run all grunt tasks required to build the solution and get it ready for deployment
+    grunt.task.registerTask("build", ["webpack", "dtsGenerator", "uglify", "copy"]);
 };
