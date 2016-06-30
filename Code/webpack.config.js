@@ -5,14 +5,7 @@ var webpack = require("webpack"),
 var libraryName = "typedcontract",
     libraryFileName = "typed-contract",
     plugins = [],
-    outputFile;
-
-if (yargs.argv.p) {
-    plugins.push(new webpack.optimize.UglifyJsPlugin({ minimize: true }));
-    outputFile = libraryFileName + ".min.js";
-} else {
     outputFile = libraryFileName + ".js";
-}
 
 var config = {
     entry: [
