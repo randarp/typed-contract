@@ -12,7 +12,7 @@ module.exports = function(grunt){
         uglify: {
             dev: {
                 files: {
-                    "typed-contract.min.js": "./typed-contract.js"
+                    "typedcontract.min.js": "./typedcontract.js"
                 }
             }
         },
@@ -21,10 +21,10 @@ module.exports = function(grunt){
             files:{
                 cwd: './',
                 src: [
-                    "typed-contract.js",
+                    "typedcontract.js",
                     "package.json",
-                    "typed-contract.js.map",
-                    "typed-contract.min.js",
+                    "typedcontract.js.map",
+                    "typedcontract.min.js",
                     "ReadMe.md",
                     "LICENSE-MIT"],
                 dest: './typed-contract',
@@ -48,9 +48,9 @@ module.exports = function(grunt){
         // Generate the TypeScript .d.ts file
         dtsGenerator: {
             options: {
-                name: "typed-contract",
+                name: "typedcontract",
                 project: "./TypedContract",
-                out: "typed-contract.d.ts"
+                out: "typedcontract.d.ts"
             },
             default: {
                 src: [ "/TypedContract/**/*.ts" ]
@@ -64,11 +64,11 @@ module.exports = function(grunt){
         concat: {
             options: {
                 sourceMap: true,
-                sourceMapName: "typed-contract.js.map"
+                sourceMapName: "typedcontract.js.map"
             },
             dist: {
-                src: ['./TypedContract/typed-contract-lib.js', './TypedContract/typed-contract-bootstrapper.js'],
-                dest: 'typed-contract.js'
+                src: ['./TypedContract/typedcontract-lib.js', './TypedContract/typedcontract-bootstrapper.js'],
+                dest: 'typedcontract.js'
             }
         }
     });
@@ -80,5 +80,5 @@ module.exports = function(grunt){
     grunt.task.registerTask("release and set-up", ["uglify", "copy"]);
 
     // Run all grunt tasks required to build the solution and get it ready for deployment
-    grunt.task.registerTask("build", ["webpack", "dtsGenerator", "uglify", "copy"]);
+    grunt.task.registerTask("build", ["webpack", "concat", "dtsGenerator", "uglify", "copy"]);
 };

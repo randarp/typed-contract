@@ -14,8 +14,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: 'typed-contract.js', watched: true, included: true, served: true},
-      {pattern: 'typed-contract.js.map', watched: true, included: false, served: true},
+      {pattern: 'typedcontract.js', watched: true, included: true, served: true},
+      {pattern: 'typedcontract.js.map', watched: true, included: false, served: true},
       {pattern: 'TypedContract.Specs/ContractJS.globalscope.spec.js', watched: true, included: true, served: true},
       {pattern: 'TypedContract.Specs/TypeValidators/**/*.js', watched: true, included: true, served: true},
       {pattern: 'TypedContract.Specs/TypeValidators/**/*.map', watched: true, included: false, served: true}

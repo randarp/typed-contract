@@ -2,6 +2,6 @@
 var contract: any;
 var typedcontract: any;
 
-if (!contract) {
+if (!contract && typeof typedcontract !== "undefined") {
     contract = new typedcontract.Contract();
 }
