@@ -77,7 +77,7 @@ module.exports = function(grunt){
             // Clean up the generated typescript definition
             dts: {
                 src: 'typedcontract.d.ts',
-                dest: 'typedcontract.d.ts',
+                overwrite: true,
                 replacements: [{
                     // To fix TSLint issues
                     from: "\'",
@@ -85,7 +85,7 @@ module.exports = function(grunt){
                 }, {
                     // To match the JS file post webpack
                     from: "\"typedcontract/Contract/Contract\"",
-                    to: "'typedcontract'"
+                    to: "\"typedcontract\""
                 }
                 ]
             }

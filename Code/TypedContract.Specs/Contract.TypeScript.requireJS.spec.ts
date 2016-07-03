@@ -1,16 +1,20 @@
 /// <reference path="../typedcontract.d.ts" />
 /// <reference path="../Typings/jasmine/jasmine.d.ts" />
 
-// import * as typedcontract from "typedcontract";
-// import {BooleanValidator} from "typedcontract/TypeValidators/BooleanValidator";
+import { contract } from "typedcontract";
 /*import {NumberValidator} from "typedcontract/TypeValidators/NumberValidator";
 import {StringValidator} from "typedcontract/TypeValidators/StringValidator";
 import {ArrayValidator} from "typedcontract/TypeValidators/ArrayValidator";
 import {AnyValidator} from "typedcontract/TypeValidators/AnyValidator";*/
 
-import { contract } from "typedcontract";
-
 describe("typed-contract with inline global scope via TypeScript", () => {
+/*    it("create validator", () => {
+        // arrange
+        var result = new BooleanValidator();
+
+        expect(result).not.toBeNull();
+    });*/
+
     it("will return the correct validator for a boolean", () => {
         // arrange
         let localVariable: boolean = true;

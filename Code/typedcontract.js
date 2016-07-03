@@ -114,7 +114,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}());
 	exports.Contract = Contract;
 	/*
-	Createa a module level variable as a shortcut
+	Create a module level variable that exposes the functionality for typed contract
 	 */
 	exports.contract = new Contract();
 

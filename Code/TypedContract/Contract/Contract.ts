@@ -61,7 +61,7 @@ export class Contract {
 }
 
 /*
-Createa a module level variable as a shortcut 
+Create a module level variable that exposes the functionality for typed contract
  */
 export var contract: Contract = new Contract();
 

@@ -12,6 +12,7 @@
     "grunt-contrib-uglify": "^1.0.0",
     "grunt-npm-release": "0.0.2",
     "grunt-release": "^0.13.0",
+    "grunt-text-replace": "^0.4.0",
     "grunt-webpack": "^1.0.11",
     "jasmine": "^2.4.1",
     "karma-chrome-launcher": "^0.2.2",
