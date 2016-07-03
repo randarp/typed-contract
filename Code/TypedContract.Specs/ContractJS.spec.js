@@ -25,7 +25,7 @@ describe("ContractJS", function () {
         expect(typeof result).toBe("object")
     });
 
-    xit("will return function through global scope prototype object", function () {
+    it("will return function through global scope prototype object", function () {
         // arrange
 
         // act
