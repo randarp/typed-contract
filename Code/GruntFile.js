@@ -5,6 +5,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks('grunt-webpack');
     grunt.loadNpmTasks('dts-generator');
+    grunt.loadNpmTasks('grunt-text-replace');
 
     grunt.initConfig({
 
@@ -70,6 +71,24 @@ module.exports = function(grunt){
                 src: ['./TypedContract/typedcontract-lib.js', './TypedContract/typedcontract-bootstrapper.js'],
                 dest: 'typedcontract.js'
             }
+        },
+        // Clean up any generated files
+        replace: {
+            // Clean up the generated typescript definition
+            dts: {
+                src: 'typedcontract.d.ts',
+                dest: 'typedcontract.d.ts',
+                replacements: [{
+                    // To fix TSLint issues
+                    from: "\'",
+                    to: "\""
+                }, {
+                    // To match the JS file post webpack
+                    from: "\"typedcontract/Contract/Contract\"",
+                    to: "'typedcontract'"
+                }
+                ]
+            }
         }
     });
 
@@ -80,5 +99,5 @@ module.exports = function(grunt){
     grunt.task.registerTask("release and set-up", ["uglify", "copy"]);
 
     // Run all grunt tasks required to build the solution and get it ready for deployment
-    grunt.task.registerTask("build", ["webpack", "concat", "dtsGenerator", "uglify", "copy"]);
+    grunt.task.registerTask("build", ["webpack", "concat", "dtsGenerator", "replace", "uglify", "copy"]);
 };

@@ -1,6 +1,6 @@
 declare var contract: any;
 declare var typedcontract: any;
-declare module 'typedcontract/TypeValidators/BaseValidator' {
+declare module "typedcontract/TypeValidators/BaseValidator" {
 	/**
 	 * Encapsulates any validators that apply to every type and state used by the validation chain.
 	 */
@@ -23,8 +23,8 @@ declare module 'typedcontract/TypeValidators/BaseValidator' {
 	}
 
 }
-declare module 'typedcontract/TypeValidators/StringValidator' {
-	import { BaseValidator } from 'typedcontract/TypeValidators/BaseValidator';
+declare module "typedcontract/TypeValidators/StringValidator" {
+	import { BaseValidator } from "typedcontract/TypeValidators/BaseValidator";
 	export class StringValidator extends BaseValidator<string> {
 	    constructor(variableValue: string, variableName: string);
 	    /**
@@ -251,8 +251,8 @@ declare module 'typedcontract/TypeValidators/StringValidator' {
 	}
 
 }
-declare module 'typedcontract/TypeValidators/BooleanValidator' {
-	import { BaseValidator } from 'typedcontract/TypeValidators/BaseValidator';
+declare module "typedcontract/TypeValidators/BooleanValidator" {
+	import { BaseValidator } from "typedcontract/TypeValidators/BaseValidator";
 	export class BooleanValidator extends BaseValidator<boolean> {
 	    constructor(variableValue: boolean, variableName: string);
 	    /**
@@ -320,8 +320,8 @@ declare module 'typedcontract/TypeValidators/BooleanValidator' {
 	}
 
 }
-declare module 'typedcontract/TypeValidators/NumberValidator' {
-	import { BaseValidator } from 'typedcontract/TypeValidators/BaseValidator';
+declare module "typedcontract/TypeValidators/NumberValidator" {
+	import { BaseValidator } from "typedcontract/TypeValidators/BaseValidator";
 	export class NumberValidator extends BaseValidator<number> {
 	    constructor(variableValue: number, variableName: string);
 	    /**
@@ -442,8 +442,8 @@ declare module 'typedcontract/TypeValidators/NumberValidator' {
 	}
 
 }
-declare module 'typedcontract/TypeValidators/ArrayValidator' {
-	import { BaseValidator } from 'typedcontract/TypeValidators/BaseValidator';
+declare module "typedcontract/TypeValidators/ArrayValidator" {
+	import { BaseValidator } from "typedcontract/TypeValidators/BaseValidator";
 	export class ArrayValidator extends BaseValidator<any[]> {
 	    private count;
 	    constructor(variableValue: any[], variableName: string);
@@ -505,7 +505,7 @@ declare module 'typedcontract/TypeValidators/ArrayValidator' {
 	    IsLengthGreaterThan(compareTo: any[]): ArrayValidator;
 	    /**
 	     *
-	     * IsLengthNotGreaterThan checks if the array variable's length is not greater than the length of the contract precondition
+	     * IsLengthNotGreaterThan checks if the array variable"s length is not greater than the length of the contract precondition
 	     * @throws RangeError if the array variable is greater than the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
 	     * @returns { ArrayValidator}
@@ -513,7 +513,7 @@ declare module 'typedcontract/TypeValidators/ArrayValidator' {
 	    IsLengthNotGreaterThan(compareTo: any[]): ArrayValidator;
 	    /**
 	     *
-	     * IsLengthGreaterOrEqualTo checks if the array variable's length is greater or equal than the length of the contract precondition
+	     * IsLengthGreaterOrEqualTo checks if the array variable"s length is greater or equal than the length of the contract precondition
 	     * @throws RangeError if the array variable is not
 	     * greater or equal than the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
@@ -522,7 +522,7 @@ declare module 'typedcontract/TypeValidators/ArrayValidator' {
 	    IsLengthGreaterOrEqualTo(compareTo: any[]): ArrayValidator;
 	    /**
 	     *
-	     * IsLengthNotGreaterOrEqualTo checks if the array variable's length is greater or equal than the length of the contract precondition
+	     * IsLengthNotGreaterOrEqualTo checks if the array variable"s length is greater or equal than the length of the contract precondition
 	     * @throws RangeError if the array variable is not greater or
 	     * equal than the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
@@ -531,7 +531,7 @@ declare module 'typedcontract/TypeValidators/ArrayValidator' {
 	    IsLengthNotGreaterOrEqualTo(compareTo: any[]): ArrayValidator;
 	    /**
 	     *
-	     * IsLengthLessThan checks if the array variable's length is less than the length of the contract precondition
+	     * IsLengthLessThan checks if the array variable"s length is less than the length of the contract precondition
 	     * @throws RangeError if the array variable is greater or
 	     * equal than the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
@@ -540,7 +540,7 @@ declare module 'typedcontract/TypeValidators/ArrayValidator' {
 	    IsLengthLessThan(compareTo: any[]): ArrayValidator;
 	    /**
 	     *
-	     * IsLengthNotLessThan checks if the array variable's length is not less than the length of the contract precondition
+	     * IsLengthNotLessThan checks if the array variable"s length is not less than the length of the contract precondition
 	     * @throws RangeError if the array variable is less than or
 	     * equal than the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
@@ -549,7 +549,7 @@ declare module 'typedcontract/TypeValidators/ArrayValidator' {
 	    IsLengthNotLessThan(compareTo: any[]): ArrayValidator;
 	    /**
 	     *
-	     * IsLengthLessOrEqualThan checks if the array variable's length is less or equal than the length of the contract precondition
+	     * IsLengthLessOrEqualThan checks if the array variable"s length is less or equal than the length of the contract precondition
 	     * @throws RangeError if the array variable is greater than
 	     * the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
@@ -558,7 +558,7 @@ declare module 'typedcontract/TypeValidators/ArrayValidator' {
 	    IsLengthLessOrEqualThan(compareTo: any[]): ArrayValidator;
 	    /**
 	     *
-	     * IsLengthNotLessOrEqualThan checks if the array variable's length is not less or equal than the length of the contract precondition
+	     * IsLengthNotLessOrEqualThan checks if the array variable"s length is not less or equal than the length of the contract precondition
 	     * @throws RangeError if the array variable is less or equal than
 	     * the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
@@ -567,7 +567,7 @@ declare module 'typedcontract/TypeValidators/ArrayValidator' {
 	    IsLengthNotLessOrEqualThan(compareTo: any[]): ArrayValidator;
 	    /**
 	     *
-	     * Contains checks if the array variable's values contains one or more values
+	     * Contains checks if the array variable"s values contains one or more values
 	     * with in the precondition of the TypedContract
 	     * @throws RangeError if the array variable does not contain any of the values
 	     *  passed into the instance of the TypedContract using the Contains function
@@ -577,7 +577,7 @@ declare module 'typedcontract/TypeValidators/ArrayValidator' {
 	    Contains(compareTo: any[]): ArrayValidator;
 	    /**
 	     *
-	     * NotContains checks if the array variable's values does not contain any values
+	     * NotContains checks if the array variable"s values does not contain any values
 	     * with in the precondition of the TypedContract
 	     * @throws RangeError if the array variable does contain any of the values
 	     *  passed into the instance of the TypedContract using the NotContains function
@@ -588,8 +588,8 @@ declare module 'typedcontract/TypeValidators/ArrayValidator' {
 	}
 
 }
-declare module 'typedcontract/TypeValidators/AnyValidator' {
-	import { BaseValidator } from 'typedcontract/TypeValidators/BaseValidator';
+declare module "typedcontract/TypeValidators/AnyValidator" {
+	import { BaseValidator } from "typedcontract/TypeValidators/BaseValidator";
 	export class AnyValidator extends BaseValidator<any> {
 	    constructor(variableValue: any, variableName: string);
 	    /**
@@ -627,12 +627,12 @@ declare module 'typedcontract/TypeValidators/AnyValidator' {
 	}
 
 }
-declare module 'typedcontract/Contract/Contract' {
-	import { StringValidator } from 'typedcontract/TypeValidators/StringValidator';
-	import { BooleanValidator } from 'typedcontract/TypeValidators/BooleanValidator';
-	import { NumberValidator } from 'typedcontract/TypeValidators/NumberValidator';
-	import { ArrayValidator } from 'typedcontract/TypeValidators/ArrayValidator';
-	import { AnyValidator } from 'typedcontract/TypeValidators/AnyValidator';
+declare module "typedcontract" {
+	import { StringValidator } from "typedcontract/TypeValidators/StringValidator";
+	import { BooleanValidator } from "typedcontract/TypeValidators/BooleanValidator";
+	import { NumberValidator } from "typedcontract/TypeValidators/NumberValidator";
+	import { ArrayValidator } from "typedcontract/TypeValidators/ArrayValidator";
+	import { AnyValidator } from "typedcontract/TypeValidators/AnyValidator";
 	export class Contract {
 	    In(precondition: string): StringValidator;
 	    In(precondition: string, name: string): StringValidator;
