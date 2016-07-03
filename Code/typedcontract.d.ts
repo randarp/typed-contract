@@ -1,6 +1,6 @@
 declare var contract: any;
 declare var typedcontract: any;
-declare module "typedcontract/TypeValidators/BaseValidator" {
+declare module "typedcontract" {
 	/**
 	 * Encapsulates any validators that apply to every type and state used by the validation chain.
 	 */
@@ -23,8 +23,8 @@ declare module "typedcontract/TypeValidators/BaseValidator" {
 	}
 
 }
-declare module "typedcontract/TypeValidators/StringValidator" {
-	import { BaseValidator } from "typedcontract/TypeValidators/BaseValidator";
+declare module "typedcontract" {
+	import { BaseValidator } from "typedcontract";
 	export class StringValidator extends BaseValidator<string> {
 	    constructor(variableValue: string, variableName: string);
 	    /**
@@ -251,8 +251,8 @@ declare module "typedcontract/TypeValidators/StringValidator" {
 	}
 
 }
-declare module "typedcontract/TypeValidators/BooleanValidator" {
-	import { BaseValidator } from "typedcontract/TypeValidators/BaseValidator";
+declare module "typedcontract" {
+	import { BaseValidator } from "typedcontract";
 	export class BooleanValidator extends BaseValidator<boolean> {
 	    constructor(variableValue: boolean, variableName: string);
 	    /**
@@ -320,8 +320,8 @@ declare module "typedcontract/TypeValidators/BooleanValidator" {
 	}
 
 }
-declare module "typedcontract/TypeValidators/NumberValidator" {
-	import { BaseValidator } from "typedcontract/TypeValidators/BaseValidator";
+declare module "typedcontract" {
+	import { BaseValidator } from "typedcontract";
 	export class NumberValidator extends BaseValidator<number> {
 	    constructor(variableValue: number, variableName: string);
 	    /**
@@ -442,8 +442,8 @@ declare module "typedcontract/TypeValidators/NumberValidator" {
 	}
 
 }
-declare module "typedcontract/TypeValidators/ArrayValidator" {
-	import { BaseValidator } from "typedcontract/TypeValidators/BaseValidator";
+declare module "typedcontract" {
+	import { BaseValidator } from "typedcontract";
 	export class ArrayValidator extends BaseValidator<any[]> {
 	    private count;
 	    constructor(variableValue: any[], variableName: string);
@@ -588,8 +588,8 @@ declare module "typedcontract/TypeValidators/ArrayValidator" {
 	}
 
 }
-declare module "typedcontract/TypeValidators/AnyValidator" {
-	import { BaseValidator } from "typedcontract/TypeValidators/BaseValidator";
+declare module "typedcontract" {
+	import { BaseValidator } from "typedcontract";
 	export class AnyValidator extends BaseValidator<any> {
 	    constructor(variableValue: any, variableName: string);
 	    /**
@@ -628,11 +628,11 @@ declare module "typedcontract/TypeValidators/AnyValidator" {
 
 }
 declare module "typedcontract" {
-	import { StringValidator } from "typedcontract/TypeValidators/StringValidator";
-	import { BooleanValidator } from "typedcontract/TypeValidators/BooleanValidator";
-	import { NumberValidator } from "typedcontract/TypeValidators/NumberValidator";
-	import { ArrayValidator } from "typedcontract/TypeValidators/ArrayValidator";
-	import { AnyValidator } from "typedcontract/TypeValidators/AnyValidator";
+	import { StringValidator } from "typedcontract";
+	import { BooleanValidator } from "typedcontract";
+	import { NumberValidator } from "typedcontract";
+	import { ArrayValidator } from "typedcontract";
+	import { AnyValidator } from "typedcontract";
 	export class Contract {
 	    In(precondition: string): StringValidator;
 	    In(precondition: string, name: string): StringValidator;
