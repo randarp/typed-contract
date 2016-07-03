@@ -16,8 +16,8 @@ module.exports = function(config) {
     files: [
       {pattern: 'typedcontract.js', watched: true, included: true, served: true},
       {pattern: 'typedcontract.js.map', watched: true, included: false, served: true},
-      {pattern: 'TypedContract.Specs/ContractTS.globalscope.spec.js', watched: true, included: true, served: true},
-      {pattern: 'TypedContract.Specs/ContractJS.globalscope.spec.js', watched: true, included: true, served: true},
+      {pattern: 'TypedContract.Specs/Contract.TypeScript.globalscope.spec.js', watched: true, included: true, served: true},
+      {pattern: 'TypedContract.Specs/Contract.JavaScript.globalscope.spec.js', watched: true, included: true, served: true},
       {pattern: 'TypedContract.Specs/TypeValidators/**/*.js', watched: true, included: true, served: true},
       {pattern: 'TypedContract.Specs/TypeValidators/**/*.map', watched: true, included: false, served: true}
     ],

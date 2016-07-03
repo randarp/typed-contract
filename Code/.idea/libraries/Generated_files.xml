@@ -66,9 +66,9 @@
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/StringValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/Contract/Contract.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BaseValidator.spec.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract.Specs/ContractTS.requireJS.spec.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.requireJS.spec.js" />
       <root url="file://$PROJECT_DIR$/node_modules/tslint/scripts/buildDocs.js" />
-      <root url="file://$PROJECT_DIR$/TypedContract.Specs/ContractTS.globalscope.spec.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.globalscope.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/typedcontract-bootstrapper.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NumberValidator.js" />

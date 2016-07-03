@@ -17,8 +17,8 @@ module.exports = function(config) {
     files: [
       'karma.browser.test-main.js',
       {pattern: 'typedcontract.js', included: false},
-      {pattern: 'TypedContract.Specs/ContractTS.requireJS.spec.js', included: false},
-      {pattern: 'TypedContract.Specs/ContractJS.requireJS.spec.js', included: false}
+      {pattern: 'TypedContract.Specs/Contract.TypeScript.requireJS.spec.js', included: false},
+      {pattern: 'TypedContract.Specs/Contract.JavaScript.requireJS.spec.js', included: false}
     ],
 
 
