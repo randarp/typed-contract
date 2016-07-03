@@ -4,6 +4,10 @@
 import { contract, BooleanValidator, NumberValidator, StringValidator, ArrayValidator, AnyValidator } from "typedcontract";
 
 describe("typed-contract with module syntax RequireJS via TypeScript", () => {
+    /* Note, can't use expect(result).toEqual(jasmine.any(BooleanValidator)) here because the constructor function is not exposed for validators
+    So we have to use expect((<any>result.constructor).name).toBe("BooleanValidator");
+    */
+
     it("will return the correct validator for a boolean", () => {
         // arrange
         let localVariable: boolean = true;
@@ -13,7 +17,8 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
 
         // assert
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(BooleanValidator));
+        expect(result).not.toBeUndefined();
+        expect((<any>result.constructor).name).toBe("BooleanValidator");
     });
 
     it("will return the correct validator for a boolean", () => {
@@ -36,7 +41,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
 
         // assert
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(BooleanValidator));
+        expect((<any>result.constructor).name).toBe("BooleanValidator");
     });
 
     it("will return the correct validator for a number", () => {
@@ -48,7 +53,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
 
         // assert
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(NumberValidator));
+        expect((<any>result.constructor).name).toBe("NumberValidator");
     });
 
     it("will return the correct validator for a number with a name", () => {
@@ -60,7 +65,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
 
         // assert
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(NumberValidator));
+        expect((<any>result.constructor).name).toBe("NumberValidator");
     });
 
     it("will return the correct validator for a string", () => {
@@ -72,7 +77,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
 
         // assert
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(StringValidator));
+        expect((<any>result.constructor).name).toBe("StringValidator");
     });
 
     it("will return the correct validator for a string with a name", () => {
@@ -84,7 +89,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
 
         // assert
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(StringValidator));
+        expect((<any>result.constructor).name).toBe("StringValidator");
     });
 
     it("will return the correct validator for an array", () => {
@@ -96,7 +101,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
 
         // assert
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(ArrayValidator));
+        expect((<any>result.constructor).name).toBe("ArrayValidator");
     });
 
     it("will return the correct validator for an array with a name", () => {
@@ -108,7 +113,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
 
         // assert
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(ArrayValidator));
+        expect((<any>result.constructor).name).toBe("ArrayValidator");
     });
 
     it("will return the correct validator for an any type", () => {
@@ -117,7 +122,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let result: AnyValidator = contract.In(localVariable);
 
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(AnyValidator));
+        expect((<any>result.constructor).name).toBe("AnyValidator");
     });
 
     it("will return the correct validator for an any type with a variable name", () => {
@@ -126,7 +131,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let result: AnyValidator = contract.In(localVariable, "myVar");
 
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(AnyValidator));
+        expect((<any>result.constructor).name).toBe("AnyValidator");
     });
 
 });
