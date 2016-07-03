@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Sun Jan 24 2016 16:46:32 GMT-0500 (Eastern Standard Time)
+// Generated on Sun Jul 03 2016 12:04:06 GMT-0400 (Eastern Daylight Time)
 
 module.exports = function(config) {
   config.set({
@@ -10,13 +10,13 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'requirejs'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'typed-contract.js',
-      'TypedContract.Specs/**/*.js'
+      'karma.browser.test-main.js',
+      {pattern: 'TypedContract.Specs/ContractJS.requireJS.spec.js', included: false}
     ],
 
 
@@ -56,7 +56,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
