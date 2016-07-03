@@ -113,6 +113,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return Contract;
 	}());
 	exports.Contract = Contract;
+	/*
+	Createa a module level variable as a shortcut
+	 */
+	exports.contract = new Contract();
 
 
 /***/ },
@@ -1420,6 +1424,7 @@ return /******/ (function(modules) { // webpackBootstrap
 // TODO: Strongly type these
 var contract;
 var typedcontract;
+/* Create a global scope object if we are not being called through a module */
 if (!contract && typeof typedcontract !== "undefined") {
     contract = new typedcontract.Contract();
 }

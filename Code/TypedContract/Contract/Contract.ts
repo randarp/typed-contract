@@ -60,3 +60,9 @@ export class Contract {
     }
 }
 
+/*
+Createa a module level variable as a shortcut 
+ */
+export var contract: Contract = new Contract();
+
+

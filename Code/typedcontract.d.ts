@@ -655,5 +655,6 @@ declare module 'typedcontract/Contract/Contract' {
 	    Out(postcondition: any, name: string): AnyValidator;
 	    Out(postcondition: any): AnyValidator;
 	}
+	export var contract: Contract;
 
 }
