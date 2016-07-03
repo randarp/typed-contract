@@ -1,21 +1,40 @@
-/// <reference path="../typed-contract.d.ts" />
+/// <reference path="../typedcontract.d.ts" />
 /// <reference path="../Typings/jasmine/jasmine.d.ts" />
-/*
-describe("ContractTS", () => {
 
+//import * as typedcontract from "typedcontract";
+import {BooleanValidator} from "typedcontract/TypeValidators/BooleanValidator";
+/*import {NumberValidator} from "typedcontract/TypeValidators/NumberValidator";
+import {StringValidator} from "typedcontract/TypeValidators/StringValidator";
+import {ArrayValidator} from "typedcontract/TypeValidators/ArrayValidator";
+import {AnyValidator} from "typedcontract/TypeValidators/AnyValidator";*/
+
+describe("typed-contract with inline global scope via TypeScript", () => {
     it("will return the correct validator for a boolean", () => {
         // arrange
         let localVariable: boolean = true;
+        var typedcontract = require("typedcontract");
 
         // act
-        let result: BooleanValidator = contract.In(localVariable);
+        let result: any = typedcontract.contract.In(localVariable);
+
+        // assert
+        expect(result).not.toBeNull();
+        //expect(result).toEqual(jasmine.any(BooleanValidator));
+    });
+
+/*    it("will return the correct validator for a boolean", () => {
+        // arrange
+        let localVariable: boolean = true;
+        var typedcontract = require("typedcontract");
+
+        // act
+        let result: BooleanValidator = typedcontract.contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
         expect(result).toEqual(jasmine.any(BooleanValidator));
-    });
-
-    it("will return the correct validator for a boolean with a name", () => {
+    });*/
+    /*it("will return the correct validator for a boolean with a name", () => {
         // arrange
         let localVariable: boolean = true;
 
@@ -115,6 +134,6 @@ describe("ContractTS", () => {
 
         expect(result).not.toBeNull();
         expect(result).toEqual(jasmine.any(AnyValidator));
-    });
+    });*/
 
-});*/
+});

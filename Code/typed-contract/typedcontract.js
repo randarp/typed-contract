@@ -1421,6 +1421,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
+/* tslint:disable */
 // TODO: Strongly type these
 var contract;
 var typedcontract;
@@ -1428,4 +1429,5 @@ var typedcontract;
 if (!contract && typeof typedcontract !== "undefined") {
     contract = new typedcontract.Contract();
 }
+/* tslint:enable */
 //# sourceMappingURL=typedcontract.js.map

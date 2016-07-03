@@ -17,6 +17,7 @@ module.exports = function(config) {
     files: [
       'typedcontract.js',
       'TypedContract.Specs/ContractJS.globalscope.spec.js',
+      'TypedContract.Specs/ContractTS.globalscope.spec.js',
       'TypedContract.Specs/TypeValidators/**/*.js'
     ],
 
