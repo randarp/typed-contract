@@ -7,12 +7,12 @@ import { ArrayValidator } from "../TypeValidators/ArrayValidator";
 import { AnyValidator } from "../TypeValidators/AnyValidator";
 
 export class Contract {
-    public In(precondition:string): StringValidator;
-    public In(precondition:string, name:string): StringValidator;
-    public In(precondition:boolean): BooleanValidator;
-    public In(precondition:boolean, name:string): BooleanValidator;
-    public In(precondition:number): NumberValidator;
-    public In(precondition:number, name:string): NumberValidator;
+    public In(precondition:string): IStringValidator;
+    public In(precondition:string, name:string): IStringValidator;
+    public In(precondition:boolean): IBooleanValidator;
+    public In(precondition:boolean, name:string): IBooleanValidator;
+    public In(precondition:number): INumberValidator;
+    public In(precondition:number, name:string): INumberValidator;
     public In(precondition:any[]): IArrayValidator;
     public In(precondition:any[], name:string): IArrayValidator;
     public In(precondition:any, name:string): IAnyValidator;
@@ -34,12 +34,12 @@ export class Contract {
         }
     }
 
-    public Out(postcondition:string):StringValidator;
-    public Out(postcondition:string, name:string):StringValidator;
-    public Out(postcondition:boolean):BooleanValidator;
-    public Out(postcondition:boolean, name:string):BooleanValidator;
-    public Out(postcondition:number):NumberValidator;
-    public Out(postcondition:number, name:string):NumberValidator;
+    public Out(postcondition:string): IStringValidator;
+    public Out(postcondition:string, name:string): IStringValidator;
+    public Out(postcondition:boolean): IBooleanValidator;
+    public Out(postcondition:boolean, name:string): IBooleanValidator;
+    public Out(postcondition:number): INumberValidator;
+    public Out(postcondition:number, name:string): INumberValidator;
     public Out(postcondition:any[]): IArrayValidator;
     public Out(postcondition:any[], name:string): IArrayValidator;
     public Out(postcondition:any, name:string): IAnyValidator;

@@ -1325,26 +1325,23 @@ declare module "typedcontract" {
 }
 declare module "typedcontract" {
 	
-	import { StringValidator } from "typedcontract";
-	import { BooleanValidator } from "typedcontract";
-	import { NumberValidator } from "typedcontract";
 	export class Contract {
-	    In(precondition: string): StringValidator;
-	    In(precondition: string, name: string): StringValidator;
-	    In(precondition: boolean): BooleanValidator;
-	    In(precondition: boolean, name: string): BooleanValidator;
-	    In(precondition: number): NumberValidator;
-	    In(precondition: number, name: string): NumberValidator;
+	    In(precondition: string): IStringValidator;
+	    In(precondition: string, name: string): IStringValidator;
+	    In(precondition: boolean): IBooleanValidator;
+	    In(precondition: boolean, name: string): IBooleanValidator;
+	    In(precondition: number): INumberValidator;
+	    In(precondition: number, name: string): INumberValidator;
 	    In(precondition: any[]): IArrayValidator;
 	    In(precondition: any[], name: string): IArrayValidator;
 	    In(precondition: any, name: string): IAnyValidator;
 	    In(precondition: any): IAnyValidator;
-	    Out(postcondition: string): StringValidator;
-	    Out(postcondition: string, name: string): StringValidator;
-	    Out(postcondition: boolean): BooleanValidator;
-	    Out(postcondition: boolean, name: string): BooleanValidator;
-	    Out(postcondition: number): NumberValidator;
-	    Out(postcondition: number, name: string): NumberValidator;
+	    Out(postcondition: string): IStringValidator;
+	    Out(postcondition: string, name: string): IStringValidator;
+	    Out(postcondition: boolean): IBooleanValidator;
+	    Out(postcondition: boolean, name: string): IBooleanValidator;
+	    Out(postcondition: number): INumberValidator;
+	    Out(postcondition: number, name: string): INumberValidator;
 	    Out(postcondition: any[]): IArrayValidator;
 	    Out(postcondition: any[], name: string): IArrayValidator;
 	    Out(postcondition: any, name: string): IAnyValidator;
