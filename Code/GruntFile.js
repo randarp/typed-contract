@@ -97,6 +97,19 @@ module.exports = function(grunt){
                     to: "declare module \"typedcontract\""
                 }
                 ]
+            },js: {
+                src: 'typedcontract.js',
+                overwrite: true,
+                replacements: [{
+                    // To fix TSLint issues
+                    from: "\/\/\/ <reference path=\"..\/TypeValidators\/TypeValidators.d.ts\" \/>",
+                    to: ""
+                },{
+                    // To fix TSLint issues
+                    from: "\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
+                    to: ""
+                }
+                ]
             }
         }
     });

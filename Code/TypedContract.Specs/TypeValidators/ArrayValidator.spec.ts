@@ -280,7 +280,7 @@ describe("ArrayValidator", () => {
         let localVar:  any[] = [1, 2, 3];
         let compareTo:  any[] = [1, 2, 3, 4];
 
-        let result:  ArrayValidator = contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+        let result:  IArrayValidator = contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
 
         expect(result);
     });
