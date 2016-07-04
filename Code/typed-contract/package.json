@@ -2,7 +2,7 @@
   "name": "typed-contract",
   "version": "1.2.0",
   "description": "A wonderfully simple, yet powerful TypeScript and JavaScript code contract library",
-  "main": "typedcontract.js",
+  "main": "./typedcontract.js",
   "typings": "./typedcontract.d.ts",
   "devDependencies": {
     "dts-generator": "^1.7.0",
