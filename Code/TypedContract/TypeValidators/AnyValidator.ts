@@ -11,7 +11,7 @@ export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
      *
      * IsNotNull checks if the type any variable is not null
      * @throws a ReferenceError if the any is null
-     * @returns {AnyValidator}
+     * @returns { IAnyValidator }
      */
 public IsNotNull(): IAnyValidator {
         if (this._variableValue === null) {
@@ -25,7 +25,7 @@ public IsNotNull(): IAnyValidator {
      *
      * IsNull checks if the any variable is null
      * @throws a ReferenceError if the variable is not null
-     * @returns {AnyValidator}
+     * @returns { IAnyValidator }
      */
 public IsNull(): IAnyValidator {
         if (this._variableValue !== null) {
@@ -39,7 +39,7 @@ public IsNull(): IAnyValidator {
     /**
      * IsDefined checks if the any variable is defined
      * @throws ReferenceError if the any variable jis not defined
-     * @returns {AnyValidator}
+     * @returns { IAnyValidator }
      */
 public IsDefined(): IAnyValidator {
         if (typeof this._variableValue === "undefined") {
@@ -52,7 +52,7 @@ public IsDefined(): IAnyValidator {
     /**
      * IsUndefined checks if the any variable is undefined
      * @throws a ReferenceError if the any variable is undefined
-     * @returns {AnyValidator}
+     * @returns { IAnyValidator }
      */
 public IsUndefined(): IAnyValidator {
         if (typeof this._variableValue !== "undefined") {
@@ -65,7 +65,7 @@ public IsUndefined(): IAnyValidator {
     /**
      * IsNullOrUndefined checks if the any variable is not null or undefined
      * @throws ReferenceError if the any variable is null or undefined
-     * @returns {AnyValidator}
+     * @returns { IAnyValidator }
      */
 public IsNullOrUndefined(): IAnyValidator {
         if (this._variableValue === null || typeof this._variableValue === undefined) {

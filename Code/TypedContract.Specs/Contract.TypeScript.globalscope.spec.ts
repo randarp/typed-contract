@@ -3,27 +3,27 @@
 
 describe("typed-contract with inline global scope via TypeScript", () => {
 
-    /*it("will return the correct validator for a boolean", () => {
+    it("will return the correct validator for a boolean", () => {
         // arrange
         let localVariable: boolean = true;
 
         // act
-        let result: BooleanValidator = contract.In(localVariable);
+        let result: IBooleanValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(BooleanValidator));
-    });*/
-    /*it("will return the correct validator for a boolean with a name", () => {
+        expect((<any>result.constructor).name).toBe("BooleanValidator");
+    });
+    it("will return the correct validator for a boolean with a name", () => {
         // arrange
         let localVariable: boolean = true;
 
         // act
-        let result: BooleanValidator = contract.In(localVariable, "localVariable");
+        let result: IBooleanValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(BooleanValidator));
+        expect((<any>result.constructor).name).toBe("BooleanValidator");
     });
 
     it("will return the correct validator for a number", () => {
@@ -31,11 +31,11 @@ describe("typed-contract with inline global scope via TypeScript", () => {
         let localVariable: number = 2;
 
         // act
-        let result: NumberValidator = contract.In(localVariable);
+        let result: INumberValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(NumberValidator));
+        expect((<any>result.constructor).name).toBe("NumberValidator");
     });
 
     it("will return the correct validator for a number with a name", () => {
@@ -43,11 +43,11 @@ describe("typed-contract with inline global scope via TypeScript", () => {
         let localVariable: number = 2;
 
         // act
-        let result: NumberValidator = contract.In(localVariable, "localVariable");
+        let result: INumberValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(NumberValidator));
+        expect((<any>result.constructor).name).toBe("NumberValidator");
     });
 
     it("will return the correct validator for a string", () => {
@@ -55,11 +55,11 @@ describe("typed-contract with inline global scope via TypeScript", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: StringValidator = contract.In(localVariable);
+        let result: IStringValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(StringValidator));
+        expect((<any>result.constructor).name).toBe("StringValidator");
     });
 
     it("will return the correct validator for a string with a name", () => {
@@ -67,11 +67,11 @@ describe("typed-contract with inline global scope via TypeScript", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: StringValidator = contract.In(localVariable, "localVariable");
+        let result: IStringValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(StringValidator));
+        expect((<any>result.constructor).name).toBe("StringValidator");
     });
 
     it("will return the correct validator for an array", () => {
@@ -79,11 +79,11 @@ describe("typed-contract with inline global scope via TypeScript", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: ArrayValidator = contract.In(localVariable);
+        let result: IArrayValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(ArrayValidator));
+        expect((<any>result.constructor).name).toBe("ArrayValidator");
     });
 
     it("will return the correct validator for an array with a name", () => {
@@ -91,12 +91,12 @@ describe("typed-contract with inline global scope via TypeScript", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: ArrayValidator = contract.In(localVariable, "localVariable");
+        let result: IArrayValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(ArrayValidator));
-    });*/
+        expect((<any>result.constructor).name).toBe("ArrayValidator");
+    });
 
     it("will return the correct validator for an any type", () => {
         let localVariable: any = /[A-Z]/;

@@ -7,14 +7,14 @@ import { ArrayValidator } from "../TypeValidators/ArrayValidator";
 import { AnyValidator } from "../TypeValidators/AnyValidator";
 
 export class Contract {
-    public In(precondition:string):StringValidator;
-    public In(precondition:string, name:string):StringValidator;
-    public In(precondition:boolean):BooleanValidator;
-    public In(precondition:boolean, name:string):BooleanValidator;
-    public In(precondition:number):NumberValidator;
-    public In(precondition:number, name:string):NumberValidator;
-    public In(precondition:any[]):ArrayValidator;
-    public In(precondition:any[], name:string):ArrayValidator;
+    public In(precondition:string): StringValidator;
+    public In(precondition:string, name:string): StringValidator;
+    public In(precondition:boolean): BooleanValidator;
+    public In(precondition:boolean, name:string): BooleanValidator;
+    public In(precondition:number): NumberValidator;
+    public In(precondition:number, name:string): NumberValidator;
+    public In(precondition:any[]): IArrayValidator;
+    public In(precondition:any[], name:string): IArrayValidator;
     public In(precondition:any, name:string): IAnyValidator;
     public In(precondition:any): IAnyValidator;
     public In(precondition:any, name:string = undefined):any {
@@ -40,10 +40,10 @@ export class Contract {
     public Out(postcondition:boolean, name:string):BooleanValidator;
     public Out(postcondition:number):NumberValidator;
     public Out(postcondition:number, name:string):NumberValidator;
-    public Out(postcondition:any[]):ArrayValidator;
-    public Out(postcondition:any[], name:string):ArrayValidator;
-    public Out(postcondition:any, name:string):AnyValidator;
-    public Out(postcondition:any):AnyValidator;
+    public Out(postcondition:any[]): IArrayValidator;
+    public Out(postcondition:any[], name:string): IArrayValidator;
+    public Out(postcondition:any, name:string): IAnyValidator;
+    public Out(postcondition:any):IAnyValidator;
     public Out(postcondition:any, name:string = undefined):any {
 
         if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {

@@ -124,6 +124,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/// <reference path="TypeValidators.d.ts" />
 	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -140,7 +141,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *
 	     * IsNotNull checks if the string variable is not null
 	     * @throws a ReferenceError if the variable is null
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsNotNull = function () {
 	        if (this._variableValue === null) {
@@ -154,7 +155,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *
 	     * IsNull checks if the string variable is null
 	     * @throws a ReferenceError if the variable is not null
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsNull = function () {
 	        if (this._variableValue !== null) {
@@ -167,7 +168,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsDefined checks if the string variable is defined
 	     * @throws ReferenceError if the string is not defined
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsDefined = function () {
 	        if (typeof this._variableValue === "undefined") {
@@ -180,7 +181,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsNotDefined checks if the string variable is not defined
 	     * @throws ReferenceError if variable is defined
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsUndefined = function () {
 	        if (typeof this._variableValue !== "undefined") {
@@ -193,7 +194,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsNullOrUndefined checks if a string variable is not null or undefined
 	     * @throws ReferenceError if a string variable is null or not undefined
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsNullOrUndefined = function () {
 	        if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
@@ -208,7 +209,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsEqualTo cecks if the string variable is equal to the parameter passed into the function as an argument
 	     * @throws RangeError if the string variable is not equal to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsEqualTo = function (compareTo) {
 	        if (this._variableValue !== compareTo) {
@@ -223,7 +224,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsNotEqualTo checks if the string variable is not equal to the parameter passed into the function as an argument
 	     * @throws RangeError if the string variable is equal to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsNotEqualTo = function (compareTo) {
 	        if (this._variableValue === compareTo) {
@@ -238,7 +239,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLessThan checks if the string variable is less than to the parameter passed into the function as an argument
 	     * @throws RangeError if the string variable is greater to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsLessThan = function (compareTo) {
 	        if (this._variableValue.length > compareTo.length) {
@@ -253,7 +254,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsNotLessThan checks if the string variable is not less than to the parameter passed into the function as an argument
 	     * @throws RangeError if the string variable is not less than to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsNotLessThan = function (compareTo) {
 	        if (this._variableValue.length < compareTo.length) {
@@ -268,7 +269,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLengthGreaterThan checks if the string variable length is greater than to the parameter passed into the function as an argument
 	     * @throws RangeError if the string variable is not greater than to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsLengthGreaterThan = function (compareTo) {
 	        if (this._variableValue.length <= compareTo.length) {
@@ -284,7 +285,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * to the parameter passed into the function as an argument
 	     * @throws RangeError if the string variable is not greater or equal than to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsLengthGreaterOrEqualTo = function (compareTo) {
 	        if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
@@ -299,7 +300,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLengthNotGreaterThan checks if the string variable length is not greater than to the parameter passed into the function as an argument
 	     * @throws RangeError if the string variable is less or equal than to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsLengthNotGreaterThan = function (compareTo) {
 	        if (this._variableValue.length <= compareTo.length) {
@@ -314,7 +315,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLengthNotGreaterOrEqualTo checks if the string variable length is not greater or equal than to the parameter passed into the function as an argument
 	     * @throws RangeError if the string variable is greater or equal than to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsLengthNotGreaterOrEqualTo = function (compareTo) {
 	        if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
@@ -328,7 +329,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLengthLessThan checks if length of the string is less than the comparable passed into the TypedContract
 	     * @throws RangeError if the string length is greater or equal to the comparable passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     *
 	     */
 	    StringValidator.prototype.IsLengthLessThan = function (compareTo) {
@@ -343,7 +344,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLengthNotLessThan checks if length of the string is less than the comparable passed into the TypedContract
 	     * @throws RangeError if the string length is greater or equal to the comparable passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     *
 	     */
 	    StringValidator.prototype.IsLengthNotLessThan = function (compareTo) {
@@ -358,7 +359,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLengthLessOrEqualThan checks if length of the string is less or equal than the comparable passed into the TypedContract
 	     * @throws RangeError if the string length is greater than the comparable passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     *
 	     */
 	    StringValidator.prototype.IsLengthLessOrEqualThan = function (compareTo) {
@@ -373,7 +374,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLengthNotLessOrEqualThan checks if length of the string is not less or equal than the comparable passed into the TypedContract
 	     * @throws RangeError if the string length is less or equal than the comparable passed into the function
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     *
 	     */
 	    StringValidator.prototype.IsLengthNotLessOrEqualThan = function (compareTo) {
@@ -390,7 +391,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * precondition in the TypedContract
 	     * @throws RangeError if the regular expression does not match the values in the precondition
 	     * @param regExp
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.ToMatch = function (regExp) {
 	        if (!regExp.test(this._variableValue)) {
@@ -406,7 +407,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * precondition in the TypedContract
 	     * @throws RangeError if the regular expression does not match the values in the precondition
 	     * @param regExp
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.ToNotMatch = function (regExp) {
 	        if (regExp.test(this._variableValue)) {
@@ -422,7 +423,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * precondition in the TypedContract
 	     * @throws RangeError if the regular expression does match the values in the precondition
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.Contains = function (compareTo) {
 	        if (this._variableValue.length === 0 && compareTo.length === 0) {
@@ -441,7 +442,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * precondition in the TypedContract
 	     * @throws RangeError if the regular expression does not match the values in the precondition
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.NotContains = function (compareTo) {
 	        if (this._variableValue.indexOf(compareTo) > -1) {
@@ -457,7 +458,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * value as the comparable variable passed into the function
 	     * @throws RangeError if the comparable argument passed into TypedContract does not contain the same starting values
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.StartsWith = function (compareTo) {
 	        if ((this._variableValue).lastIndexOf(compareTo, 0) === 0) {
@@ -473,7 +474,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * value as the comparable variable passed into the function
 	     * @throws RangeError if the compareTo argument passed into TypedContract does not contain the same starting values
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.NotStartsWith = function (compareTo) {
 	        if ((this._variableValue).lastIndexOf(compareTo, 0) !== 0) {
@@ -489,7 +490,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * values as the comparable variable passed into the function
 	     * @throws RangeError if the compareTo argument passed into TypedContract does not contain the same ending values
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.EndsWith = function (compareTo) {
 	        if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) === -1) {
@@ -505,7 +506,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * values as the comparable variable passed into the function
 	     * @throws RangeError if the comparable argument passed into TypedContract does contain the same ending values
 	     * @param compareTo
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.NotEndsWith = function (compareTo) {
 	        if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) !== -1) {
@@ -522,7 +523,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @throws RangeError if the comparable argument passed into TypedContract is not in between the
 	     * starting and ending range
 	     * @param startRange, endRange
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsBetween = function (startRange, endRange) {
 	        if (this._variableValue > startRange && this._variableValue < endRange) {
@@ -539,7 +540,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @throws RangeError if the comparable argument passed into TypedContract is in between the
 	     * starting and ending range
 	     * @param startRange, endRange
-	     * @returns {StringValidator}
+	     * @returns {IStringValidator}
 	     */
 	    StringValidator.prototype.IsNotBetween = function (startRange, endRange) {
 	        if (this._variableValue > startRange && this._variableValue < endRange) {
@@ -598,6 +599,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/// <reference path="TypeValidators.d.ts" />
 	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -639,7 +641,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsDefined checks if the boolean variable is defined
 	     * @throws a ReferenceError if the boolen variable is undefined
-	     * @returns {BooleanValidator}
+	     * @returns {IBooleanValidator}
 	     */
 	    BooleanValidator.prototype.IsDefined = function () {
 	        if (typeof this._variableValue === "undefined") {
@@ -652,7 +654,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsUndefined checks if the boolean variable is undefined
 	     * @throws ReferenceError if the boolean variable is defined
-	     * @returns {BooleanValidator}
+	     * @returns {IBooleanValidator}
 	     */
 	    BooleanValidator.prototype.IsUndefined = function () {
 	        if (typeof this._variableValue !== "undefined") {
@@ -665,7 +667,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsNullOrUndefined checks if the boolean variable is not null or undefined
 	     * @throws ReferenceError if the boolean variable is null or undefined
-	     * @returns {BooleanValidator}
+	     * @returns {IBooleanValidator}
 	     */
 	    BooleanValidator.prototype.IsNullOrUndefined = function () {
 	        if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
@@ -680,7 +682,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsEqualTo checks if the boolean variable is equal to the parameter passed into the function as an argument
 	     * @throws RangeError if the boolean variable is not equal to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {BooleanValidator}
+	     * @returns {IBooleanValidator}
 	     */
 	    BooleanValidator.prototype.IsEqualTo = function (compareTo) {
 	        if (!this._variableValue === compareTo) {
@@ -695,7 +697,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsNotEqualTo checks if the boolean variable is not equal to the parameter passed into the function as an argument
 	     * @throws RangeError if the boolean variable is equal to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {BooleanValidator}
+	     * @returns {IBooleanValidator}
 	     */
 	    BooleanValidator.prototype.IsNotEqualTo = function (compareTo) {
 	        if (this._variableValue === compareTo) {
@@ -710,7 +712,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsTrue checks if the boolean variable is true
 	     * @throws RangeError if the boolean variable is false
 	     * @param compareTo
-	     * @returns {BooleanValidator}
+	     * @returns {IBooleanValidator}
 	     */
 	    BooleanValidator.prototype.IsTrue = function () {
 	        if (this._variableValue === false) {
@@ -725,7 +727,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsFalse checks if the boolean variable is false
 	     * @throws RangeError if the boolean variable is alse
 	     * @param compareTo
-	     * @returns {BooleanValidator}
+	     * @returns {IBooleanValidator}
 	     */
 	    BooleanValidator.prototype.IsFalse = function () {
 	        if (this._variableValue === true) {
@@ -745,6 +747,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/// <reference path="TypeValidators.d.ts" />
 	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -761,7 +764,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *
 	     * IsNotNull checks if the type number variable is not null
 	     * @throws a ReferenceError if the variable is null
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsNotNull = function () {
 	        if (this._variableValue === null) {
@@ -775,7 +778,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *
 	     * IsNull checks if the string variable is null
 	     * @throws a ReferenceError if the variable is not null
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsNull = function () {
 	        if (this._variableValue !== null) {
@@ -788,7 +791,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsDefined checks if the number variable is defined
 	     * @throws ReferenceError if the number variable jis not defined
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsDefined = function () {
 	        if (typeof this._variableValue === "undefined") {
@@ -801,7 +804,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsUndefined checks if the number variable is undefined
 	     * @throws a ReferenceError if the number variable is undefined
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsUndefined = function () {
 	        if (typeof this._variableValue !== "undefined") {
@@ -814,7 +817,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsNullOrUndefined checks if the number variable is not null or undefined
 	     * @throws ReferenceError if the number variable is null or undefined
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsNullOrUndefined = function () {
 	        if (this._variableValue === null || typeof this._variableValue === undefined) {
@@ -829,7 +832,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsEqualTo checks if the number variable is equal to the parameter passed into the function as an argument
 	     * @throws RangeError if the number variable is not equal to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsEqualTo = function (compareTo) {
 	        if (this._variableValue !== compareTo) {
@@ -844,7 +847,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsNotEqualTo checks if the number variable is not equal to the parameter passed into the function as an argument
 	     * @throws RangeError if the number variable is equal to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsNotEqualTo = function (compareTo) {
 	        if (this._variableValue === compareTo) {
@@ -859,7 +862,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsGreaterThan checks if the number variable is not greater than the parameter passed into the function as an argument
 	     * @throws RangeError if the number variable is less or equal to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsGreaterThan = function (compareTo) {
 	        if (this._variableValue < compareTo) {
@@ -874,7 +877,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsNotGreaterThan checks if the number variable is not greater to the parameter passed into the function as an argument
 	     * @throws RangeError if the number variable is equal to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsNotGreaterThan = function (compareTo) {
 	        if (this._variableValue > compareTo) {
@@ -889,7 +892,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsGreaterOrEqualThan checks if the number variable is greater or equal than the parameter passed into the function as an argument
 	     * @throws RangeError if the number variable is equal to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsGreaterOrEqualThan = function (compareTo) {
 	        if (this._variableValue < compareTo) {
@@ -905,7 +908,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * parameter passed into the function as an argument
 	     * @throws RangeError if the number variable is equal or greater than parameter passed into the function
 	     * @param compareTo
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsNotGreaterOrEqualThan = function (compareTo) {
 	        if (this._variableValue > compareTo) {
@@ -920,7 +923,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLessThan checks if the number variable is less than the parameter passed into the function as an argument
 	     * @throws RangeError if the number variable is greater to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsLessThan = function (compareTo) {
 	        if (this._variableValue >= compareTo) {
@@ -935,7 +938,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsNotLessThan checks if the number variable is not less than the parameter passed into the function as an argument
 	     * @throws RangeError if the number variable is greater to the parameter passed into the function
 	     * @param compareTo
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsNotLessThan = function (compareTo) {
 	        if (this._variableValue <= compareTo) {
@@ -950,7 +953,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
 	     * @throws RangeError if the number variable is greater or equal than the parameter passed into the function
 	     * @param compareTo
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsLessOrEqualThan = function (compareTo) {
 	        if (this._variableValue > compareTo) {
@@ -965,7 +968,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsNotLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
 	     * @throws RangeError if the number variable is greater or equal than the parameter passed into the function
 	     * @param compareTo
-	     * @returns {NumberValidator}
+	     * @returns {INumberValidator}
 	     */
 	    NumberValidator.prototype.IsNotLessOrEqualThan = function (compareTo) {
 	        if (this._variableValue <= compareTo) {
@@ -1000,6 +1003,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/// <reference path="TypeValidators.d.ts" />
 	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -1016,7 +1020,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *
 	     * IsNull Checks if the array variable is null
 	     * @throws ReferenceError if the variable is not null
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsNull = function () {
 	        if (this._variableValue !== null) {
@@ -1030,7 +1034,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *
 	     * IsNotNull checks if the array variable is not null
 	     * @throws ReferenceError if the variable is null
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsNotNull = function () {
 	        if (this._variableValue === null) {
@@ -1043,7 +1047,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsDefined checks if the array variable is defined
 	     * @throws ReferenceError if the array variable is undefined
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsDefined = function () {
 	        if (typeof this._variableValue === "undefined") {
@@ -1056,7 +1060,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsUndefined checks if the array variable is undefined
 	     * @throws ReferenceError if the array variable is defined
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsUndefined = function () {
 	        if (this._variableValue !== undefined) {
@@ -1069,7 +1073,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsNullOrUndefined checks if the array variable is not null or undefined
 	     * @throws ReferenceError if the array variable is null or undefined
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsNullOrUndefined = function () {
 	        if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
@@ -1084,7 +1088,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsEqualTo checks if the array variable is equal to the index of the parameter passed into the function as an argument
 	     * @throws RangeError if the array variable is not equal to the index given parameter passed into the function
 	     * @param compareTo, index
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsEqualTo = function (compareTo, index) {
 	        if (!compareTo.length || this._variableValue.length === 0) {
@@ -1103,7 +1107,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsNotEqualTo checks if the array variable is not equal to the index of the parameter passed into the function as an argument
 	     * @throws RangeError if the array variable is equal to the index given parameter passed into the function
 	     * @param compareTo, index
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsNotEqualTo = function (compareTo, index) {
 	        if (!compareTo.length || !this._variableValue.length) {
@@ -1122,7 +1126,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLengthGreaterThan checks if the array variable length is greater than the parameter passed into the function as an argument
 	     * @throws RangeError if the array is not greater than the parameter passed into the function
 	     * @param compareTo
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsLengthGreaterThan = function (compareTo) {
 	        if (!compareTo.length || !this._variableValue.length) {
@@ -1141,7 +1145,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * IsLengthNotGreaterThan checks if the array variable's length is not greater than the length of the contract precondition
 	     * @throws RangeError if the array variable is greater than the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsLengthNotGreaterThan = function (compareTo) {
 	        if (!compareTo.length || !this._variableValue.length) {
@@ -1161,7 +1165,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @throws RangeError if the array variable is not
 	     * greater or equal than the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsLengthGreaterOrEqualTo = function (compareTo) {
 	        if (!compareTo.length || !this._variableValue.length) {
@@ -1181,7 +1185,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @throws RangeError if the array variable is not greater or
 	     * equal than the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsLengthNotGreaterOrEqualTo = function (compareTo) {
 	        if (!compareTo.length || !this._variableValue.length) {
@@ -1201,7 +1205,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @throws RangeError if the array variable is greater or
 	     * equal than the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsLengthLessThan = function (compareTo) {
 	        if (!compareTo.length || !this._variableValue.length) {
@@ -1221,7 +1225,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @throws RangeError if the array variable is less than or
 	     * equal than the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsLengthNotLessThan = function (compareTo) {
 	        if (!compareTo.length || !this._variableValue.length) {
@@ -1241,7 +1245,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @throws RangeError if the array variable is greater than
 	     * the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsLengthLessOrEqualThan = function (compareTo) {
 	        if (!compareTo.length || !this._variableValue.length) {
@@ -1261,7 +1265,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @throws RangeError if the array variable is less or equal than
 	     * the length of the precondition passed into the instance of the TypedContract
 	     * @param compareTo
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.IsLengthNotLessOrEqualThan = function (compareTo) {
 	        if (!compareTo.length || !this._variableValue.length) {
@@ -1282,7 +1286,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @throws RangeError if the array variable does not contain any of the values
 	     *  passed into the instance of the TypedContract using the Contains function
 	     * @param compareTo
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.Contains = function (compareTo) {
 	        var _this = this;
@@ -1307,7 +1311,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @throws RangeError if the array variable does contain any of the values
 	     *  passed into the instance of the TypedContract using the NotContains function
 	     * @param compareTo
-	     * @returns { ArrayValidator}
+	     * @returns { IArrayValidator }
 	     */
 	    ArrayValidator.prototype.NotContains = function (compareTo) {
 	        var _this = this;
@@ -1351,7 +1355,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *
 	     * IsNotNull checks if the type any variable is not null
 	     * @throws a ReferenceError if the any is null
-	     * @returns {AnyValidator}
+	     * @returns { IAnyValidator }
 	     */
 	    AnyValidator.prototype.IsNotNull = function () {
 	        if (this._variableValue === null) {
@@ -1365,7 +1369,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     *
 	     * IsNull checks if the any variable is null
 	     * @throws a ReferenceError if the variable is not null
-	     * @returns {AnyValidator}
+	     * @returns { IAnyValidator }
 	     */
 	    AnyValidator.prototype.IsNull = function () {
 	        if (this._variableValue !== null) {
@@ -1378,7 +1382,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsDefined checks if the any variable is defined
 	     * @throws ReferenceError if the any variable jis not defined
-	     * @returns {AnyValidator}
+	     * @returns { IAnyValidator }
 	     */
 	    AnyValidator.prototype.IsDefined = function () {
 	        if (typeof this._variableValue === "undefined") {
@@ -1391,7 +1395,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsUndefined checks if the any variable is undefined
 	     * @throws a ReferenceError if the any variable is undefined
-	     * @returns {AnyValidator}
+	     * @returns { IAnyValidator }
 	     */
 	    AnyValidator.prototype.IsUndefined = function () {
 	        if (typeof this._variableValue !== "undefined") {
@@ -1404,7 +1408,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    /**
 	     * IsNullOrUndefined checks if the any variable is not null or undefined
 	     * @throws ReferenceError if the any variable is null or undefined
-	     * @returns {AnyValidator}
+	     * @returns { IAnyValidator }
 	     */
 	    AnyValidator.prototype.IsNullOrUndefined = function () {
 	        if (this._variableValue === null || typeof this._variableValue === undefined) {

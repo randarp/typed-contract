@@ -1,7 +1,7 @@
 /// <reference path="../typedcontract.d.ts" />
 /// <reference path="../Typings/jasmine/jasmine.d.ts" />
 
-import { contract, BooleanValidator, NumberValidator, StringValidator, ArrayValidator } from "typedcontract";
+import { contract } from "typedcontract";
 
 describe("typed-contract with module syntax RequireJS via TypeScript", () => {
     /* Note, can't use expect(result).toEqual(jasmine.any(BooleanValidator)) here because the constructor function is not exposed for validators
@@ -13,7 +13,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: BooleanValidator = contract.In(localVariable);
+        let result: IBooleanValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -26,21 +26,23 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: BooleanValidator = contract.In(localVariable);
+        let result: IBooleanValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
-        // expect(result).toEqual(jasmine.any(BooleanValidator));
+        expect(result).not.toBeUndefined();
+        expect((<any>result.constructor).name).toBe("BooleanValidator");
     });
     it("will return the correct validator for a boolean with a name", () => {
         // arrange
         let localVariable: boolean = true;
 
         // act
-        let result: BooleanValidator = contract.In(localVariable, "localVariable");
+        let result: IBooleanValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
+        expect(result).not.toBeUndefined();
         expect((<any>result.constructor).name).toBe("BooleanValidator");
     });
 
@@ -49,10 +51,11 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let localVariable: number = 2;
 
         // act
-        let result: NumberValidator = contract.In(localVariable);
+        let result: INumberValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
+        expect(result).not.toBeUndefined();
         expect((<any>result.constructor).name).toBe("NumberValidator");
     });
 
@@ -61,10 +64,11 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let localVariable: number = 2;
 
         // act
-        let result: NumberValidator = contract.In(localVariable, "localVariable");
+        let result: INumberValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
+        expect(result).not.toBeUndefined();
         expect((<any>result.constructor).name).toBe("NumberValidator");
     });
 
@@ -73,10 +77,11 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: StringValidator = contract.In(localVariable);
+        let result: IStringValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
+        expect(result).not.toBeUndefined();
         expect((<any>result.constructor).name).toBe("StringValidator");
     });
 
@@ -85,10 +90,11 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: StringValidator = contract.In(localVariable, "localVariable");
+        let result: IStringValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
+        expect(result).not.toBeUndefined();
         expect((<any>result.constructor).name).toBe("StringValidator");
     });
 
@@ -97,10 +103,11 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: ArrayValidator = contract.In(localVariable);
+        let result: IArrayValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
+        expect(result).not.toBeUndefined();
         expect((<any>result.constructor).name).toBe("ArrayValidator");
     });
 
@@ -109,10 +116,11 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: ArrayValidator = contract.In(localVariable, "localVariable");
+        let result: IArrayValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
+        expect(result).not.toBeUndefined();
         expect((<any>result.constructor).name).toBe("ArrayValidator");
     });
 
@@ -122,6 +130,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let result: IAnyValidator = contract.In(localVariable);
 
         expect(result).not.toBeNull();
+        expect(result).not.toBeUndefined();
         expect((<any>result.constructor).name).toBe("AnyValidator");
     });
 
@@ -131,6 +140,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         let result: IAnyValidator = contract.In(localVariable, "myVar");
 
         expect(result).not.toBeNull();
+        expect(result).not.toBeUndefined();
         expect((<any>result.constructor).name).toBe("AnyValidator");
     });
 
