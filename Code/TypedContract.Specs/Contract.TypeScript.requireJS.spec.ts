@@ -1,7 +1,7 @@
 /// <reference path="../typedcontract.d.ts" />
 /// <reference path="../Typings/jasmine/jasmine.d.ts" />
 
-import { contract, BooleanValidator, NumberValidator, StringValidator, ArrayValidator, AnyValidator } from "typedcontract";
+import { contract, BooleanValidator, NumberValidator, StringValidator, ArrayValidator } from "typedcontract";
 
 describe("typed-contract with module syntax RequireJS via TypeScript", () => {
     /* Note, can't use expect(result).toEqual(jasmine.any(BooleanValidator)) here because the constructor function is not exposed for validators
@@ -119,7 +119,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
     it("will return the correct validator for an any type", () => {
         let localVariable: any = /[A-Z]/;
 
-        let result: AnyValidator = contract.In(localVariable);
+        let result: IAnyValidator = contract.In(localVariable);
 
         expect(result).not.toBeNull();
         expect((<any>result.constructor).name).toBe("AnyValidator");
@@ -128,7 +128,7 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
     it("will return the correct validator for an any type with a variable name", () => {
         let localVariable: any = /[A-Z]/;
 
-        let result: AnyValidator = contract.In(localVariable, "myVar");
+        let result: IAnyValidator = contract.In(localVariable, "myVar");
 
         expect(result).not.toBeNull();
         expect((<any>result.constructor).name).toBe("AnyValidator");

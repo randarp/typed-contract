@@ -12,6 +12,7 @@
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BaseValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.requireJS.spec.js" />
         <item url="file://$PROJECT_DIR$/node_modules/tslint/scripts/buildDocs.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.globalscope.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/typedcontract-bootstrapper.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/BooleanValidator.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/TypeValidators/NumberValidator.js" />

@@ -1,5 +1,45 @@
 declare var contract: any;
 declare var typedcontract: any;
+interface IAnyValidator {
+    /**
+     *
+     * IsNotNull checks if the type any variable is not null
+     * @throws a ReferenceError if the any is null
+     * @returns {AnyValidator}
+     */
+    IsNotNull(): IAnyValidator;
+
+    /**
+     *
+     * IsNull checks if the any variable is null
+     * @throws a ReferenceError if the variable is not null
+     * @returns {AnyValidator}
+     */
+    IsNull(): IAnyValidator;
+
+
+    /**
+     * IsDefined checks if the any variable is defined
+     * @throws ReferenceError if the any variable jis not defined
+     * @returns {AnyValidator}
+     */
+    IsDefined(): IAnyValidator;
+
+    /**
+     * IsUndefined checks if the any variable is undefined
+     * @throws a ReferenceError if the any variable is undefined
+     * @returns {AnyValidator}
+     */
+    IsUndefined(): IAnyValidator;
+
+    /**
+     * IsNullOrUndefined checks if the any variable is not null or undefined
+     * @throws ReferenceError if the any variable is null or undefined
+     * @returns {AnyValidator}
+     */
+    IsNullOrUndefined(): IAnyValidator;
+}
+
 declare module "typedcontract" {
 	/**
 	 * Encapsulates any validators that apply to every type and state used by the validation chain.
@@ -589,8 +629,9 @@ declare module "typedcontract" {
 
 }
 declare module "typedcontract" {
+	/// <reference path="TypeValidators.d.ts" />
 	import { BaseValidator } from "typedcontract";
-	export class AnyValidator extends BaseValidator<any> {
+	export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
 	    constructor(variableValue: any, variableName: string);
 	    /**
 	     *
@@ -598,36 +639,37 @@ declare module "typedcontract" {
 	     * @throws a ReferenceError if the any is null
 	     * @returns {AnyValidator}
 	     */
-	    IsNotNull(): AnyValidator;
+	    IsNotNull(): IAnyValidator;
 	    /**
 	     *
 	     * IsNull checks if the any variable is null
 	     * @throws a ReferenceError if the variable is not null
 	     * @returns {AnyValidator}
 	     */
-	    IsNull(): AnyValidator;
+	    IsNull(): IAnyValidator;
 	    /**
 	     * IsDefined checks if the any variable is defined
 	     * @throws ReferenceError if the any variable jis not defined
 	     * @returns {AnyValidator}
 	     */
-	    IsDefined(): AnyValidator;
+	    IsDefined(): IAnyValidator;
 	    /**
 	     * IsUndefined checks if the any variable is undefined
 	     * @throws a ReferenceError if the any variable is undefined
 	     * @returns {AnyValidator}
 	     */
-	    IsUndefined(): AnyValidator;
+	    IsUndefined(): IAnyValidator;
 	    /**
 	     * IsNullOrUndefined checks if the any variable is not null or undefined
 	     * @throws ReferenceError if the any variable is null or undefined
 	     * @returns {AnyValidator}
 	     */
-	    IsNullOrUndefined(): AnyValidator;
+	    IsNullOrUndefined(): IAnyValidator;
 	}
 
 }
 declare module "typedcontract" {
+	/// <reference path="../TypeValidators/TypeValidators.d.ts" />
 	import { StringValidator } from "typedcontract";
 	import { BooleanValidator } from "typedcontract";
 	import { NumberValidator } from "typedcontract";
@@ -642,8 +684,8 @@ declare module "typedcontract" {
 	    In(precondition: number, name: string): NumberValidator;
 	    In(precondition: any[]): ArrayValidator;
 	    In(precondition: any[], name: string): ArrayValidator;
-	    In(precondition: any, name: string): AnyValidator;
-	    In(precondition: any): AnyValidator;
+	    In(precondition: any, name: string): IAnyValidator;
+	    In(precondition: any): IAnyValidator;
 	    Out(postcondition: string): StringValidator;
 	    Out(postcondition: string, name: string): StringValidator;
 	    Out(postcondition: boolean): BooleanValidator;

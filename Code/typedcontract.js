@@ -61,6 +61,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/// <reference path="../TypeValidators/TypeValidators.d.ts" />
 	"use strict";
 	var StringValidator_1 = __webpack_require__(2);
 	var BooleanValidator_1 = __webpack_require__(4);
@@ -1333,6 +1334,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/// <reference path="TypeValidators.d.ts" />
 	"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -1421,6 +1423,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
+//# sourceMappingURL=typedcontract-lib.js.map
 /* tslint:disable */
 // TODO: Strongly type these
 var contract;
@@ -1430,4 +1433,4 @@ if (!contract && typeof typedcontract !== "undefined") {
     contract = new typedcontract.Contract();
 }
 /* tslint:enable */
-//# sourceMappingURL=typedcontract.js.map
+//# sourceMappingURL=typedcontract-bootstrapper.js.map

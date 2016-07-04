@@ -1,6 +1,8 @@
+/// <reference path="TypeValidators.d.ts" />
+
 import { BaseValidator } from "./BaseValidator";
 
-export class AnyValidator extends BaseValidator<any> {
+export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
 
         constructor(variableValue: any, variableName: string) {
             super(variableValue, variableName);
@@ -11,7 +13,7 @@ export class AnyValidator extends BaseValidator<any> {
      * @throws a ReferenceError if the any is null
      * @returns {AnyValidator}
      */
-public IsNotNull(): AnyValidator {
+public IsNotNull(): IAnyValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(`${this._variableName} should not be null`);
         } else {
@@ -25,7 +27,7 @@ public IsNotNull(): AnyValidator {
      * @throws a ReferenceError if the variable is not null
      * @returns {AnyValidator}
      */
-public IsNull(): AnyValidator {
+public IsNull(): IAnyValidator {
         if (this._variableValue !== null) {
             throw new ReferenceError(`${this._variableName} should be null`);
         } else {
@@ -39,7 +41,7 @@ public IsNull(): AnyValidator {
      * @throws ReferenceError if the any variable jis not defined
      * @returns {AnyValidator}
      */
-public IsDefined(): AnyValidator {
+public IsDefined(): IAnyValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
         } else {
@@ -52,7 +54,7 @@ public IsDefined(): AnyValidator {
      * @throws a ReferenceError if the any variable is undefined
      * @returns {AnyValidator}
      */
-public IsUndefined(): AnyValidator {
+public IsUndefined(): IAnyValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be defined`);
         } else {
@@ -65,7 +67,7 @@ public IsUndefined(): AnyValidator {
      * @throws ReferenceError if the any variable is null or undefined
      * @returns {AnyValidator}
      */
-public IsNullOrUndefined(): AnyValidator {
+public IsNullOrUndefined(): IAnyValidator {
         if (this._variableValue === null || typeof this._variableValue === undefined) {
             throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {

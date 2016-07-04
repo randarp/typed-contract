@@ -64,12 +64,17 @@ module.exports = function(grunt){
         // Merge the library (from WebPack) and the bootstrapper
         concat: {
             options: {
-                sourceMap: true,
-                sourceMapName: "typedcontract.js.map"
+
             },
             dist: {
                 src: ['./TypedContract/typedcontract-lib.js', './TypedContract/typedcontract-bootstrapper.js'],
-                dest: 'typedcontract.js'
+                dest: 'typedcontract.js',
+                sourceMap: true,
+                sourceMapName: "typedcontract.js.map",
+            },
+            definition: {
+                src: ['./typedcontract.d.ts','./TypedContract/TypeValidators.d.ts'],
+                dest: 'typedcontract.d.ts'
             }
         },
         // Clean up any generated files
@@ -103,5 +108,5 @@ module.exports = function(grunt){
     grunt.task.registerTask("release and set-up", ["uglify", "copy"]);
 
     // Run all grunt tasks required to build the solution and get it ready for deployment
-    grunt.task.registerTask("build", ["webpack", "concat", "dtsGenerator", "replace", "uglify", "copy"]);
+    grunt.task.registerTask("build", ["webpack", "dtsGenerator", "concat", "replace", "uglify", "copy"]);
 };

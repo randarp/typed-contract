@@ -1,3 +1,5 @@
+/// <reference path="../TypeValidators/TypeValidators.d.ts" />
+
 import { StringValidator } from "../TypeValidators/StringValidator";
 import { BooleanValidator } from "../TypeValidators/BooleanValidator";
 import { NumberValidator } from "../TypeValidators/NumberValidator";
@@ -13,8 +15,8 @@ export class Contract {
     public In(precondition:number, name:string):NumberValidator;
     public In(precondition:any[]):ArrayValidator;
     public In(precondition:any[], name:string):ArrayValidator;
-    public In(precondition:any, name:string):AnyValidator;
-    public In(precondition:any):AnyValidator;
+    public In(precondition:any, name:string): IAnyValidator;
+    public In(precondition:any): IAnyValidator;
     public In(precondition:any, name:string = undefined):any {
 
         if (typeof precondition === "string" || precondition === null || precondition === undefined) {
