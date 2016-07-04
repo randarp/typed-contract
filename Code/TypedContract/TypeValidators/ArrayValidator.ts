@@ -24,14 +24,12 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
         }
     }
 
-
     /**
      *
      * IsNotNull checks if the array variable is not null
      * @throws ReferenceError if the variable is null
      * @returns { IArrayValidator }
      */
-
     public IsNotNull(): IArrayValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(`${this._variableName} should not be null`);
@@ -58,7 +56,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @throws ReferenceError if the array variable is defined
      * @returns { IArrayValidator }
      */
-
     public IsUndefined(): IArrayValidator {
         if (this._variableValue !== undefined) {
             throw new ReferenceError(`${this._variableName} should be undefined`);
@@ -72,7 +69,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @throws ReferenceError if the array variable is null or undefined
      * @returns { IArrayValidator }
      */
-
     public IsNullOrUndefined(): IArrayValidator {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should be null or undefined`);
@@ -88,7 +84,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo, index
      * @returns { IArrayValidator }
      */
-
     public IsEqualTo(compareTo: any[], index: number): IArrayValidator {
         if (!compareTo.length || this._variableValue.length === 0) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
@@ -108,7 +103,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo, index
      * @returns { IArrayValidator }
      */
-
     public IsNotEqualTo(compareTo: any[], index: number): IArrayValidator {
         if (!compareTo.length  || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
@@ -128,7 +122,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo
      * @returns { IArrayValidator }
      */
-
     public IsLengthGreaterThan(compareTo: any[]): IArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
         throw new RangeError("Can't compare the length's of uninitialized arrays, " +
@@ -149,7 +142,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo
      * @returns { IArrayValidator }
      */
-
     public IsLengthNotGreaterThan(compareTo: any[]): IArrayValidator {
         if (!compareTo.length || !this._variableValue.length ) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
@@ -171,7 +163,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo
      * @returns { IArrayValidator }
      */
-
     public IsLengthGreaterOrEqualTo(compareTo: any[]): IArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
@@ -193,7 +184,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo
      * @returns { IArrayValidator }
      */
-
     public IsLengthNotGreaterOrEqualTo(compareTo: any[]):  ArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
@@ -215,7 +205,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo
      * @returns { IArrayValidator }
      */
-
     public IsLengthLessThan(compareTo: any[]):  ArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
@@ -237,7 +226,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo
      * @returns { IArrayValidator }
      */
-
     public IsLengthNotLessThan(compareTo: any[]):  ArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
@@ -280,7 +268,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo
      * @returns { IArrayValidator }
      */
-
     public IsLengthNotLessOrEqualThan(compareTo: any[]): IArrayValidator {
          if (!compareTo.length || !this._variableValue.length) {
                 throw new RangeError("Can't compare the length's of uninitialized arrays, " +
@@ -303,7 +290,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo
      * @returns { IArrayValidator }
      */
-
     public Contains(compareTo: any[]): IArrayValidator {
         this.count = 0;
 
@@ -334,7 +320,6 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @param compareTo
      * @returns { IArrayValidator }
      */
-
     public NotContains(compareTo: any[]):  ArrayValidator {
         this.count = 0;
 

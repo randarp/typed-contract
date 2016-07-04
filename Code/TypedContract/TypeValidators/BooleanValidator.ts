@@ -39,7 +39,6 @@ export class BooleanValidator extends BaseValidator<boolean> {
      * @throws a ReferenceError if the boolen variable is undefined
      * @returns {IBooleanValidator}
      */
-
     public IsDefined(): IBooleanValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
@@ -53,7 +52,6 @@ export class BooleanValidator extends BaseValidator<boolean> {
      * @throws ReferenceError if the boolean variable is defined
      * @returns {IBooleanValidator}
      */
-
     public IsUndefined(): IBooleanValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should be undefined`);
@@ -67,7 +65,6 @@ export class BooleanValidator extends BaseValidator<boolean> {
      * @throws ReferenceError if the boolean variable is null or undefined
      * @returns {IBooleanValidator}
      */
-
     public IsNullOrUndefined(): IBooleanValidator {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should be null or undefined`);
@@ -97,7 +94,6 @@ export class BooleanValidator extends BaseValidator<boolean> {
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-
     public IsNotEqualTo(compareTo: boolean): IBooleanValidator {
         if (this._variableValue === compareTo) {
             throw new RangeError(`${this._variableName} should not be equal to the boolean ${compareTo}`);
@@ -105,6 +101,7 @@ export class BooleanValidator extends BaseValidator<boolean> {
             return this;
         }
     }
+
     /**
      *
      * IsTrue checks if the boolean variable is true
@@ -127,12 +124,11 @@ export class BooleanValidator extends BaseValidator<boolean> {
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-
     public IsFalse(): IBooleanValidator {
         if (this._variableValue === true) {
             throw new RangeError(`${this._variableName} should be false`);
         } else {
             return this;
         }
-    };
+    }
 }

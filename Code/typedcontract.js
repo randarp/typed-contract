@@ -737,7 +737,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return this;
 	        }
 	    };
-	    ;
 	    return BooleanValidator;
 	}(BaseValidator_1.BaseValidator));
 	exports.BooleanValidator = BooleanValidator;
@@ -978,6 +977,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return this;
 	        }
 	    };
+	    /**
+	     * Checks if the variable passed into the TypedContract as a pre or post condition is between certain a range of values. The TypedContract will throw an error if the pre or post condition in the contract is not in the range as specified.
+	     * @param startRange
+	     * @param endRange
+	     * @returns {NumberValidator}
+	     */
 	    NumberValidator.prototype.IsBetween = function (startRange, endRange) {
 	        if (this._variableValue > startRange && this._variableValue < endRange) {
 	            return this;
@@ -986,6 +991,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	            throw new RangeError(this._variableName + " should be between\n            " + startRange + " and " + endRange + ", but the value of\n            " + this._variableValue + " is not in that range");
 	        }
 	    };
+	    /**
+	     * Checks if the variable passed into the TypedContract as a pre or post condition is not in between certain a range of values. The TypedContract will throw an error if the pre or post condition in the contract is in the range as specified.
+	     * @param startRange
+	     * @param endRange
+	     * @returns {NumberValidator}
+	     */
 	    NumberValidator.prototype.IsNotBetween = function (startRange, endRange) {
 	        if (this._variableValue > startRange && this._variableValue < endRange) {
 	            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");

@@ -14,7 +14,6 @@ export class StringValidator extends BaseValidator<string> {
      * @throws a ReferenceError if the variable is null
      * @returns {IStringValidator}
      */
-
     public IsNotNull(): IStringValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(`${this._variableName} should not be null`);
@@ -29,7 +28,6 @@ export class StringValidator extends BaseValidator<string> {
      * @throws a ReferenceError if the variable is not null
      * @returns {IStringValidator}
      */
-
     public IsNull(): IStringValidator {
 
         if (this._variableValue !== null) {
@@ -44,7 +42,6 @@ export class StringValidator extends BaseValidator<string> {
      * @throws ReferenceError if the string is not defined
      * @returns {IStringValidator}
      */
-
     public IsDefined(): IStringValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
@@ -58,7 +55,6 @@ export class StringValidator extends BaseValidator<string> {
      * @throws ReferenceError if variable is defined
      * @returns {IStringValidator}
      */
-
     public IsUndefined(): IStringValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be defined`);
@@ -103,7 +99,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public IsNotEqualTo(compareTo: string): IStringValidator {
         if (this._variableValue === compareTo) {
             throw new RangeError(`${this._variableName} should not be equal to the string variable ${compareTo}`);
@@ -119,7 +114,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public IsLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length > compareTo.length) {
             throw new ReferenceError(`${this._variableName} should be less than ${compareTo} but is ${this._variableValue}`);
@@ -135,7 +129,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public IsNotLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length < compareTo.length) {
             throw new ReferenceError(`${this._variableName} should not be less that ${compareTo} but is ${this._variableValue} `);
@@ -151,7 +144,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public IsLengthGreaterThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(`${this._variableName} should have a length greater
@@ -169,7 +161,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public IsLengthGreaterOrEqualTo(compareTo: string): IStringValidator {
 
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
@@ -187,7 +178,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public IsLengthNotGreaterThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             return this;
@@ -204,7 +194,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public IsLengthNotGreaterOrEqualTo(compareTo: string): IStringValidator {
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             throw new RangeError(`${this._variableName} should not have a length greater or equal to ${compareTo.length}
@@ -221,7 +210,6 @@ export class StringValidator extends BaseValidator<string> {
      * @returns {IStringValidator}
      *
      */
-
     public IsLengthLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length >= compareTo.length) {
             throw new RangeError(`${this._variableName} should have a length
@@ -238,7 +226,6 @@ export class StringValidator extends BaseValidator<string> {
      * @returns {IStringValidator}
      *
      */
-
     public IsLengthNotLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(`${this._variableName} should not have a length
@@ -255,7 +242,6 @@ export class StringValidator extends BaseValidator<string> {
      * @returns {IStringValidator}
      *
      */
-
     public IsLengthLessOrEqualThan(compareTo: string): IStringValidator {
         if (this._variableValue.length > compareTo.length) {
             throw new RangeError(`${this._variableName} should have a
@@ -272,7 +258,6 @@ export class StringValidator extends BaseValidator<string> {
      * @returns {IStringValidator}
      *
      */
-
     public IsLengthNotLessOrEqualThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(`${this._variableName} should not have a length less
@@ -290,7 +275,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param regExp
      * @returns {IStringValidator}
      */
-
     public ToMatch(regExp: any): IStringValidator {
         if (!regExp.test(this._variableValue)) {
             throw new RangeError(`${this._variableName} should match
@@ -308,7 +292,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param regExp
      * @returns {IStringValidator}
      */
-
     public ToNotMatch(regExp: RegExp): IStringValidator {
         if (regExp.test(this._variableValue)) {
             throw new RangeError(`${this._variableName} should not match
@@ -326,7 +309,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public Contains(compareTo: string): IStringValidator {
         if (this._variableValue.length === 0 && compareTo.length === 0) {
             return this;
@@ -347,7 +329,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public NotContains(compareTo: string): IStringValidator {
 
         if (this._variableValue.indexOf(compareTo) > -1) {
@@ -383,7 +364,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public NotStartsWith(compareTo: string): IStringValidator {
 
         if ((this._variableValue).lastIndexOf(compareTo, 0) !== 0) {
@@ -401,7 +381,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public EndsWith(compareTo: string): IStringValidator {
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) === -1) {
             throw new RangeError(`${this._variableName} should end with ${compareTo}, but ${this._variableValue} does not`);
@@ -418,7 +397,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param compareTo
      * @returns {IStringValidator}
      */
-
     public NotEndsWith(compareTo: string): IStringValidator {
 
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) !== -1) {
@@ -437,7 +415,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param startRange, endRange
      * @returns {IStringValidator}
      */
-
     public IsBetween(startRange: string, endRange: string): IStringValidator {
         if (this._variableValue > startRange && this._variableValue < endRange) {
             return this;
@@ -457,7 +434,6 @@ export class StringValidator extends BaseValidator<string> {
      * @param startRange, endRange
      * @returns {IStringValidator}
      */
-
     public IsNotBetween(startRange: string, endRange: string): IStringValidator {
         if (this._variableValue > startRange && this._variableValue < endRange) {
             throw new RangeError(`${this._variableName} should not be between

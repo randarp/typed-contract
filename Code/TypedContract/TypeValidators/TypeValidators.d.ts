@@ -397,7 +397,6 @@ interface INumberValidator {
      * @param compareTo
      * @returns {INumberValidator}
      */
-
     IsLessOrEqualThan(compareTo: number): INumberValidator;
 
     /**
@@ -407,11 +406,23 @@ interface INumberValidator {
      * @param compareTo
      * @returns {INumberValidator}
      */
-
     IsNotLessOrEqualThan(compareTo: number): INumberValidator;
 
+    /**
+     * Checks if the variable passed into the TypedContract as a pre or post condition is between certain a range of values. The TypedContract will throw an error if the pre or post condition in the contract is not in the range as specified.
+     * @param startRange
+     * @param endRange
+     * @returns {NumberValidator}
+     * @constructor
+     */
     IsBetween(startRange: number, endRange: number): INumberValidator;
 
+    /**
+     * Checks if the variable passed into the TypedContract as a pre or post condition is not in between certain a range of values. The TypedContract will throw an error if the pre or post condition in the contract is in the range as specified.
+     * @param startRange
+     * @param endRange
+     * @returns {NumberValidator}
+     */
     IsNotBetween(startRange: number, endRange: number): INumberValidator;
 }
 
