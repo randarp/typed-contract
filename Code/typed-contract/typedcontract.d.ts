@@ -703,7 +703,7 @@ declare module "typedcontract" {
 
 }
 declare module "typedcontract" {
-	/// <reference path="TypeValidators.d.ts" />
+	
 	import { BaseValidator } from "typedcontract";
 	export class StringValidator extends BaseValidator<string> {
 	    constructor(variableValue: string, variableName: string);
@@ -932,7 +932,7 @@ declare module "typedcontract" {
 
 }
 declare module "typedcontract" {
-	/// <reference path="TypeValidators.d.ts" />
+	
 	import { BaseValidator } from "typedcontract";
 	export class BooleanValidator extends BaseValidator<boolean> {
 	    constructor(variableValue: boolean, variableName: string);
@@ -1002,7 +1002,7 @@ declare module "typedcontract" {
 
 }
 declare module "typedcontract" {
-	/// <reference path="TypeValidators.d.ts" />
+	
 	import { BaseValidator } from "typedcontract";
 	export class NumberValidator extends BaseValidator<number> {
 	    constructor(variableValue: number, variableName: string);
@@ -1137,7 +1137,7 @@ declare module "typedcontract" {
 
 }
 declare module "typedcontract" {
-	/// <reference path="TypeValidators.d.ts" />
+	
 	import { BaseValidator } from "typedcontract";
 	export class ArrayValidator extends BaseValidator<any[]> implements IArrayValidator {
 	    private count;
@@ -1284,7 +1284,7 @@ declare module "typedcontract" {
 
 }
 declare module "typedcontract" {
-	/// <reference path="TypeValidators.d.ts" />
+	
 	import { BaseValidator } from "typedcontract";
 	export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
 	    constructor(variableValue: any, variableName: string);
@@ -1324,7 +1324,7 @@ declare module "typedcontract" {
 
 }
 declare module "typedcontract" {
-	/// <reference path="../TypeValidators/TypeValidators.d.ts" />
+	
 	import { StringValidator } from "typedcontract";
 	import { BooleanValidator } from "typedcontract";
 	import { NumberValidator } from "typedcontract";
