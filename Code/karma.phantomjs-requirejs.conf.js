@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Sun Jan 24 2016 22:39:26 GMT-0500 (Eastern Standard Time)
+// Generated on Sun Jan 24 2016 16:46:32 GMT-0500 (Eastern Standard Time)
 
 module.exports = function(config) {
   config.set({
@@ -10,15 +10,19 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'requirejs'],
+
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: 'typed-contract.js', watched: true, included: true, served: true},
-      {pattern: 'TypedContract.Specs/**/*.js', watched: true, included: true, served: true},
-      {pattern: 'typed-contract.js.map', watched: true, included: false, served: true},
-      {pattern: 'TypedContract.Specs/**/*.map', watched: true, included: false, served: true}
+      'karma.browser.test-main.js',
+      {pattern: 'typedcontract.js', included: false},
+      {pattern: 'TypedContract.Specs/Contract.TypeScript.requireJS.spec.js', included: false},
+      {pattern: 'TypedContract.Specs/Contract.TypeScript.requireJS.spec.js.map', included: false},
+      {pattern: 'TypedContract.Specs/Contract.JavaScript.requireJS.spec.js', included: false},
+      {pattern: 'TypedContract.Specs/Contract.JavaScript.requireJS.spec.js.map', included: false},
     ],
+
 
     // list of files to exclude
     exclude: [
@@ -26,7 +30,7 @@ module.exports = function(config) {
 
 
     // preprocess matching files before serving them to the browser
-    // available preprocessors: https://np\mjs.org/browse/keyword/karma-preprocessor
+    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
     },
 
@@ -56,7 +60,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
@@ -67,4 +71,4 @@ module.exports = function(config) {
     // how many browser should be started simultaneous
     concurrency: Infinity
   })
-}
+};

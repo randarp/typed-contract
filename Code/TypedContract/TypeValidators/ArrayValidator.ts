@@ -1,6 +1,8 @@
-/// <reference path="BaseValidator.ts" />
+/// <reference path="TypeValidators.d.ts" />
 
-class  ArrayValidator extends BaseValidator <any[]> {
+import { BaseValidator } from "./BaseValidator";
+
+export class  ArrayValidator extends BaseValidator <any[]> implements IArrayValidator {
     private count: number;
 
     constructor(variableValue: any[], variableName: string) {
@@ -11,9 +13,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
      *
      * IsNull Checks if the array variable is null
      * @throws ReferenceError if the variable is not null
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-    public IsNull(): ArrayValidator {
+    public IsNull(): IArrayValidator {
 
         if (this._variableValue !== null) {
             throw new ReferenceError(`${this._variableName} should be null`);
@@ -22,15 +24,13 @@ class  ArrayValidator extends BaseValidator <any[]> {
         }
     }
 
-
     /**
      *
      * IsNotNull checks if the array variable is not null
      * @throws ReferenceError if the variable is null
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
-    public IsNotNull(): ArrayValidator {
+    public IsNotNull(): IArrayValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(`${this._variableName} should not be null`);
         } else {
@@ -41,9 +41,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
     /**
      * IsDefined checks if the array variable is defined
      * @throws ReferenceError if the array variable is undefined
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-    public IsDefined(): ArrayValidator {
+    public IsDefined(): IArrayValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
         } else {
@@ -54,10 +54,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
     /**
      * IsUndefined checks if the array variable is undefined
      * @throws ReferenceError if the array variable is defined
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
-    public IsUndefined(): ArrayValidator {
+    public IsUndefined(): IArrayValidator {
         if (this._variableValue !== undefined) {
             throw new ReferenceError(`${this._variableName} should be undefined`);
         } else {
@@ -68,10 +67,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
     /**
      * IsNullOrUndefined checks if the array variable is not null or undefined
      * @throws ReferenceError if the array variable is null or undefined
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
-    public IsNullOrUndefined(): ArrayValidator {
+    public IsNullOrUndefined(): IArrayValidator {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should be null or undefined`);
         } else {
@@ -84,10 +82,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * IsEqualTo checks if the array variable is equal to the index of the parameter passed into the function as an argument
      * @throws RangeError if the array variable is not equal to the index given parameter passed into the function
      * @param compareTo, index
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
-    public IsEqualTo(compareTo: any[], index: number): ArrayValidator {
+    public IsEqualTo(compareTo: any[], index: number): IArrayValidator {
         if (!compareTo.length || this._variableValue.length === 0) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
@@ -104,10 +101,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * IsNotEqualTo checks if the array variable is not equal to the index of the parameter passed into the function as an argument
      * @throws RangeError if the array variable is equal to the index given parameter passed into the function
      * @param compareTo, index
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
-    public IsNotEqualTo(compareTo: any[], index: number): ArrayValidator {
+    public IsNotEqualTo(compareTo: any[], index: number): IArrayValidator {
         if (!compareTo.length  || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
                 " please append values to the array's in the instance of this TypedContract");
@@ -124,10 +120,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * IsLengthGreaterThan checks if the array variable length is greater than the parameter passed into the function as an argument
      * @throws RangeError if the array is not greater than the parameter passed into the function
      * @param compareTo
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
-    public IsLengthGreaterThan(compareTo: any[]): ArrayValidator {
+    public IsLengthGreaterThan(compareTo: any[]): IArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
         throw new RangeError("Can't compare the length's of uninitialized arrays, " +
             "please append values to the array's in the instance of this TypedContract");
@@ -145,10 +140,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * IsLengthNotGreaterThan checks if the array variable's length is not greater than the length of the contract precondition
      * @throws RangeError if the array variable is greater than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
-    public IsLengthNotGreaterThan(compareTo: any[]): ArrayValidator {
+    public IsLengthNotGreaterThan(compareTo: any[]): IArrayValidator {
         if (!compareTo.length || !this._variableValue.length ) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
@@ -167,10 +161,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * @throws RangeError if the array variable is not
      * greater or equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
-    public IsLengthGreaterOrEqualTo(compareTo: any[]): ArrayValidator {
+    public IsLengthGreaterOrEqualTo(compareTo: any[]): IArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
                 "please append values to the array's in the instance of this TypedContract");
@@ -189,9 +182,8 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * @throws RangeError if the array variable is not greater or
      * equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
     public IsLengthNotGreaterOrEqualTo(compareTo: any[]):  ArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
@@ -211,9 +203,8 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * @throws RangeError if the array variable is greater or
      * equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
     public IsLengthLessThan(compareTo: any[]):  ArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
@@ -233,9 +224,8 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * @throws RangeError if the array variable is less than or
      * equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
     public IsLengthNotLessThan(compareTo: any[]):  ArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
@@ -255,7 +245,7 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * @throws RangeError if the array variable is greater than
      * the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
     public IsLengthLessOrEqualThan(compareTo: any[]):  ArrayValidator {
         if (!compareTo.length || !this._variableValue.length) {
@@ -276,10 +266,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * @throws RangeError if the array variable is less or equal than
      * the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
-    public IsLengthNotLessOrEqualThan(compareTo: any[]): ArrayValidator {
+    public IsLengthNotLessOrEqualThan(compareTo: any[]): IArrayValidator {
          if (!compareTo.length || !this._variableValue.length) {
                 throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                     "please append values to the array's in the instance of this TypedContract");
@@ -299,10 +288,9 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * @throws RangeError if the array variable does not contain any of the values
      *  passed into the instance of the TypedContract using the Contains function
      * @param compareTo
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
-    public Contains(compareTo: any[]): ArrayValidator {
+    public Contains(compareTo: any[]): IArrayValidator {
         this.count = 0;
 
         if (!compareTo.length || !this._variableValue.length) {
@@ -330,9 +318,8 @@ class  ArrayValidator extends BaseValidator <any[]> {
      * @throws RangeError if the array variable does contain any of the values
      *  passed into the instance of the TypedContract using the NotContains function
      * @param compareTo
-     * @returns { ArrayValidator}
+     * @returns { IArrayValidator }
      */
-
     public NotContains(compareTo: any[]):  ArrayValidator {
         this.count = 0;
 

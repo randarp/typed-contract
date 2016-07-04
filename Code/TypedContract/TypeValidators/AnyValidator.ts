@@ -1,17 +1,20 @@
-/// <reference path="BaseValidator.ts" />
+/// <reference path="TypeValidators.d.ts" />
 
-class AnyValidator extends BaseValidator<any> {
+import {BaseValidator} from "./BaseValidator";
 
-        constructor(variableValue: any, variableName: string) {
-            super(variableValue, variableName);
-        }
+export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
+
+    constructor(variableValue:any, variableName:string) {
+        super(variableValue, variableName);
+    }
+
     /**
      *
      * IsNotNull checks if the type any variable is not null
      * @throws a ReferenceError if the any is null
-     * @returns {AnyValidator}
+     * @returns { IAnyValidator }
      */
-public IsNotNull(): AnyValidator {
+    public IsNotNull():IAnyValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(`${this._variableName} should not be null`);
         } else {
@@ -23,9 +26,9 @@ public IsNotNull(): AnyValidator {
      *
      * IsNull checks if the any variable is null
      * @throws a ReferenceError if the variable is not null
-     * @returns {AnyValidator}
+     * @returns { IAnyValidator }
      */
-public IsNull(): AnyValidator {
+    public IsNull():IAnyValidator {
         if (this._variableValue !== null) {
             throw new ReferenceError(`${this._variableName} should be null`);
         } else {
@@ -37,9 +40,9 @@ public IsNull(): AnyValidator {
     /**
      * IsDefined checks if the any variable is defined
      * @throws ReferenceError if the any variable jis not defined
-     * @returns {AnyValidator}
+     * @returns { IAnyValidator }
      */
-public IsDefined(): AnyValidator {
+    public IsDefined():IAnyValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
         } else {
@@ -50,9 +53,9 @@ public IsDefined(): AnyValidator {
     /**
      * IsUndefined checks if the any variable is undefined
      * @throws a ReferenceError if the any variable is undefined
-     * @returns {AnyValidator}
+     * @returns { IAnyValidator }
      */
-public IsUndefined(): AnyValidator {
+    public IsUndefined():IAnyValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be defined`);
         } else {
@@ -63,9 +66,9 @@ public IsUndefined(): AnyValidator {
     /**
      * IsNullOrUndefined checks if the any variable is not null or undefined
      * @throws ReferenceError if the any variable is null or undefined
-     * @returns {AnyValidator}
+     * @returns { IAnyValidator }
      */
-public IsNullOrUndefined(): AnyValidator {
+    public IsNullOrUndefined():IAnyValidator {
         if (this._variableValue === null || typeof this._variableValue === undefined) {
             throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {

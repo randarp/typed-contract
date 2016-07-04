@@ -1,4 +1,4 @@
-/// <reference path="../../typed-contract.d.ts" />
+/// <reference path="../../typedcontract.d.ts" />
 /// <reference path="../../Typings/jasmine/jasmine.d.ts" />
 
 describe("BooleanValidator", () => {
@@ -8,11 +8,11 @@ describe("BooleanValidator", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: BooleanValidator = contract.In(localVariable).IsTrue();
+        let result: any = contract.In(localVariable).IsTrue();
 
         // assert
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(BooleanValidator));
+        expect((<any>result.constructor).name).toBe("BooleanValidator");
     });
 
     it("IsTrue does not raise an error when true", () => {
@@ -71,7 +71,7 @@ describe("BooleanValidator", () => {
     it("IsDefined will return the proper result ", () => {
        let localVar: boolean = true;
 
-       let result: BooleanValidator = contract.In(localVar).IsDefined();
+       let result: IBooleanValidator = contract.In(localVar).IsDefined();
 
        expect(result).toBeDefined();
     });

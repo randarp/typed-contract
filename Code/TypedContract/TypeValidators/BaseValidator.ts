@@ -1,19 +1,19 @@
 /**
  * Encapsulates any validators that apply to every type and state used by the validation chain.
  */
-
-class BaseValidator <T> {
+export class BaseValidator<T> {
     protected _variableValue: T;
     protected _variableName: string;
 
     constructor(variableValue: T, variableName: string) {
+        var self = this;
 
-        this._variableValue = variableValue;
+        self._variableValue = variableValue;
 
         if (variableName && variableName.length > 0) {
-            this._variableName = variableName;
+            self._variableName = variableName;
         } else {
-            this._variableName = "The variable";
+            self._variableName = "The variable";
         }
     }
 
