@@ -12,10 +12,10 @@ describe("BooleanValidator", () => {
 
         // assert
         expect(result).not.toBeNull();
-        //expect(result).toEqual(jasmine.any(BooleanValidator));
+        expect((<any>result.constructor).name).toBe("BooleanValidator");
     });
 
-    /*it("IsTrue does not raise an error when true", () => {
+    it("IsTrue does not raise an error when true", () => {
         // arrange
         let localVariable: boolean = true;
 
@@ -71,7 +71,7 @@ describe("BooleanValidator", () => {
     it("IsDefined will return the proper result ", () => {
        let localVar: boolean = true;
 
-       let result: BooleanValidator = contract.In(localVar).IsDefined();
+       let result: IBooleanValidator = contract.In(localVar).IsDefined();
 
        expect(result).toBeDefined();
     });
@@ -100,6 +100,6 @@ describe("BooleanValidator", () => {
             contract.In(localVar).IsNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
 
-    });*/
+    });
 
 });
