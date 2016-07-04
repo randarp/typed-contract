@@ -26,6 +26,7 @@ module.exports = function(grunt){
                     "package.json",
                     "typedcontract.js.map",
                     "typedcontract.min.js",
+                    "typedcontract.d.ts",
                     "ReadMe.md",
                     "LICENSE-MIT"],
                 dest: './typed-contract',
