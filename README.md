@@ -21,19 +21,19 @@ As the size and complexity of your JavaScript and TypeScript projects continues 
 
 <h3> What is a Code Contract anyways, and why would I want to use one ? </h3>
 
-Code contracts allow you to ensure that your intentions for any property or method are ensured using a code contract. When you are developing an application you can list and specify as many preconditions and postconditions in your code as needed. In TypedContract preconditions are strict requirements that must be met when entering executing an application at runtime. Postconditions describe expectations at the time the method or property code exits at runtime.
+Code contracts allow you to ensure that your intentions for any property or method are ensured using a code contract. When you are developing an application you can list and specify as many preconditions and postconditions in your code as needed. In typed-contract preconditions are strict requirements that must be met when entering executing an application at runtime. Postconditions describe expectations at the time the method or property code exits at runtime.
 
-TypedContract allows you to set pre and postconditions in your code to check for certain invariants that you set while writing out a TypedContract. Once you execute a project, a set of classes or functions, the TypedContract can then check that every condition successfully passes, which allows your intentions when building your app to run as smooth as butter.
+Typed-contract allows you to set pre and postconditions in your code to check for certain invariants that you set while writing out a typed-contract. Once you execute a project, a set of classes or functions, the typed-contract can then check that every condition successfully passes, which allows your intentions when building your app to run as smooth as butter.
 
-TypedContract will allow you and your projects to have more descriptive syntax for your variables, functions, interfaces and classes
+Typed-contract will allow you and your projects to have more descriptive syntax for your variables, functions, interfaces and classes
 <h3> How to implement into your project </h3>
 
-TypedContract can be used in either JavaScript or TypeScript environments so the freedom of choice is always yours.  See [https://github.com/randarp/typed-contract/wiki/Setup-typed-contract](https://github.com/randarp/typed-contract/wiki/Setup-typed-contract).
+typed-contract can be used in either JavaScript or TypeScript environments so the freedom of choice is always yours.  See [https://github.com/randarp/typed-contract/wiki/Setup-typed-contract](https://github.com/randarp/typed-contract/wiki/Setup-typed-contract).
 
 <h3> How do I use a code contract in TypeScript ?</h3>
 It's pretty simple really, once it is in your project and it's included in you node modules folder. You then should be able to use it in almost any function or class as you code your way through your project.
 
-Here is an example of what a TypedContract looks like...
+Here is an example of what a typed-contract looks like...
 	myVar: number = 3.14159265359;
 	Contract.In(myVar, "PI").
 		IsNotNull().
@@ -51,7 +51,7 @@ and the same goes for postconditions as well
 		IsGreaterThan(3.13).
 		IsNotLessThan(3);
 
-As you can see we can use something known as <a href="https://en.wikipedia.org/wiki/Method_chaining" target="_blank">Function/Method chaining</a> to allow any TypedContract to check for many conditions in one instance of a contract. Each contract that is created will have specific functions based on the data type passed in as a pre or post condition in, making good use of TypeScripts static typing. Here is an example.
+As you can see we can use something known as <a href="https://en.wikipedia.org/wiki/Method_chaining" target="_blank">Function/Method chaining</a> to allow any typed-contract to check for many conditions in one instance of a contract. Each contract that is created will have specific functions based on the data type passed in as a pre or post condition in, making good use of TypeScripts static typing. Here is an example.
 
 	varArray: any[] = [1, 2, 3];
 	varNumber: number = 100;
@@ -74,7 +74,7 @@ As you can see we can use something known as <a href="https://en.wikipedia.org/w
 If you would like to see all of the documentation click here [https://github.com/randarp/typed-contract/wiki](https://github.com/randarp/typed-contract/wiki)
 
 <h3> Would you like to contribute to this project ? </h3>
-Check out the GitHub repository to see where we can make TypedContract even better <a href="https://github.com/randarp/typed-contract/">Here</a>
+Check out the GitHub repository to see where we can make typed-contract even better <a href="https://github.com/randarp/typed-contract/">Here</a>
 <h3> Class and Function Documentation </h3>
 
 Of course you would like to know what is included in this wonderful code contract library so you can utilize it to the best of it's ability.
