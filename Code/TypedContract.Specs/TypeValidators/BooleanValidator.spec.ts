@@ -1,8 +1,6 @@
-/// <reference path="..\..\TypedContract\Contract.ts" />
-/// <reference path="..\..\Typings/http_github.com_borisyankov_DefinitelyTyped_raw_master_jasmine_jasmine.d.ts" />
+/// <reference path="../../typedcontract.d.ts" />
+/// <reference path="../../Typings/jasmine/jasmine.d.ts" />
 
-//import {ReferenceError} from "../../../../../Program Files (x86)/JetBrains/WebStorm 11.0/
-// plugins/JavaScriptLanguage/typescriptCompiler/external/lib";
 describe("BooleanValidator", () => {
 
     it("IsTrue returns the right validator", () => {
@@ -10,11 +8,11 @@ describe("BooleanValidator", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: BooleanValidator = Contract.In(localVariable).IsTrue();
+        let result: any = contract.In(localVariable).IsTrue();
 
         // assert
         expect(result).not.toBeNull();
-        expect(result).toEqual(jasmine.any(BooleanValidator));
+        expect((<any>result.constructor).name).toBe("BooleanValidator");
     });
 
     it("IsTrue does not raise an error when true", () => {
@@ -22,7 +20,7 @@ describe("BooleanValidator", () => {
         let localVariable: boolean = true;
 
         // act/assert
-        Contract.In(localVariable).IsTrue();
+        contract.In(localVariable).IsTrue();
     });
 
     it("IsTrue raises a range error when false", () => {
@@ -32,7 +30,7 @@ describe("BooleanValidator", () => {
         // act
         let failure: () => void;
         failure = () => {
-            Contract.In(localVariable).IsTrue();
+            contract.In(localVariable).IsTrue();
         };
 
         // assert
@@ -44,7 +42,7 @@ describe("BooleanValidator", () => {
         let localVariable: boolean = false;
 
         // act/assert
-        Contract.In(localVariable).IsFalse();
+        contract.In(localVariable).IsFalse();
     });
 
     it("IsFalse raises a range error when true", () => {
@@ -54,7 +52,7 @@ describe("BooleanValidator", () => {
         // act
         let failure: () => void;
         failure = () => {
-            Contract.In(localVariable).IsFalse();
+            contract.In(localVariable).IsFalse();
         };
 
         // assert
@@ -65,7 +63,7 @@ describe("BooleanValidator", () => {
        let localVar: boolean = null;
 
        expect(() => {
-           Contract.In(localVar).IsFalse();
+           contract.In(localVar).IsFalse();
        }).toThrowError(<any>TypeError);
 
     });
@@ -73,7 +71,7 @@ describe("BooleanValidator", () => {
     it("IsDefined will return the proper result ", () => {
        let localVar: boolean = true;
 
-       let result: BooleanValidator = Contract.In(localVar).IsDefined();
+       let result: IBooleanValidator = contract.In(localVar).IsDefined();
 
        expect(result).toBeDefined();
     });
@@ -82,7 +80,7 @@ describe("BooleanValidator", () => {
         let localVar: boolean = undefined;
 
         expect( () => {
-            Contract.In(localVar).IsNullOrUndefined();
+            contract.In(localVar).IsNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
     });
 
@@ -90,7 +88,7 @@ describe("BooleanValidator", () => {
         let localVar: boolean = null;
 
         expect( () => {
-            Contract.In(localVar).IsNullOrUndefined();
+            contract.In(localVar).IsNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
 
     });
@@ -99,7 +97,7 @@ describe("BooleanValidator", () => {
         let localVar: boolean;
 
         expect( () => {
-            Contract.In(localVar).IsNullOrUndefined();
+            contract.In(localVar).IsNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
 
     });

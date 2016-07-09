@@ -10,14 +10,13 @@
     "class-name": true,
     "comment-format": [
       true,
-      "check-space",
-      "check-lowercase"
+      "check-space"
     ],
     "curly": true,
     "eofline": false,
     "forin": true,
     "indent": [
-      true,
+      false,
       "spaces"
     ],
     "interface-name": true,
@@ -66,7 +65,7 @@
     "no-unreachable": true,
     "no-unused-expression": true,
     "no-unused-variable": true,
-    "no-use-before-declare": true,
+    "no-use-before-declare": false,
     "no-var-keyword": false,
     "no-var-requires": true,
     "object-literal-sort-keys": true,
@@ -126,7 +125,7 @@
       "ban-keywords"
     ],
     "whitespace": [
-      true,
+      false,
       "check-branch",
       "check-decl",
       "check-operator",
