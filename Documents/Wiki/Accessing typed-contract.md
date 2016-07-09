@@ -1,4 +1,4 @@
-Typed-contract has been created as a Universal Module Definition (([UMD](https://github.com/umdjs/umd))).  This means you can access the library as a global variable, AMD or Node/CommonJS.  It should be noted that you do have to pick one and cannot use them in parallel unless the scope and how you reference it is different.
+Typed-contract has been created as a Universal Module Definition ([UMD](https://github.com/umdjs/umd)).  This means you can access the library as a global variable, AMD or Node/CommonJS.  It should be noted that you do have to pick one and cannot use them in parallel unless the scope and how you reference it is different.
 
 ## Global scope
 There is a global variable that has been instantiated that you can access the contracts.  For example: 
