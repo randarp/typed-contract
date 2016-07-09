@@ -17,9 +17,9 @@ module.exports = function(grunt){
                 }
             }
         },
-        // Copies the files over to the directory used to deploy to NuGet
+        // Copies the files over to the directory used to deploy to NPM
         copy:{
-            files:{
+            library: {
                 cwd: './',
                 src: [
                     "typedcontract.js",
@@ -27,24 +27,20 @@ module.exports = function(grunt){
                     "typedcontract.js.map",
                     "typedcontract.min.js",
                     "typedcontract.d.ts",
-                    "ReadMe.md",
                     "LICENSE-MIT"],
                 dest: './typed-contract',
-                expand: true
-
-            }
-        },
-        // Push the code up to NPM
-        npmrelease: {
-            options: {
-                bump: true,
-                file: 'package.json',
-                push: false,
-                pushTags: false,
-                npm: false,
-                npmtag: false,
-                folder: './typed-contract',
-                commitMessage: 'check out our new typed-contract release <%= version %>', //default: 'release <%= version %>'
+                expand: true,
+                nonull: true
+            },
+            readme:
+            {
+                cwd: '../',
+                src: [
+                    "ReadMe.md"
+                ],
+                dest: './typed-contract',
+                expand: true,
+                nonull: true
             }
         },
         // Generate the TypeScript .d.ts file
