@@ -144,4 +144,16 @@ describe("typed-contract with module syntax RequireJS via TypeScript", () => {
         expect((<any>result.constructor).name).toBe("AnyValidator");
     });
 
+    it("IsGreaterThan returns the right validator if passed a double/float", () => {
+        // arrange
+        let localVariable: number = 2.05;
+        let comparableVar: number = 1;
+
+        // act
+        let result: INumberValidator = contract.In(localVariable).IsGreaterThan(comparableVar);
+
+        // assert
+        expect(result);
+    });
+
 });

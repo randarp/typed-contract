@@ -1,7 +1,6 @@
 /**
  * Loads typed-contract from JS through RequireJS
  */
-//var typedcontract = require("typedcontract");
 
 describe("typed-contract with inline RequireJS via JavaScript", function () {
     it("will return function through object returned through inline syntax", function () {
@@ -19,13 +18,15 @@ define(['typedcontract'], function(typedcontract) {
 
     describe("typed-contract with module syntax RequireJS via JavaScript", function() {
 
-        it("will return function through object returned through module syntax", function() {
-            // arrange/act
-            var result = typedcontract.contract.In;
+        it("IsNotNull returns the right validator with a string array", function() {
+            // arrange
+            var localVariable = ["A", "B", "C"];
+
+            // act
+            var result = typedcontract.contract.In(localVariable).IsNotNull();
 
             // assert
-            expect(result).not.toBeUndefined();
-            expect(typeof result).toBe("function");
+            expect(result).not.toBeNull();
         });
 
     });

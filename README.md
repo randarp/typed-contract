@@ -27,53 +27,50 @@ TypedContract allows you to set pre and postconditions in your code to check for
 
 TypedContract will allow you and your projects to have more descriptive syntax for your variables, functions, interfaces and classes
 <h3> How to implement into your project </h3>
-TypedContract can be used in either JavaScript or TypeScript environments so the freedom of choice is always yours.
-Just open your BASH, Command Line or Terminal and type in
-<code> npm install -g typed-contract --save-dev</code> to get it into your current project or....
- you can use any variation of commands to get it into your project as long as you include <code>npm install -g typed-contract</code>
+
+TypedContract can be used in either JavaScript or TypeScript environments so the freedom of choice is always yours.  See [https://github.com/randarp/typed-contract/wiki/Setup-typed-contract](https://github.com/randarp/typed-contract/wiki/Setup-typed-contract).
 
 <h3> How do I use a code contract in TypeScript ?</h3>
 It's pretty simple really, once it is in your project and it's included in you node modules folder. You then should be able to use it in almost any function or class as you code your way through your project.
 
 Here is an example of what a TypedContract looks like...
-<code>
-myVar: number = 3.14159265359;
-Contract.In(myVar, "PI").
-IsNotNull().
-IsDefined().
-IsGreaterThan(3.13).
-IsNotLessThan(3);
-</code>
+	myVar: number = 3.14159265359;
+	Contract.In(myVar, "PI").
+		IsNotNull().
+		IsDefined().
+		IsGreaterThan(3.13).
+		IsNotLessThan(3);
 
 and the same goes for postconditions as well
 
-<code>myVar: number = 3.14159265359;
-...... // code being written
-Contract.Out(myVar, "PI").
-IsNotNull().
-IsDefined().
-IsGreaterThan(3.13).
-IsNotLessThan(3);
-</code>
+	myVar: number = 3.14159265359;
+
+	Contract.Out(myVar, "PI").
+		IsNotNull().
+		IsDefined().
+		IsGreaterThan(3.13).
+		IsNotLessThan(3);
 
 As you can see we can use something known as <a href="https://en.wikipedia.org/wiki/Method_chaining" target="_blank">Function/Method chaining</a> to allow any TypedContract to check for many conditions in one instance of a contract. Each contract that is created will have specific functions based on the data type passed in as a pre or post condition in, making good use of TypeScripts static typing. Here is an example.
 
-<code>varArray: any[] = [1, 2, 3];
-varNumber: number = 100;
-varString: string = "Hello World";
-varBoolean: boolean = true;<br/>
-Contract.In(varNumber).
-IsLessThan(101).
-IsNotNull().
-IsGreaterThan(99);<br/>
-Contract.In(varArray).
-IsDefined().
-IsEqualTo([1, 2, 3], 1);<br/>
-Contract.In(varString).
-Contains("Hello").
-NotContains("Goodbye");
-etc...
-</code>
+	varArray: any[] = [1, 2, 3];
+	varNumber: number = 100;
+	varString: string = "Hello World";
+	varBoolean: boolean = true;<br/>
+
+	Contract.In(varNumber).
+		IsLessThan(101).
+		IsNotNull().
+		IsGreaterThan(99);<br/>
+
+	Contract.In(varArray).
+		IsDefined().
+		IsEqualTo([1, 2, 3], 1);<br/>
+
+	Contract.In(varString).
+		Contains("Hello").
+		NotContains("Goodbye");
+
 If you would like to see all of the documentation click <a href="#docs">me</a>
 <h3> Would you like to contribute to this project ? </h3>
 Check out the GitHub repository to see where we can make TypedContract even better <a href="https://github.com/randarp/typed-contract/">Here</a>
