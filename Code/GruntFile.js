@@ -119,12 +119,6 @@ module.exports = function(grunt){
         }
     });
 
-    grunt.registerTask("publish",function(){
-        console.log("Published, Yaay!");
-    });
-
-    grunt.task.registerTask("release and set-up", ["uglify", "copy"]);
-
     // Run all grunt tasks required to build the solution and get it ready for deployment
-    grunt.task.registerTask("build", ["webpack", "dtsGenerator", "concat", "replace", "uglify", "copy"]);
+    grunt.task.registerTask("default", ["webpack", "dtsGenerator", "concat", "replace", "uglify", "copy"]);
 };
