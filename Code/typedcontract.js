@@ -61,6 +61,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/// <reference path="../IContract.d.ts" />
 	
 	"use strict";
 	var StringValidator_1 = __webpack_require__(2);
@@ -1439,8 +1440,9 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 //# sourceMappingURL=typedcontract-lib.js.map
+/// <reference path="IContract.d.ts" />
+/// <reference path="TypeValidators/TypeValidators.d.ts" />
 /* tslint:disable */
-// TODO: Strongly type these
 var contract;
 var typedcontract;
 /* Create a global scope object if we are not being called through a module */

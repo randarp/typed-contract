@@ -1,6 +1,44 @@
-declare var contract: any;
-declare var typedcontract: any;
-interface IAnyValidator {
+declare interface IContractStatic {
+    In(precondition:string):IStringValidator;
+    In(precondition:string, name:string):IStringValidator;
+    In(precondition:boolean):IBooleanValidator;
+    In(precondition:boolean, name:string):IBooleanValidator;
+    In(precondition:number):INumberValidator;
+    In(precondition:number, name:string):INumberValidator;
+    In(precondition:any[]):IArrayValidator;
+    In(precondition:any[], name:string):IArrayValidator;
+    In(precondition:any, name:string):IAnyValidator;
+    In(precondition:any):IAnyValidator;
+    In(precondition:any, name:string):any;
+
+    Out(postcondition:string):IStringValidator;
+    Out(postcondition:string, name:string):IStringValidator;
+    Out(postcondition:boolean):IBooleanValidator;
+    Out(postcondition:boolean, name:string):IBooleanValidator;
+    Out(postcondition:number):INumberValidator;
+    Out(postcondition:number, name:string):INumberValidator;
+    Out(postcondition:any[]):IArrayValidator;
+    Out(postcondition:any[], name:string):IArrayValidator;
+    Out(postcondition:any, name:string):IAnyValidator;
+    Out(postcondition:any):IAnyValidator;
+    Out(postcondition:any, name:string):any;
+}interface IBaseValidator<T> {
+    /**
+     * Value returns the value that was passed into the contract
+     * @returns {T}
+     * @constructor
+     */
+    Value(): T;
+
+    /**
+     * Name returns the variable name that was passed into the contract
+     * @returns {string}
+     * @constructor
+     */
+    Name(): string;
+}
+
+interface IAnyValidator extends IBaseValidator<any> {
     /**
      *
      * IsNotNull checks if the type any variable is not null
@@ -40,7 +78,7 @@ interface IAnyValidator {
     IsNullOrUndefined(): IAnyValidator;
 }
 
-interface IArrayValidator {
+interface IArrayValidator extends IBaseValidator<any[]> {
     /**
      *
      * IsNull Checks if the array variable is null
@@ -205,7 +243,7 @@ interface IArrayValidator {
     NotContains(compareTo: any[]): IArrayValidator;
 }
 
-interface IBooleanValidator {
+interface IBooleanValidator extends IBaseValidator<boolean> {
 
     /**
      *
@@ -279,7 +317,7 @@ interface IBooleanValidator {
     IsFalse(): IBooleanValidator;
 }
 
-interface INumberValidator {
+interface INumberValidator extends IBaseValidator<number> {
 
     /**
      *
@@ -428,7 +466,7 @@ interface INumberValidator {
     IsNotBetween(startRange: number, endRange: number): INumberValidator;
 }
 
-interface IStringValidator {
+interface IStringValidator extends IBaseValidator<string> {
 
     /**
      *
@@ -679,6 +717,10 @@ interface IStringValidator {
      */
     IsNotBetween(startRange: string, endRange: string): IStringValidator;
 }
+/// <reference path="IContract.d.ts" />
+/// <reference path="TypeValidators/TypeValidators.d.ts" />
+declare var contract: IContractStatic;
+declare var typedcontract: any;
 declare module "typedcontract" {
 	/**
 	 * Encapsulates any validators that apply to every type and state used by the validation chain.
@@ -1324,8 +1366,9 @@ declare module "typedcontract" {
 
 }
 declare module "typedcontract" {
+	/// <reference path="../IContract.d.ts" />
 	
-	export class Contract {
+	export class Contract implements IContractStatic {
 	    In(precondition: string): IStringValidator;
 	    In(precondition: string, name: string): IStringValidator;
 	    In(precondition: boolean): IBooleanValidator;
@@ -1347,6 +1390,6 @@ declare module "typedcontract" {
 	    Out(postcondition: any, name: string): IAnyValidator;
 	    Out(postcondition: any): IAnyValidator;
 	}
-	export var contract: Contract;
+	export var contract: IContractStatic;
 
 }

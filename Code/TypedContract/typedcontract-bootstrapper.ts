@@ -1,6 +1,9 @@
+/// <reference path="IContract.d.ts" />
+/// <reference path="TypeValidators/TypeValidators.d.ts" />
+
 /* tslint:disable */
-// TODO: Strongly type these
-var contract: any;
+var contract: IContractStatic;
+
 var typedcontract: any;
 
 /* Create a global scope object if we are not being called through a module */
