@@ -100,6 +100,18 @@ module.exports = function(grunt){
                     // Remove some references that are merged in
                     from: "\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
                     to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\/\/\/ <reference path=\"..\/IContract.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\/\/\/ <reference path=\"IContract.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
+                    to: ""
                 }
                 ]
             },js: {

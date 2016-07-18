@@ -717,8 +717,8 @@ interface IStringValidator extends IBaseValidator<string> {
      */
     IsNotBetween(startRange: string, endRange: string): IStringValidator;
 }
-/// <reference path="IContract.d.ts" />
-/// <reference path="TypeValidators/TypeValidators.d.ts" />
+
+
 declare var contract: IContractStatic;
 declare var typedcontract: any;
 declare module "typedcontract" {
@@ -1366,7 +1366,7 @@ declare module "typedcontract" {
 
 }
 declare module "typedcontract" {
-	/// <reference path="../IContract.d.ts" />
+	
 	
 	export class Contract implements IContractStatic {
 	    In(precondition: string): IStringValidator;
