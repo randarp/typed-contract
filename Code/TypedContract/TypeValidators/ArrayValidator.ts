@@ -3,8 +3,6 @@
 import { BaseValidator } from "./BaseValidator";
 
 export class  ArrayValidator extends BaseValidator <any[]> implements IArrayValidator {
-    private count: number;
-
     constructor(variableValue: any[], variableName: string) {
         super(variableValue, variableName);
     }
@@ -291,7 +289,7 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @returns { IArrayValidator }
      */
     public Contains(compareTo: any[]): IArrayValidator {
-        this.count = 0;
+        let count = 0;
 
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError(`The length of either your contract precondition
@@ -300,10 +298,10 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
         for (var i = 0; i < compareTo.length; i++) {
 
             if (compareTo.some(elem => this._variableValue[i] === elem)) {
-                this.count++;
+                count++;
             }
         }
-        if (this.count === 0) {
+        if (count === 0) {
             throw new RangeError(`${this._variableName} should contain the pattern ${compareTo}
              but the pattern is not found in ${this._variableValue}`);
         }
@@ -321,7 +319,7 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
      * @returns { IArrayValidator }
      */
     public NotContains(compareTo: any[]):  ArrayValidator {
-        this.count = 0;
+        let count = 0;
 
         if (compareTo.length === 0 || this._variableValue.length === 0) {
             throw new RangeError(`The length of either your contract precondition
@@ -330,10 +328,10 @@ export class  ArrayValidator extends BaseValidator <any[]> implements IArrayVali
         for (var i = 0; i < compareTo.length; i++) {
 
             if (compareTo.some(elem => this._variableValue[i] === elem)) {
-                this.count++;
+                count++;
             }
         }
-        if (this.count > 0) {
+        if (count > 0) {
             throw new RangeError(`${this._variableName} should not contain the pattern ${compareTo}
              but the pattern is not found in ${this._variableValue}`);
         }
