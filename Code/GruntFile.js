@@ -98,35 +98,39 @@ module.exports = function(grunt){
                     to: ""
                 },{
                     // Collapse the module into a single module - remove imports
-                    from: "import { BaseValidator } from \"typedcontract\";",
+                    from: "\timport { BaseValidator } from \"typedcontract\";",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"..\/TypeValidators\/TypeValidators.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"..\/TypeValidators\/TypeValidators.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"..\/IContract.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"..\/IContract.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"IContract.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"IContract.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
                     to: ""
                 },{
                     // Clean up some whitespace after replaces
-                    from: "\n\s\n",
+                    from: "\n\n\n",
+                    to: "\n"
+                },{
+                    // Clean up some whitespace after replaces
+                    from: "\n\n",
                     to: "\n"
                 }
                 ]
