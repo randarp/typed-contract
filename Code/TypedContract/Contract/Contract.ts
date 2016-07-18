@@ -66,6 +66,7 @@ export class Contract implements IContractStatic {
 /*
 Create a module level variable that exposes the functionality for typed contract
  */
+
 export var contract: IContractStatic = new Contract();
 
 
