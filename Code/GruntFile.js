@@ -93,13 +93,45 @@ module.exports = function(grunt){
                     from: /declare module "typedcontract\/.*"/g,
                     to: "declare module \"typedcontract\""
                 },{
-                    // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"..\/TypeValidators\/TypeValidators.d.ts\" \/>",
+                    // Collapse the module into a single module - remove inner modules
+                    from: "}\ndeclare module \"typedcontract\" {",
+                    to: ""
+                },{
+                    // Collapse the module into a single module - remove imports
+                    from: "\timport { BaseValidator } from \"typedcontract\";",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
                     to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\t\/\/\/ <reference path=\"..\/TypeValidators\/TypeValidators.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\t\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\t\/\/\/ <reference path=\"..\/IContract.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\t\/\/\/ <reference path=\"IContract.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\t\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Clean up some whitespace after replaces
+                    from: "\n\n\n",
+                    to: "\n"
+                },{
+                    // Clean up some whitespace after replaces
+                    from: "\n\n",
+                    to: "\n"
                 }
                 ]
             },js: {
@@ -119,12 +151,6 @@ module.exports = function(grunt){
         }
     });
 
-    grunt.registerTask("publish",function(){
-        console.log("Published, Yaay!");
-    });
-
-    grunt.task.registerTask("release and set-up", ["uglify", "copy"]);
-
     // Run all grunt tasks required to build the solution and get it ready for deployment
-    grunt.task.registerTask("build", ["webpack", "dtsGenerator", "concat", "replace", "uglify", "copy"]);
+    grunt.task.registerTask("default", ["webpack", "dtsGenerator", "concat", "replace", "uglify", "copy"]);
 };

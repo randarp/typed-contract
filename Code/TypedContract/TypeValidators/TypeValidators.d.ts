@@ -1,4 +1,20 @@
-interface IAnyValidator {
+interface IBaseValidator<T> {
+    /**
+     * Value returns the value that was passed into the contract
+     * @returns {T}
+     * @constructor
+     */
+    Value(): T;
+
+    /**
+     * Name returns the variable name that was passed into the contract
+     * @returns {string}
+     * @constructor
+     */
+    Name(): string;
+}
+
+interface IAnyValidator extends IBaseValidator<any> {
     /**
      *
      * IsNotNull checks if the type any variable is not null
@@ -38,7 +54,7 @@ interface IAnyValidator {
     IsNullOrUndefined(): IAnyValidator;
 }
 
-interface IArrayValidator {
+interface IArrayValidator extends IBaseValidator<any[]> {
     /**
      *
      * IsNull Checks if the array variable is null
@@ -203,7 +219,7 @@ interface IArrayValidator {
     NotContains(compareTo: any[]): IArrayValidator;
 }
 
-interface IBooleanValidator {
+interface IBooleanValidator extends IBaseValidator<boolean> {
 
     /**
      *
@@ -277,7 +293,7 @@ interface IBooleanValidator {
     IsFalse(): IBooleanValidator;
 }
 
-interface INumberValidator {
+interface INumberValidator extends IBaseValidator<number> {
 
     /**
      *
@@ -426,7 +442,7 @@ interface INumberValidator {
     IsNotBetween(startRange: number, endRange: number): INumberValidator;
 }
 
-interface IStringValidator {
+interface IStringValidator extends IBaseValidator<string> {
 
     /**
      *

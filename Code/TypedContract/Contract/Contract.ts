@@ -1,3 +1,4 @@
+/// <reference path="../IContract.d.ts" />
 /// <reference path="../TypeValidators/TypeValidators.d.ts" />
 
 import { StringValidator } from "../TypeValidators/StringValidator";
@@ -6,7 +7,7 @@ import { NumberValidator } from "../TypeValidators/NumberValidator";
 import { ArrayValidator } from "../TypeValidators/ArrayValidator";
 import { AnyValidator } from "../TypeValidators/AnyValidator";
 
-export class Contract {
+export class Contract implements IContractStatic {
     public In(precondition:string): IStringValidator;
     public In(precondition:string, name:string): IStringValidator;
     public In(precondition:boolean): IBooleanValidator;
@@ -65,6 +66,7 @@ export class Contract {
 /*
 Create a module level variable that exposes the functionality for typed contract
  */
-export var contract: Contract = new Contract();
+
+export var contract: IContractStatic = new Contract();
 
 

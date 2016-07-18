@@ -61,6 +61,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	/// <reference path="../IContract.d.ts" />
 	
 	"use strict";
 	var StringValidator_1 = __webpack_require__(2);
@@ -1301,16 +1302,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    ArrayValidator.prototype.Contains = function (compareTo) {
 	        var _this = this;
-	        this.count = 0;
+	        var count = 0;
 	        if (!compareTo.length || !this._variableValue.length) {
 	            throw new RangeError("The length of either your contract precondition\n            or comparable have a length of zero, please enter in values");
 	        }
 	        for (var i = 0; i < compareTo.length; i++) {
 	            if (compareTo.some(function (elem) { return _this._variableValue[i] === elem; })) {
-	                this.count++;
+	                count++;
 	            }
 	        }
-	        if (this.count === 0) {
+	        if (count === 0) {
 	            throw new RangeError(this._variableName + " should contain the pattern " + compareTo + "\n             but the pattern is not found in " + this._variableValue);
 	        }
 	        return this;
@@ -1326,16 +1327,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 	    ArrayValidator.prototype.NotContains = function (compareTo) {
 	        var _this = this;
-	        this.count = 0;
+	        var count = 0;
 	        if (compareTo.length === 0 || this._variableValue.length === 0) {
 	            throw new RangeError("The length of either your contract precondition\n            or comparable have a length of zero, please enter in values");
 	        }
 	        for (var i = 0; i < compareTo.length; i++) {
 	            if (compareTo.some(function (elem) { return _this._variableValue[i] === elem; })) {
-	                this.count++;
+	                count++;
 	            }
 	        }
-	        if (this.count > 0) {
+	        if (count > 0) {
 	            throw new RangeError(this._variableName + " should not contain the pattern " + compareTo + "\n             but the pattern is not found in " + this._variableValue);
 	        }
 	        return this;
@@ -1439,8 +1440,9 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 //# sourceMappingURL=typedcontract-lib.js.map
+/// <reference path="IContract.d.ts" />
+/// <reference path="TypeValidators/TypeValidators.d.ts" />
 /* tslint:disable */
-// TODO: Strongly type these
 var contract;
 var typedcontract;
 /* Create a global scope object if we are not being called through a module */
