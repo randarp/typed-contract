@@ -93,6 +93,18 @@ module.exports = function(grunt){
                     from: /declare module "typedcontract\/.*"/g,
                     to: "declare module \"typedcontract\""
                 },{
+                    // Collapse the module into a single module - remove inner modules
+                    from: "}\ndeclare module \"typedcontract\" {",
+                    to: ""
+                },{
+                    // Collapse the module into a single module - remove imports
+                    from: "import { BaseValidator } from \"typedcontract\";",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
+                    to: ""
+                },{
                     // Remove some references that are merged in
                     from: "\/\/\/ <reference path=\"..\/TypeValidators\/TypeValidators.d.ts\" \/>",
                     to: ""
@@ -112,6 +124,10 @@ module.exports = function(grunt){
                     // Remove some references that are merged in
                     from: "\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
                     to: ""
+                },{
+                    // Clean up some whitespace after replaces
+                    from: "\n\s\n",
+                    to: "\n"
                 }
                 ]
             },js: {

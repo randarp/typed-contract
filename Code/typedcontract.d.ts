@@ -743,10 +743,9 @@ declare module "typedcontract" {
 	    Name(): string;
 	}
 
-}
-declare module "typedcontract" {
+
 	
-	import { BaseValidator } from "typedcontract";
+	
 	export class StringValidator extends BaseValidator<string> {
 	    constructor(variableValue: string, variableName: string);
 	    /**
@@ -972,10 +971,9 @@ declare module "typedcontract" {
 	    IsNotBetween(startRange: string, endRange: string): IStringValidator;
 	}
 
-}
-declare module "typedcontract" {
+
 	
-	import { BaseValidator } from "typedcontract";
+	
 	export class BooleanValidator extends BaseValidator<boolean> {
 	    constructor(variableValue: boolean, variableName: string);
 	    /**
@@ -1042,10 +1040,9 @@ declare module "typedcontract" {
 	    IsFalse(): IBooleanValidator;
 	}
 
-}
-declare module "typedcontract" {
+
 	
-	import { BaseValidator } from "typedcontract";
+	
 	export class NumberValidator extends BaseValidator<number> {
 	    constructor(variableValue: number, variableName: string);
 	    /**
@@ -1177,10 +1174,9 @@ declare module "typedcontract" {
 	    IsNotBetween(startRange: number, endRange: number): INumberValidator;
 	}
 
-}
-declare module "typedcontract" {
+
 	
-	import { BaseValidator } from "typedcontract";
+	
 	export class ArrayValidator extends BaseValidator<any[]> implements IArrayValidator {
 	    private count;
 	    constructor(variableValue: any[], variableName: string);
@@ -1324,10 +1320,9 @@ declare module "typedcontract" {
 	    NotContains(compareTo: any[]): ArrayValidator;
 	}
 
-}
-declare module "typedcontract" {
+
 	
-	import { BaseValidator } from "typedcontract";
+	
 	export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
 	    constructor(variableValue: any, variableName: string);
 	    /**
@@ -1364,8 +1359,7 @@ declare module "typedcontract" {
 	    IsNullOrUndefined(): IAnyValidator;
 	}
 
-}
-declare module "typedcontract" {
+
 	
 	
 	export class Contract implements IContractStatic {
