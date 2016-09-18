@@ -416,7 +416,7 @@ export class StringValidator extends BaseValidator<string> {
      * @returns {IStringValidator}
      */
     public IsBetween(startRange: string, endRange: string): IStringValidator {
-        if (this._variableValue >= startRange && this._variableValue <= endRange) {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
             return this;
         } else {
             throw new RangeError(`${this._variableName} should be between
@@ -435,7 +435,7 @@ export class StringValidator extends BaseValidator<string> {
      * @returns {IStringValidator}
      */
     public IsNotBetween(startRange: string, endRange: string): IStringValidator {
-        if (this._variableValue >= startRange && this._variableValue <= endRange) {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
             throw new RangeError(`${this._variableName} should not be between
             ${startRange} and ${endRange}, but the value of ${this._variableValue} is in that range`);
         } else {
