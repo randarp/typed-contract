@@ -236,7 +236,7 @@ export class NumberValidator extends BaseValidator<number> {
      * @returns {NumberValidator}
      */
     public IsBetween(startRange:number, endRange:number): INumberValidator {
-        if (this._variableValue >= startRange && this._variableValue <= endRange) {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
             return this;
         } else {
             throw new RangeError(`${this._variableName} should be between
@@ -253,7 +253,7 @@ export class NumberValidator extends BaseValidator<number> {
      * @returns {NumberValidator}
      */
     public IsNotBetween(startRange:number, endRange:number): INumberValidator {
-        if (this._variableValue >= startRange && this._variableValue <= endRange) {
+        if (this._variableValue > startRange && this._variableValue < endRange) {
             throw new RangeError(`${this._variableName} should not be between
             ${startRange} and ${endRange}, but the value of ${this._variableValue} is in that range`);
         } else {

@@ -353,20 +353,6 @@ describe("NumberValidator", () => {
 
     });
 
-    it("IsBetween returns the proper validator when the precondition is in the range specified, with inclusive values", () => {
-
-        let localVar: number = 1;
-
-        let startRange: number, endRange: number ;
-
-        startRange = 0;
-        endRange = 1;
-
-        let result: INumberValidator = contract.In(localVar, "Var").IsBetween(startRange, endRange);
-
-        expect(result);
-    });
-
     it("IsBetween returns the proper validator when the precondition is in the range specified with double values", () => {
         let localVar: number = 99.9;
 

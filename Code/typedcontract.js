@@ -985,7 +985,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @returns {NumberValidator}
 	     */
 	    NumberValidator.prototype.IsBetween = function (startRange, endRange) {
-	        if (this._variableValue >= startRange && this._variableValue <= endRange) {
+	        if (this._variableValue > startRange && this._variableValue < endRange) {
 	            return this;
 	        }
 	        else {
@@ -999,7 +999,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @returns {NumberValidator}
 	     */
 	    NumberValidator.prototype.IsNotBetween = function (startRange, endRange) {
-	        if (this._variableValue >= startRange && this._variableValue <= endRange) {
+	        if (this._variableValue > startRange && this._variableValue < endRange) {
 	            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
 	        }
 	        else {
