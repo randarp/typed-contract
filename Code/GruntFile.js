@@ -145,6 +145,10 @@ module.exports = function(grunt){
                     // Remove some references that are merged in
                     from: "\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
                     to: ""
+                },{
+                    // Fix the link to the source mapping, which was based on the initially generated one
+                    from: "sourceMappingURL=typedcontract-bootstrapper.js.map",
+                    to: "sourceMappingURL=typedcontract.js.map"
                 }
                 ]
             }

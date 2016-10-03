@@ -1450,4 +1450,4 @@ if (!contract && typeof typedcontract !== "undefined") {
     contract = new typedcontract.Contract();
 }
 /* tslint:enable */
-//# sourceMappingURL=typedcontract-bootstrapper.js.map
+//# sourceMappingURL=typedcontract.js.map
