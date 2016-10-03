@@ -353,6 +353,30 @@ describe("NumberValidator", () => {
 
     });
 
+    it("IsBetween returns the proper validator when the precondition is on the lower range", () => {
+        let localVar: number = 10;
+
+        let startRange: number = 10;
+        let endRange: number = 20;
+
+        let result: INumberValidator = contract.In(localVar).IsBetween(startRange, endRange);
+
+        expect(result);
+
+    });
+
+    it("IsBetween returns the proper validator when the precondition is on the upper range", () => {
+        let localVar: number = 20;
+
+        let startRange: number = 10;
+        let endRange: number = 20;
+
+        let result: INumberValidator = contract.In(localVar).IsBetween(startRange, endRange);
+
+        expect(result);
+
+    });
+
     it("IsBetween returns the proper validator when the precondition is in the range specified with double values", () => {
         let localVar: number = 99.9;
 
@@ -437,7 +461,7 @@ describe("NumberValidator", () => {
 
     });
 
-    it("IsNotBetween returns the proper validator when the precondition is not in the range specified", () => {
+    it("IsNotBetween returns an error when the precondition is not in the range specified", () => {
         let localVar: number = 75;
 
         let startRange: number = 60;
@@ -448,6 +472,28 @@ describe("NumberValidator", () => {
 
         }).toThrowError(<any>RangeError);
 
+    });
+
+    it("IsNotBetween returns an error when the precondition is on the lower boundary", () => {
+        let localVar: number = 10;
+
+        let startRange: number = 10;
+        let endRange: number = 20;
+
+        expect( () => {
+            contract.In(localVar).IsNotBetween(startRange, endRange);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("IsNotBetween returns an error when the precondition is on the upper boundary", () => {
+        let localVar: number = 20;
+
+        let startRange: number = 10;
+        let endRange: number = 20;
+
+        expect( () => {
+            contract.In(localVar).IsNotBetween(startRange, endRange);
+        }).toThrowError(<any>RangeError);
     });
 
 });

@@ -757,6 +757,23 @@ describe("StringValidator", () => {
         expect(result);
     });
 
+    it("IsBetween returns the proper validator when on the lower boundary", () => {
+        let localVar: string = "A";
+
+        let result: IStringValidator = contract.In(localVar).IsBetween("A", "Z");
+
+        expect(result);
+    });
+
+    it("IsBetween returns the proper validator when on the upper boundary", () => {
+        let localVar: string = "Z";
+
+        let result: IStringValidator = contract.In(localVar).IsBetween("A", "Z");
+
+        expect(result);
+    });
+
+
     it("IsBetween returns the proper validator when given two identical strings", () => {
         let localVar: string = "b";
 
@@ -838,6 +855,22 @@ describe("StringValidator", () => {
 
         expect( () => {
            contract.In(localVar).IsNotBetween("AB", "FG");
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("IsNotBetween throws an error when on the lower boundary", () => {
+        let localVar: string = "A";
+
+        expect( () => {
+            contract.In(localVar).IsNotBetween("A", "D");
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("IsNotBetween throws an error when on the upper boundary", () => {
+        let localVar: string = "D";
+
+        expect( () => {
+            contract.In(localVar).IsNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 });
