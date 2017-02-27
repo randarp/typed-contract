@@ -1,6 +1,6 @@
 {
   "name": "typed-contract",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "A wonderfully simple, yet powerful TypeScript and JavaScript code contract library",
   "main": "./typedcontract.js",
   "typings": "./typedcontract.d.ts",
