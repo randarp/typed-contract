@@ -2,7 +2,7 @@ var webpack = require("webpack"),
     path = require("path"),
     yargs = require("yargs");
 
-var libraryName = "typed-contract",
+var libraryName = "typedcontract",
     libraryFileName = "typed-contract-lib",
     plugins = [],
     outputFile = "./TypedContract/" + libraryFileName + ".js";

@@ -2,11 +2,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("typed-contract", [], factory);
+		define("typedcontract", [], factory);
 	else if(typeof exports === 'object')
-		exports["typed-contract"] = factory();
+		exports["typedcontract"] = factory();
 	else
-		root["typed-contract"] = factory();
+		root["typedcontract"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -1445,8 +1445,11 @@ return /******/ (function(modules) { // webpackBootstrap
 var contract;
 var typedcontract;
 /* Create a global scope object if we are not being called through a module */
+console.debug("Initializing TypedContract");
 if (!contract && typeof typedcontract !== "undefined") {
+    console.debug("Creating TypedContract global variable");
     contract = new typedcontract.Contract();
+    console.debug("Created TypedContract global variable");
 }
 /* tslint:enable */
 //# sourceMappingURL=typed-contract.js.map

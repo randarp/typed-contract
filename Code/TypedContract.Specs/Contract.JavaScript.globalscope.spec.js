@@ -29,7 +29,7 @@ describe("typed-contract with global scope via JavaScript", function () {
         // arrange
 
         // act
-        var result = typedContract.Contract.prototype.In;
+        var result = typedcontract.Contract.prototype.In;
 
         // assert
         expect(result).not.toBeUndefined();
@@ -40,7 +40,7 @@ describe("typed-contract with global scope via JavaScript", function () {
         // arrange
 
         // act
-        var resultNew = new typedContract.Contract();
+        var resultNew = new typedcontract.Contract();
         var result = resultNew.In;
 
         // assert
