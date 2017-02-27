@@ -60,14 +60,13 @@ module.exports = function(grunt){
         },
         // Merge the library (from WebPack) and the bootstrapper
         concat: {
-            options: {
-
-            },
             dist: {
+                options: {
+                    sourceMap: true,
+                    sourceMapName: "typed-contract.js.map",
+                },
                 src: ['./TypedContract/typed-contract-lib.js', './TypedContract/typed-contract-bootstrapper.js'],
                 dest: 'typed-contract.js',
-                sourceMap: true,
-                sourceMapName: "typed-contract.js.map",
             },
             definition: {
                 src: ['./typed-contract.d.ts','./TypedContract/TypeValidators.d.ts'],
@@ -144,6 +143,18 @@ module.exports = function(grunt){
                 },{
                     // Remove some references that are merged in
                     from: "\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\/\/\/ <reference path=\"IContract.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\/\/\/ <reference path=\"../IContract.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
                     to: ""
                 },{
                     // Fix the link to the source mapping, which was based on the initially generated one
