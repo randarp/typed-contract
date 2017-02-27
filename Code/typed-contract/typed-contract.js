@@ -2,11 +2,11 @@
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
-		define("typedcontract", [], factory);
+		define("typed-contract", [], factory);
 	else if(typeof exports === 'object')
-		exports["typedcontract"] = factory();
+		exports["typed-contract"] = factory();
 	else
-		root["typedcontract"] = factory();
+		root["typed-contract"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -1439,7 +1439,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-//# sourceMappingURL=typedcontract-lib.js.map
+//# sourceMappingURL=typed-contract-lib.js.map
 /// <reference path="IContract.d.ts" />
 /// <reference path="TypeValidators/TypeValidators.d.ts" />
 /* tslint:disable */
@@ -1450,4 +1450,4 @@ if (!contract && typeof typedcontract !== "undefined") {
     contract = new typedcontract.Contract();
 }
 /* tslint:enable */
-//# sourceMappingURL=typedcontract.js.map
+//# sourceMappingURL=typed-contract.js.map

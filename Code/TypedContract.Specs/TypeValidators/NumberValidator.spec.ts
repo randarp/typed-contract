@@ -1,4 +1,4 @@
-/// <reference path="../../typedcontract.d.ts" />
+/// <reference path="../../typed-contract.d.ts" />
 /// <reference path="../../Typings/jasmine/jasmine.d.ts" />
 
 describe("NumberValidator", () => {

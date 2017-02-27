@@ -630,7 +630,7 @@ interface IStringValidator extends IBaseValidator<string> {
 /// <reference path="TypeValidators/TypeValidators.d.ts" />
 declare var contract: IContractStatic;
 declare var typedcontract: any;
-declare module "typedcontract" {
+declare module "typed-contract" {
 	/**
 	 * Encapsulates any validators that apply to every type and state used by the validation chain.
 	 */

@@ -23,6 +23,6 @@ require.config({
   callback: window.__karma__.start,
 
   paths: {
-    typedcontract: 'typedcontract'
+    typedcontract: 'typed-contract'
   }
 });
