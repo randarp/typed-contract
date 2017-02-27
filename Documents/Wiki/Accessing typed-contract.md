@@ -18,13 +18,13 @@ There is a global variable that has been instantiated that you can access the co
 ### TypeScript
 
 #### Boolean validator
-	/// <reference path="../typedcontract.d.ts" />
+	/// <reference path="../typed-contract.d.ts" />
 
     let localVariable: boolean = true;
     contract.In(localVariable).IsTrue();
 
 #### Any validator
-	/// <reference path="../typedcontract.d.ts" />
+	/// <reference path="../typed-contract.d.ts" />
 
 	let divElement: HTMLElement = document.createElement("div");
 	let localVar: void = divElement.addEventListener("click", (e: MouseEvent) => {e.preventDefault(); }, false);
@@ -33,15 +33,15 @@ There is a global variable that has been instantiated that you can access the co
 ## Module
 
 ### JavaScript
-There is a module called “typedcontract” that can be accessed using either the require or define syntax.
+There is a module called “typed-contract” that can be accessed using either the require or define syntax.
 
 #### Boolean validator
 	var localVariable = true;
-	var typedcontract = require("typedcontract");
+	var typedcontract = require("typed-contract");
 	var result = typedcontract.contract.In(localVariable).IsTrue();
 
 #### Array validator
-	define(['typedcontract'], function(typedcontract) {
+	define(['typed-contract'], function(typedcontract) {
 		describe("typed-contract with module syntax RequireJS via JavaScript", function() {
 			it("IsNotNull returns the right validator with a string array", function() {
 				// arrange
@@ -57,7 +57,7 @@ There is a module called “typedcontract” that can be accessed using either t
 	});
 
 ### TypeScript
-	/// <reference path="../typedcontract.d.ts" />
+	/// <reference path="../typed-contract.d.ts" />
 
 	import { contract } from "typedcontract";
 
