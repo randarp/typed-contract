@@ -1439,7 +1439,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-//# sourceMappingURL=typedcontract-lib.js.map
 /// <reference path="IContract.d.ts" />
 /// <reference path="TypeValidators/TypeValidators.d.ts" />
 /* tslint:disable */

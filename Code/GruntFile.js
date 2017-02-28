@@ -60,14 +60,13 @@ module.exports = function(grunt){
         },
         // Merge the library (from WebPack) and the bootstrapper
         concat: {
-            options: {
-
-            },
             dist: {
                 src: ['./TypedContract/typedcontract-lib.js', './TypedContract/typedcontract-bootstrapper.js'],
                 dest: 'typedcontract.js',
-                sourceMap: true,
-                sourceMapName: "typedcontract.js.map",
+                options: {
+                    sourceMap: true,
+                    sourceMapName: "typedcontract.js.map",
+                },
             },
             definition: {
                 src: ['./typedcontract.d.ts','./TypedContract/TypeValidators.d.ts'],
