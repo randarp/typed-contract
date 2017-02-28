@@ -5,7 +5,7 @@
 describe("typed-contract with inline RequireJS via JavaScript", function () {
     it("will return function through object returned through inline syntax", function () {
         // arrange/act
-        var typedcontract = require("typedcontract");
+        var typedcontract = require("typed-contract");
         var result = typedcontract.contract.In;
 
         // assert
