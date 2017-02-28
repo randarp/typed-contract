@@ -1,7 +1,7 @@
 /// <reference path="../typedcontract.d.ts" />
 /// <reference path="../Typings/jasmine/jasmine.d.ts" />
 
-import { contract } from "typedcontract";
+import { contract } from "typed-contract";
 
 describe("typed-contract with module syntax RequireJS via TypeScript", () => {
     /* Note, can't use expect(result).toEqual(jasmine.any(BooleanValidator)) here because the constructor function is not exposed for validators
