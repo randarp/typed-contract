@@ -1,7 +1,7 @@
 /// <reference path="../typedcontract.d.ts" />
 /// <reference path="../Typings/jasmine/jasmine.d.ts" />
 
-describe("typed-contract with inline global scope via TypeScript", () => {
+describe("typedcontract with inline global scope via TypeScript", () => {
 
     it("will return the correct validator for a boolean", () => {
         // arrange

@@ -1,7 +1,7 @@
 /**
  * Loads typed-contract from JS directly
  */
-describe("typed-contract with global scope via JavaScript", function () {
+describe("typedcontract with global scope via JavaScript", function () {
     it("will return function through global scope object", function () {
         // arrange
 

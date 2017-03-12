@@ -3,7 +3,7 @@
 
 import { contract } from "typedcontract";
 
-describe("typed-contract with module syntax RequireJS via TypeScript", () => {
+describe("typedcontract with module syntax RequireJS via TypeScript", () => {
     /* Note, can't use expect(result).toEqual(jasmine.any(BooleanValidator)) here because the constructor function is not exposed for validators
     So we have to use expect((<any>result.constructor).name).toBe("BooleanValidator");
     */

@@ -2,7 +2,7 @@
  * Loads typed-contract from JS through RequireJS
  */
 
-describe("typed-contract with inline RequireJS via JavaScript", function () {
+describe("typedcontract with inline RequireJS via JavaScript", function () {
     it("will return function through object returned through inline syntax", function () {
         // arrange/act
         var typedcontract = require("typedcontract");
@@ -16,7 +16,7 @@ describe("typed-contract with inline RequireJS via JavaScript", function () {
 
 define(['typedcontract'], function(typedcontract) {
 
-    describe("typed-contract with module syntax RequireJS via JavaScript", function() {
+    describe("typedcontract with module syntax RequireJS via JavaScript", function() {
 
         it("IsNotNull returns the right validator with a string array", function() {
             // arrange

@@ -558,42 +558,44 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 3 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
-	/**
-	 * Encapsulates any validators that apply to every type and state used by the validation chain.
-	 */
-	var BaseValidator = (function () {
-	    function BaseValidator(variableValue, variableName) {
-	        var self = this;
-	        self._variableValue = variableValue;
-	        if (variableName && variableName.length > 0) {
-	            self._variableName = variableName;
-	        }
-	        else {
-	            self._variableName = "The variable";
-	        }
-	    }
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports) {
+	    "use strict";
 	    /**
-	     * Value returns the value that was passed into the contract
-	     * @returns {T}
-	     * @constructor
+	     * Encapsulates any validators that apply to every type and state used by the validation chain.
 	     */
-	    BaseValidator.prototype.Value = function () {
-	        return this._variableValue;
-	    };
-	    /**
-	     * Name returns the variable name that was passed into the contract
-	     * @returns {string}
-	     * @constructor
-	     */
-	    BaseValidator.prototype.Name = function () {
-	        return this._variableName;
-	    };
-	    return BaseValidator;
-	}());
-	exports.BaseValidator = BaseValidator;
+	    var BaseValidator = (function () {
+	        function BaseValidator(variableValue, variableName) {
+	            var self = this;
+	            self._variableValue = variableValue;
+	            if (variableName && variableName.length > 0) {
+	                self._variableName = variableName;
+	            }
+	            else {
+	                self._variableName = "The variable";
+	            }
+	        }
+	        /**
+	         * Value returns the value that was passed into the contract
+	         * @returns {T}
+	         * @constructor
+	         */
+	        BaseValidator.prototype.Value = function () {
+	            return this._variableValue;
+	        };
+	        /**
+	         * Name returns the variable name that was passed into the contract
+	         * @returns {string}
+	         * @constructor
+	         */
+	        BaseValidator.prototype.Name = function () {
+	            return this._variableName;
+	        };
+	        return BaseValidator;
+	    }());
+	    exports.BaseValidator = BaseValidator;
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	//# sourceMappingURL=BaseValidator.js.map
 
 /***/ },

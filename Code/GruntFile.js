@@ -46,7 +46,7 @@ module.exports = function(grunt){
         // Generate the TypeScript .d.ts file
         dtsGenerator: {
             options: {
-                name: "typed-contract",
+                name: "typedcontract",
                 project: "./TypedContract",
                 out: "typedcontract.d.ts"
             },
