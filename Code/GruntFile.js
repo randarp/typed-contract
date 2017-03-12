@@ -129,5 +129,5 @@ module.exports = function(grunt){
     });
 
     // Run all grunt tasks required to build the solution and get it ready for deployment
-    grunt.task.registerTask("default", ["webpack", "dtsGenerator", "concat", "replace", "uglify", "copy"]);
+    grunt.task.registerTask("default", ["webpack", "dtsGenerator", "concat", "replace", "uglify"]);
 };

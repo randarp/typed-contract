@@ -1275,6 +1275,4 @@ declare module "typedcontract" {
 	    Out(postcondition: any): IAnyValidator;
 	}
 	export var contract: IContractStatic;
-
 }
-
