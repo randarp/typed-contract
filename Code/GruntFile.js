@@ -28,7 +28,7 @@ module.exports = function(grunt){
                     "typedcontract.min.js",
                     "typedcontract.d.ts",
                     "LICENSE-MIT"],
-                dest: './typed-contract',
+                dest: './packages/npm',
                 expand: true,
                 nonull: true
             },
@@ -38,7 +38,7 @@ module.exports = function(grunt){
                 src: [
                     "ReadMe.md"
                 ],
-                dest: './typed-contract',
+                dest: './packages/npm',
                 expand: true,
                 nonull: true
             }
