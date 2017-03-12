@@ -5,12 +5,14 @@
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.globalscope.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.requireJS.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract/typedcontract-bootstrapper.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.globalscope.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.requireJS.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/typedcontract-bootstrapper.js" />
     </CLASSES>
     <SOURCES />
   </library>
