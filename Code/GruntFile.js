@@ -17,32 +17,6 @@ module.exports = function(grunt){
                 }
             }
         },
-        // Copies the files over to the directory used to deploy to NPM
-        copy:{
-            library: {
-                cwd: './',
-                src: [
-                    "typedcontract.js",
-                    "package.json",
-                    "typedcontract.js.map",
-                    "typedcontract.min.js",
-                    "typedcontract.d.ts",
-                    "LICENSE-MIT"],
-                dest: './packages/npm',
-                expand: true,
-                nonull: true
-            },
-            readme:
-            {
-                cwd: '../',
-                src: [
-                    "ReadMe.md"
-                ],
-                dest: './packages/npm',
-                expand: true,
-                nonull: true
-            }
-        },
         // Generate the TypeScript .d.ts file
         dtsGenerator: {
             options: {
