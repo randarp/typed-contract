@@ -48,25 +48,25 @@ describe("typedcontract with global scope via JavaScript", function () {
          expect(typeof result).toBe("function")
     });
 
-    it("IsNotNull returns the right validator", function () {
+    it("isNotNull returns the right validator", function () {
         // arrange
         var localVariable = "A string";
 
         // act
-        var result = contract.pre(localVariable).IsNotNull();
+        var result = contract.pre(localVariable).isNotNull();
 
         // assert
         expect(result).not.toBeNull();
     });
 
-    it("IsNotNull returns the right validator", function () {
+    it("isNotNull returns the right validator", function () {
         // arrange
         var localVar = 99.9;
         var startRange = 0.00;
         var endRange = 100.0;
 
         // act
-        var result = contract.pre(localVar).IsBetween(startRange, endRange);
+        var result = contract.pre(localVar).isBetween(startRange, endRange);
 
         // assert
         expect(result);

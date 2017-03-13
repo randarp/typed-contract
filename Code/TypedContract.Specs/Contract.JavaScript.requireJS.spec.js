@@ -18,12 +18,12 @@ define(['typedcontract'], function(typedcontract) {
 
     describe("typedcontract with module syntax RequireJS via JavaScript", function() {
 
-        it("IsNotNull returns the right validator with a string array", function() {
+        it("isNotNull returns the right validator with a string array", function() {
             // arrange
             var localVariable = ["A", "B", "C"];
 
             // act
-            var result = typedcontract.contract.pre(localVariable).IsNotNull();
+            var result = typedcontract.contract.pre(localVariable).isNotNull();
 
             // assert
             expect(result).not.toBeNull();

@@ -36,20 +36,20 @@ It's pretty simple really, once it is in your project and it's included in you n
 Here is an example of what a typed-contract looks like...
 	myVar: number = 3.14159265359;
 	Contract.pre(myVar, "PI").
-		IsNotNull().
-		IsDefined().
-		IsGreaterThan(3.13).
-		IsNotLessThan(3);
+		isNotNull().
+		isDefined().
+		isGreaterThan(3.13).
+		isNotLessThan(3);
 
 and the same goes for postconditions as well
 
 	myVar: number = 3.14159265359;
 
 	Contract.ensures(myVar, "PI").
-		IsNotNull().
-		IsDefined().
-		IsGreaterThan(3.13).
-		IsNotLessThan(3);
+		isNotNull().
+		isDefined().
+		isGreaterThan(3.13).
+		isNotLessThan(3);
 
 As you can see we can use something known as <a href="https://en.wikipedia.org/wiki/Method_chaining" target="_blank">Function/Method chaining</a> to allow any typed-contract to check for many conditions in one instance of a contract. Each contract that is created will have specific functions based on the data type passed in as a pre or post condition in, making good use of TypeScripts static typing. Here is an example.
 
@@ -59,17 +59,17 @@ As you can see we can use something known as <a href="https://en.wikipedia.org/w
 	varBoolean: boolean = true;<br/>
 
 	Contract.pre(varNumber).
-		IsLessThan(101).
-		IsNotNull().
-		IsGreaterThan(99);<br/>
+		isLessThan(101).
+		isNotNull().
+		isGreaterThan(99);<br/>
 
 	Contract.pre(varArray).
-		IsDefined().
-		IsEqualTo([1, 2, 3], 1);<br/>
+		isDefined().
+		isEqualTo([1, 2, 3], 1);<br/>
 
 	Contract.pre(varString).
-		Contains("Hello").
-		NotContains("Goodbye");
+		contains("Hello").
+		notContains("Goodbye");
 
 If you would like to see all of the documentation click here [https://github.com/randarp/typed-contract/wiki](https://github.com/randarp/typed-contract/wiki)
 

@@ -2,115 +2,115 @@
 /// <reference path="../../Typings/jasmine/jasmine.d.ts" />
 describe("AnyValidator", () => {
 
-    it("IsNotNull returns the proper validator when given an undefined", () => {
+    it("isNotNull returns the proper validator when given an undefined", () => {
         let localVar: any;
 
-        let result: IAnyValidator = contract.pre(localVar).IsNotNull();
+        let result: IAnyValidator = contract.pre(localVar).isNotNull();
 
         expect(result);
     });
 
 
-    it("IsNotNull returns the right validator", () => {
+    it("isNotNull returns the right validator", () => {
         // arrange
         let localVariable: any = "A string";
 
         // act
-        let result: IAnyValidator = contract.pre(localVariable).IsNotNull();
+        let result: IAnyValidator = contract.pre(localVariable).isNotNull();
 
         // assert
         expect(result).not.toBeNull();
         expect((<any>result.constructor).name).toBe("StringValidator");
     });
 
-    it("IsNotNull is passed the an empty string", () => {
+    it("isNotNull is passed the an empty string", () => {
         let localVar: string = "";
 
-        let result: IAnyValidator = contract.pre(localVar).IsNotNull();
+        let result: IAnyValidator = contract.pre(localVar).isNotNull();
 
         expect(result).not.toBe(null);
         expect((<any>result.constructor).name).toBe("StringValidator");
     });
 
-    it("IsNotNull is passed in a defined number variable", () => {
+    it("isNotNull is passed in a defined number variable", () => {
        let localVar: any = 100;
 
-       let result: IAnyValidator = contract.pre(localVar).IsNotNull();
+       let result: IAnyValidator = contract.pre(localVar).isNotNull();
 
        expect(result).not.toBe(null);
     });
 
-    it("IsNull expects a result of an error thrown", () => {
+    it("isNull expects a result of an error thrown", () => {
 
         // arrange
         let localVariable: any = {a: "TypeScript", b: function(){ return null; }, c: [1, 2, 3]};
 
         // act/assert
         expect(() => {
-            contract.pre(localVariable).IsNull();
+            contract.pre(localVariable).isNull();
         }).toThrow(new ReferenceError("The variable should be null")); // getting right result, assertion statement wrong
     });
 
-    it("IsDefined should return the proper result ", () => {
+    it("isDefined should return the proper result ", () => {
 
         let localVar: string = "Andre";
 
-        let result: IAnyValidator = contract.pre(localVar).IsDefined();
+        let result: IAnyValidator = contract.pre(localVar).isDefined();
 
         expect(result).toBeDefined();
 
     });
 
-    it("IsNull should return the proper result", () => {
+    it("isNull should return the proper result", () => {
         let localVar: string = null;
 
-        let result: IAnyValidator = contract.pre(localVar).IsNull();
+        let result: IAnyValidator = contract.pre(localVar).isNull();
 
         expect(result);
 
     });
 
-    it("IsNotDefined return the proper result", () => {
+    it("isNotDefined return the proper result", () => {
         let myVar: any;
 
-        let result: IAnyValidator = contract.pre(myVar, "").IsUndefined();
+        let result: IAnyValidator = contract.pre(myVar, "").isUndefined();
 
         expect(result);
     });
 
-    it("IsNullOrUndefined returns proper validator with a undefined variable", () => {
+    it("isNullOrUndefined returns proper validator with a undefined variable", () => {
 
         let localVar: any;
 
         expect( () => {
-            contract.pre(localVar).IsNullOrUndefined();
+            contract.pre(localVar).isNullOrUndefined();
         }).toThrowError(<any>ReferenceError);
     });
 
-    it("IsNullOrUndefined returns the proper validator with a defined variable", () => {
+    it("isNullOrUndefined returns the proper validator with a defined variable", () => {
 
         let localVar: any = "Hello World";
 
         expect( () => {
-            contract.pre(localVar).IsNullOrUndefined();
+            contract.pre(localVar).isNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
 
     });
 
-    it("IsNotNull on an MouseEvent type for an AnyValidator to return true", () => {
+    it("isNotNull on an MouseEvent type for an AnyValidator to return true", () => {
        let divElement: HTMLElement = document.createElement("div");
 
        let localVar: void = divElement.addEventListener("click", (e: MouseEvent) => {e.preventDefault(); }, false);
 
-       let result: IAnyValidator = contract.pre(localVar).IsNotNull();
+       let result: IAnyValidator = contract.pre(localVar).isNotNull();
 
        expect(result).not.toBe(null);
     });
 
-    it("IsNotNull on an anonymous function for an AnyValidator", () => {
+    it("isNotNull on an anonymous function for an AnyValidator", () => {
         let localVar: any = () => {var x = 1; return x; };
 
-        let result: IAnyValidator = contract.pre(localVar).IsNotNull();
+        let result: IAnyValidator = contract.pre(localVar).isNotNull();
 
         expect(result).not.toBe(null);
     });

@@ -1,428 +1,428 @@
 interface IBaseValidator<T> {
     /**
-     * Value returns the value that was passed into the contract
+     * value returns the value that was passed into the contract
      * @returns {T}
      * @constructor
      */
-    Value(): T;
+    value(): T;
 
     /**
-     * Name returns the variable name that was passed into the contract
+     * name returns the variable name that was passed into the contract
      * @returns {string}
      * @constructor
      */
-    Name(): string;
+    name(): string;
 }
 
 interface IAnyValidator extends IBaseValidator<any> {
     /**
      *
-     * IsNotNull checks if the type any variable is not null
+     * isNotNull checks if the type any variable is not null
      * @throws a ReferenceError if the any is null
      * @returns {IAnyValidator}
      */
-    IsNotNull(): IAnyValidator;
+    isNotNull(): IAnyValidator;
 
     /**
      *
-     * IsNull checks if the any variable is null
+     * isNull checks if the any variable is null
      * @throws a ReferenceError if the variable is not null
      * @returns {IAnyValidator}
      */
-    IsNull(): IAnyValidator;
+    isNull(): IAnyValidator;
 
 
     /**
-     * IsDefined checks if the any variable is defined
+     * isDefined checks if the any variable is defined
      * @throws ReferenceError if the any variable jis not defined
      * @returns {IAnyValidator}
      */
-    IsDefined(): IAnyValidator;
+    isDefined(): IAnyValidator;
 
     /**
-     * IsUndefined checks if the any variable is undefined
+     * isUndefined checks if the any variable is undefined
      * @throws a ReferenceError if the any variable is undefined
      * @returns {IAnyValidator}
      */
-    IsUndefined(): IAnyValidator;
+    isUndefined(): IAnyValidator;
 
     /**
-     * IsNullOrUndefined checks if the any variable is not null or undefined
+     * isNullOrUndefined checks if the any variable is not null or undefined
      * @throws ReferenceError if the any variable is null or undefined
      * @returns {IAnyValidator}
      */
-    IsNullOrUndefined(): IAnyValidator;
+    isNullOrUndefined(): IAnyValidator;
 }
 
 interface IArrayValidator extends IBaseValidator<any[]> {
     /**
      *
-     * IsNull Checks if the array variable is null
+     * isNull Checks if the array variable is null
      * @throws ReferenceError if the variable is not null
      * @returns { IArrayValidator}
      */
-    IsNull(): IArrayValidator;
+    isNull(): IArrayValidator;
 
 
     /**
      *
-     * IsNotNull checks if the array variable is not null
+     * isNotNull checks if the array variable is not null
      * @throws ReferenceError if the variable is null
      * @returns { IArrayValidator}
      */
 
-    IsNotNull(): IArrayValidator;
+    isNotNull(): IArrayValidator;
 
     /**
-     * IsDefined checks if the array variable is defined
+     * isDefined checks if the array variable is defined
      * @throws ReferenceError if the array variable is undefined
      * @returns { IArrayValidator}
      */
-    IsDefined(): IArrayValidator;
+    isDefined(): IArrayValidator;
 
     /**
-     * IsUndefined checks if the array variable is undefined
+     * isUndefined checks if the array variable is undefined
      * @throws ReferenceError if the array variable is defined
      * @returns { IArrayValidator}
      */
 
-    IsUndefined(): IArrayValidator;
+    isUndefined(): IArrayValidator;
 
     /**
-     * IsNullOrUndefined checks if the array variable is not null or undefined
+     * isNullOrUndefined checks if the array variable is not null or undefined
      * @throws ReferenceError if the array variable is null or undefined
      * @returns { IArrayValidator}
      */
 
-    IsNullOrUndefined(): IArrayValidator;
+    isNullOrUndefined(): IArrayValidator;
 
     /**
      *
-     * IsEqualTo checks if the array variable is equal to the index of the parameter passed into the function as an argument
+     * isEqualTo checks if the array variable is equal to the index of the parameter passed into the function as an argument
      * @throws RangeError if the array variable is not equal to the index given parameter passed into the function
      * @param compareTo, index
      * @returns { IArrayValidator}
      */
-    IsEqualTo(compareTo: any[], index: number): IArrayValidator;
+    isEqualTo(compareTo: any[], index: number): IArrayValidator;
 
     /**
      *
-     * IsNotEqualTo checks if the array variable is not equal to the index of the parameter passed into the function as an argument
+     * isNotEqualTo checks if the array variable is not equal to the index of the parameter passed into the function as an argument
      * @throws RangeError if the array variable is equal to the index given parameter passed into the function
      * @param compareTo, index
      * @returns { IArrayValidator}
      */
-    IsNotEqualTo(compareTo: any[], index: number): IArrayValidator;
+    isNotEqualTo(compareTo: any[], index: number): IArrayValidator;
 
     /**
      *
-     * IsLengthGreaterThan checks if the array variable length is greater than the parameter passed into the function as an argument
+     * isLengthGreaterThan checks if the array variable length is greater than the parameter passed into the function as an argument
      * @throws RangeError if the array is not greater than the parameter passed into the function
      * @param compareTo
      * @returns { IArrayValidator}
      */
-    IsLengthGreaterThan(compareTo: any[]): IArrayValidator;
+    isLengthGreaterThan(compareTo: any[]): IArrayValidator;
 
     /**
      *
-     * IsLengthNotGreaterThan checks if the array variable's length is not greater than the length of the contract precondition
+     * isLengthNotGreaterThan checks if the array variable's length is not greater than the length of the contract precondition
      * @throws RangeError if the array variable is greater than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
      * @returns { IArrayValidator}
      */
-    IsLengthNotGreaterThan(compareTo: any[]): IArrayValidator;
+    isLengthNotGreaterThan(compareTo: any[]): IArrayValidator;
 
     /**
      *
-     * IsLengthGreaterOrEqualTo checks if the array variable's length is greater or equal than the length of the contract precondition
+     * isLengthGreaterOrEqualTo checks if the array variable's length is greater or equal than the length of the contract precondition
      * @throws RangeError if the array variable is not
      * greater or equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
      * @returns { IArrayValidator}
      */
 
-    IsLengthGreaterOrEqualTo(compareTo: any[]): IArrayValidator;
+    isLengthGreaterOrEqualTo(compareTo: any[]): IArrayValidator;
 
     /**
      *
-     * IsLengthNotGreaterOrEqualTo checks if the array variable's length is greater or equal than the length of the contract precondition
+     * isLengthNotGreaterOrEqualTo checks if the array variable's length is greater or equal than the length of the contract precondition
      * @throws RangeError if the array variable is not greater or
      * equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
      * @returns { IArrayValidator}
      */
-    IsLengthNotGreaterOrEqualTo(compareTo: any[]):  IArrayValidator;
+    isLengthNotGreaterOrEqualTo(compareTo: any[]):  IArrayValidator;
 
     /**
      *
-     * IsLengthLessThan checks if the array variable's length is less than the length of the contract precondition
+     * isLengthLessThan checks if the array variable's length is less than the length of the contract precondition
      * @throws RangeError if the array variable is greater or
      * equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
      * @returns { IArrayValidator}
      */
-    IsLengthLessThan(compareTo: any[]):  IArrayValidator;
+    isLengthLessThan(compareTo: any[]):  IArrayValidator;
 
     /**
      *
-     * IsLengthNotLessThan checks if the array variable's length is not less than the length of the contract precondition
+     * isLengthNotLessThan checks if the array variable's length is not less than the length of the contract precondition
      * @throws RangeError if the array variable is less than or
      * equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
      * @returns { IArrayValidator}
      */
 
-    IsLengthNotLessThan(compareTo: any[]):  IArrayValidator;
+    isLengthNotLessThan(compareTo: any[]):  IArrayValidator;
 
     /**
      *
-     * IsLengthLessOrEqualThan checks if the array variable's length is less or equal than the length of the contract precondition
+     * isLengthLessOrEqualThan checks if the array variable's length is less or equal than the length of the contract precondition
      * @throws RangeError if the array variable is greater than
      * the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
      * @returns { IArrayValidator}
      */
-    IsLengthLessOrEqualThan(compareTo: any[]):  IArrayValidator;
+    isLengthLessOrEqualThan(compareTo: any[]):  IArrayValidator;
 
     /**
      *
-     * IsLengthNotLessOrEqualThan checks if the array variable's length is not less or equal than the length of the contract precondition
+     * isLengthNotLessOrEqualThan checks if the array variable's length is not less or equal than the length of the contract precondition
      * @throws RangeError if the array variable is less or equal than
      * the length of the precondition passed into the instance of the TypedContract
      * @param compareTo
      * @returns { IArrayValidator}
      */
-    IsLengthNotLessOrEqualThan(compareTo: any[]): IArrayValidator;
+    isLengthNotLessOrEqualThan(compareTo: any[]): IArrayValidator;
 
     /**
      *
-     * Contains checks if the array variable's values contains one or more values
+     * contains checks if the array variable's values contains one or more values
      * with in the precondition of the TypedContract
      * @throws RangeError if the array variable does not contain any of the values
-     *  passed into the instance of the TypedContract using the Contains function
+     *  passed into the instance of the TypedContract using the contains function
      * @param compareTo
      * @returns { IArrayValidator}
      */
 
-    Contains(compareTo: any[]): IArrayValidator;
+    contains(compareTo: any[]): IArrayValidator;
 
     /**
      *
-     * NotContains checks if the array variable's values does not contain any values
+     * notContains checks if the array variable's values does not contain any values
      * with in the precondition of the TypedContract
      * @throws RangeError if the array variable does contain any of the values
-     *  passed into the instance of the TypedContract using the NotContains function
+     *  passed into the instance of the TypedContract using the notContains function
      * @param compareTo
      * @returns { IArrayValidator}
      */
 
-    NotContains(compareTo: any[]): IArrayValidator;
+    notContains(compareTo: any[]): IArrayValidator;
 }
 
 interface IBooleanValidator extends IBaseValidator<boolean> {
 
     /**
      *
-     * IsNull checks if the boolean variable is null
+     * isNull checks if the boolean variable is null
      * @throws a ReferenceError if the variable is not null
      */
-    IsNull(): IBooleanValidator;
+    isNull(): IBooleanValidator;
 
     /**
      *
-     * IsNotNull checks if the boolean variable is not null
+     * isNotNull checks if the boolean variable is not null
      * @throws a ReferenceError if the variable is null
      */
-    IsNotNull(): IBooleanValidator;
+    isNotNull(): IBooleanValidator;
 
     /**
-     * IsDefined checks if the boolean variable is defined
+     * isDefined checks if the boolean variable is defined
      * @throws a ReferenceError if the boolen variable is undefined
      * @returns {IBooleanValidator}
      */
-    IsDefined(): IBooleanValidator;
+    isDefined(): IBooleanValidator;
 
     /**
-     * IsUndefined checks if the boolean variable is undefined
+     * isUndefined checks if the boolean variable is undefined
      * @throws ReferenceError if the boolean variable is defined
      * @returns {IBooleanValidator}
      */
-    IsUndefined(): IBooleanValidator;
+    isUndefined(): IBooleanValidator;
 
     /**
-     * IsNullOrUndefined checks if the boolean variable is not null or undefined
+     * isNullOrUndefined checks if the boolean variable is not null or undefined
      * @throws ReferenceError if the boolean variable is null or undefined
      * @returns {IBooleanValidator}
      */
-    IsNullOrUndefined(): IBooleanValidator;
+    isNullOrUndefined(): IBooleanValidator;
 
     /**
      *
-     * IsEqualTo checks if the boolean variable is equal to the parameter passed into the function as an argument
+     * isEqualTo checks if the boolean variable is equal to the parameter passed into the function as an argument
      * @throws RangeError if the boolean variable is not equal to the parameter passed into the function
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    IsEqualTo(compareTo: boolean): IBooleanValidator;
+    isEqualTo(compareTo: boolean): IBooleanValidator;
 
     /**
      *
-     * IsNotEqualTo checks if the boolean variable is not equal to the parameter passed into the function as an argument
+     * isNotEqualTo checks if the boolean variable is not equal to the parameter passed into the function as an argument
      * @throws RangeError if the boolean variable is equal to the parameter passed into the function
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    IsNotEqualTo(compareTo: boolean): IBooleanValidator;
+    isNotEqualTo(compareTo: boolean): IBooleanValidator;
 
     /**
      *
-     * IsTrue checks if the boolean variable is true
+     * isTrue checks if the boolean variable is true
      * @throws RangeError if the boolean variable is false
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    IsTrue(): IBooleanValidator;
+    isTrue(): IBooleanValidator;
 
     /**
      *
-     * IsFalse checks if the boolean variable is false
+     * isFalse checks if the boolean variable is false
      * @throws RangeError if the boolean variable is alse
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    IsFalse(): IBooleanValidator;
+    isFalse(): IBooleanValidator;
 }
 
 interface INumberValidator extends IBaseValidator<number> {
 
     /**
      *
-     * IsNotNull checks if the type number variable is not null
+     * isNotNull checks if the type number variable is not null
      * @throws a ReferenceError if the variable is null
      * @returns {INumberValidator}
      */
-    IsNotNull(): INumberValidator;
+    isNotNull(): INumberValidator;
 
     /**
      *
-     * IsNull checks if the string variable is null
+     * isNull checks if the string variable is null
      * @throws a ReferenceError if the variable is not null
      * @returns {INumberValidator}
      */
-    IsNull(): INumberValidator;
+    isNull(): INumberValidator;
 
 
     /**
-     * IsDefined checks if the number variable is defined
+     * isDefined checks if the number variable is defined
      * @throws ReferenceError if the number variable jis not defined
      * @returns {INumberValidator}
      */
-    IsDefined(): INumberValidator;
+    isDefined(): INumberValidator;
 
     /**
-     * IsUndefined checks if the number variable is undefined
+     * isUndefined checks if the number variable is undefined
      * @throws a ReferenceError if the number variable is undefined
      * @returns {INumberValidator}
      */
-    IsUndefined(): INumberValidator;
+    isUndefined(): INumberValidator;
 
     /**
-     * IsNullOrUndefined checks if the number variable is not null or undefined
+     * isNullOrUndefined checks if the number variable is not null or undefined
      * @throws ReferenceError if the number variable is null or undefined
      * @returns {INumberValidator}
      */
-    IsNullOrUndefined(): INumberValidator;
+    isNullOrUndefined(): INumberValidator;
 
     /**
      *
-     * IsEqualTo checks if the number variable is equal to the parameter passed into the function as an argument
+     * isEqualTo checks if the number variable is equal to the parameter passed into the function as an argument
      * @throws RangeError if the number variable is not equal to the parameter passed into the function
      * @param compareTo
      * @returns {INumberValidator}
      */
-    IsEqualTo(compareTo: number): INumberValidator;
+    isEqualTo(compareTo: number): INumberValidator;
 
     /**
      *
-     * IsNotEqualTo checks if the number variable is not equal to the parameter passed into the function as an argument
+     * isNotEqualTo checks if the number variable is not equal to the parameter passed into the function as an argument
      * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @param compareTo
      * @returns {INumberValidator}
      */
-    IsNotEqualTo(compareTo: number): INumberValidator;
+    isNotEqualTo(compareTo: number): INumberValidator;
 
     /**
      *
-     * IsGreaterThan checks if the number variable is not greater than the parameter passed into the function as an argument
+     * isGreaterThan checks if the number variable is not greater than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is less or equal to the parameter passed into the function
      * @param compareTo
      * @returns {INumberValidator}
      */
-    IsGreaterThan(compareTo: number): INumberValidator;
+    isGreaterThan(compareTo: number): INumberValidator;
 
     /**
      *
-     * IsNotGreaterThan checks if the number variable is not greater to the parameter passed into the function as an argument
+     * isNotGreaterThan checks if the number variable is not greater to the parameter passed into the function as an argument
      * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @param compareTo
      * @returns {INumberValidator}
      */
-    IsNotGreaterThan(compareTo: number): INumberValidator;
+    isNotGreaterThan(compareTo: number): INumberValidator;
 
     /**
      *
-     * IsGreaterOrEqualThan checks if the number variable is greater or equal than the parameter passed into the function as an argument
+     * isGreaterOrEqualThan checks if the number variable is greater or equal than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @param compareTo
      * @returns {INumberValidator}
      */
-    IsGreaterOrEqualThan(compareTo: number): INumberValidator;
+    isGreaterOrEqualThan(compareTo: number): INumberValidator;
 
     /**
      *
-     * IsNotGreaterOrEqualThan checks if the number variable is not greater or equal than the
+     * isNotGreaterOrEqualThan checks if the number variable is not greater or equal than the
      * parameter passed into the function as an argument
      * @throws RangeError if the number variable is equal or greater than parameter passed into the function
      * @param compareTo
      * @returns {INumberValidator}
      */
-    IsNotGreaterOrEqualThan(compareTo: number): INumberValidator;
+    isNotGreaterOrEqualThan(compareTo: number): INumberValidator;
 
     /**
      *
-     * IsLessThan checks if the number variable is less than the parameter passed into the function as an argument
+     * isLessThan checks if the number variable is less than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is greater to the parameter passed into the function
      * @param compareTo
      * @returns {INumberValidator}
      */
-    IsLessThan(compareTo: number): INumberValidator;
+    isLessThan(compareTo: number): INumberValidator;
 
     /**
      *
-     * IsNotLessThan checks if the number variable is not less than the parameter passed into the function as an argument
+     * isNotLessThan checks if the number variable is not less than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is greater to the parameter passed into the function
      * @param compareTo
      * @returns {INumberValidator}
      */
-    IsNotLessThan(compareTo: number): INumberValidator;
+    isNotLessThan(compareTo: number): INumberValidator;
 
     /**
      *
-     * IsLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
+     * isLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is greater or equal than the parameter passed into the function
      * @param compareTo
      * @returns {INumberValidator}
      */
-    IsLessOrEqualThan(compareTo: number): INumberValidator;
+    isLessOrEqualThan(compareTo: number): INumberValidator;
 
     /**
      *
-     * IsNotLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
+     * isNotLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is greater or equal than the parameter passed into the function
      * @param compareTo
      * @returns {INumberValidator}
      */
-    IsNotLessOrEqualThan(compareTo: number): INumberValidator;
+    isNotLessOrEqualThan(compareTo: number): INumberValidator;
 
     /**
      * Checks if the variable passed into the TypedContract as a pre or post condition is between certain a range of values. The TypedContract will throw an error if the pre or post condition in the contract is not in the range as specified.
@@ -431,7 +431,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @returns {NumberValidator}
      * @constructor
      */
-    IsBetween(startRange: number, endRange: number): INumberValidator;
+    isBetween(startRange: number, endRange: number): INumberValidator;
 
     /**
      * Checks if the variable passed into the TypedContract as a pre or post condition is not in between certain a range of values. The TypedContract will throw an error if the pre or post condition in the contract is in the range as specified.
@@ -439,257 +439,257 @@ interface INumberValidator extends IBaseValidator<number> {
      * @param endRange
      * @returns {NumberValidator}
      */
-    IsNotBetween(startRange: number, endRange: number): INumberValidator;
+    isNotBetween(startRange: number, endRange: number): INumberValidator;
 }
 
 interface IStringValidator extends IBaseValidator<string> {
 
     /**
      *
-     * IsNotNull checks if the string variable is not null
+     * isNotNull checks if the string variable is not null
      * @throws a ReferenceError if the variable is null
      * @returns {IStringValidator}
      */
-    IsNotNull(): IStringValidator;
+    isNotNull(): IStringValidator;
 
     /**
      *
-     * IsNull checks if the string variable is null
+     * isNull checks if the string variable is null
      * @throws a ReferenceError if the variable is not null
      * @returns {IStringValidator}
      */
-    IsNull(): IStringValidator;
+    isNull(): IStringValidator;
 
     /**
-     * IsDefined checks if the string variable is defined
+     * isDefined checks if the string variable is defined
      * @throws ReferenceError if the string is not defined
      * @returns {IStringValidator}
      */
-    IsDefined(): IStringValidator;
+    isDefined(): IStringValidator;
 
     /**
-     * IsNotDefined checks if the string variable is not defined
+     * isNotDefined checks if the string variable is not defined
      * @throws ReferenceError if variable is defined
      * @returns {IStringValidator}
      */
-    IsUndefined(): IStringValidator;
+    isUndefined(): IStringValidator;
 
 
     /**
-     * IsNullOrUndefined checks if a string variable is not null or undefined
+     * isNullOrUndefined checks if a string variable is not null or undefined
      * @throws ReferenceError if a string variable is null or not undefined
      * @returns {IStringValidator}
      */
-    IsNullOrUndefined(): IStringValidator;
+    isNullOrUndefined(): IStringValidator;
 
     /**
      *
-     * IsEqualTo cecks if the string variable is equal to the parameter passed into the function as an argument
+     * isEqualTo cecks if the string variable is equal to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not equal to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    IsEqualTo(compareTo: string): IStringValidator;
+    isEqualTo(compareTo: string): IStringValidator;
 
     /**
      *
-     * IsNotEqualTo checks if the string variable is not equal to the parameter passed into the function as an argument
+     * isNotEqualTo checks if the string variable is not equal to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is equal to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    IsNotEqualTo(compareTo: string): IStringValidator;
+    isNotEqualTo(compareTo: string): IStringValidator;
 
     /**
      *
-     * IsLessThan checks if the string variable is less than to the parameter passed into the function as an argument
+     * isLessThan checks if the string variable is less than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is greater to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    IsLessThan(compareTo: string): IStringValidator;
+    isLessThan(compareTo: string): IStringValidator;
 
     /**
      *
-     * IsNotLessThan checks if the string variable is not less than to the parameter passed into the function as an argument
+     * isNotLessThan checks if the string variable is not less than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not less than to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    IsNotLessThan(compareTo: string): IStringValidator;
+    isNotLessThan(compareTo: string): IStringValidator;
 
     /**
      *
-     * IsLengthGreaterThan checks if the string variable length is greater than to the parameter passed into the function as an argument
+     * isLengthGreaterThan checks if the string variable length is greater than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not greater than to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    IsLengthGreaterThan(compareTo: string): IStringValidator;
+    isLengthGreaterThan(compareTo: string): IStringValidator;
 
     /**
      *
-     * IsLengthGreaterOrEqualTo checks if the string variable length is greater or equal than
+     * isLengthGreaterOrEqualTo checks if the string variable length is greater or equal than
      * to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not greater or equal than to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    IsLengthGreaterOrEqualTo(compareTo: string): IStringValidator;
+    isLengthGreaterOrEqualTo(compareTo: string): IStringValidator;
 
     /**
      *
-     * IsLengthNotGreaterThan checks if the string variable length is not greater than to the parameter passed into the function as an argument
+     * isLengthNotGreaterThan checks if the string variable length is not greater than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is less or equal than to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    IsLengthNotGreaterThan(compareTo: string): IStringValidator;
+    isLengthNotGreaterThan(compareTo: string): IStringValidator;
 
     /**
      *
-     * IsLengthNotGreaterOrEqualTo checks if the string variable length is not greater or equal than to the parameter passed into the function as an argument
+     * isLengthNotGreaterOrEqualTo checks if the string variable length is not greater or equal than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is greater or equal than to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    IsLengthNotGreaterOrEqualTo(compareTo: string): IStringValidator;
+    isLengthNotGreaterOrEqualTo(compareTo: string): IStringValidator;
 
     /**
-     * IsLengthLessThan checks if length of the string is less than the comparable passed into the TypedContract
+     * isLengthLessThan checks if length of the string is less than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater or equal to the comparable passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      *
      */
-    IsLengthLessThan(compareTo: string): IStringValidator;
+    isLengthLessThan(compareTo: string): IStringValidator;
 
     /**
-     * IsLengthNotLessThan checks if length of the string is less than the comparable passed into the TypedContract
+     * isLengthNotLessThan checks if length of the string is less than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater or equal to the comparable passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      *
      */
-    IsLengthNotLessThan(compareTo: string): IStringValidator;
+    isLengthNotLessThan(compareTo: string): IStringValidator;
 
     /**
-     * IsLengthLessOrEqualThan checks if length of the string is less or equal than the comparable passed into the TypedContract
+     * isLengthLessOrEqualThan checks if length of the string is less or equal than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater than the comparable passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      *
      */
-    IsLengthLessOrEqualThan(compareTo: string): IStringValidator;
+    isLengthLessOrEqualThan(compareTo: string): IStringValidator;
 
     /**
-     * IsLengthNotLessOrEqualThan checks if length of the string is not less or equal than the comparable passed into the TypedContract
+     * isLengthNotLessOrEqualThan checks if length of the string is not less or equal than the comparable passed into the TypedContract
      * @throws RangeError if the string length is less or equal than the comparable passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      *
      */
-    IsLengthNotLessOrEqualThan(compareTo: string): IStringValidator;
+    isLengthNotLessOrEqualThan(compareTo: string): IStringValidator;
 
     /**
      *
-     * ToMatch checks if the regular expression passed into the function matches the string
+     * toMatch checks if the regular expression passed into the function matches the string
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does not match the values in the precondition
      * @param regExp
      * @returns {IStringValidator}
      */
-    ToMatch(regExp: any): IStringValidator;
+    toMatch(regExp: any): IStringValidator;
 
     /**
      *
-     * ToNotMatch checks if the regular expression passed into the function does not match the string
+     * toNotMatch checks if the regular expression passed into the function does not match the string
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does not match the values in the precondition
      * @param regExp
      * @returns {IStringValidator}
      */
-    ToNotMatch(regExp: RegExp): IStringValidator;
+    toNotMatch(regExp: RegExp): IStringValidator;
 
     /**
      *
-     * Contains checks if the string passed into the function contains a match of the string
+     * contains checks if the string passed into the function contains a match of the string
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does match the values in the precondition
      * @param compareTo
      * @returns {IStringValidator}
      */
-    Contains(compareTo: string): IStringValidator;
+    contains(compareTo: string): IStringValidator;
 
     /**
      *
-     * NotContains checks if the string passed into the function contains a match of the string
+     * notContains checks if the string passed into the function contains a match of the string
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does not match the values in the precondition
      * @param compareTo
      * @returns {IStringValidator}
      */
-    NotContains(compareTo: string): IStringValidator;
+    notContains(compareTo: string): IStringValidator;
 
     /**
      *
-     * StartsWith checks if the precondition in the TypedContract has the same starting string
+     * startsWith checks if the precondition in the TypedContract has the same starting string
      * value as the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract does not contain the same starting values
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StartsWith(compareTo: string): IStringValidator;
+    startsWith(compareTo: string): IStringValidator;
 
     /**
      *
-     * NotStartsWith checks if the precondition in the TypedContract does not have the same starting string
+     * notStartsWith checks if the precondition in the TypedContract does not have the same starting string
      * value as the comparable variable passed into the function
      * @throws RangeError if the compareTo argument passed into TypedContract does not contain the same starting values
      * @param compareTo
      * @returns {IStringValidator}
      */
-    NotStartsWith(compareTo: string): IStringValidator;
+    notStartsWith(compareTo: string): IStringValidator;
 
     /**
      *
-     * EndsWith checks if the precondition in the TypedContract has the same ending string
+     * endsWith checks if the precondition in the TypedContract has the same ending string
      * values as the comparable variable passed into the function
      * @throws RangeError if the compareTo argument passed into TypedContract does not contain the same ending values
      * @param compareTo
      * @returns {IStringValidator}
      */
-    EndsWith(compareTo: string): IStringValidator;
+    endsWith(compareTo: string): IStringValidator;
 
     /**
      *
-     * NotEndsWith checks if the precondition in the TypedContract does not have the same ending string
+     * notEndsWith checks if the precondition in the TypedContract does not have the same ending string
      * values as the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract does contain the same ending values
      * @param compareTo
      * @returns {IStringValidator}
      */
-    NotEndsWith(compareTo: string): IStringValidator;
+    notEndsWith(compareTo: string): IStringValidator;
 
     /**
      *
-     * IsBetween checks if the precondition in the TypedContract is in between the starting and ending string range
+     * isBetween checks if the precondition in the TypedContract is in between the starting and ending string range
      * and are compared against the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract is not in between the
      * starting and ending range
      * @param startRange, endRange
      * @returns {IStringValidator}
      */
-    IsBetween(startRange: string, endRange: string): IStringValidator;
+    isBetween(startRange: string, endRange: string): IStringValidator;
 
     /**
      *
-     * IsNotBetween checks if the precondition in the TypedContract is not in between the starting and ending string range
+     * isNotBetween checks if the precondition in the TypedContract is not in between the starting and ending string range
      * and are compared against the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract is in between the
      * starting and ending range
      * @param startRange, endRange
      * @returns {IStringValidator}
      */
-    IsNotBetween(startRange: string, endRange: string): IStringValidator;
+    isNotBetween(startRange: string, endRange: string): IStringValidator;
 }

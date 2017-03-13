@@ -3,24 +3,24 @@
 
 describe("NumberValidator", () => {
 
-    it("IsGreaterThan returns the right validator", () => {
+    it("isGreaterThan returns the right validator", () => {
         // arrange
         let localVariable: number = 2;
 
         // act
-        let result: INumberValidator = contract.pre(localVariable).IsGreaterThan(1);
+        let result: INumberValidator = contract.pre(localVariable).isGreaterThan(1);
 
         // assert
         expect(result);
     });
 
-    it("IsGreaterThan returns the right validator if passed a double/float", () => {
+    it("isGreaterThan returns the right validator if passed a double/float", () => {
         // arrange
         let localVariable: number = 2.05;
         let comparableVar: number = 1;
 
         // act
-        let result: INumberValidator = contract.pre(localVariable).IsGreaterThan(comparableVar);
+        let result: INumberValidator = contract.pre(localVariable).isGreaterThan(comparableVar);
 
         // assert
         expect(result);
@@ -32,7 +32,7 @@ describe("NumberValidator", () => {
         let localVar: number = 1;
 
         // act
-        let result: INumberValidator = contract.pre(localVar).IsNotNull();
+        let result: INumberValidator = contract.pre(localVar).isNotNull();
 
         // assert
         expect(result);
@@ -43,456 +43,456 @@ describe("NumberValidator", () => {
         let localVar: number = null;
 
         // act
-        let result: INumberValidator = contract.pre(localVar).IsNull();
+        let result: INumberValidator = contract.pre(localVar).isNull();
 
         // assert
         expect(result);
     });
 
-    it("IsDefined does return the proper validator", () => {
+    it("isDefined does return the proper validator", () => {
         // arrange
         let localVar: number = 0;
 
         // act
-        let result: INumberValidator = contract.pre(localVar).IsDefined();
+        let result: INumberValidator = contract.pre(localVar).isDefined();
 
         // assert
         expect(result).toBeDefined();
 
     });
 
-    it("IsNullOrUndefined returns proper validator if defined", () => {
+    it("isNullOrUndefined returns proper validator if defined", () => {
         let localVar: number = 0;
 
-        let result: INumberValidator = contract.pre(localVar).IsNullOrUndefined();
+        let result: INumberValidator = contract.pre(localVar).isNullOrUndefined();
 
         expect(result);
     });
 
-    it("IsEqualTo returns the proper validator when given an equal value", () => {
+    it("isEqualTo returns the proper validator when given an equal value", () => {
         let localVar: number = 1;
 
-        let result: INumberValidator = contract.pre(localVar).IsEqualTo(1);
+        let result: INumberValidator = contract.pre(localVar).isEqualTo(1);
 
         expect(result);
 
     });
 
-    it("IsEqualTo returns the proper validator when given an unequal value", () => {
+    it("isEqualTo returns the proper validator when given an unequal value", () => {
         let localVar: number = 1;
 
         expect( () => {
-            contract.pre(localVar).IsEqualTo(2);
+            contract.pre(localVar).isEqualTo(2);
         }).toThrow(new RangeError("The variable should be equal to the number variable 2"));
     });
 
-    it("IsEqualTo returns the proper validator when given a double value", () => {
+    it("isEqualTo returns the proper validator when given a double value", () => {
         let localVar: number = 10.00;
 
-        let result: INumberValidator = contract.pre(localVar).IsEqualTo(10.00);
+        let result: INumberValidator = contract.pre(localVar).isEqualTo(10.00);
 
         expect(result);
     });
 
-    it("IsEqualTo returns the proper validator when given a double value that is not equal", () => {
+    it("isEqualTo returns the proper validator when given a double value that is not equal", () => {
         let localVar: number = 24.45;
 
         expect( () => {
-            contract.pre(localVar).IsEqualTo(24.46);
+            contract.pre(localVar).isEqualTo(24.46);
         }).toThrow(new RangeError("The variable should be equal to the number variable 24.46"));
     });
 
-    it("IsNotEqualTo returns the proper validator when given to unequal numbers", () => {
+    it("isNotEqualTo returns the proper validator when given to unequal numbers", () => {
         let localVar: number = 1;
 
         let compareTo: number = 2;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotEqualTo(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isNotEqualTo(compareTo);
 
         expect(result);
     });
 
-    it("IsNotEqualTo returns the proper validator when given to equal numbers", () => {
+    it("isNotEqualTo returns the proper validator when given to equal numbers", () => {
 
         let localVar: number = 1;
         let compareTo: number = 1;
 
         expect( () => {
-            contract.pre(localVar).IsNotEqualTo(compareTo);
+            contract.pre(localVar).isNotEqualTo(compareTo);
         }).toThrow(new RangeError("The variable should not be equal to the number variable 1"));
 
     });
 
-    it("IsNotEqualTo returns the proper validator when given a null and an undefined", () => {
+    it("isNotEqualTo returns the proper validator when given a null and an undefined", () => {
         let localVar: number = null;
         let compareTo: number = undefined;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotEqualTo(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isNotEqualTo(compareTo);
 
         expect(result);
     });
 
-    it("IsGreaterThan returns the proper validator when given a value that is greater than the precondition", () => {
+    it("isGreaterThan returns the proper validator when given a value that is greater than the precondition", () => {
 
         let localVar: number = 1;
         let compareTo: number = 0;
 
-        let result: INumberValidator = contract.pre(localVar).IsGreaterThan(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isGreaterThan(compareTo);
 
         expect(result);
     });
 
-    it("IsGreaterThan returns the proper validator when given a value that is equal to the precondition", () => {
+    it("isGreaterThan returns the proper validator when given a value that is equal to the precondition", () => {
         let localVar: number = 1;
         let compareTo: number = 1;
 
-        let result: INumberValidator = contract.pre(localVar).IsGreaterThan(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isGreaterThan(compareTo);
 
         expect(result);
     });
 
-    it("IsGreaterThan returns the proper validator when given a value that is not greater than the precondition", () => {
+    it("isGreaterThan returns the proper validator when given a value that is not greater than the precondition", () => {
         let localVar: number = 1;
         let compareTo: number = 23;
 
         expect( () => {
-            contract.pre(localVar).IsGreaterThan(compareTo);
+            contract.pre(localVar).isGreaterThan(compareTo);
         }).toThrow(new RangeError("The variable should be greater than 23 but is 1"));
 
     });
 
-    it("IsNotGreaterThan returns the proper validator when given a value that is less than the compareTo variable", () => {
+    it("isNotGreaterThan returns the proper validator when given a value that is less than the compareTo variable", () => {
         let localVar: number = 1;
         let compareTo: number = 3;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotGreaterThan(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isNotGreaterThan(compareTo);
 
         expect(result);
     });
 
-    it("IsNotGreaterThan returns the proper validator when given a value that is greater than the compareTo variable ", () => {
+    it("isNotGreaterThan returns the proper validator when given a value that is greater than the compareTo variable ", () => {
         let localVar: number = 2;
         let compareTo: number = 1;
 
         expect( () => {
-            contract.pre(localVar).IsNotGreaterThan(compareTo);
+            contract.pre(localVar).isNotGreaterThan(compareTo);
         }).toThrow(new RangeError("The variable should not be greater than 1 but is 2"));
 
     });
 
-    it("IsNotGreaterThan returns the proper validator when given a value that is greater than the compareTo variable ", () => {
+    it("isNotGreaterThan returns the proper validator when given a value that is greater than the compareTo variable ", () => {
         let localVar: number = 1;
         let compareTo: number = 1;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotGreaterThan(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isNotGreaterThan(compareTo);
 
         expect(result);
 
     });
 
-    it("IsGreaterOrEqualThan returns the proper validator when the precondition is greater the precondition", () => {
+    it("isGreaterOrEqualThan returns the proper validator when the precondition is greater the precondition", () => {
         let localVar: number = 4;
         let compareTo: number = 3;
 
-        let result: INumberValidator = contract.pre(localVar).IsGreaterOrEqualThan(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isGreaterOrEqualThan(compareTo);
 
         expect(result);
 
     });
 
-    it("IsGreaterOrEqualThan returns the proper validator when the precondition is equal to the precondition", () => {
+    it("isGreaterOrEqualThan returns the proper validator when the precondition is equal to the precondition", () => {
         let localVar: number = 3;
         let compareTo: number = 3;
 
-        let result: INumberValidator = contract.pre(localVar).IsGreaterOrEqualThan(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isGreaterOrEqualThan(compareTo);
 
         expect(result);
     });
 
 
-    it("IsGreaterOrEqualThan returns the proper validator when the precondition is less than the precondition", () => {
+    it("isGreaterOrEqualThan returns the proper validator when the precondition is less than the precondition", () => {
         let localVar: number = 4;
         let compareTo: number = 5;
 
         expect( () => {
-            contract.pre(localVar).IsGreaterOrEqualThan(compareTo);
+            contract.pre(localVar).isGreaterOrEqualThan(compareTo);
         }).toThrow(new RangeError("The variable should be greater than 5 but is 4"));
 
     });
 
-    it("IsNotGreaterOrEqualThan returns the proper validator when the precondition is equal to the comparable", () => {
+    it("isNotGreaterOrEqualThan returns the proper validator when the precondition is equal to the comparable", () => {
         let localVar: number = 4;
         let compareTo: number = 4;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotGreaterOrEqualThan(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isNotGreaterOrEqualThan(compareTo);
 
         expect(result);
 
     });
 
 
-    it("IsNotGreaterOrEqualThan returns the proper validator when the precondition is not equal to the comparable", () => {
+    it("isNotGreaterOrEqualThan returns the proper validator when the precondition is not equal to the comparable", () => {
         let localVar: number = 4;
         let compareTo: number = 2;
 
         expect( () => {
-            contract.pre(localVar).IsNotGreaterOrEqualThan(compareTo);
+            contract.pre(localVar).isNotGreaterOrEqualThan(compareTo);
         }).toThrow(new RangeError("The variable should not be greater or equal to 2 but is 4"));
 
     });
 
 
-    it("IsNotGreaterOrEqualThan returns the proper validator when the precondition is greater to the comparable", () => {
+    it("isNotGreaterOrEqualThan returns the proper validator when the precondition is greater to the comparable", () => {
         let localVar: number = 6;
         let compareTo: number = 4;
 
         expect( () => {
-            contract.pre(localVar).IsNotGreaterOrEqualThan(compareTo);
+            contract.pre(localVar).isNotGreaterOrEqualThan(compareTo);
         }).toThrow(new RangeError("The variable should not be greater or equal to 4 but is 6"));
 
     });
 
-    it("IsLessThan returns the proper validator when the precondition is less than the comparable", () => {
+    it("isLessThan returns the proper validator when the precondition is less than the comparable", () => {
         let localVar: number = 6;
         let compareTo: number = 10;
 
-        let result: INumberValidator = contract.pre(localVar).IsLessThan(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isLessThan(compareTo);
 
         expect(result);
     });
 
 
-    it("IsLessThan returns the proper validator when the precondition is equal than the comparable", () => {
+    it("isLessThan returns the proper validator when the precondition is equal than the comparable", () => {
         let localVar: number = 10;
         let compareTo: number = 10;
 
         expect( () => {
-            contract.pre(localVar).IsLessThan(compareTo);
+            contract.pre(localVar).isLessThan(compareTo);
         }).toThrow(new RangeError("The variable should be less than 10 but is 10"));
     });
 
-    it("IsLessThan returns the proper validator when the precondition is less than the comparable with a double value", () => {
+    it("isLessThan returns the proper validator when the precondition is less than the comparable with a double value", () => {
         let localVar: number = 10.1;
         let compareTo: number = 10;
 
         expect( () => {
-            contract.pre(localVar).IsLessThan(compareTo);
+            contract.pre(localVar).isLessThan(compareTo);
         }).toThrow(new RangeError("The variable should be less than 10 but is 10.1"));
     });
-    it("IsLessThan returns the proper validator when the precondition is greater than the comparable", () => {
+    it("isLessThan returns the proper validator when the precondition is greater than the comparable", () => {
         let localVar: number = 11;
         let compareTo: number = 10;
 
         expect( () => {
-            contract.pre(localVar).IsLessThan(compareTo);
+            contract.pre(localVar).isLessThan(compareTo);
         }).toThrow(new RangeError("The variable should be less than 10 but is 11"));
     });
 
-    it("IsNotLessThan returns the proper validator when the precondition is not less than the comparable", () => {
+    it("isNotLessThan returns the proper validator when the precondition is not less than the comparable", () => {
         let localVar: number = 3;
         let compareTo: number = 2;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotLessThan(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isNotLessThan(compareTo);
 
         expect(result);
     });
 
-    it("IsNotLessThan returns the proper validator when the precondition is less than the comparable", () => {
+    it("isNotLessThan returns the proper validator when the precondition is less than the comparable", () => {
         let localVar: number = 1;
         let compareTo: number = 3;
 
         expect( () => {
-            contract.pre(localVar).IsNotLessThan(compareTo);
+            contract.pre(localVar).isNotLessThan(compareTo);
         }).toThrow(new RangeError("The variable should not be less than 3 but is 1"));
     });
 
-    it("IsNotLessThan returns the proper validator when the precondition is equal to the comparable", () => {
+    it("isNotLessThan returns the proper validator when the precondition is equal to the comparable", () => {
         let localVar: number = 2;
         let compareTo: number = 2;
 
         expect( () => {
-            contract.pre(localVar).IsNotLessThan(compareTo);
+            contract.pre(localVar).isNotLessThan(compareTo);
         }).toThrow(new RangeError("The variable should not be less than 2 but is 2"));
     });
 
-    it("IsNotLessOrEqualThan returns the proper validator when the precondition is less than the comparable", () => {
+    it("isNotLessOrEqualThan returns the proper validator when the precondition is less than the comparable", () => {
         let localVar: number = 3;
         let compareTo: number = 2;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotLessThan(compareTo);
+        let result: INumberValidator = contract.pre(localVar).isNotLessThan(compareTo);
 
         expect(result);
     });
-    it("IsNotLessOrEqualThan returns the proper validator when the precondition is not less than the comparable", () => {
+    it("isNotLessOrEqualThan returns the proper validator when the precondition is not less than the comparable", () => {
         let localVar: number = 1;
         let compareTo: number = 2;
 
         expect( () => {
-            contract.pre(localVar).IsNotLessThan(compareTo);
+            contract.pre(localVar).isNotLessThan(compareTo);
         }).toThrow(new RangeError("The variable should not be less than 2 but is 1"));
 
     });
-    it("IsNotLessOrEqualThan returns the proper validator when the precondition is equal to the comparable", () => {
+    it("isNotLessOrEqualThan returns the proper validator when the precondition is equal to the comparable", () => {
         let localVar: number = 1;
         let compareTo: number = 1;
 
         expect( () => {
-            contract.pre(localVar).IsNotLessOrEqualThan(compareTo);
+            contract.pre(localVar).isNotLessOrEqualThan(compareTo);
         }).toThrowError();
     });
 
-    it("IsBetween returns the proper validator when the precondition is in the range specified", () => {
+    it("isBetween returns the proper validator when the precondition is in the range specified", () => {
         let localVar: number = 95;
 
         let startRange: number = 60;
         let endRange: number = 100;
 
-        let result: INumberValidator = contract.pre(localVar).IsBetween(startRange, endRange);
+        let result: INumberValidator = contract.pre(localVar).isBetween(startRange, endRange);
 
         expect(result);
 
     });
 
-    it("IsBetween returns the proper validator when the precondition is on the lower range", () => {
+    it("isBetween returns the proper validator when the precondition is on the lower range", () => {
         let localVar: number = 10;
 
         let startRange: number = 10;
         let endRange: number = 20;
 
-        let result: INumberValidator = contract.pre(localVar).IsBetween(startRange, endRange);
+        let result: INumberValidator = contract.pre(localVar).isBetween(startRange, endRange);
 
         expect(result);
 
     });
 
-    it("IsBetween returns the proper validator when the precondition is on the upper range", () => {
+    it("isBetween returns the proper validator when the precondition is on the upper range", () => {
         let localVar: number = 20;
 
         let startRange: number = 10;
         let endRange: number = 20;
 
-        let result: INumberValidator = contract.pre(localVar).IsBetween(startRange, endRange);
+        let result: INumberValidator = contract.pre(localVar).isBetween(startRange, endRange);
 
         expect(result);
 
     });
 
-    it("IsBetween returns the proper validator when the precondition is in the range specified with double values", () => {
+    it("isBetween returns the proper validator when the precondition is in the range specified with double values", () => {
         let localVar: number = 99.9;
 
         let startRange: number = 0.00;
         let endRange: number = 100.0;
 
-        let result: INumberValidator = contract.pre(localVar).IsBetween(startRange, endRange);
+        let result: INumberValidator = contract.pre(localVar).isBetween(startRange, endRange);
 
         expect(result);
 
     });
 
-    it("IsBetween throws an error when the precondition is not in the range specified", () => {
+    it("isBetween throws an error when the precondition is not in the range specified", () => {
         let localVar: number = 1000;
 
         let startRange: number = 60;
         let endRange: number = 100;
 
         expect( () => {
-            contract.pre(localVar).IsBetween(startRange, endRange);
+            contract.pre(localVar).isBetween(startRange, endRange);
         }).toThrowError(<any>RangeError);
 
     });
 
-    it("IsBetween throws an error when the precondition is not in the range specified using double values", () => {
+    it("isBetween throws an error when the precondition is not in the range specified using double values", () => {
         let localVar: number = 1000.005;
 
         let startRange: number = 60.258;
         let endRange: number = 100.216;
 
         expect( () => {
-            contract.pre(localVar).IsBetween(startRange, endRange);
+            contract.pre(localVar).isBetween(startRange, endRange);
         }).toThrowError(<any>RangeError);
 
     });
 
-    it("IsNotBetween returns the proper validator when the precondition is not in the range specified", () => {
+    it("isNotBetween returns the proper validator when the precondition is not in the range specified", () => {
         let localVar: number = 101;
 
         let startRange: number = 60;
         let endRange: number = 100;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotBetween(startRange, endRange);
+        let result: INumberValidator = contract.pre(localVar).isNotBetween(startRange, endRange);
 
         expect(result);
 
     });
 
-    it("IsNotBetween returns the proper validator when the precondition is not in the range specified using double values", () => {
+    it("isNotBetween returns the proper validator when the precondition is not in the range specified using double values", () => {
         let localVar: number = 99.1;
 
         let startRange: number = 100;
         let endRange: number = 200.00;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotBetween(startRange, endRange);
+        let result: INumberValidator = contract.pre(localVar).isNotBetween(startRange, endRange);
 
         expect(result);
 
     });
 
-    it("IsNotBetween returns the proper validator when the precondition is not in the range specified", () => {
+    it("isNotBetween returns the proper validator when the precondition is not in the range specified", () => {
         let localVar: number = 101;
 
         let startRange: number = 60;
         let endRange: number = 100;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotBetween(startRange, endRange);
+        let result: INumberValidator = contract.pre(localVar).isNotBetween(startRange, endRange);
 
         expect(result);
 
     });
 
-    it("IsNotBetween returns the proper validator when the precondition is not in the range specified -- PASS", () => {
+    it("isNotBetween returns the proper validator when the precondition is not in the range specified -- PASS", () => {
         let localVar: number = 50;
 
         let startRange: number = 60;
         let endRange: number = 100;
 
-        let result: INumberValidator = contract.pre(localVar).IsNotBetween(startRange, endRange);
+        let result: INumberValidator = contract.pre(localVar).isNotBetween(startRange, endRange);
 
         expect(result);
 
     });
 
-    it("IsNotBetween returns an error when the precondition is not in the range specified", () => {
+    it("isNotBetween returns an error when the precondition is not in the range specified", () => {
         let localVar: number = 75;
 
         let startRange: number = 60;
         let endRange: number = 100;
 
         expect( () => {
-            contract.pre(localVar).IsNotBetween(startRange, endRange);
+            contract.pre(localVar).isNotBetween(startRange, endRange);
 
         }).toThrowError(<any>RangeError);
 
     });
 
-    it("IsNotBetween returns an error when the precondition is on the lower boundary", () => {
+    it("isNotBetween returns an error when the precondition is on the lower boundary", () => {
         let localVar: number = 10;
 
         let startRange: number = 10;
         let endRange: number = 20;
 
         expect( () => {
-            contract.pre(localVar).IsNotBetween(startRange, endRange);
+            contract.pre(localVar).isNotBetween(startRange, endRange);
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsNotBetween returns an error when the precondition is on the upper boundary", () => {
+    it("isNotBetween returns an error when the precondition is on the upper boundary", () => {
         let localVar: number = 20;
 
         let startRange: number = 10;
         let endRange: number = 20;
 
         expect( () => {
-            contract.pre(localVar).IsNotBetween(startRange, endRange);
+            contract.pre(localVar).isNotBetween(startRange, endRange);
         }).toThrowError(<any>RangeError);
     });
 

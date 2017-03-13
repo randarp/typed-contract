@@ -18,20 +18,20 @@ export class BaseValidator<T> {
     }
 
     /**
-     * Value returns the value that was passed into the contract
+     * value returns the value that was passed into the contract
      * @returns {T}
      * @constructor
      */
-    public Value(): T {
+    public value(): T {
         return this._variableValue;
     }
 
     /**
-     * Name returns the variable name that was passed into the contract
+     * name returns the variable name that was passed into the contract
      * @returns {string}
      * @constructor
      */
-    public Name(): string {
+    public name(): string {
         return this._variableName;
     }
 }

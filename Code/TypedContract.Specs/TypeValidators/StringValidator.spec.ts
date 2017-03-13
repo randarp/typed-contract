@@ -3,166 +3,166 @@
 
 describe("StringValidator", () => {
 
-    it("IsNotNull returns the proper validator when given an undefined", () => {
+    it("isNotNull returns the proper validator when given an undefined", () => {
         let localVar: string;
 
-        let result: IStringValidator = contract.pre(localVar).IsNotNull();
+        let result: IStringValidator = contract.pre(localVar).isNotNull();
 
         expect(result);
     });
 
-    it("IsNotNull returns the right validator", () => {
+    it("isNotNull returns the right validator", () => {
         // arrange
         let localVariable: string = "A string";
 
         // act
-        let result: IStringValidator = contract.pre(localVariable).IsNotNull();
+        let result: IStringValidator = contract.pre(localVariable).isNotNull();
 
         // assert
         expect(result).not.toBeNull();
         expect((<any>result.constructor).name).toBe("StringValidator");
     });
 
-    it("IsNotNull is passed the an empty string", () => {
+    it("isNotNull is passed the an empty string", () => {
         let localVar: string = "";
 
-        let result: IStringValidator = contract.pre(localVar).IsNotNull();
+        let result: IStringValidator = contract.pre(localVar).isNotNull();
 
         expect(result).not.toBe(null);
         expect((<any>result.constructor).name).toBe("StringValidator");
     });
 
-    it("IsNull expects a result of an error thrown", () => {
+    it("isNull expects a result of an error thrown", () => {
 
         // arrange
         let localVariable: string = "Andre";
 
         // act/assert
         expect(() => {
-            contract.pre(localVariable).IsNull();
+            contract.pre(localVariable).isNull();
         }).toThrow(new ReferenceError("The variable should be null")); // getting right result, assertion statement wrong
     });
 
-    it("IsDefined should return the proper result ", () => {
+    it("isDefined should return the proper result ", () => {
 
         let localVar: string = "Andre";
 
-        let result: IStringValidator = contract.pre(localVar).IsDefined();
+        let result: IStringValidator = contract.pre(localVar).isDefined();
 
         expect(result).toBeDefined();
 
     });
 
-    it("IsNull should return the proper result", () => {
+    it("isNull should return the proper result", () => {
         let localVar: string = null;
 
-        let result: IStringValidator = contract.pre(localVar).IsNull();
+        let result: IStringValidator = contract.pre(localVar).isNull();
 
         expect(result);
 
     });
 
-    it("IsNotDefined return the proper result", () => {
+    it("isNotDefined return the proper result", () => {
         let localVar: string = undefined;
 
-        let result: IStringValidator = contract.pre(localVar).IsUndefined();
+        let result: IStringValidator = contract.pre(localVar).isUndefined();
 
         expect(result);
     });
 
-    it("IsNullOrUndefined returns proper validator with a undefined variable", () => {
+    it("isNullOrUndefined returns proper validator with a undefined variable", () => {
 
         let localVar: string;
 
         expect( () => {
-            contract.pre(localVar).IsNullOrUndefined();
+            contract.pre(localVar).isNullOrUndefined();
         }).toThrowError(<any>ReferenceError);
     });
 
-    it("IsNullOrUndefined returns the proper validator with a defined variable", () => {
+    it("isNullOrUndefined returns the proper validator with a defined variable", () => {
 
         let localVar: string = "Hello World";
 
         expect( () => {
-            contract.pre(localVar).IsNullOrUndefined();
+            contract.pre(localVar).isNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
 
     });
 
-    it("IsEqualTo returns the proper validator when given a string that is equal", () => {
+    it("isEqualTo returns the proper validator when given a string that is equal", () => {
 
         let localVar: string = "TypedContract";
         let compareTo: string = "TypedContract";
 
-        let result: IStringValidator = contract.pre(localVar).IsEqualTo(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isEqualTo(compareTo);
 
         expect(result);
 
     });
 
-    it("IsEqualTo returns the proper validator when given a string that is not equal", () => {
+    it("isEqualTo returns the proper validator when given a string that is not equal", () => {
         let localVar: string = "TypedContract";
         let compareTo: string = "TypeScript";
 
         expect( () => {
-            contract.pre(localVar).IsEqualTo(compareTo);
+            contract.pre(localVar).isEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsEqualTo returns the proper validator when given a string that has white spaces", () => {
+    it("isEqualTo returns the proper validator when given a string that has white spaces", () => {
         let localVar: string = "Andre";
         let compareTo: string = "Andre ";
 
         expect( () => {
-            contract.pre(localVar, "Andre's Variable").IsEqualTo(compareTo);
+            contract.pre(localVar, "Andre's Variable").isEqualTo(compareTo);
         }).toThrow(new RangeError("Andre's Variable should be equal to the string variable Andre "));
     });
 
-    it("IsNotEqualTo returns the proper validator when given an unequal string", () => {
+    it("isNotEqualTo returns the proper validator when given an unequal string", () => {
         let localVar: string = "TypedContract";
 
         let compareTo: string = "TypeScript";
 
-        let result: IStringValidator = contract.pre(localVar).IsNotEqualTo(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isNotEqualTo(compareTo);
 
         expect(result);
 
     });
 
-    it("IsNotEqualTo returns the proper validator when given an equal string", () => {
+    it("isNotEqualTo returns the proper validator when given an equal string", () => {
         let localVar: string = "Andre";
         let compareTo: string = "Andre";
 
         expect( () => {
-            contract.pre(localVar).IsNotEqualTo(compareTo);
+            contract.pre(localVar).isNotEqualTo(compareTo);
         }).toThrow(new RangeError("The variable should not be equal to the string variable Andre"));
     });
 
-    it("IsNotEqualTo returns the proper validator when given to undefined strings", () => {
+    it("isNotEqualTo returns the proper validator when given to undefined strings", () => {
         let localVar: string;
         let compareTo: string;
 
         expect( () => {
-            contract.pre(localVar).IsNotEqualTo(compareTo);
+            contract.pre(localVar).isNotEqualTo(compareTo);
         }).toThrow(new RangeError("The variable should not be equal to the string variable undefined"));
     });
 
-    it("IsEqualTo returns the proper validator when given to null strings", () => {
+    it("isEqualTo returns the proper validator when given to null strings", () => {
 
         let localVar: string = null;
         let compareTo: string = null;
 
-        let result: IStringValidator = contract.pre(localVar).IsEqualTo(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isEqualTo(compareTo);
 
         expect(result);
     });
-    it("IsNotEqualTo returns the proper validator when given to null strings", () => {
+    it("isNotEqualTo returns the proper validator when given to null strings", () => {
 
         let localVar: string = null;
         let compareTo: string = null;
 
         expect( () => {
-            contract.pre(localVar).IsNotEqualTo(compareTo);
+            contract.pre(localVar).isNotEqualTo(compareTo);
         }).toThrow(new RangeError("The variable should not be equal to the string variable null"));
     });
 
@@ -171,7 +171,7 @@ describe("StringValidator", () => {
         let localVar: string = "TypedContract";
         let compareTo: string = "TypeScript";
 
-        let result: IStringValidator = contract.pre(localVar).IsLengthGreaterThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isLengthGreaterThan(compareTo);
 
         expect(result);
 
@@ -183,392 +183,392 @@ describe("StringValidator", () => {
         let compareTo: string = "TypedContract";
 
         expect(() => {
-            contract.pre(localVar).IsLengthGreaterThan(compareTo);
+            contract.pre(localVar).isLengthGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
 
-    it("IsLengthGreaterThan returns this when given a string with equal length for both the comparable and the precondition", () => {
+    it("isLengthGreaterThan returns this when given a string with equal length for both the comparable and the precondition", () => {
 
         let localVar: string = "TypeScript";
         let compareTo: string = "TypeScript";
 
         expect( () => {
-            contract.pre(localVar).IsLengthGreaterThan(compareTo);
+            contract.pre(localVar).isLengthGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsLengthGreaterOrEqualTo returns the proper validator when given an string the is smaller than the comparable", () => {
+    it("isLengthGreaterOrEqualTo returns the proper validator when given an string the is smaller than the comparable", () => {
             let localVar: string = "Andre";
             let compareTo: string = "Andy";
 
-            let result: IStringValidator = contract.pre(localVar).IsLengthGreaterOrEqualTo(compareTo);
+            let result: IStringValidator = contract.pre(localVar).isLengthGreaterOrEqualTo(compareTo);
 
             expect(result);
 
     });
 
-    it("IsLengthGreaterOrEqualTo returns the proper validator when given a string equal to the comparable", () => {
+    it("isLengthGreaterOrEqualTo returns the proper validator when given a string equal to the comparable", () => {
             let localVar: string = "TypedContract";
             let compareTo: string = "TypedContract";
 
-            let result: IStringValidator = contract.pre(localVar).IsLengthGreaterOrEqualTo(compareTo);
+            let result: IStringValidator = contract.pre(localVar).isLengthGreaterOrEqualTo(compareTo);
 
             expect(result);
     });
 
-    it("IsLengthGreaterOrEqualTo throws an error when given a string larger than the precondition", () => {
+    it("isLengthGreaterOrEqualTo throws an error when given a string larger than the precondition", () => {
             let localVar: string = "TypeScript";
             let compareTo: string = "TypedContract";
 
             expect( () => {
-                contract.pre(localVar).IsLengthGreaterOrEqualTo(compareTo);
+                contract.pre(localVar).isLengthGreaterOrEqualTo(compareTo);
             }).toThrowError(<any>RangeError);
     });
 
-    it("IsLengthNotGreaterThan throws an error with the proper validator when given a comparable", () => {
+    it("isLengthNotGreaterThan throws an error with the proper validator when given a comparable", () => {
             let localVar: string = "TypeScript";
             let compareTo: string = "ECMAScript 6";
 
-            let result: IStringValidator = contract.pre(localVar).IsLengthNotGreaterThan(compareTo);
+            let result: IStringValidator = contract.pre(localVar).isLengthNotGreaterThan(compareTo);
 
             expect(result);
     });
 
-    it("IsLengthNotGreaterThan returns the proper validator when given a comparable", () => {
+    it("isLengthNotGreaterThan returns the proper validator when given a comparable", () => {
         let localVar: string = "TypedContract";
         let compareTo: string = "TypeScript";
 
         expect( () => {
-           contract.pre(localVar).IsLengthNotGreaterThan(compareTo);
+           contract.pre(localVar).isLengthNotGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsLengthNotGreaterThan throws an error with the proper validator when given a comparable of empty strings", () => {
+    it("isLengthNotGreaterThan throws an error with the proper validator when given a comparable of empty strings", () => {
         let localVar: string = "";
         let compareTo: string = "";
-        let result: IStringValidator = contract.pre(localVar).IsLengthNotGreaterThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isLengthNotGreaterThan(compareTo);
 
         expect(result);
     });
 
-    it("IsLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that is not greater in length", () => {
+    it("isLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that is not greater in length", () => {
         let localVar: string = "Python";
         let compareTo: string = "JavaScript";
 
-        let result: IStringValidator = contract.pre(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isLengthNotGreaterOrEqualTo(compareTo);
 
         expect(result);
     });
 
-    it("IsLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that is equal in length", () => {
+    it("isLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that is equal in length", () => {
         let localVar: string = "JavaScript";
         let compareTo: string = "JavaScript";
 
         expect( () => {
-            contract.pre(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+            contract.pre(localVar).isLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that is greater in length", () => {
+    it("isLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that is greater in length", () => {
         let localVar: string = "Andre Fischbacher";
         let compareTo: string = "JavaScript";
 
         expect( () => {
-            contract.pre(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+            contract.pre(localVar).isLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that are both empty", () => {
+    it("isLengthNotGreaterOrEqualTo returns the proper validator when given a comparable string that are both empty", () => {
         let localVar: string = "";
         let compareTo: string = "";
 
         expect( () => {
-            contract.pre(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+            contract.pre(localVar).isLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsLengthLessThan returns the proper validator when given a string argument that is less than the comparable", () => {
+    it("isLengthLessThan returns the proper validator when given a string argument that is less than the comparable", () => {
         let localVar: string = "Randar";
         let compareTo: string  = "Andre";
 
         expect( () => {
-            contract.pre(localVar).IsLengthLessThan(compareTo);
+            contract.pre(localVar).isLengthLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
 
-    it("IsLengthLessThan returns the proper validator when given a string argument that is equal to the comparable", () => {
+    it("isLengthLessThan returns the proper validator when given a string argument that is equal to the comparable", () => {
         let compareTo: string = "TypedContract";
         let localVar: string = "TypedContract";
 
         expect( () => {
-            contract.pre(localVar).IsLengthLessThan(compareTo);
+            contract.pre(localVar).isLengthLessThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
 
-    it("IsLengthLessThan returns the proper validator when given a string argument that is greater than comparable", () => {
+    it("isLengthLessThan returns the proper validator when given a string argument that is greater than comparable", () => {
         let localVar: string = "TypeScript";
         let compareTo: string  = "TypedContract";
 
-        let result: IStringValidator = contract.pre(localVar).IsLengthLessThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isLengthLessThan(compareTo);
 
         expect(result);
     });
 
-    it("IsLengthNotLessThan returns the proper validator when given a string argument that is smaller than comparable", () => {
+    it("isLengthNotLessThan returns the proper validator when given a string argument that is smaller than comparable", () => {
         let localVar: string = "TypeScript";
         let compareTo: string  = "TypedContract";
 
         expect( () => {
-            contract.pre(localVar).IsLengthNotLessThan(compareTo);
+            contract.pre(localVar).isLengthNotLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsLengthNotLessThan returns the proper validator when given a string argument that is greater than the comparable", () => {
+    it("isLengthNotLessThan returns the proper validator when given a string argument that is greater than the comparable", () => {
         let localVar: string = "TypedContract";
         let compareTo: string  = "TypeScript";
 
-        let result: IStringValidator = contract.pre(localVar).IsLengthNotLessThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isLengthNotLessThan(compareTo);
 
         expect(result);
     });
 
-    it("IsLengthNotLessThan returns the proper validator when given a string argument that is equal to the comparable", () => {
+    it("isLengthNotLessThan returns the proper validator when given a string argument that is equal to the comparable", () => {
         let localVar: string = "TypeScript";
         let compareTo: string  = "TypeScript";
 
         expect( () => {
-            contract.pre(localVar).IsLengthNotLessThan(compareTo);
+            contract.pre(localVar).isLengthNotLessThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
 
-    it("IsLengthLessOrEqual to returns the proper validator when given a precondition that is less than in length than the comparable", () => {
+    it("isLengthLessOrEqual to returns the proper validator when given a precondition that is less than in length than the comparable", () => {
 
         let localVar: string = "Andre";
         let compareTo: string = "Randar";
 
-        let result: IStringValidator = contract.pre(localVar).IsLengthLessOrEqualThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isLengthLessOrEqualThan(compareTo);
 
         expect(result);
     });
 
-    it("IsLengthLessOrEqual to returns the proper validator when given a precondition " +
+    it("isLengthLessOrEqual to returns the proper validator when given a precondition " +
         "that is equal than in length than the comparable", () => {
 
         let localVar: string = "Andre";
         let compareTo: string = "Andre";
 
-        let result: IStringValidator = contract.pre(localVar).IsLengthLessOrEqualThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isLengthLessOrEqualThan(compareTo);
 
         expect(result);
     });
 
-    it("IsLengthLessOrEqual to returns the proper validator when given a precondition that is greater than in length than the comparable", () => {
+    it("isLengthLessOrEqual to returns the proper validator when given a precondition that is greater than in length than the comparable", () => {
 
         let localVar: string = "Randar";
         let compareTo: string = "Andre";
 
         expect( () => {
-            contract.pre(localVar).IsLengthLessOrEqualThan(compareTo);
+            contract.pre(localVar).isLengthLessOrEqualThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsLengthLessOrEqual to throw an error when given empty strings", () => {
+    it("isLengthLessOrEqual to throw an error when given empty strings", () => {
        let localVar: string = "";
        let compareTo: string = "";
 
-       let result: IStringValidator = contract.pre(localVar).IsLengthLessOrEqualThan(compareTo);
+       let result: IStringValidator = contract.pre(localVar).isLengthLessOrEqualThan(compareTo);
 
        expect(result);
 
     });
 
-    it("IsLengthNotLessOrEqual to return the proper validator when given a string not smaller than the comparable", () => {
+    it("isLengthNotLessOrEqual to return the proper validator when given a string not smaller than the comparable", () => {
         let localVar: string = "TypedContract";
         let compareTo: string = "TypeScript";
 
-        let result: IStringValidator = contract.pre(localVar).IsLengthNotLessOrEqualThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).isLengthNotLessOrEqualThan(compareTo);
 
         expect(result);
     });
 
-    it("IsLengthNotLessOrEqual to throw an error when given a string that is equal to the comparable", () => {
+    it("isLengthNotLessOrEqual to throw an error when given a string that is equal to the comparable", () => {
         let localVar: string = "TypedContract";
         let compareTo: string = "TypedContract";
 
         expect( () => {
-            contract.pre(localVar).IsLengthNotLessOrEqualThan(compareTo);
+            contract.pre(localVar).isLengthNotLessOrEqualThan(compareTo);
         }).toThrowError();
 
     });
 
-    it("IsLengthNotLessOrEqual to throw an error when given a string that is smaller in length to the comparable", () => {
+    it("isLengthNotLessOrEqual to throw an error when given a string that is smaller in length to the comparable", () => {
         let localVar: string = "TypeScript";
         let compareTo: string = "TypedContract";
 
         expect( () => {
-            contract.pre(localVar).IsLengthNotLessOrEqualThan(compareTo);
+            contract.pre(localVar).isLengthNotLessOrEqualThan(compareTo);
         }).toThrowError();
 
     });
 
-    it("IsLengthNotLessOrEqual to throw an error when given a strings that are undefined", () => {
+    it("isLengthNotLessOrEqual to throw an error when given a strings that are undefined", () => {
         let localVar: string = "TypedContract";
         let compareTo: string = "TypedContract";
 
         expect( () => {
-            contract.pre(localVar).IsLengthNotLessOrEqualThan(compareTo);
+            contract.pre(localVar).isLengthNotLessOrEqualThan(compareTo);
         }).toThrowError();
 
     });
 
-    it("ToMatch returns true when given the proper regular expression with a case insensitive regular expression", () => {
+    it("toMatch returns true when given the proper regular expression with a case insensitive regular expression", () => {
         let localVar: string = "Hello my name is andre";
         let regExp: any = /andre/i;
 
-        let result: IStringValidator = contract.pre(localVar).ToMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).toMatch(regExp);
 
         expect(result);
     });
 
-    it("ToMatch returns true when given the proper regular expression with a global string expression", () => {
+    it("toMatch returns true when given the proper regular expression with a global string expression", () => {
         let localVar: string = "Hello my name is andre";
         let regExp: any = /andre/g;
 
-        let result: IStringValidator = contract.pre(localVar).ToMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).toMatch(regExp);
 
         expect(result);
     });
 
-    it("ToMatch returns true when given the proper regular expression with multiple line matching", () => {
+    it("toMatch returns true when given the proper regular expression with multiple line matching", () => {
         let localVar: string = "Hello my name" +
             " is andre and I am the guy who created this spec";
         let regExp: any = /andre/i;
 
-        let result: IStringValidator = contract.pre(localVar).ToMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).toMatch(regExp);
 
         expect(result);
     });
 
-    it("ToMatch returns true when given the proper regular expression that is case insensitive that will return false", () => {
+    it("toMatch returns true when given the proper regular expression that is case insensitive that will return false", () => {
         let localVar: string = "Hello my name is bob";
         let regExp: any = /andre/i;
 
         expect( () => {
-            contract.pre(localVar).ToMatch(regExp);
+            contract.pre(localVar).toMatch(regExp);
         }).toThrowError();
     });
 
-    it("ToMatch returns true when given the proper regular expression that is case insensitive that will return false", () => {
+    it("toMatch returns true when given the proper regular expression that is case insensitive that will return false", () => {
         let localVar: string = "Hello my name " +
             "is bob and I did not make this spec";
         let regExp: any = /andre/m;
 
         expect( () => {
-            contract.pre(localVar).ToMatch(regExp);
+            contract.pre(localVar).toMatch(regExp);
         }).toThrowError();
     });
 
-    it("ToNotMatch returns the proper validator when given the proper regular expression with a case insensitive regular expression that does not match the string", () => {
+    it("toNotMatch returns the proper validator when given the proper regular expression with a case insensitive regular expression that does not match the string", () => {
         let localVar: string = "Hello my name is andre";
         let regExp: any = /bob/i;
 
-        let result: IStringValidator = contract.pre(localVar).ToNotMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).toNotMatch(regExp);
 
         expect(result);
     });
 
-    it("ToNotMatch returns the proper validator when given the proper regular expression with a global match regular expression that does not match the string", () => {
+    it("toNotMatch returns the proper validator when given the proper regular expression with a global match regular expression that does not match the string", () => {
         let localVar: string = "Hello my name is andre";
         let regExp: any = /bob/g;
 
-        let result: IStringValidator = contract.pre(localVar).ToNotMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).toNotMatch(regExp);
 
         expect(result);
     });
 
-    it("ToNotMatch returns the proper validator when given the proper regular expression with a multiline regular expression that does not match the string", () => {
+    it("toNotMatch returns the proper validator when given the proper regular expression with a multiline regular expression that does not match the string", () => {
         let localVar: string = "Hello my name is andre";
         let regExp: any = /bob/i;
 
-        let result: IStringValidator = contract.pre(localVar).ToNotMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).toNotMatch(regExp);
 
         expect(result);
     });
 
-    it("ToNotMatch throws an error when given a case insensitive regular expression with that does match the string", () => {
+    it("toNotMatch throws an error when given a case insensitive regular expression with that does match the string", () => {
         let localVar: string = "Hello my name is bob";
         let regExp: any = /bob/i;
 
         expect( () => {
-            contract.pre(localVar).ToNotMatch(regExp);
+            contract.pre(localVar).toNotMatch(regExp);
         }).toThrowError();
     });
 
-    it("ToNotMatch throws an error when given a global regular expression with that does match the string", () => {
+    it("toNotMatch throws an error when given a global regular expression with that does match the string", () => {
         let localVar: string = "Hello my name is bob";
         let regExp: any = /bob/g;
 
         expect( () => {
-            contract.pre(localVar).ToNotMatch(regExp);
+            contract.pre(localVar).toNotMatch(regExp);
         }).toThrowError();
     });
 
-    it("ToNotMatch throws an error when given a multiline regular expression with that does match the string", () => {
+    it("toNotMatch throws an error when given a multiline regular expression with that does match the string", () => {
         let localVar: string = "Hello my name is bob";
         let regExp: any = /bob/m;
 
         expect( () => {
-            contract.pre(localVar).ToNotMatch(regExp);
+            contract.pre(localVar).toNotMatch(regExp);
         }).toThrowError();
 
     });
 
-    it("Contains returns the proper validator when given a string that contains the same characters as the contract precondition", () => {
+    it("contains returns the proper validator when given a string that contains the same characters as the contract precondition", () => {
        let localVar: string = "This is a TypeScript library";
        let compareTo: string = "TypeScript";
 
-       let result: IStringValidator = contract.pre(localVar).Contains(compareTo);
+       let result: IStringValidator = contract.pre(localVar).contains(compareTo);
 
        expect(result);
     });
 
-    it("Contains returns the proper validator when given a string that is only a white space to be compared to the contract precondition", () => {
+    it("contains returns the proper validator when given a string that is only a white space to be compared to the contract precondition", () => {
         let localVar: string = " ";
         let compareTo: string = " ";
 
-        let result: IStringValidator = contract.pre(localVar).Contains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).contains(compareTo);
 
         expect(result);
     });
 
-    it("Contains returns the proper validator when given a string that contains the same characters as the contract precondition with only one word", () => {
+    it("contains returns the proper validator when given a string that contains the same characters as the contract precondition with only one word", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "T";
 
-        let result: IStringValidator = contract.pre(localVar).Contains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).contains(compareTo);
 
         expect(result);
     });
 
-    it("Contains returns the proper validator when given a string that contains nothing", () => {
+    it("contains returns the proper validator when given a string that contains nothing", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "";
 
         expect( () => {
-            contract.pre(localVar).Contains(compareTo);
+            contract.pre(localVar).contains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("Contains throws an error when given a string that does not contain the same characters as the contract precondition", () => {
+    it("contains throws an error when given a string that does not contain the same characters as the contract precondition", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "Contract";
 
         expect( () => {
-            contract.pre(localVar).Contains(compareTo);
+            contract.pre(localVar).contains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -576,301 +576,301 @@ describe("StringValidator", () => {
         let localVar: string = "";
         let compareTo: string = "";
 
-        let result: IStringValidator = contract.pre(localVar).Contains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).contains(compareTo);
 
         expect(result);
     });
 
-    it("NotContains returns the proper valuidator when given a string that does" +
+    it("notContains returns the proper valuidator when given a string that does" +
         " not contain the same characters as the contract precondition", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "Contract";
 
-        let result: IStringValidator = contract.pre(localVar).NotContains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).notContains(compareTo);
 
         expect(result);
     });
 
-    it("NotContains returns the proper validator when given a string" +
+    it("notContains returns the proper validator when given a string" +
         "that does not contain the same characters as the contract precondition", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "Contract";
 
-        let result: IStringValidator = contract.pre(localVar).NotContains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).notContains(compareTo);
 
         expect(result);
     });
 
-    it("NotContains returns the proper validator when given a string that does " +
+    it("notContains returns the proper validator when given a string that does " +
         "not contain the same characters as the contract precondition in capitals", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "ANDRE";
 
-        let result: IStringValidator = contract.pre(localVar).NotContains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).notContains(compareTo);
 
         expect(result);
     });
 
-    it("NotContains returns the proper validator when given a string that does " +
+    it("notContains returns the proper validator when given a string that does " +
         "not contain any characters like the the contract precondition", () => {
         let localVar: string = "This is a TypeScript library";
-        let compareTo: string = "Not Contains";
+        let compareTo: string = "Not contains";
 
-        let result: IStringValidator = contract.pre(localVar).NotContains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).notContains(compareTo);
 
         expect(result);
     });
 
-    it("NotContains throws an error when given a string that does contain the same characters as the contract precondition", () => {
+    it("notContains throws an error when given a string that does contain the same characters as the contract precondition", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "TypeScript";
 
         expect( () => {
-            contract.pre(localVar).NotContains(compareTo);
+            contract.pre(localVar).notContains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
 
-    it("NotContains throws an error when given a letter that does contain the same characters as the contract precondition", () => {
+    it("notContains throws an error when given a letter that does contain the same characters as the contract precondition", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "a";
 
         expect( () => {
-            contract.pre(localVar).NotContains(compareTo);
+            contract.pre(localVar).notContains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
 
-    it("NotContains throws an error when given a string that contains a whitespace as compared to the contract precondition", () => {
+    it("notContains throws an error when given a string that contains a whitespace as compared to the contract precondition", () => {
         let localVar: string = " ";
         let compareTo: string = " ";
 
         expect( () => {
-            contract.pre(localVar).NotContains(compareTo);
+            contract.pre(localVar).notContains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("StartsWith returns the proper validator when given a string " +
+    it("startsWith returns the proper validator when given a string " +
         "that starts with the same characters as the contract precondition", () => {
 
         let localVar: string = "The Lazy Brown Dog Jumped Over The Fence";
         let compareTo: string = "The Lazy Brown Dog Jumped Over The Fence";
 
-        let result: IStringValidator = contract.pre(localVar).StartsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).startsWith(compareTo);
 
         expect(result);
     });
 
 
-    it("StartsWith returns the proper validator when given a string that starts with single character", () => {
+    it("startsWith returns the proper validator when given a string that starts with single character", () => {
 
         let localVar: string = "T";
         let compareTo: string = "T";
 
-        let result: IStringValidator = contract.pre(localVar).StartsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).startsWith(compareTo);
 
         expect(result);
     });
 
-    it("StartsWith throws an error when given a string that does not start with the same characters as the contract precondition", () => {
+    it("startsWith throws an error when given a string that does not start with the same characters as the contract precondition", () => {
 
         let localVar: string = "TypedContract is the best code contract library ever";
         let compareTo: string = "TypeScript";
 
         expect( () => {
-            contract.pre(localVar).StartsWith(compareTo);
+            contract.pre(localVar).startsWith(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
-    it("StartsWith returns the proper validator when given a string that starts with the same characters", () => {
+    it("startsWith returns the proper validator when given a string that starts with the same characters", () => {
         let localVar: string = "Typed Contract";
         let compareTo: string = "Typed";
 
-        let result: IStringValidator = contract.pre(localVar).StartsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).startsWith(compareTo);
 
         expect(result);
     });
 
-    it("StartsWith returns the proper validator when given a string that starts with the same characters and contains it twice", () => {
+    it("startsWith returns the proper validator when given a string that starts with the same characters and contains it twice", () => {
         let localVar: string = "Typed Contract Typed Contract";
         let compareTo: string = "Typed";
 
-        let result: IStringValidator = contract.pre(localVar).StartsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).startsWith(compareTo);
 
         expect(result);
     });
 
-    it("EndsWith returns the proper validator when given to identical strings", () => {
+    it("endsWith returns the proper validator when given to identical strings", () => {
         let localVar: string = "Hi my name is Randar";
         let compareTo: string = "Randar";
 
-        let result: IStringValidator = contract.pre(localVar).EndsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).endsWith(compareTo);
 
         expect(result);
     });
 
 
-    it("EndsWith returns the proper validator when given to identical strings of longer length", () => {
+    it("endsWith returns the proper validator when given to identical strings of longer length", () => {
         let localVar: string = "The quick fox jumped over the lazy brown dog";
         let compareTo: string = "dog";
 
-        let result: IStringValidator = contract.pre(localVar).EndsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).endsWith(compareTo);
 
         expect(result);
     });
 
-    it("EndsWith returns the proper validator with string interpolation", () => {
+    it("endsWith returns the proper validator with string interpolation", () => {
         let localVar: string = "This is TypedContract";
         let stringWord: string = "TypedContract";
         let compareTo: string = `${stringWord}`;
 
-        let result: IStringValidator = contract.pre(localVar).EndsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).endsWith(compareTo);
 
         expect(result);
     });
 
-    it("EndsWith throws an error when given a two strings that are not identical ", () => {
+    it("endsWith throws an error when given a two strings that are not identical ", () => {
         let localVar: string = "I am typing a sentence";
         let compareTo: string = "There was a sentence I just coded";
 
         expect( () => {
-                contract.pre(localVar).EndsWith(compareTo);
+                contract.pre(localVar).endsWith(compareTo);
             }).toThrowError(<any>RangeError);
 
     });
 
-    it("EndsWith throws an error when given a two strings that are not identical, one word strings", () => {
+    it("endsWith throws an error when given a two strings that are not identical, one word strings", () => {
         let localVar: string = "Sentence";
         let compareTo: string = "Coded";
 
         expect( () => {
-            contract.pre(localVar).EndsWith(compareTo);
+            contract.pre(localVar).endsWith(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
 
-    it("IsBetween returns the proper validator when given two strings", () => {
+    it("isBetween returns the proper validator when given two strings", () => {
         let localVar: string = "T";
 
-        let result: IStringValidator = contract.pre(localVar).IsBetween("A", "Z");
+        let result: IStringValidator = contract.pre(localVar).isBetween("A", "Z");
 
         expect(result);
     });
 
-    it("IsBetween returns the proper validator when on the lower boundary", () => {
+    it("isBetween returns the proper validator when on the lower boundary", () => {
         let localVar: string = "A";
 
-        let result: IStringValidator = contract.pre(localVar).IsBetween("A", "Z");
+        let result: IStringValidator = contract.pre(localVar).isBetween("A", "Z");
 
         expect(result);
     });
 
-    it("IsBetween returns the proper validator when on the upper boundary", () => {
+    it("isBetween returns the proper validator when on the upper boundary", () => {
         let localVar: string = "Z";
 
-        let result: IStringValidator = contract.pre(localVar).IsBetween("A", "Z");
+        let result: IStringValidator = contract.pre(localVar).isBetween("A", "Z");
 
         expect(result);
     });
 
 
-    it("IsBetween returns the proper validator when given two identical strings", () => {
+    it("isBetween returns the proper validator when given two identical strings", () => {
         let localVar: string = "b";
 
-        let result: IStringValidator = contract.pre(localVar).IsBetween("a", "c");
+        let result: IStringValidator = contract.pre(localVar).isBetween("a", "c");
 
         expect(result);
     });
 
-    it("IsBetween throws an error with when given two strings that are not in the range of the precondition value", () => {
+    it("isBetween throws an error with when given two strings that are not in the range of the precondition value", () => {
         let localVar: string = "Ali";
 
         expect( () => {
-            contract.pre(localVar).IsBetween("Amy", "Johnathan");
+            contract.pre(localVar).isBetween("Amy", "Johnathan");
         });
     });
 
 
-    it("IsBetween throws an error when given two non-identical strings", () => {
+    it("isBetween throws an error when given two non-identical strings", () => {
         let localVar: string = "TypeScript";
 
         expect( () => {
-            contract.pre(localVar).IsBetween("Tz", "Typz");
+            contract.pre(localVar).isBetween("Tz", "Typz");
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsBetween throws an error when given the wrong range for the precondition", () => {
+    it("isBetween throws an error when given the wrong range for the precondition", () => {
         let localVar: string = "A";
 
         expect( () => {
-            contract.pre(localVar).IsBetween("B", "A");
+            contract.pre(localVar).isBetween("B", "A");
         }).toThrowError(<any>Error);
     });
 
-    it("IsNotBetween returns the proper validator when given two strings that are not in the range of the precondition", () => {
+    it("isNotBetween returns the proper validator when given two strings that are not in the range of the precondition", () => {
         let localVar: string = "Cxy";
 
-        let result: IStringValidator = contract.pre(localVar).IsNotBetween("Dzz", "Aab");
+        let result: IStringValidator = contract.pre(localVar).isNotBetween("Dzz", "Aab");
 
         expect(result);
     });
 
 
-    it("IsNotBetween returns the proper validator when given two non-identical strings", () => {
+    it("isNotBetween returns the proper validator when given two non-identical strings", () => {
         let localVar: string = "Free";
 
-        let result: IStringValidator = contract.pre(localVar).IsNotBetween("Guy", "Acd");
+        let result: IStringValidator = contract.pre(localVar).isNotBetween("Guy", "Acd");
 
         expect(result);
     });
 
 
-    it("IsNotBetween returns the proper validator when given a range not in the specified range, longer words", () => {
+    it("isNotBetween returns the proper validator when given a range not in the specified range, longer words", () => {
         let localVar: string = "Ba";
 
         expect( () => {
-            contract.pre(localVar).IsNotBetween("A", "D");
+            contract.pre(localVar).isNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 
 
-    it("IsNotBetween returns an error strings that are not specifying a range for the pre-condition", () => {
+    it("isNotBetween returns an error strings that are not specifying a range for the pre-condition", () => {
         let localVar: string = "Bb";
 
         expect( () => {
-            contract.pre(localVar).IsNotBetween("Aa", "De");
+            contract.pre(localVar).isNotBetween("Aa", "De");
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsNotBetween throws an error when given two identical ranges", () => {
+    it("isNotBetween throws an error when given two identical ranges", () => {
         let localVar: string = "C";
 
         expect( () => {
-            contract.pre(localVar).IsNotBetween("A", "D");
+            contract.pre(localVar).isNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsNotBetween throws an error when given two identical ranges, longer words", () => {
+    it("isNotBetween throws an error when given two identical ranges, longer words", () => {
         let localVar: string = "CA";
 
         expect( () => {
-           contract.pre(localVar).IsNotBetween("AB", "FG");
+           contract.pre(localVar).isNotBetween("AB", "FG");
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsNotBetween throws an error when on the lower boundary", () => {
+    it("isNotBetween throws an error when on the lower boundary", () => {
         let localVar: string = "A";
 
         expect( () => {
-            contract.pre(localVar).IsNotBetween("A", "D");
+            contract.pre(localVar).isNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 
-    it("IsNotBetween throws an error when on the upper boundary", () => {
+    it("isNotBetween throws an error when on the upper boundary", () => {
         let localVar: string = "D";
 
         expect( () => {
-            contract.pre(localVar).IsNotBetween("A", "D");
+            contract.pre(localVar).isNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 });

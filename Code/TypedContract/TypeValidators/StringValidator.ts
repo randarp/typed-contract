@@ -10,11 +10,11 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsNotNull checks if the string variable is not null
+     * isNotNull checks if the string variable is not null
      * @throws a ReferenceError if the variable is null
      * @returns {IStringValidator}
      */
-    public IsNotNull(): IStringValidator {
+    public isNotNull(): IStringValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(`${this._variableName} should not be null`);
         } else {
@@ -24,11 +24,11 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsNull checks if the string variable is null
+     * isNull checks if the string variable is null
      * @throws a ReferenceError if the variable is not null
      * @returns {IStringValidator}
      */
-    public IsNull(): IStringValidator {
+    public isNull(): IStringValidator {
 
         if (this._variableValue !== null) {
             throw new ReferenceError(`${this._variableName} should be null`);
@@ -38,11 +38,11 @@ export class StringValidator extends BaseValidator<string> {
     }
 
     /**
-     * IsDefined checks if the string variable is defined
+     * isDefined checks if the string variable is defined
      * @throws ReferenceError if the string is not defined
      * @returns {IStringValidator}
      */
-    public IsDefined(): IStringValidator {
+    public isDefined(): IStringValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
         } else {
@@ -51,11 +51,11 @@ export class StringValidator extends BaseValidator<string> {
     }
 
     /**
-     * IsNotDefined checks if the string variable is not defined
+     * isNotDefined checks if the string variable is not defined
      * @throws ReferenceError if variable is defined
      * @returns {IStringValidator}
      */
-    public IsUndefined(): IStringValidator {
+    public isUndefined(): IStringValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be defined`);
         } else {
@@ -65,11 +65,11 @@ export class StringValidator extends BaseValidator<string> {
 
 
     /**
-     * IsNullOrUndefined checks if a string variable is not null or undefined
+     * isNullOrUndefined checks if a string variable is not null or undefined
      * @throws ReferenceError if a string variable is null or not undefined
      * @returns {IStringValidator}
      */
-    public IsNullOrUndefined(): IStringValidator {
+    public isNullOrUndefined(): IStringValidator {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {
@@ -79,12 +79,12 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsEqualTo cecks if the string variable is equal to the parameter passed into the function as an argument
+     * isEqualTo cecks if the string variable is equal to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not equal to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public IsEqualTo(compareTo: string): IStringValidator {
+    public isEqualTo(compareTo: string): IStringValidator {
         if (this._variableValue !== compareTo) {
             throw new RangeError(`${this._variableName} should be equal to the string variable ${compareTo}`);
         } else {
@@ -94,12 +94,12 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsNotEqualTo checks if the string variable is not equal to the parameter passed into the function as an argument
+     * isNotEqualTo checks if the string variable is not equal to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is equal to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public IsNotEqualTo(compareTo: string): IStringValidator {
+    public isNotEqualTo(compareTo: string): IStringValidator {
         if (this._variableValue === compareTo) {
             throw new RangeError(`${this._variableName} should not be equal to the string variable ${compareTo}`);
         } else {
@@ -109,12 +109,12 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsLessThan checks if the string variable is less than to the parameter passed into the function as an argument
+     * isLessThan checks if the string variable is less than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is greater to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public IsLessThan(compareTo: string): IStringValidator {
+    public isLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length > compareTo.length) {
             throw new ReferenceError(`${this._variableName} should be less than ${compareTo} but is ${this._variableValue}`);
         } else {
@@ -124,12 +124,12 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsNotLessThan checks if the string variable is not less than to the parameter passed into the function as an argument
+     * isNotLessThan checks if the string variable is not less than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not less than to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public IsNotLessThan(compareTo: string): IStringValidator {
+    public isNotLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length < compareTo.length) {
             throw new ReferenceError(`${this._variableName} should not be less that ${compareTo} but is ${this._variableValue} `);
         } else {
@@ -139,12 +139,12 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsLengthGreaterThan checks if the string variable length is greater than to the parameter passed into the function as an argument
+     * isLengthGreaterThan checks if the string variable length is greater than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not greater than to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public IsLengthGreaterThan(compareTo: string): IStringValidator {
+    public isLengthGreaterThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(`${this._variableName} should have a length greater
             than ${compareTo.length} but is ${this._variableValue.length}`);
@@ -155,13 +155,13 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsLengthGreaterOrEqualTo checks if the string variable length is greater or equal than
+     * isLengthGreaterOrEqualTo checks if the string variable length is greater or equal than
      * to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not greater or equal than to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public IsLengthGreaterOrEqualTo(compareTo: string): IStringValidator {
+    public isLengthGreaterOrEqualTo(compareTo: string): IStringValidator {
 
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             return this;
@@ -173,12 +173,12 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsLengthNotGreaterThan checks if the string variable length is not greater than to the parameter passed into the function as an argument
+     * isLengthNotGreaterThan checks if the string variable length is not greater than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is less or equal than to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public IsLengthNotGreaterThan(compareTo: string): IStringValidator {
+    public isLengthNotGreaterThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             return this;
         } else {
@@ -189,12 +189,12 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsLengthNotGreaterOrEqualTo checks if the string variable length is not greater or equal than to the parameter passed into the function as an argument
+     * isLengthNotGreaterOrEqualTo checks if the string variable length is not greater or equal than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is greater or equal than to the parameter passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public IsLengthNotGreaterOrEqualTo(compareTo: string): IStringValidator {
+    public isLengthNotGreaterOrEqualTo(compareTo: string): IStringValidator {
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             throw new RangeError(`${this._variableName} should not have a length greater or equal to ${compareTo.length}
               but is ${this._variableValue.length}`);
@@ -204,13 +204,13 @@ export class StringValidator extends BaseValidator<string> {
     }
 
     /**
-     * IsLengthLessThan checks if length of the string is less than the comparable passed into the TypedContract
+     * isLengthLessThan checks if length of the string is less than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater or equal to the comparable passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      *
      */
-    public IsLengthLessThan(compareTo: string): IStringValidator {
+    public isLengthLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length >= compareTo.length) {
             throw new RangeError(`${this._variableName} should have a length
         less than ${compareTo.length} but is ${this._variableValue.length}`);
@@ -220,13 +220,13 @@ export class StringValidator extends BaseValidator<string> {
     }
 
     /**
-     * IsLengthNotLessThan checks if length of the string is less than the comparable passed into the TypedContract
+     * isLengthNotLessThan checks if length of the string is less than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater or equal to the comparable passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      *
      */
-    public IsLengthNotLessThan(compareTo: string): IStringValidator {
+    public isLengthNotLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(`${this._variableName} should not have a length
         less than ${compareTo.length} but is ${this._variableValue.length}`);
@@ -236,13 +236,13 @@ export class StringValidator extends BaseValidator<string> {
     }
 
     /**
-     * IsLengthLessOrEqualThan checks if length of the string is less or equal than the comparable passed into the TypedContract
+     * isLengthLessOrEqualThan checks if length of the string is less or equal than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater than the comparable passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      *
      */
-    public IsLengthLessOrEqualThan(compareTo: string): IStringValidator {
+    public isLengthLessOrEqualThan(compareTo: string): IStringValidator {
         if (this._variableValue.length > compareTo.length) {
             throw new RangeError(`${this._variableName} should have a
             length less or equal to ${compareTo.length} but is ${this._variableValue.length}`);
@@ -252,13 +252,13 @@ export class StringValidator extends BaseValidator<string> {
     }
 
     /**
-     * IsLengthNotLessOrEqualThan checks if length of the string is not less or equal than the comparable passed into the TypedContract
+     * isLengthNotLessOrEqualThan checks if length of the string is not less or equal than the comparable passed into the TypedContract
      * @throws RangeError if the string length is less or equal than the comparable passed into the function
      * @param compareTo
      * @returns {IStringValidator}
      *
      */
-    public IsLengthNotLessOrEqualThan(compareTo: string): IStringValidator {
+    public isLengthNotLessOrEqualThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(`${this._variableName} should not have a length less
             or equal to ${compareTo.length} but is ${this._variableValue.length}`);
@@ -269,13 +269,13 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * ToMatch checks if the regular expression passed into the function matches the string
+     * toMatch checks if the regular expression passed into the function matches the string
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does not match the values in the precondition
      * @param regExp
      * @returns {IStringValidator}
      */
-    public ToMatch(regExp: any): IStringValidator {
+    public toMatch(regExp: any): IStringValidator {
         if (!regExp.test(this._variableValue)) {
             throw new RangeError(`${this._variableName} should match
             the pattern ${regExp} but the value of ${this._variableValue} does not match`);
@@ -286,13 +286,13 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * ToNotMatch checks if the regular expression passed into the function does not match the string
+     * toNotMatch checks if the regular expression passed into the function does not match the string
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does not match the values in the precondition
      * @param regExp
      * @returns {IStringValidator}
      */
-    public ToNotMatch(regExp: RegExp): IStringValidator {
+    public toNotMatch(regExp: RegExp): IStringValidator {
         if (regExp.test(this._variableValue)) {
             throw new RangeError(`${this._variableName} should not match
             the pattern ${regExp} but the value of ${this._variableValue} matches`);
@@ -303,13 +303,13 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * Contains checks if the string passed into the function contains a match of the string
+     * contains checks if the string passed into the function contains a match of the string
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does match the values in the precondition
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public Contains(compareTo: string): IStringValidator {
+    public contains(compareTo: string): IStringValidator {
         if (this._variableValue.length === 0 && compareTo.length === 0) {
             return this;
         }
@@ -323,13 +323,13 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * NotContains checks if the string passed into the function contains a match of the string
+     * notContains checks if the string passed into the function contains a match of the string
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does not match the values in the precondition
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public NotContains(compareTo: string): IStringValidator {
+    public notContains(compareTo: string): IStringValidator {
 
         if (this._variableValue.indexOf(compareTo) > -1) {
             throw new RangeError(`${this._variableName} should not contain
@@ -341,13 +341,13 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * StartsWith checks if the precondition in the TypedContract has the same starting string
+     * startsWith checks if the precondition in the TypedContract has the same starting string
      * value as the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract does not contain the same starting values
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public StartsWith(compareTo: string): IStringValidator {
+    public startsWith(compareTo: string): IStringValidator {
 
         if ((this._variableValue).lastIndexOf(compareTo, 0) === 0) {
             return this;
@@ -358,13 +358,13 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * NotStartsWith checks if the precondition in the TypedContract does not have the same starting string
+     * notStartsWith checks if the precondition in the TypedContract does not have the same starting string
      * value as the comparable variable passed into the function
      * @throws RangeError if the compareTo argument passed into TypedContract does not contain the same starting values
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public NotStartsWith(compareTo: string): IStringValidator {
+    public notStartsWith(compareTo: string): IStringValidator {
 
         if ((this._variableValue).lastIndexOf(compareTo, 0) !== 0) {
             throw new RangeError(`${this._variableName} should not start with ${compareTo} but ${this._variableValue} does not`);
@@ -375,13 +375,13 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * EndsWith checks if the precondition in the TypedContract has the same ending string
+     * endsWith checks if the precondition in the TypedContract has the same ending string
      * values as the comparable variable passed into the function
      * @throws RangeError if the compareTo argument passed into TypedContract does not contain the same ending values
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public EndsWith(compareTo: string): IStringValidator {
+    public endsWith(compareTo: string): IStringValidator {
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) === -1) {
             throw new RangeError(`${this._variableName} should end with ${compareTo}, but ${this._variableValue} does not`);
         } else {
@@ -391,13 +391,13 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * NotEndsWith checks if the precondition in the TypedContract does not have the same ending string
+     * notEndsWith checks if the precondition in the TypedContract does not have the same ending string
      * values as the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract does contain the same ending values
      * @param compareTo
      * @returns {IStringValidator}
      */
-    public NotEndsWith(compareTo: string): IStringValidator {
+    public notEndsWith(compareTo: string): IStringValidator {
 
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) !== -1) {
             throw new RangeError(`${this._variableName} should not end with ${compareTo}, but ${this._variableValue} does not`);
@@ -408,14 +408,14 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsBetween checks if the precondition in the TypedContract is in between the starting and ending string range
+     * isBetween checks if the precondition in the TypedContract is in between the starting and ending string range
      * and are compared against the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract is not in between the
      * starting and ending range
      * @param startRange, endRange
      * @returns {IStringValidator}
      */
-    public IsBetween(startRange: string, endRange: string): IStringValidator {
+    public isBetween(startRange: string, endRange: string): IStringValidator {
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             return this;
         } else {
@@ -427,14 +427,14 @@ export class StringValidator extends BaseValidator<string> {
 
     /**
      *
-     * IsNotBetween checks if the precondition in the TypedContract is not in between the starting and ending string range
+     * isNotBetween checks if the precondition in the TypedContract is not in between the starting and ending string range
      * and are compared against the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract is in between the
      * starting and ending range
      * @param startRange, endRange
      * @returns {IStringValidator}
      */
-    public IsNotBetween(startRange: string, endRange: string): IStringValidator {
+    public isNotBetween(startRange: string, endRange: string): IStringValidator {
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             throw new RangeError(`${this._variableName} should not be between
             ${startRange} and ${endRange}, but the value of ${this._variableValue} is in that range`);

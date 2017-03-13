@@ -150,7 +150,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let comparableVar: number = 1;
 
         // act
-        let result: INumberValidator = contract.pre(localVariable).IsGreaterThan(comparableVar);
+        let result: INumberValidator = contract.pre(localVariable).isGreaterThan(comparableVar);
 
         // assert
         expect(result);
