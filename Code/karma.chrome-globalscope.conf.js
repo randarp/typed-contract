@@ -16,10 +16,10 @@ module.exports = function(config) {
     files: [
       {pattern: 'typedcontract.js', watched: true, included: true, served: true},
       {pattern: 'typedcontract.js.map', watched: true, included: false, served: true},
-      {pattern: 'TypedContract.Specs/Contract.TypeScript.globalscope.spec.js', watched: true, included: true, served: true},
-      {pattern: 'TypedContract.Specs/Contract.JavaScript.globalscope.spec.js', watched: true, included: true, served: true},
-      {pattern: 'TypedContract.Specs/TypeValidators/**/*.js', watched: true, included: true, served: true},
-      {pattern: 'TypedContract.Specs/TypeValidators/**/*.map', watched: true, included: false, served: true}
+      {pattern: 'typedcontract.specs/contract.typeScript.globalscope.spec.js', watched: true, included: true, served: true},
+      {pattern: 'typedcontract.specs/contract.javaScript.globalscope.spec.js', watched: true, included: true, served: true},
+      {pattern: 'typedcontract.specs/type-validators/**/*.js', watched: true, included: true, served: true},
+      {pattern: 'typedcontract.specs/type-validators/**/*.map', watched: true, included: false, served: true}
     ],
 
     // list of files to exclude

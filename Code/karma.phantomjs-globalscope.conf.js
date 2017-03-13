@@ -16,9 +16,9 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'typedcontract.js',
-      'TypedContract.Specs/Contract.TypeScript.globalscope.spec.js',
-      'TypedContract.Specs/Contract.JavaScript.globalscope.spec.js',
-      'TypedContract.Specs/TypeValidators/**/*.js'
+      'typedcontract.specs/Contract.typescript.globalscope.spec.js',
+      'typedcontract.specs/Contract.javascript.globalscope.spec.js',
+      'typedcontract.specs/type-validators/**/*.js'
     ],
 
 
