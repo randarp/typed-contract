@@ -1472,6 +1472,7 @@ module.exports = __webpack_require__(1);
 /***/ })
 /******/ ]);
 });
+//# sourceMappingURL=typedcontract-lib.js.map
 
 
 /* tslint:disable */

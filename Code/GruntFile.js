@@ -37,11 +37,10 @@ module.exports = function(grunt){
             dist: {
                 src: ['./TypedContract/typedcontract-lib.js', './TypedContract/typedcontract-bootstrapper.js'],
                 dest: 'typedcontract.js',
-                //UNDONE: Get sourcemaps to merge again
-                /*options: {
+                options: {
                     sourceMap: true,
                     sourceMapName: "typedcontract.js.map",
-                },*/
+                },
             },
             definition: {
                 src: ['./typedcontract.d.ts','./TypedContract/TypeValidators.d.ts'],

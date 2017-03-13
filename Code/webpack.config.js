@@ -11,6 +11,7 @@ var config = {
     entry: [
         __dirname + "/TypedContract/Contract/Contract.ts"
     ],
+    devtool: "source-map",
     output: {
         path: __dirname,
         filename: outputFile,
@@ -20,11 +21,6 @@ var config = {
     },
     module: {
         rules: [
-            {
-                test: /\.ts?$/,
-                loader: 'ts-loader',
-                exclude: /node_modules/,
-            },
             {
                 enforce: 'pre',
                 test: /\.ts?$/,
@@ -38,7 +34,12 @@ var config = {
                     emitErrors: true,
                     failOnHint: true
                 }
-            }
+            },
+            {
+                test: /\.ts?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+            },
         ]
     },
     resolve: {
