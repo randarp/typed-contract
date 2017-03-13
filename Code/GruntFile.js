@@ -112,11 +112,23 @@ module.exports = function(grunt){
                 overwrite: true,
                 replacements: [{
                     // Remove some references that are merged in
+                    from: "\/\/\/ <reference path=\"TypeValidators\/TypeValidators.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
                     from: "\/\/\/ <reference path=\"..\/TypeValidators\/TypeValidators.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
                     from: "\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\/\/\/ <reference path=\"IContract.d.ts\" \/>",
+                    to: ""
+                },{
+                    // Remove some references that are merged in
+                    from: "\/\/\/ <reference path=\"..\/IContract.d.ts\" \/>",
                     to: ""
                 },{
                     // Fix the link to the source mapping, which was based on the initially generated one
