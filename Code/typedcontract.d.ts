@@ -626,8 +626,8 @@ interface IStringValidator extends IBaseValidator<string> {
      */
     isNotBetween(startRange: string, endRange: string): IStringValidator;
 }
-/// <reference path="IContract.d.ts" />
-/// <reference path="TypeValidators/TypeValidators.d.ts" />
+/// <reference path="icontract.d.ts" />
+/// <reference path="type-validators/type-validators.d.ts" />
 declare var contract: IContractStatic;
 declare var typedcontract: any;
 declare module "typedcontract" {

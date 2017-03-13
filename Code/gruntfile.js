@@ -21,19 +21,19 @@ module.exports = function(grunt){
         dtsGenerator: {
             options: {
                 name: "typedcontract",
-                project: "./TypedContract",
+                project: "./typedcontract",
                 out: "typedcontract.d.ts"
             },
             default: {
-                src: [ "/TypedContract/**/*.ts" ]
+                src: [ "/typedcontract/**/*.ts" ]
             }
         },
         copy: {
             // Webpack can't find the reference to BaseValidator, so copy it to the directory
             sourceMap: {
                 expand: true,
-                src: 'TypedContract/TypeValidators/BaseValidator.js.map',
-                dest: './TypedContract/',
+                src: 'typedcontract/type-validators/base-validator.js.map',
+                dest: './typedcontract/',
                 flatten: true,
             },
         },
@@ -44,7 +44,7 @@ module.exports = function(grunt){
         // Merge the library (from WebPack) and the bootstrapper
         concat: {
             dist: {
-                src: ['./TypedContract/typedcontract-lib.js', './TypedContract/typedcontract-bootstrapper.js'],
+                src: ['./typedcontract/typedcontract-lib.js', './typedcontract/typedcontract-bootstrapper.js'],
                 dest: 'typedcontract.js',
                 options: {
                     sourceMap: true,
@@ -52,7 +52,7 @@ module.exports = function(grunt){
                 },
             },
             definition: {
-                src: ['./typedcontract.d.ts','./TypedContract/TypeValidators.d.ts'],
+                src: ['./typedcontract.d.ts','./typedcontract/type-validators.d.ts'],
                 dest: 'typedcontract.d.ts'
             }
         },
@@ -84,27 +84,27 @@ module.exports = function(grunt){
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"type-validators/type-validators.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"..\/TypeValidators\/TypeValidators.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"..\/type-validators\/type-validators.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"type-validators.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"..\/IContract.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"..\/icontract.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"IContract.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"icontract.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"TypeValidators/TypeValidators.d.ts\" \/>",
+                    from: "\t\/\/\/ <reference path=\"type-validators/type-validators.d.ts\" \/>",
                     to: ""
                 },{
                     // Clean up some whitespace after replaces
@@ -121,23 +121,23 @@ module.exports = function(grunt){
                 overwrite: true,
                 replacements: [{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"TypeValidators\/TypeValidators.d.ts\" \/>",
+                    from: "\/\/\/ <reference path=\"type-validators\/type-validators.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"..\/TypeValidators\/TypeValidators.d.ts\" \/>",
+                    from: "\/\/\/ <reference path=\"..\/type-validators\/type-validators.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"TypeValidators.d.ts\" \/>",
+                    from: "\/\/\/ <reference path=\"type-validators.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"IContract.d.ts\" \/>",
+                    from: "\/\/\/ <reference path=\"icontract.d.ts\" \/>",
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"..\/IContract.d.ts\" \/>",
+                    from: "\/\/\/ <reference path=\"..\/icontract.d.ts\" \/>",
                     to: ""
                 },{
                     // Fix the link to the source mapping, which was based on the initially generated one

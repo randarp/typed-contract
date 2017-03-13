@@ -82,7 +82,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 /**
  * Encapsulates any validators that apply to every type and state used by the validation chain.
  */
@@ -126,52 +126,52 @@ exports.BaseValidator = BaseValidator;
 
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var StringValidator_1 = __webpack_require__(6);
-var BooleanValidator_1 = __webpack_require__(4);
-var NumberValidator_1 = __webpack_require__(5);
-var ArrayValidator_1 = __webpack_require__(3);
-var AnyValidator_1 = __webpack_require__(2);
+var string_validator_1 = __webpack_require__(6);
+var boolean_validator_1 = __webpack_require__(4);
+var number_validator_1 = __webpack_require__(5);
+var array_validator_1 = __webpack_require__(3);
+var any_validator_1 = __webpack_require__(2);
 var Contract = (function () {
     function Contract() {
     }
     Contract.prototype.checks = function (precondition, name) {
         if (name === void 0) { name = undefined; }
         if (typeof precondition === "string" || precondition === null || precondition === undefined) {
-            return new StringValidator_1.StringValidator(precondition, name);
+            return new string_validator_1.StringValidator(precondition, name);
         }
         else if (typeof precondition === "boolean" || precondition === null || precondition === undefined) {
-            return new BooleanValidator_1.BooleanValidator(precondition, name);
+            return new boolean_validator_1.BooleanValidator(precondition, name);
         }
         else if (typeof precondition === "number" || precondition === null || precondition === undefined) {
-            return new NumberValidator_1.NumberValidator(precondition, name);
+            return new number_validator_1.NumberValidator(precondition, name);
         }
         else if (precondition instanceof Array ||
             precondition instanceof Array === null
             || precondition instanceof Array === undefined) {
-            return new ArrayValidator_1.ArrayValidator(precondition, name);
+            return new array_validator_1.ArrayValidator(precondition, name);
         }
         else {
-            return new AnyValidator_1.AnyValidator(precondition, name);
+            return new any_validator_1.AnyValidator(precondition, name);
         }
     };
     Contract.prototype.ensures = function (postcondition, name) {
         if (name === void 0) { name = undefined; }
         if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
-            return new StringValidator_1.StringValidator(postcondition, name);
+            return new string_validator_1.StringValidator(postcondition, name);
         }
         else if (typeof postcondition === "boolean" || postcondition === null || postcondition === undefined) {
-            return new BooleanValidator_1.BooleanValidator(postcondition, name);
+            return new boolean_validator_1.BooleanValidator(postcondition, name);
         }
         else if (typeof postcondition === "number" || postcondition === null || postcondition === undefined) {
-            return new NumberValidator_1.NumberValidator(postcondition, name);
+            return new number_validator_1.NumberValidator(postcondition, name);
         }
         else if (postcondition instanceof Array ||
             postcondition instanceof Array === null ||
             postcondition instanceof Array === undefined) {
-            return new ArrayValidator_1.ArrayValidator(postcondition, name);
+            return new array_validator_1.ArrayValidator(postcondition, name);
         }
         else {
-            return new AnyValidator_1.AnyValidator(postcondition, name);
+            return new any_validator_1.AnyValidator(postcondition, name);
         }
     };
     return Contract;
@@ -200,8 +200,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-var BaseValidator_1 = __webpack_require__(0);
+exports.__esModule = true;
+var base_validator_1 = __webpack_require__(0);
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
     function AnyValidator(variableValue, variableName) {
@@ -275,9 +275,9 @@ var AnyValidator = (function (_super) {
         }
     };
     return AnyValidator;
-}(BaseValidator_1.BaseValidator));
+}(base_validator_1.BaseValidator));
 exports.AnyValidator = AnyValidator;
-//# sourceMappingURL=AnyValidator.js.map
+//# sourceMappingURL=any-validator.js.map
 
 /***/ }),
 /* 3 */
@@ -296,8 +296,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-var BaseValidator_1 = __webpack_require__(0);
+exports.__esModule = true;
+var base_validator_1 = __webpack_require__(0);
 var ArrayValidator = (function (_super) {
     __extends(ArrayValidator, _super);
     function ArrayValidator(variableValue, variableName) {
@@ -617,9 +617,9 @@ var ArrayValidator = (function (_super) {
         return this;
     };
     return ArrayValidator;
-}(BaseValidator_1.BaseValidator));
+}(base_validator_1.BaseValidator));
 exports.ArrayValidator = ArrayValidator;
-//# sourceMappingURL=ArrayValidator.js.map
+//# sourceMappingURL=array-validator.js.map
 
 /***/ }),
 /* 4 */
@@ -638,8 +638,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-var BaseValidator_1 = __webpack_require__(0);
+exports.__esModule = true;
+var base_validator_1 = __webpack_require__(0);
 var BooleanValidator = (function (_super) {
     __extends(BooleanValidator, _super);
     function BooleanValidator(variableValue, variableName) {
@@ -771,9 +771,9 @@ var BooleanValidator = (function (_super) {
         }
     };
     return BooleanValidator;
-}(BaseValidator_1.BaseValidator));
+}(base_validator_1.BaseValidator));
 exports.BooleanValidator = BooleanValidator;
-//# sourceMappingURL=BooleanValidator.js.map
+//# sourceMappingURL=boolean-validator.js.map
 
 /***/ }),
 /* 5 */
@@ -792,8 +792,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-var BaseValidator_1 = __webpack_require__(0);
+exports.__esModule = true;
+var base_validator_1 = __webpack_require__(0);
 var NumberValidator = (function (_super) {
     __extends(NumberValidator, _super);
     function NumberValidator(variableValue, variableName) {
@@ -1046,9 +1046,9 @@ var NumberValidator = (function (_super) {
         }
     };
     return NumberValidator;
-}(BaseValidator_1.BaseValidator));
+}(base_validator_1.BaseValidator));
 exports.NumberValidator = NumberValidator;
-//# sourceMappingURL=NumberValidator.js.map
+//# sourceMappingURL=number-validator.js.map
 
 /***/ }),
 /* 6 */
@@ -1067,8 +1067,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-var BaseValidator_1 = __webpack_require__(0);
+exports.__esModule = true;
+var base_validator_1 = __webpack_require__(0);
 var StringValidator = (function (_super) {
     __extends(StringValidator, _super);
     function StringValidator(variableValue, variableName) {
@@ -1488,9 +1488,9 @@ var StringValidator = (function (_super) {
         }
     };
     return StringValidator;
-}(BaseValidator_1.BaseValidator));
+}(base_validator_1.BaseValidator));
 exports.StringValidator = StringValidator;
-//# sourceMappingURL=StringValidator.js.map
+//# sourceMappingURL=string-validator.js.map
 
 /***/ }),
 /* 7 */

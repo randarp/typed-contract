@@ -1,89 +1,82 @@
-/// <reference path="TypeValidators.d.ts" />
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var BaseValidator_1 = require("./BaseValidator");
-var StringValidator = (function (_super) {
-    __extends(StringValidator, _super);
-    function StringValidator(variableValue, variableName) {
-        return _super.call(this, variableValue, variableName) || this;
+/// <reference path="type-validators.d.ts" />
+
+import { BaseValidator } from "./base-validator";
+
+export class StringValidator extends BaseValidator<string> {
+
+    constructor(variableValue: string, variableName: string) {
+        super(variableValue, variableName);
     }
+
     /**
      *
      * isNotNull checks if the string variable is not null
      * @throws a ReferenceError if the variable is null
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNotNull = function () {
+    public isNotNull(): IStringValidator {
         if (this._variableValue === null) {
-            throw new ReferenceError(this._variableName + " should not be null");
-        }
-        else {
+            throw new ReferenceError(`${this._variableName} should not be null`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * isNull checks if the string variable is null
      * @throws a ReferenceError if the variable is not null
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNull = function () {
+    public isNull(): IStringValidator {
+
         if (this._variableValue !== null) {
-            throw new ReferenceError(this._variableName + " should be null");
-        }
-        else {
+            throw new ReferenceError(`${this._variableName} should be null`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      * isDefined checks if the string variable is defined
      * @throws ReferenceError if the string is not defined
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isDefined = function () {
+    public isDefined(): IStringValidator {
         if (typeof this._variableValue === "undefined") {
-            throw new ReferenceError(this._variableName + " should be defined");
-        }
-        else {
+            throw new ReferenceError(`${this._variableName} should be defined`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      * isNotDefined checks if the string variable is not defined
      * @throws ReferenceError if variable is defined
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isUndefined = function () {
+    public isUndefined(): IStringValidator {
         if (typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should not be defined");
-        }
-        else {
+            throw new ReferenceError(`${this._variableName} should not be defined`);
+        } else {
             return this;
         }
-    };
+    }
+
+
     /**
      * isNullOrUndefined checks if a string variable is not null or undefined
      * @throws ReferenceError if a string variable is null or not undefined
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNullOrUndefined = function () {
+    public isNullOrUndefined(): IStringValidator {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should not be null or undefined");
-        }
-        else {
+            throw new ReferenceError(`${this._variableName} should not be null or undefined`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * isEqualTo cecks if the string variable is equal to the parameter passed into the function as an argument
@@ -91,14 +84,14 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isEqualTo = function (compareTo) {
+    public isEqualTo(compareTo: string): IStringValidator {
         if (this._variableValue !== compareTo) {
-            throw new RangeError(this._variableName + " should be equal to the string variable " + compareTo);
-        }
-        else {
+            throw new RangeError(`${this._variableName} should be equal to the string variable ${compareTo}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * isNotEqualTo checks if the string variable is not equal to the parameter passed into the function as an argument
@@ -106,14 +99,14 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNotEqualTo = function (compareTo) {
+    public isNotEqualTo(compareTo: string): IStringValidator {
         if (this._variableValue === compareTo) {
-            throw new RangeError(this._variableName + " should not be equal to the string variable " + compareTo);
-        }
-        else {
+            throw new RangeError(`${this._variableName} should not be equal to the string variable ${compareTo}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * isLessThan checks if the string variable is less than to the parameter passed into the function as an argument
@@ -121,14 +114,14 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isLessThan = function (compareTo) {
+    public isLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length > compareTo.length) {
-            throw new ReferenceError(this._variableName + " should be less than " + compareTo + " but is " + this._variableValue);
-        }
-        else {
+            throw new ReferenceError(`${this._variableName} should be less than ${compareTo} but is ${this._variableValue}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * isNotLessThan checks if the string variable is not less than to the parameter passed into the function as an argument
@@ -136,14 +129,14 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNotLessThan = function (compareTo) {
+    public isNotLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length < compareTo.length) {
-            throw new ReferenceError(this._variableName + " should not be less that " + compareTo + " but is " + this._variableValue + " ");
-        }
-        else {
+            throw new ReferenceError(`${this._variableName} should not be less that ${compareTo} but is ${this._variableValue} `);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * isLengthGreaterThan checks if the string variable length is greater than to the parameter passed into the function as an argument
@@ -151,14 +144,15 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isLengthGreaterThan = function (compareTo) {
+    public isLengthGreaterThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
-            throw new RangeError(this._variableName + " should have a length greater\n            than " + compareTo.length + " but is " + this._variableValue.length);
-        }
-        else {
+            throw new RangeError(`${this._variableName} should have a length greater
+            than ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * isLengthGreaterOrEqualTo checks if the string variable length is greater or equal than
@@ -167,14 +161,16 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isLengthGreaterOrEqualTo = function (compareTo) {
+    public isLengthGreaterOrEqualTo(compareTo: string): IStringValidator {
+
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             return this;
+        } else {
+            throw new RangeError(`${this._variableName} should have a length
+            greater or equal to ${compareTo.length} but is ${this._variableValue.length}`);
         }
-        else {
-            throw new RangeError(this._variableName + " should have a length\n            greater or equal to " + compareTo.length + " but is " + this._variableValue.length);
-        }
-    };
+    }
+
     /**
      *
      * isLengthNotGreaterThan checks if the string variable length is not greater than to the parameter passed into the function as an argument
@@ -182,14 +178,15 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isLengthNotGreaterThan = function (compareTo) {
+    public isLengthNotGreaterThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             return this;
+        } else {
+            throw new RangeError(`${this._variableName} should not have a
+            length greater than ${compareTo.length} but is ${this._variableValue.length}`);
         }
-        else {
-            throw new RangeError(this._variableName + " should not have a\n            length greater than " + compareTo.length + " but is " + this._variableValue.length);
-        }
-    };
+    }
+
     /**
      *
      * isLengthNotGreaterOrEqualTo checks if the string variable length is not greater or equal than to the parameter passed into the function as an argument
@@ -197,14 +194,15 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isLengthNotGreaterOrEqualTo = function (compareTo) {
+    public isLengthNotGreaterOrEqualTo(compareTo: string): IStringValidator {
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
-            throw new RangeError(this._variableName + " should not have a length greater or equal to " + compareTo.length + "\n              but is " + this._variableValue.length);
-        }
-        else {
+            throw new RangeError(`${this._variableName} should not have a length greater or equal to ${compareTo.length}
+              but is ${this._variableValue.length}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      * isLengthLessThan checks if length of the string is less than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater or equal to the comparable passed into the function
@@ -212,14 +210,15 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      *
      */
-    StringValidator.prototype.isLengthLessThan = function (compareTo) {
+    public isLengthLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length >= compareTo.length) {
-            throw new RangeError(this._variableName + " should have a length\n        less than " + compareTo.length + " but is " + this._variableValue.length);
-        }
-        else {
+            throw new RangeError(`${this._variableName} should have a length
+        less than ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      * isLengthNotLessThan checks if length of the string is less than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater or equal to the comparable passed into the function
@@ -227,14 +226,15 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      *
      */
-    StringValidator.prototype.isLengthNotLessThan = function (compareTo) {
+    public isLengthNotLessThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
-            throw new RangeError(this._variableName + " should not have a length\n        less than " + compareTo.length + " but is " + this._variableValue.length);
-        }
-        else {
+            throw new RangeError(`${this._variableName} should not have a length
+        less than ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      * isLengthLessOrEqualThan checks if length of the string is less or equal than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater than the comparable passed into the function
@@ -242,14 +242,15 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      *
      */
-    StringValidator.prototype.isLengthLessOrEqualThan = function (compareTo) {
+    public isLengthLessOrEqualThan(compareTo: string): IStringValidator {
         if (this._variableValue.length > compareTo.length) {
-            throw new RangeError(this._variableName + " should have a\n            length less or equal to " + compareTo.length + " but is " + this._variableValue.length);
-        }
-        else {
+            throw new RangeError(`${this._variableName} should have a
+            length less or equal to ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      * isLengthNotLessOrEqualThan checks if length of the string is not less or equal than the comparable passed into the TypedContract
      * @throws RangeError if the string length is less or equal than the comparable passed into the function
@@ -257,14 +258,15 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      *
      */
-    StringValidator.prototype.isLengthNotLessOrEqualThan = function (compareTo) {
+    public isLengthNotLessOrEqualThan(compareTo: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
-            throw new RangeError(this._variableName + " should not have a length less\n            or equal to " + compareTo.length + " but is " + this._variableValue.length);
-        }
-        else {
+            throw new RangeError(`${this._variableName} should not have a length less
+            or equal to ${compareTo.length} but is ${this._variableValue.length}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * toMatch checks if the regular expression passed into the function matches the string
@@ -273,14 +275,15 @@ var StringValidator = (function (_super) {
      * @param regExp
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.toMatch = function (regExp) {
+    public toMatch(regExp: any): IStringValidator {
         if (!regExp.test(this._variableValue)) {
-            throw new RangeError(this._variableName + " should match\n            the pattern " + regExp + " but the value of " + this._variableValue + " does not match");
-        }
-        else {
+            throw new RangeError(`${this._variableName} should match
+            the pattern ${regExp} but the value of ${this._variableValue} does not match`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * toNotMatch checks if the regular expression passed into the function does not match the string
@@ -289,14 +292,15 @@ var StringValidator = (function (_super) {
      * @param regExp
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.toNotMatch = function (regExp) {
+    public toNotMatch(regExp: RegExp): IStringValidator {
         if (regExp.test(this._variableValue)) {
-            throw new RangeError(this._variableName + " should not match\n            the pattern " + regExp + " but the value of " + this._variableValue + " matches");
-        }
-        else {
+            throw new RangeError(`${this._variableName} should not match
+            the pattern ${regExp} but the value of ${this._variableValue} matches`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * contains checks if the string passed into the function contains a match of the string
@@ -305,17 +309,18 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.contains = function (compareTo) {
+    public contains(compareTo: string): IStringValidator {
         if (this._variableValue.length === 0 && compareTo.length === 0) {
             return this;
         }
         if (compareTo.length === 0 || this._variableValue.indexOf(compareTo) <= -1) {
-            throw new RangeError(this._variableName + " should contain\n           the pattern " + compareTo + " but the pattern is not found in " + this._variableValue);
-        }
-        else {
+            throw new RangeError(`${this._variableName} should contain
+           the pattern ${compareTo} but the pattern is not found in ${this._variableValue}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * notContains checks if the string passed into the function contains a match of the string
@@ -324,14 +329,16 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.notContains = function (compareTo) {
+    public notContains(compareTo: string): IStringValidator {
+
         if (this._variableValue.indexOf(compareTo) > -1) {
-            throw new RangeError(this._variableName + " should not contain\n           the pattern " + compareTo + " but the pattern is found in " + this._variableValue);
-        }
-        else {
+            throw new RangeError(`${this._variableName} should not contain
+           the pattern ${compareTo} but the pattern is found in ${this._variableValue}`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * startsWith checks if the precondition in the TypedContract has the same starting string
@@ -340,14 +347,15 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.startsWith = function (compareTo) {
+    public startsWith(compareTo: string): IStringValidator {
+
         if ((this._variableValue).lastIndexOf(compareTo, 0) === 0) {
             return this;
+        } else {
+            throw new RangeError(`${this._variableName} should start with ${this._variableValue}, but ${compareTo} does not`);
         }
-        else {
-            throw new RangeError(this._variableName + " should start with " + this._variableValue + ", but " + compareTo + " does not");
-        }
-    };
+    }
+
     /**
      *
      * notStartsWith checks if the precondition in the TypedContract does not have the same starting string
@@ -356,14 +364,15 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.notStartsWith = function (compareTo) {
+    public notStartsWith(compareTo: string): IStringValidator {
+
         if ((this._variableValue).lastIndexOf(compareTo, 0) !== 0) {
-            throw new RangeError(this._variableName + " should not start with " + compareTo + " but " + this._variableValue + " does not");
-        }
-        else {
+            throw new RangeError(`${this._variableName} should not start with ${compareTo} but ${this._variableValue} does not`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * endsWith checks if the precondition in the TypedContract has the same ending string
@@ -372,14 +381,14 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.endsWith = function (compareTo) {
+    public endsWith(compareTo: string): IStringValidator {
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) === -1) {
-            throw new RangeError(this._variableName + " should end with " + compareTo + ", but " + this._variableValue + " does not");
-        }
-        else {
+            throw new RangeError(`${this._variableName} should end with ${compareTo}, but ${this._variableValue} does not`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * notEndsWith checks if the precondition in the TypedContract does not have the same ending string
@@ -388,14 +397,15 @@ var StringValidator = (function (_super) {
      * @param compareTo
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.notEndsWith = function (compareTo) {
+    public notEndsWith(compareTo: string): IStringValidator {
+
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) !== -1) {
-            throw new RangeError(this._variableName + " should not end with " + compareTo + ", but " + this._variableValue + " does not");
-        }
-        else {
+            throw new RangeError(`${this._variableName} should not end with ${compareTo}, but ${this._variableValue} does not`);
+        } else {
             return this;
         }
-    };
+    }
+
     /**
      *
      * isBetween checks if the precondition in the TypedContract is in between the starting and ending string range
@@ -405,14 +415,16 @@ var StringValidator = (function (_super) {
      * @param startRange, endRange
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isBetween = function (startRange, endRange) {
+    public isBetween(startRange: string, endRange: string): IStringValidator {
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             return this;
+        } else {
+            throw new RangeError(`${this._variableName} should be between
+            ${startRange} and ${endRange}, but the value of
+            ${this._variableValue} is not in that range`);
         }
-        else {
-            throw new RangeError(this._variableName + " should be between\n            " + startRange + " and " + endRange + ", but the value of\n            " + this._variableValue + " is not in that range");
-        }
-    };
+    }
+
     /**
      *
      * isNotBetween checks if the precondition in the TypedContract is not in between the starting and ending string range
@@ -422,15 +434,12 @@ var StringValidator = (function (_super) {
      * @param startRange, endRange
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNotBetween = function (startRange, endRange) {
+    public isNotBetween(startRange: string, endRange: string): IStringValidator {
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
-            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
+            throw new RangeError(`${this._variableName} should not be between
+            ${startRange} and ${endRange}, but the value of ${this._variableValue} is in that range`);
+        } else {
+           return this;
         }
-        else {
-            return this;
-        }
-    };
-    return StringValidator;
-}(BaseValidator_1.BaseValidator));
-exports.StringValidator = StringValidator;
-//# sourceMappingURL=StringValidator.js.map
+    }
+}

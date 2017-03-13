@@ -8,6 +8,6 @@
     "node_modules",
     "TypedContract",
     "TypedContract.Specs",
-    "typed-contract"
+    "typedcontract"
   ]
 }

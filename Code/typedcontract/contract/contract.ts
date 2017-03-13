@@ -1,11 +1,11 @@
-/// <reference path="../IContract.d.ts" />
-/// <reference path="../type-validators/TypeValidators.d.ts" />
+/// <reference path="../icontract.d.ts" />
+/// <reference path="../type-validators/type-validators.d.ts" />
 
-import { StringValidator } from "../type-validators/StringValidator";
-import { BooleanValidator } from "../type-validators/BooleanValidator";
-import { NumberValidator } from "../type-validators/NumberValidator";
-import { ArrayValidator } from "../type-validators/ArrayValidator";
-import { AnyValidator } from "../type-validators/AnyValidator";
+import { StringValidator } from "../type-validators/string-validator";
+import { BooleanValidator } from "../type-validators/boolean-validator";
+import { NumberValidator } from "../type-validators/number-validator";
+import { ArrayValidator } from "../type-validators/array-validator";
+import { AnyValidator } from "../type-validators/any-validator";
 
 export class Contract implements IContractStatic {
     public checks(precondition:string): IStringValidator;

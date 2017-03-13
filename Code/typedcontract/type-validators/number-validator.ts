@@ -1,6 +1,6 @@
-/// <reference path="TypeValidators.d.ts" />
+/// <reference path="type-validators.d.ts" />
 
-import {BaseValidator} from "./BaseValidator";
+import {BaseValidator} from "./base-validator";
 
 export class NumberValidator extends BaseValidator<number> {
 
