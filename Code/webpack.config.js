@@ -11,7 +11,6 @@ var config = {
     entry: [
         __dirname + "/TypedContract/Contract/Contract.ts"
     ],
-    devtool: "source-map",
     output: {
         path: __dirname,
         filename: outputFile,
@@ -20,25 +19,36 @@ var config = {
         umdNamedDefine: true
     },
     module: {
-        //TODO: Re-enable the tslint pre-loader to make sure out code is clean
-/*        preLoaders: [
-            { test: /\.tsx?$/, loader: "tslint", exclude: /node_modules/ }
-        ],*/
-        loaders: [
-            { test: /\.tsx?$/, loader: "ts", exclude: /node_modules/ }
+        rules: [
+            {
+                test: /\.ts?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
+                enforce: 'pre',
+                test: /\.ts?$/,
+                use: "source-map-loader"
+            },
+            {
+                test: /\.ts$/,
+                enforce: 'pre',
+                loader: 'tslint-loader',
+                options: {
+                    emitErrors: true,
+                    failOnHint: true
+                }
+            }
         ]
     },
     resolve: {
-        root: path.resolve("./TypedContract"),
-        extensions: [ "", ".js", ".ts" ]
+        modules: [
+            path.join(__dirname, "./TypedContract"),
+            "node_modules"
+        ],
+        extensions: [ ".js", ".ts" ]
     },
     plugins: plugins,
-
-    // Individual Plugin Options
-    tslint: {
-        emitErrors: true,
-        failOnHint: true
-    }
 };
 
 module.exports = config;
