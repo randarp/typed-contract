@@ -1,63 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5eb0e92d-1429-43e0-9322-35a9d43680ce" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/Code.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/dictionaries/Randar.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/jsLibraryMappings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/jsLinters/tslint.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/libraries/Generated_files.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/typescript-compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/watcherTasks.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.idea/webResources.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/.npmignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/LICENSE-MIT" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/gruntfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/karma.browser.test-main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/karma.chrome-globalscope.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/karma.chrome-requirejs.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/karma.phantomjs-globalscope.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/karma.phantomjs-requirejs.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/tsconfig.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/tsd.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/tslint.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.specs/contract.typescript.globalscope.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.specs/contract.typescript.requireJS.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.specs/tsconfig.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.specs/type-validators/any-validator.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.specs/type-validators/array-validator.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.specs/type-validators/base-validator.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.specs/type-validators/boolean-validator.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.specs/type-validators/number-validator.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract.specs/type-validators/string-validator.spec.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/contract/contract.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/icontract.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/tsconfig.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/type-validators/any-validator.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/type-validators/array-validator.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/type-validators/base-validator.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/type-validators/boolean-validator.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/type-validators/number-validator.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/type-validators/string-validator.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/type-validators/type-validators.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typedcontract/typedcontract-bootstrapper.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typings/jasmine/jasmine.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/typings/tsd.d.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Code/webpack.config.js" afterPath="" />
-    </list>
+    <list default="true" id="5eb0e92d-1429-43e0-9322-35a9d43680ce" name="Default" comment="" />
     <ignored path="Code.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -420,7 +364,7 @@
       <workItem from="1489354175520" duration="5462000" />
       <workItem from="1489361786641" duration="11875000" />
       <workItem from="1489375184672" duration="2570000" />
-      <workItem from="1489377806018" duration="102000" />
+      <workItem from="1489377806018" duration="384000" />
     </task>
     <servers />
   </component>
@@ -457,7 +401,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66848000" />
+    <option name="totallyTimeSpent" value="67130000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -470,7 +414,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33982852" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14420804" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />

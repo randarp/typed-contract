@@ -1,6 +1,6 @@
 Required software for developing TypedContract:
--WebStorm 11 or greater
--SourceTree 1.7.0 or greater
+-WebStorm 2016 or greater
+-SourceTree 1.8.3 or greater
 
 Required software for executing specs:
 -Node.js.  v4.2.6 or greater.
