@@ -8,17 +8,17 @@ import { ArrayValidator } from "../TypeValidators/ArrayValidator";
 import { AnyValidator } from "../TypeValidators/AnyValidator";
 
 export class Contract implements IContractStatic {
-    public In(precondition:string): IStringValidator;
-    public In(precondition:string, name:string): IStringValidator;
-    public In(precondition:boolean): IBooleanValidator;
-    public In(precondition:boolean, name:string): IBooleanValidator;
-    public In(precondition:number): INumberValidator;
-    public In(precondition:number, name:string): INumberValidator;
-    public In(precondition:any[]): IArrayValidator;
-    public In(precondition:any[], name:string): IArrayValidator;
-    public In(precondition:any, name:string): IAnyValidator;
-    public In(precondition:any): IAnyValidator;
-    public In(precondition:any, name:string = undefined):any {
+    public pre(precondition:string): IStringValidator;
+    public pre(precondition:string, name:string): IStringValidator;
+    public pre(precondition:boolean): IBooleanValidator;
+    public pre(precondition:boolean, name:string): IBooleanValidator;
+    public pre(precondition:number): INumberValidator;
+    public pre(precondition:number, name:string): INumberValidator;
+    public pre(precondition:any[]): IArrayValidator;
+    public pre(precondition:any[], name:string): IArrayValidator;
+    public pre(precondition:any, name:string): IAnyValidator;
+    public pre(precondition:any): IAnyValidator;
+    public pre(precondition:any, name:string = undefined):any {
 
         if (typeof precondition === "string" || precondition === null || precondition === undefined) {
             return new StringValidator(precondition, name);
@@ -35,17 +35,17 @@ export class Contract implements IContractStatic {
         }
     }
 
-    public Out(postcondition:string): IStringValidator;
-    public Out(postcondition:string, name:string): IStringValidator;
-    public Out(postcondition:boolean): IBooleanValidator;
-    public Out(postcondition:boolean, name:string): IBooleanValidator;
-    public Out(postcondition:number): INumberValidator;
-    public Out(postcondition:number, name:string): INumberValidator;
-    public Out(postcondition:any[]): IArrayValidator;
-    public Out(postcondition:any[], name:string): IArrayValidator;
-    public Out(postcondition:any, name:string): IAnyValidator;
-    public Out(postcondition:any):IAnyValidator;
-    public Out(postcondition:any, name:string = undefined):any {
+    public ensures(postcondition:string): IStringValidator;
+    public ensures(postcondition:string, name:string): IStringValidator;
+    public ensures(postcondition:boolean): IBooleanValidator;
+    public ensures(postcondition:boolean, name:string): IBooleanValidator;
+    public ensures(postcondition:number): INumberValidator;
+    public ensures(postcondition:number, name:string): INumberValidator;
+    public ensures(postcondition:any[]): IArrayValidator;
+    public ensures(postcondition:any[], name:string): IArrayValidator;
+    public ensures(postcondition:any, name:string): IAnyValidator;
+    public ensures(postcondition:any):IAnyValidator;
+    public ensures(postcondition:any, name:string = undefined):any {
 
         if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
             return new StringValidator(postcondition, name);

@@ -8,7 +8,7 @@ describe("typedcontract with inline global scope via TypeScript", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: IBooleanValidator = contract.In(localVariable);
+        let result: IBooleanValidator = contract.pre(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -19,7 +19,7 @@ describe("typedcontract with inline global scope via TypeScript", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: IBooleanValidator = contract.In(localVariable, "localVariable");
+        let result: IBooleanValidator = contract.pre(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -31,7 +31,7 @@ describe("typedcontract with inline global scope via TypeScript", () => {
         let localVariable: number = 2;
 
         // act
-        let result: INumberValidator = contract.In(localVariable);
+        let result: INumberValidator = contract.pre(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -43,7 +43,7 @@ describe("typedcontract with inline global scope via TypeScript", () => {
         let localVariable: number = 2;
 
         // act
-        let result: INumberValidator = contract.In(localVariable, "localVariable");
+        let result: INumberValidator = contract.pre(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -55,7 +55,7 @@ describe("typedcontract with inline global scope via TypeScript", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: IStringValidator = contract.In(localVariable);
+        let result: IStringValidator = contract.pre(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -67,7 +67,7 @@ describe("typedcontract with inline global scope via TypeScript", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: IStringValidator = contract.In(localVariable, "localVariable");
+        let result: IStringValidator = contract.pre(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -79,7 +79,7 @@ describe("typedcontract with inline global scope via TypeScript", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: IArrayValidator = contract.In(localVariable);
+        let result: IArrayValidator = contract.pre(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -91,7 +91,7 @@ describe("typedcontract with inline global scope via TypeScript", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: IArrayValidator = contract.In(localVariable, "localVariable");
+        let result: IArrayValidator = contract.pre(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -101,7 +101,7 @@ describe("typedcontract with inline global scope via TypeScript", () => {
     it("will return the correct validator for an any type", () => {
         let localVariable: any = /[A-Z]/;
 
-        let result: IAnyValidator = contract.In(localVariable);
+        let result: IAnyValidator = contract.pre(localVariable);
 
         expect(result).not.toBeNull();
         expect((<any>result.constructor).name).toBe("AnyValidator");
@@ -110,7 +110,7 @@ describe("typedcontract with inline global scope via TypeScript", () => {
     it("will return the correct validator for an any type with a variable name", () => {
         let localVariable: any = /[A-Z]/;
 
-        let result: IAnyValidator = contract.In(localVariable, "myVar");
+        let result: IAnyValidator = contract.pre(localVariable, "myVar");
 
         expect(result).not.toBeNull();
         expect((<any>result.constructor).name).toBe("AnyValidator");

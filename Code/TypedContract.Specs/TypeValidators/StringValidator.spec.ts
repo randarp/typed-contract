@@ -6,7 +6,7 @@ describe("StringValidator", () => {
     it("IsNotNull returns the proper validator when given an undefined", () => {
         let localVar: string;
 
-        let result: IStringValidator = contract.In(localVar).IsNotNull();
+        let result: IStringValidator = contract.pre(localVar).IsNotNull();
 
         expect(result);
     });
@@ -16,7 +16,7 @@ describe("StringValidator", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: IStringValidator = contract.In(localVariable).IsNotNull();
+        let result: IStringValidator = contract.pre(localVariable).IsNotNull();
 
         // assert
         expect(result).not.toBeNull();
@@ -26,7 +26,7 @@ describe("StringValidator", () => {
     it("IsNotNull is passed the an empty string", () => {
         let localVar: string = "";
 
-        let result: IStringValidator = contract.In(localVar).IsNotNull();
+        let result: IStringValidator = contract.pre(localVar).IsNotNull();
 
         expect(result).not.toBe(null);
         expect((<any>result.constructor).name).toBe("StringValidator");
@@ -39,7 +39,7 @@ describe("StringValidator", () => {
 
         // act/assert
         expect(() => {
-            contract.In(localVariable).IsNull();
+            contract.pre(localVariable).IsNull();
         }).toThrow(new ReferenceError("The variable should be null")); // getting right result, assertion statement wrong
     });
 
@@ -47,7 +47,7 @@ describe("StringValidator", () => {
 
         let localVar: string = "Andre";
 
-        let result: IStringValidator = contract.In(localVar).IsDefined();
+        let result: IStringValidator = contract.pre(localVar).IsDefined();
 
         expect(result).toBeDefined();
 
@@ -56,7 +56,7 @@ describe("StringValidator", () => {
     it("IsNull should return the proper result", () => {
         let localVar: string = null;
 
-        let result: IStringValidator = contract.In(localVar).IsNull();
+        let result: IStringValidator = contract.pre(localVar).IsNull();
 
         expect(result);
 
@@ -65,7 +65,7 @@ describe("StringValidator", () => {
     it("IsNotDefined return the proper result", () => {
         let localVar: string = undefined;
 
-        let result: IStringValidator = contract.In(localVar).IsUndefined();
+        let result: IStringValidator = contract.pre(localVar).IsUndefined();
 
         expect(result);
     });
@@ -75,7 +75,7 @@ describe("StringValidator", () => {
         let localVar: string;
 
         expect( () => {
-            contract.In(localVar).IsNullOrUndefined();
+            contract.pre(localVar).IsNullOrUndefined();
         }).toThrowError(<any>ReferenceError);
     });
 
@@ -84,7 +84,7 @@ describe("StringValidator", () => {
         let localVar: string = "Hello World";
 
         expect( () => {
-            contract.In(localVar).IsNullOrUndefined();
+            contract.pre(localVar).IsNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
 
     });
@@ -94,7 +94,7 @@ describe("StringValidator", () => {
         let localVar: string = "TypedContract";
         let compareTo: string = "TypedContract";
 
-        let result: IStringValidator = contract.In(localVar).IsEqualTo(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsEqualTo(compareTo);
 
         expect(result);
 
@@ -105,7 +105,7 @@ describe("StringValidator", () => {
         let compareTo: string = "TypeScript";
 
         expect( () => {
-            contract.In(localVar).IsEqualTo(compareTo);
+            contract.pre(localVar).IsEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -114,7 +114,7 @@ describe("StringValidator", () => {
         let compareTo: string = "Andre ";
 
         expect( () => {
-            contract.In(localVar, "Andre's Variable").IsEqualTo(compareTo);
+            contract.pre(localVar, "Andre's Variable").IsEqualTo(compareTo);
         }).toThrow(new RangeError("Andre's Variable should be equal to the string variable Andre "));
     });
 
@@ -123,7 +123,7 @@ describe("StringValidator", () => {
 
         let compareTo: string = "TypeScript";
 
-        let result: IStringValidator = contract.In(localVar).IsNotEqualTo(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsNotEqualTo(compareTo);
 
         expect(result);
 
@@ -134,7 +134,7 @@ describe("StringValidator", () => {
         let compareTo: string = "Andre";
 
         expect( () => {
-            contract.In(localVar).IsNotEqualTo(compareTo);
+            contract.pre(localVar).IsNotEqualTo(compareTo);
         }).toThrow(new RangeError("The variable should not be equal to the string variable Andre"));
     });
 
@@ -143,7 +143,7 @@ describe("StringValidator", () => {
         let compareTo: string;
 
         expect( () => {
-            contract.In(localVar).IsNotEqualTo(compareTo);
+            contract.pre(localVar).IsNotEqualTo(compareTo);
         }).toThrow(new RangeError("The variable should not be equal to the string variable undefined"));
     });
 
@@ -152,7 +152,7 @@ describe("StringValidator", () => {
         let localVar: string = null;
         let compareTo: string = null;
 
-        let result: IStringValidator = contract.In(localVar).IsEqualTo(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsEqualTo(compareTo);
 
         expect(result);
     });
@@ -162,7 +162,7 @@ describe("StringValidator", () => {
         let compareTo: string = null;
 
         expect( () => {
-            contract.In(localVar).IsNotEqualTo(compareTo);
+            contract.pre(localVar).IsNotEqualTo(compareTo);
         }).toThrow(new RangeError("The variable should not be equal to the string variable null"));
     });
 
@@ -171,7 +171,7 @@ describe("StringValidator", () => {
         let localVar: string = "TypedContract";
         let compareTo: string = "TypeScript";
 
-        let result: IStringValidator = contract.In(localVar).IsLengthGreaterThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsLengthGreaterThan(compareTo);
 
         expect(result);
 
@@ -183,7 +183,7 @@ describe("StringValidator", () => {
         let compareTo: string = "TypedContract";
 
         expect(() => {
-            contract.In(localVar).IsLengthGreaterThan(compareTo);
+            contract.pre(localVar).IsLengthGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
@@ -194,7 +194,7 @@ describe("StringValidator", () => {
         let compareTo: string = "TypeScript";
 
         expect( () => {
-            contract.In(localVar).IsLengthGreaterThan(compareTo);
+            contract.pre(localVar).IsLengthGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -202,7 +202,7 @@ describe("StringValidator", () => {
             let localVar: string = "Andre";
             let compareTo: string = "Andy";
 
-            let result: IStringValidator = contract.In(localVar).IsLengthGreaterOrEqualTo(compareTo);
+            let result: IStringValidator = contract.pre(localVar).IsLengthGreaterOrEqualTo(compareTo);
 
             expect(result);
 
@@ -212,7 +212,7 @@ describe("StringValidator", () => {
             let localVar: string = "TypedContract";
             let compareTo: string = "TypedContract";
 
-            let result: IStringValidator = contract.In(localVar).IsLengthGreaterOrEqualTo(compareTo);
+            let result: IStringValidator = contract.pre(localVar).IsLengthGreaterOrEqualTo(compareTo);
 
             expect(result);
     });
@@ -222,7 +222,7 @@ describe("StringValidator", () => {
             let compareTo: string = "TypedContract";
 
             expect( () => {
-                contract.In(localVar).IsLengthGreaterOrEqualTo(compareTo);
+                contract.pre(localVar).IsLengthGreaterOrEqualTo(compareTo);
             }).toThrowError(<any>RangeError);
     });
 
@@ -230,7 +230,7 @@ describe("StringValidator", () => {
             let localVar: string = "TypeScript";
             let compareTo: string = "ECMAScript 6";
 
-            let result: IStringValidator = contract.In(localVar).IsLengthNotGreaterThan(compareTo);
+            let result: IStringValidator = contract.pre(localVar).IsLengthNotGreaterThan(compareTo);
 
             expect(result);
     });
@@ -240,14 +240,14 @@ describe("StringValidator", () => {
         let compareTo: string = "TypeScript";
 
         expect( () => {
-           contract.In(localVar).IsLengthNotGreaterThan(compareTo);
+           contract.pre(localVar).IsLengthNotGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
     it("IsLengthNotGreaterThan throws an error with the proper validator when given a comparable of empty strings", () => {
         let localVar: string = "";
         let compareTo: string = "";
-        let result: IStringValidator = contract.In(localVar).IsLengthNotGreaterThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsLengthNotGreaterThan(compareTo);
 
         expect(result);
     });
@@ -256,7 +256,7 @@ describe("StringValidator", () => {
         let localVar: string = "Python";
         let compareTo: string = "JavaScript";
 
-        let result: IStringValidator = contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
 
         expect(result);
     });
@@ -266,7 +266,7 @@ describe("StringValidator", () => {
         let compareTo: string = "JavaScript";
 
         expect( () => {
-            contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+            contract.pre(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -275,7 +275,7 @@ describe("StringValidator", () => {
         let compareTo: string = "JavaScript";
 
         expect( () => {
-            contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+            contract.pre(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -284,7 +284,7 @@ describe("StringValidator", () => {
         let compareTo: string = "";
 
         expect( () => {
-            contract.In(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
+            contract.pre(localVar).IsLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -293,7 +293,7 @@ describe("StringValidator", () => {
         let compareTo: string  = "Andre";
 
         expect( () => {
-            contract.In(localVar).IsLengthLessThan(compareTo);
+            contract.pre(localVar).IsLengthLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -303,7 +303,7 @@ describe("StringValidator", () => {
         let localVar: string = "TypedContract";
 
         expect( () => {
-            contract.In(localVar).IsLengthLessThan(compareTo);
+            contract.pre(localVar).IsLengthLessThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
@@ -312,7 +312,7 @@ describe("StringValidator", () => {
         let localVar: string = "TypeScript";
         let compareTo: string  = "TypedContract";
 
-        let result: IStringValidator = contract.In(localVar).IsLengthLessThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsLengthLessThan(compareTo);
 
         expect(result);
     });
@@ -322,7 +322,7 @@ describe("StringValidator", () => {
         let compareTo: string  = "TypedContract";
 
         expect( () => {
-            contract.In(localVar).IsLengthNotLessThan(compareTo);
+            contract.pre(localVar).IsLengthNotLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -330,7 +330,7 @@ describe("StringValidator", () => {
         let localVar: string = "TypedContract";
         let compareTo: string  = "TypeScript";
 
-        let result: IStringValidator = contract.In(localVar).IsLengthNotLessThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsLengthNotLessThan(compareTo);
 
         expect(result);
     });
@@ -340,7 +340,7 @@ describe("StringValidator", () => {
         let compareTo: string  = "TypeScript";
 
         expect( () => {
-            contract.In(localVar).IsLengthNotLessThan(compareTo);
+            contract.pre(localVar).IsLengthNotLessThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
@@ -350,7 +350,7 @@ describe("StringValidator", () => {
         let localVar: string = "Andre";
         let compareTo: string = "Randar";
 
-        let result: IStringValidator = contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsLengthLessOrEqualThan(compareTo);
 
         expect(result);
     });
@@ -361,7 +361,7 @@ describe("StringValidator", () => {
         let localVar: string = "Andre";
         let compareTo: string = "Andre";
 
-        let result: IStringValidator = contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsLengthLessOrEqualThan(compareTo);
 
         expect(result);
     });
@@ -372,7 +372,7 @@ describe("StringValidator", () => {
         let compareTo: string = "Andre";
 
         expect( () => {
-            contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
+            contract.pre(localVar).IsLengthLessOrEqualThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -380,7 +380,7 @@ describe("StringValidator", () => {
        let localVar: string = "";
        let compareTo: string = "";
 
-       let result: IStringValidator = contract.In(localVar).IsLengthLessOrEqualThan(compareTo);
+       let result: IStringValidator = contract.pre(localVar).IsLengthLessOrEqualThan(compareTo);
 
        expect(result);
 
@@ -390,7 +390,7 @@ describe("StringValidator", () => {
         let localVar: string = "TypedContract";
         let compareTo: string = "TypeScript";
 
-        let result: IStringValidator = contract.In(localVar).IsLengthNotLessOrEqualThan(compareTo);
+        let result: IStringValidator = contract.pre(localVar).IsLengthNotLessOrEqualThan(compareTo);
 
         expect(result);
     });
@@ -400,7 +400,7 @@ describe("StringValidator", () => {
         let compareTo: string = "TypedContract";
 
         expect( () => {
-            contract.In(localVar).IsLengthNotLessOrEqualThan(compareTo);
+            contract.pre(localVar).IsLengthNotLessOrEqualThan(compareTo);
         }).toThrowError();
 
     });
@@ -410,7 +410,7 @@ describe("StringValidator", () => {
         let compareTo: string = "TypedContract";
 
         expect( () => {
-            contract.In(localVar).IsLengthNotLessOrEqualThan(compareTo);
+            contract.pre(localVar).IsLengthNotLessOrEqualThan(compareTo);
         }).toThrowError();
 
     });
@@ -420,7 +420,7 @@ describe("StringValidator", () => {
         let compareTo: string = "TypedContract";
 
         expect( () => {
-            contract.In(localVar).IsLengthNotLessOrEqualThan(compareTo);
+            contract.pre(localVar).IsLengthNotLessOrEqualThan(compareTo);
         }).toThrowError();
 
     });
@@ -429,7 +429,7 @@ describe("StringValidator", () => {
         let localVar: string = "Hello my name is andre";
         let regExp: any = /andre/i;
 
-        let result: IStringValidator = contract.In(localVar).ToMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).ToMatch(regExp);
 
         expect(result);
     });
@@ -438,7 +438,7 @@ describe("StringValidator", () => {
         let localVar: string = "Hello my name is andre";
         let regExp: any = /andre/g;
 
-        let result: IStringValidator = contract.In(localVar).ToMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).ToMatch(regExp);
 
         expect(result);
     });
@@ -448,7 +448,7 @@ describe("StringValidator", () => {
             " is andre and I am the guy who created this spec";
         let regExp: any = /andre/i;
 
-        let result: IStringValidator = contract.In(localVar).ToMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).ToMatch(regExp);
 
         expect(result);
     });
@@ -458,7 +458,7 @@ describe("StringValidator", () => {
         let regExp: any = /andre/i;
 
         expect( () => {
-            contract.In(localVar).ToMatch(regExp);
+            contract.pre(localVar).ToMatch(regExp);
         }).toThrowError();
     });
 
@@ -468,7 +468,7 @@ describe("StringValidator", () => {
         let regExp: any = /andre/m;
 
         expect( () => {
-            contract.In(localVar).ToMatch(regExp);
+            contract.pre(localVar).ToMatch(regExp);
         }).toThrowError();
     });
 
@@ -476,7 +476,7 @@ describe("StringValidator", () => {
         let localVar: string = "Hello my name is andre";
         let regExp: any = /bob/i;
 
-        let result: IStringValidator = contract.In(localVar).ToNotMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).ToNotMatch(regExp);
 
         expect(result);
     });
@@ -485,7 +485,7 @@ describe("StringValidator", () => {
         let localVar: string = "Hello my name is andre";
         let regExp: any = /bob/g;
 
-        let result: IStringValidator = contract.In(localVar).ToNotMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).ToNotMatch(regExp);
 
         expect(result);
     });
@@ -494,7 +494,7 @@ describe("StringValidator", () => {
         let localVar: string = "Hello my name is andre";
         let regExp: any = /bob/i;
 
-        let result: IStringValidator = contract.In(localVar).ToNotMatch(regExp);
+        let result: IStringValidator = contract.pre(localVar).ToNotMatch(regExp);
 
         expect(result);
     });
@@ -504,7 +504,7 @@ describe("StringValidator", () => {
         let regExp: any = /bob/i;
 
         expect( () => {
-            contract.In(localVar).ToNotMatch(regExp);
+            contract.pre(localVar).ToNotMatch(regExp);
         }).toThrowError();
     });
 
@@ -513,7 +513,7 @@ describe("StringValidator", () => {
         let regExp: any = /bob/g;
 
         expect( () => {
-            contract.In(localVar).ToNotMatch(regExp);
+            contract.pre(localVar).ToNotMatch(regExp);
         }).toThrowError();
     });
 
@@ -522,7 +522,7 @@ describe("StringValidator", () => {
         let regExp: any = /bob/m;
 
         expect( () => {
-            contract.In(localVar).ToNotMatch(regExp);
+            contract.pre(localVar).ToNotMatch(regExp);
         }).toThrowError();
 
     });
@@ -531,7 +531,7 @@ describe("StringValidator", () => {
        let localVar: string = "This is a TypeScript library";
        let compareTo: string = "TypeScript";
 
-       let result: IStringValidator = contract.In(localVar).Contains(compareTo);
+       let result: IStringValidator = contract.pre(localVar).Contains(compareTo);
 
        expect(result);
     });
@@ -540,7 +540,7 @@ describe("StringValidator", () => {
         let localVar: string = " ";
         let compareTo: string = " ";
 
-        let result: IStringValidator = contract.In(localVar).Contains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).Contains(compareTo);
 
         expect(result);
     });
@@ -549,7 +549,7 @@ describe("StringValidator", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "T";
 
-        let result: IStringValidator = contract.In(localVar).Contains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).Contains(compareTo);
 
         expect(result);
     });
@@ -559,7 +559,7 @@ describe("StringValidator", () => {
         let compareTo: string = "";
 
         expect( () => {
-            contract.In(localVar).Contains(compareTo);
+            contract.pre(localVar).Contains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -568,7 +568,7 @@ describe("StringValidator", () => {
         let compareTo: string = "Contract";
 
         expect( () => {
-            contract.In(localVar).Contains(compareTo);
+            contract.pre(localVar).Contains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -576,7 +576,7 @@ describe("StringValidator", () => {
         let localVar: string = "";
         let compareTo: string = "";
 
-        let result: IStringValidator = contract.In(localVar).Contains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).Contains(compareTo);
 
         expect(result);
     });
@@ -586,7 +586,7 @@ describe("StringValidator", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "Contract";
 
-        let result: IStringValidator = contract.In(localVar).NotContains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).NotContains(compareTo);
 
         expect(result);
     });
@@ -596,7 +596,7 @@ describe("StringValidator", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "Contract";
 
-        let result: IStringValidator = contract.In(localVar).NotContains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).NotContains(compareTo);
 
         expect(result);
     });
@@ -606,7 +606,7 @@ describe("StringValidator", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "ANDRE";
 
-        let result: IStringValidator = contract.In(localVar).NotContains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).NotContains(compareTo);
 
         expect(result);
     });
@@ -616,7 +616,7 @@ describe("StringValidator", () => {
         let localVar: string = "This is a TypeScript library";
         let compareTo: string = "Not Contains";
 
-        let result: IStringValidator = contract.In(localVar).NotContains(compareTo);
+        let result: IStringValidator = contract.pre(localVar).NotContains(compareTo);
 
         expect(result);
     });
@@ -626,7 +626,7 @@ describe("StringValidator", () => {
         let compareTo: string = "TypeScript";
 
         expect( () => {
-            contract.In(localVar).NotContains(compareTo);
+            contract.pre(localVar).NotContains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -636,7 +636,7 @@ describe("StringValidator", () => {
         let compareTo: string = "a";
 
         expect( () => {
-            contract.In(localVar).NotContains(compareTo);
+            contract.pre(localVar).NotContains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -646,7 +646,7 @@ describe("StringValidator", () => {
         let compareTo: string = " ";
 
         expect( () => {
-            contract.In(localVar).NotContains(compareTo);
+            contract.pre(localVar).NotContains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -656,7 +656,7 @@ describe("StringValidator", () => {
         let localVar: string = "The Lazy Brown Dog Jumped Over The Fence";
         let compareTo: string = "The Lazy Brown Dog Jumped Over The Fence";
 
-        let result: IStringValidator = contract.In(localVar).StartsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).StartsWith(compareTo);
 
         expect(result);
     });
@@ -667,7 +667,7 @@ describe("StringValidator", () => {
         let localVar: string = "T";
         let compareTo: string = "T";
 
-        let result: IStringValidator = contract.In(localVar).StartsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).StartsWith(compareTo);
 
         expect(result);
     });
@@ -678,7 +678,7 @@ describe("StringValidator", () => {
         let compareTo: string = "TypeScript";
 
         expect( () => {
-            contract.In(localVar).StartsWith(compareTo);
+            contract.pre(localVar).StartsWith(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -686,7 +686,7 @@ describe("StringValidator", () => {
         let localVar: string = "Typed Contract";
         let compareTo: string = "Typed";
 
-        let result: IStringValidator = contract.In(localVar).StartsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).StartsWith(compareTo);
 
         expect(result);
     });
@@ -695,7 +695,7 @@ describe("StringValidator", () => {
         let localVar: string = "Typed Contract Typed Contract";
         let compareTo: string = "Typed";
 
-        let result: IStringValidator = contract.In(localVar).StartsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).StartsWith(compareTo);
 
         expect(result);
     });
@@ -704,7 +704,7 @@ describe("StringValidator", () => {
         let localVar: string = "Hi my name is Randar";
         let compareTo: string = "Randar";
 
-        let result: IStringValidator = contract.In(localVar).EndsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).EndsWith(compareTo);
 
         expect(result);
     });
@@ -714,7 +714,7 @@ describe("StringValidator", () => {
         let localVar: string = "The quick fox jumped over the lazy brown dog";
         let compareTo: string = "dog";
 
-        let result: IStringValidator = contract.In(localVar).EndsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).EndsWith(compareTo);
 
         expect(result);
     });
@@ -724,7 +724,7 @@ describe("StringValidator", () => {
         let stringWord: string = "TypedContract";
         let compareTo: string = `${stringWord}`;
 
-        let result: IStringValidator = contract.In(localVar).EndsWith(compareTo);
+        let result: IStringValidator = contract.pre(localVar).EndsWith(compareTo);
 
         expect(result);
     });
@@ -734,7 +734,7 @@ describe("StringValidator", () => {
         let compareTo: string = "There was a sentence I just coded";
 
         expect( () => {
-                contract.In(localVar).EndsWith(compareTo);
+                contract.pre(localVar).EndsWith(compareTo);
             }).toThrowError(<any>RangeError);
 
     });
@@ -744,7 +744,7 @@ describe("StringValidator", () => {
         let compareTo: string = "Coded";
 
         expect( () => {
-            contract.In(localVar).EndsWith(compareTo);
+            contract.pre(localVar).EndsWith(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
@@ -752,7 +752,7 @@ describe("StringValidator", () => {
     it("IsBetween returns the proper validator when given two strings", () => {
         let localVar: string = "T";
 
-        let result: IStringValidator = contract.In(localVar).IsBetween("A", "Z");
+        let result: IStringValidator = contract.pre(localVar).IsBetween("A", "Z");
 
         expect(result);
     });
@@ -760,7 +760,7 @@ describe("StringValidator", () => {
     it("IsBetween returns the proper validator when on the lower boundary", () => {
         let localVar: string = "A";
 
-        let result: IStringValidator = contract.In(localVar).IsBetween("A", "Z");
+        let result: IStringValidator = contract.pre(localVar).IsBetween("A", "Z");
 
         expect(result);
     });
@@ -768,7 +768,7 @@ describe("StringValidator", () => {
     it("IsBetween returns the proper validator when on the upper boundary", () => {
         let localVar: string = "Z";
 
-        let result: IStringValidator = contract.In(localVar).IsBetween("A", "Z");
+        let result: IStringValidator = contract.pre(localVar).IsBetween("A", "Z");
 
         expect(result);
     });
@@ -777,7 +777,7 @@ describe("StringValidator", () => {
     it("IsBetween returns the proper validator when given two identical strings", () => {
         let localVar: string = "b";
 
-        let result: IStringValidator = contract.In(localVar).IsBetween("a", "c");
+        let result: IStringValidator = contract.pre(localVar).IsBetween("a", "c");
 
         expect(result);
     });
@@ -786,7 +786,7 @@ describe("StringValidator", () => {
         let localVar: string = "Ali";
 
         expect( () => {
-            contract.In(localVar).IsBetween("Amy", "Johnathan");
+            contract.pre(localVar).IsBetween("Amy", "Johnathan");
         });
     });
 
@@ -795,7 +795,7 @@ describe("StringValidator", () => {
         let localVar: string = "TypeScript";
 
         expect( () => {
-            contract.In(localVar).IsBetween("Tz", "Typz");
+            contract.pre(localVar).IsBetween("Tz", "Typz");
         }).toThrowError(<any>RangeError);
     });
 
@@ -803,14 +803,14 @@ describe("StringValidator", () => {
         let localVar: string = "A";
 
         expect( () => {
-            contract.In(localVar).IsBetween("B", "A");
+            contract.pre(localVar).IsBetween("B", "A");
         }).toThrowError(<any>Error);
     });
 
     it("IsNotBetween returns the proper validator when given two strings that are not in the range of the precondition", () => {
         let localVar: string = "Cxy";
 
-        let result: IStringValidator = contract.In(localVar).IsNotBetween("Dzz", "Aab");
+        let result: IStringValidator = contract.pre(localVar).IsNotBetween("Dzz", "Aab");
 
         expect(result);
     });
@@ -819,7 +819,7 @@ describe("StringValidator", () => {
     it("IsNotBetween returns the proper validator when given two non-identical strings", () => {
         let localVar: string = "Free";
 
-        let result: IStringValidator = contract.In(localVar).IsNotBetween("Guy", "Acd");
+        let result: IStringValidator = contract.pre(localVar).IsNotBetween("Guy", "Acd");
 
         expect(result);
     });
@@ -829,7 +829,7 @@ describe("StringValidator", () => {
         let localVar: string = "Ba";
 
         expect( () => {
-            contract.In(localVar).IsNotBetween("A", "D");
+            contract.pre(localVar).IsNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 
@@ -838,7 +838,7 @@ describe("StringValidator", () => {
         let localVar: string = "Bb";
 
         expect( () => {
-            contract.In(localVar).IsNotBetween("Aa", "De");
+            contract.pre(localVar).IsNotBetween("Aa", "De");
         }).toThrowError(<any>RangeError);
     });
 
@@ -846,7 +846,7 @@ describe("StringValidator", () => {
         let localVar: string = "C";
 
         expect( () => {
-            contract.In(localVar).IsNotBetween("A", "D");
+            contract.pre(localVar).IsNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 
@@ -854,7 +854,7 @@ describe("StringValidator", () => {
         let localVar: string = "CA";
 
         expect( () => {
-           contract.In(localVar).IsNotBetween("AB", "FG");
+           contract.pre(localVar).IsNotBetween("AB", "FG");
         }).toThrowError(<any>RangeError);
     });
 
@@ -862,7 +862,7 @@ describe("StringValidator", () => {
         let localVar: string = "A";
 
         expect( () => {
-            contract.In(localVar).IsNotBetween("A", "D");
+            contract.pre(localVar).IsNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 
@@ -870,7 +870,7 @@ describe("StringValidator", () => {
         let localVar: string = "D";
 
         expect( () => {
-            contract.In(localVar).IsNotBetween("A", "D");
+            contract.pre(localVar).IsNotBetween("A", "D");
         }).toThrowError(<any>RangeError);
     });
 });

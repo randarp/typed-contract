@@ -8,7 +8,7 @@ describe("BaseValidator", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: string = contract.In(localVariable).IsNotNull().Value();
+        let result: string = contract.pre(localVariable).IsNotNull().Value();
 
         // assert
         expect(result).toEqual("A string");
@@ -17,7 +17,7 @@ describe("BaseValidator", () => {
     it("Name returns the original variable name", () => {
         let localVariable: string = "A string";
 
-        let result: string = contract.In(localVariable, "My var").IsNotNull().Name();
+        let result: string = contract.pre(localVariable, "My var").IsNotNull().Name();
 
         expect(result).toEqual("My var");
 
@@ -26,7 +26,7 @@ describe("BaseValidator", () => {
     it("Name returns the original variable name with a variable", () => {
         let localVariable: string = "A string";
         let varName: string = "My var";
-        let result: string = contract.In(localVariable, varName).IsNotNull().Name();
+        let result: string = contract.pre(localVariable, varName).IsNotNull().Name();
 
         expect(result).toEqual("My var");
     });

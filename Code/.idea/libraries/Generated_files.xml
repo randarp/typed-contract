@@ -4,15 +4,27 @@
       <sourceFilesUrls>
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.globalscope.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.requireJS.spec.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/NumberValidator.spec.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/ArrayValidator.spec.js" />
         <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/AnyValidator.spec.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract/Contract/Contract.js" />
         <item url="file://$PROJECT_DIR$/TypedContract/typedcontract-bootstrapper.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BaseValidator.spec.js" />
+        <item url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/StringValidator.spec.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.globalscope.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/Contract.TypeScript.requireJS.spec.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/NumberValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/ArrayValidator.spec.js" />
       <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BooleanValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/AnyValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract/Contract/Contract.js" />
       <root url="file://$PROJECT_DIR$/TypedContract/typedcontract-bootstrapper.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/BaseValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/TypedContract.Specs/TypeValidators/StringValidator.spec.js" />
     </CLASSES>
     <SOURCES />
   </library>

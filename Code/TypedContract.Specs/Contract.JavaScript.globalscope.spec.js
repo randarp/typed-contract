@@ -6,7 +6,7 @@ describe("typedcontract with global scope via JavaScript", function () {
         // arrange
 
         // act
-        var result = contract.In;
+        var result = contract.pre;
 
         // assert
         expect(result).not.toBeUndefined();
@@ -18,7 +18,7 @@ describe("typedcontract with global scope via JavaScript", function () {
         var localVariable = true;
 
         // act
-        var result = contract.In(localVariable);
+        var result = contract.pre(localVariable);
 
         // assert
         expect(result).not.toBeUndefined();
@@ -29,7 +29,7 @@ describe("typedcontract with global scope via JavaScript", function () {
         // arrange
 
         // act
-        var result = typedcontract.Contract.prototype.In;
+        var result = typedcontract.Contract.prototype.pre;
 
         // assert
         expect(result).not.toBeUndefined();
@@ -41,7 +41,7 @@ describe("typedcontract with global scope via JavaScript", function () {
 
         // act
         var resultNew = new typedcontract.Contract();
-        var result = resultNew.In;
+        var result = resultNew.pre;
 
         // assert
         expect(result).not.toBeUndefined();
@@ -53,7 +53,7 @@ describe("typedcontract with global scope via JavaScript", function () {
         var localVariable = "A string";
 
         // act
-        var result = contract.In(localVariable).IsNotNull();
+        var result = contract.pre(localVariable).IsNotNull();
 
         // assert
         expect(result).not.toBeNull();
@@ -66,7 +66,7 @@ describe("typedcontract with global scope via JavaScript", function () {
         var endRange = 100.0;
 
         // act
-        var result = contract.In(localVar).IsBetween(startRange, endRange);
+        var result = contract.pre(localVar).IsBetween(startRange, endRange);
 
         // assert
         expect(result);

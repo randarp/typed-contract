@@ -80,41 +80,43 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-/**
- * Encapsulates any validators that apply to every type and state used by the validation chain.
- */
-var BaseValidator = (function () {
-    function BaseValidator(variableValue, variableName) {
-        var self = this;
-        self._variableValue = variableValue;
-        if (variableName && variableName.length > 0) {
-            self._variableName = variableName;
-        }
-        else {
-            self._variableName = "The variable";
-        }
-    }
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports) {
+    "use strict";
     /**
-     * Value returns the value that was passed into the contract
-     * @returns {T}
-     * @constructor
+     * Encapsulates any validators that apply to every type and state used by the validation chain.
      */
-    BaseValidator.prototype.Value = function () {
-        return this._variableValue;
-    };
-    /**
-     * Name returns the variable name that was passed into the contract
-     * @returns {string}
-     * @constructor
-     */
-    BaseValidator.prototype.Name = function () {
-        return this._variableName;
-    };
-    return BaseValidator;
-}());
-exports.BaseValidator = BaseValidator;
+    var BaseValidator = (function () {
+        function BaseValidator(variableValue, variableName) {
+            var self = this;
+            self._variableValue = variableValue;
+            if (variableName && variableName.length > 0) {
+                self._variableName = variableName;
+            }
+            else {
+                self._variableName = "The variable";
+            }
+        }
+        /**
+         * Value returns the value that was passed into the contract
+         * @returns {T}
+         * @constructor
+         */
+        BaseValidator.prototype.Value = function () {
+            return this._variableValue;
+        };
+        /**
+         * Name returns the variable name that was passed into the contract
+         * @returns {string}
+         * @constructor
+         */
+        BaseValidator.prototype.Name = function () {
+            return this._variableName;
+        };
+        return BaseValidator;
+    }());
+    exports.BaseValidator = BaseValidator;
+}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ }),
 /* 1 */
@@ -133,7 +135,7 @@ var AnyValidator_1 = __webpack_require__(2);
 var Contract = (function () {
     function Contract() {
     }
-    Contract.prototype.In = function (precondition, name) {
+    Contract.prototype.pre = function (precondition, name) {
         if (name === void 0) { name = undefined; }
         if (typeof precondition === "string" || precondition === null || precondition === undefined) {
             return new StringValidator_1.StringValidator(precondition, name);
@@ -153,7 +155,7 @@ var Contract = (function () {
             return new AnyValidator_1.AnyValidator(precondition, name);
         }
     };
-    Contract.prototype.Out = function (postcondition, name) {
+    Contract.prototype.ensures = function (postcondition, name) {
         if (name === void 0) { name = undefined; }
         if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
             return new StringValidator_1.StringValidator(postcondition, name);
@@ -189,16 +191,22 @@ exports.contract = new Contract();
 "use strict";
 
 
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+exports.__esModule = true;
 var BaseValidator_1 = __webpack_require__(0);
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
     function AnyValidator(variableValue, variableName) {
-        _super.call(this, variableValue, variableName);
+        return _super.call(this, variableValue, variableName) || this;
     }
     /**
      *
@@ -279,16 +287,22 @@ exports.AnyValidator = AnyValidator;
 "use strict";
 
 
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+exports.__esModule = true;
 var BaseValidator_1 = __webpack_require__(0);
 var ArrayValidator = (function (_super) {
     __extends(ArrayValidator, _super);
     function ArrayValidator(variableValue, variableName) {
-        _super.call(this, variableValue, variableName);
+        return _super.call(this, variableValue, variableName) || this;
     }
     /**
      *
@@ -615,16 +629,22 @@ exports.ArrayValidator = ArrayValidator;
 "use strict";
 
 
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+exports.__esModule = true;
 var BaseValidator_1 = __webpack_require__(0);
 var BooleanValidator = (function (_super) {
     __extends(BooleanValidator, _super);
     function BooleanValidator(variableValue, variableName) {
-        _super.call(this, variableValue, variableName);
+        return _super.call(this, variableValue, variableName) || this;
     }
     /**
      *
@@ -763,16 +783,22 @@ exports.BooleanValidator = BooleanValidator;
 "use strict";
 
 
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+exports.__esModule = true;
 var BaseValidator_1 = __webpack_require__(0);
 var NumberValidator = (function (_super) {
     __extends(NumberValidator, _super);
     function NumberValidator(variableValue, variableName) {
-        _super.call(this, variableValue, variableName);
+        return _super.call(this, variableValue, variableName) || this;
     }
     /**
      *
@@ -1032,16 +1058,22 @@ exports.NumberValidator = NumberValidator;
 "use strict";
 
 
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+exports.__esModule = true;
 var BaseValidator_1 = __webpack_require__(0);
 var StringValidator = (function (_super) {
     __extends(StringValidator, _super);
     function StringValidator(variableValue, variableName) {
-        _super.call(this, variableValue, variableName);
+        return _super.call(this, variableValue, variableName) || this;
     }
     /**
      *
