@@ -37,7 +37,7 @@ describe("BooleanValidator", () => {
         expect(failure).toThrowError(<any>RangeError);
     });
 
-    it("IsFalse does not raise an error when false", () => {
+    it("isFalse does not raise an error when false", () => {
         // arrange
         let localVariable: boolean = false;
 
@@ -45,7 +45,7 @@ describe("BooleanValidator", () => {
         contract.pre(localVariable).isFalse();
     });
 
-    it("IsFalse raises a range error when true", () => {
+    it("isFalse raises a range error when true", () => {
         // arrange
         let localVariable: boolean = true;
 
@@ -59,7 +59,7 @@ describe("BooleanValidator", () => {
         expect(failure).toThrowError(<any>RangeError);
     });
 
-    it("IsFalse raises an error when null", () => {
+    it("isFalse raises an error when null", () => {
        let localVar: boolean = null;
 
        expect(() => {
