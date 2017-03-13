@@ -8,7 +8,7 @@ describe("BaseValidator", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: string = contract.pre(localVariable).isNotNull().value();
+        let result: string = contract.checks(localVariable).isNotNull().value();
 
         // assert
         expect(result).toEqual("A string");
@@ -17,7 +17,7 @@ describe("BaseValidator", () => {
     it("name returns the original variable name", () => {
         let localVariable: string = "A string";
 
-        let result: string = contract.pre(localVariable, "My var").isNotNull().name();
+        let result: string = contract.checks(localVariable, "My var").isNotNull().name();
 
         expect(result).toEqual("My var");
 
@@ -26,7 +26,7 @@ describe("BaseValidator", () => {
     it("name returns the original variable name with a variable", () => {
         let localVariable: string = "A string";
         let varName: string = "My var";
-        let result: string = contract.pre(localVariable, varName).isNotNull().name();
+        let result: string = contract.checks(localVariable, varName).isNotNull().name();
 
         expect(result).toEqual("My var");
     });

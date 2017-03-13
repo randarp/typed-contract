@@ -21,7 +21,7 @@ As the size and complexity of your JavaScript and TypeScript projects continues 
 
 <h3> What is a Code Contract anyways, and why would I want to use one ? </h3>
 
-Code contracts allow you to ensure that your intentions for any property or method are ensured using a code contract. When you are developing an application you can list and specify as many preconditions and postconditions in your code as needed. pre typed-contract preconditions are strict requirements that must be met when entering executing an application at runtime. Postconditions describe expectations at the time the method or property code exits at runtime.
+Code contracts allow you to ensure that your intentions for any property or method are ensured using a code contract. When you are developing an application you can list and specify as many preconditions and postconditions in your code as needed. checks typed-contract preconditions are strict requirements that must be met when entering executing an application at runtime. Postconditions describe expectations at the time the method or property code exits at runtime.
 
 Typed-contract allows you to set pre and postconditions in your code to check for certain invariants that you set while writing out a typed-contract. Once you execute a project, a set of classes or functions, the typed-contract can then check that every condition successfully passes, which allows your intentions when building your app to run as smooth as butter.
 
@@ -35,7 +35,7 @@ It's pretty simple really, once it is in your project and it's included in you n
 
 Here is an example of what a typed-contract looks like...
 	myVar: number = 3.14159265359;
-	Contract.pre(myVar, "PI").
+	Contract.checks(myVar, "PI").
 		isNotNull().
 		isDefined().
 		isGreaterThan(3.13).
@@ -58,16 +58,16 @@ As you can see we can use something known as <a href="https://en.wikipedia.org/w
 	varString: string = "Hello World";
 	varBoolean: boolean = true;<br/>
 
-	Contract.pre(varNumber).
+	Contract.checks(varNumber).
 		isLessThan(101).
 		isNotNull().
 		isGreaterThan(99);<br/>
 
-	Contract.pre(varArray).
+	Contract.checks(varArray).
 		isDefined().
 		isEqualTo([1, 2, 3], 1);<br/>
 
-	Contract.pre(varString).
+	Contract.checks(varString).
 		contains("Hello").
 		notContains("Goodbye");
 

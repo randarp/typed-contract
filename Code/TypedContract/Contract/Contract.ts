@@ -8,17 +8,17 @@ import { ArrayValidator } from "../TypeValidators/ArrayValidator";
 import { AnyValidator } from "../TypeValidators/AnyValidator";
 
 export class Contract implements IContractStatic {
-    public pre(precondition:string): IStringValidator;
-    public pre(precondition:string, name:string): IStringValidator;
-    public pre(precondition:boolean): IBooleanValidator;
-    public pre(precondition:boolean, name:string): IBooleanValidator;
-    public pre(precondition:number): INumberValidator;
-    public pre(precondition:number, name:string): INumberValidator;
-    public pre(precondition:any[]): IArrayValidator;
-    public pre(precondition:any[], name:string): IArrayValidator;
-    public pre(precondition:any, name:string): IAnyValidator;
-    public pre(precondition:any): IAnyValidator;
-    public pre(precondition:any, name:string = undefined):any {
+    public checks(precondition:string): IStringValidator;
+    public checks(precondition:string, name:string): IStringValidator;
+    public checks(precondition:boolean): IBooleanValidator;
+    public checks(precondition:boolean, name:string): IBooleanValidator;
+    public checks(precondition:number): INumberValidator;
+    public checks(precondition:number, name:string): INumberValidator;
+    public checks(precondition:any[]): IArrayValidator;
+    public checks(precondition:any[], name:string): IArrayValidator;
+    public checks(precondition:any, name:string): IAnyValidator;
+    public checks(precondition:any): IAnyValidator;
+    public checks(precondition:any, name:string = undefined):any {
 
         if (typeof precondition === "string" || precondition === null || precondition === undefined) {
             return new StringValidator(precondition, name);

@@ -5,7 +5,7 @@ describe("AnyValidator", () => {
     it("isNotNull returns the proper validator when given an undefined", () => {
         let localVar: any;
 
-        let result: IAnyValidator = contract.pre(localVar).isNotNull();
+        let result: IAnyValidator = contract.checks(localVar).isNotNull();
 
         expect(result);
     });
@@ -16,7 +16,7 @@ describe("AnyValidator", () => {
         let localVariable: any = "A string";
 
         // act
-        let result: IAnyValidator = contract.pre(localVariable).isNotNull();
+        let result: IAnyValidator = contract.checks(localVariable).isNotNull();
 
         // assert
         expect(result).not.toBeNull();
@@ -26,7 +26,7 @@ describe("AnyValidator", () => {
     it("isNotNull is passed the an empty string", () => {
         let localVar: string = "";
 
-        let result: IAnyValidator = contract.pre(localVar).isNotNull();
+        let result: IAnyValidator = contract.checks(localVar).isNotNull();
 
         expect(result).not.toBe(null);
         expect((<any>result.constructor).name).toBe("StringValidator");
@@ -35,7 +35,7 @@ describe("AnyValidator", () => {
     it("isNotNull is passed in a defined number variable", () => {
        let localVar: any = 100;
 
-       let result: IAnyValidator = contract.pre(localVar).isNotNull();
+       let result: IAnyValidator = contract.checks(localVar).isNotNull();
 
        expect(result).not.toBe(null);
     });
@@ -47,7 +47,7 @@ describe("AnyValidator", () => {
 
         // act/assert
         expect(() => {
-            contract.pre(localVariable).isNull();
+            contract.checks(localVariable).isNull();
         }).toThrow(new ReferenceError("The variable should be null")); // getting right result, assertion statement wrong
     });
 
@@ -55,7 +55,7 @@ describe("AnyValidator", () => {
 
         let localVar: string = "Andre";
 
-        let result: IAnyValidator = contract.pre(localVar).isDefined();
+        let result: IAnyValidator = contract.checks(localVar).isDefined();
 
         expect(result).toBeDefined();
 
@@ -64,7 +64,7 @@ describe("AnyValidator", () => {
     it("isNull should return the proper result", () => {
         let localVar: string = null;
 
-        let result: IAnyValidator = contract.pre(localVar).isNull();
+        let result: IAnyValidator = contract.checks(localVar).isNull();
 
         expect(result);
 
@@ -73,7 +73,7 @@ describe("AnyValidator", () => {
     it("isNotDefined return the proper result", () => {
         let myVar: any;
 
-        let result: IAnyValidator = contract.pre(myVar, "").isUndefined();
+        let result: IAnyValidator = contract.checks(myVar, "").isUndefined();
 
         expect(result);
     });
@@ -83,7 +83,7 @@ describe("AnyValidator", () => {
         let localVar: any;
 
         expect( () => {
-            contract.pre(localVar).isNullOrUndefined();
+            contract.checks(localVar).isNullOrUndefined();
         }).toThrowError(<any>ReferenceError);
     });
 
@@ -92,7 +92,7 @@ describe("AnyValidator", () => {
         let localVar: any = "Hello World";
 
         expect( () => {
-            contract.pre(localVar).isNullOrUndefined();
+            contract.checks(localVar).isNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
 
     });
@@ -102,7 +102,7 @@ describe("AnyValidator", () => {
 
        let localVar: void = divElement.addEventListener("click", (e: MouseEvent) => {e.preventDefault(); }, false);
 
-       let result: IAnyValidator = contract.pre(localVar).isNotNull();
+       let result: IAnyValidator = contract.checks(localVar).isNotNull();
 
        expect(result).not.toBe(null);
     });
@@ -110,7 +110,7 @@ describe("AnyValidator", () => {
     it("isNotNull on an anonymous function for an AnyValidator", () => {
         let localVar: any = () => {var x = 1; return x; };
 
-        let result: IAnyValidator = contract.pre(localVar).isNotNull();
+        let result: IAnyValidator = contract.checks(localVar).isNotNull();
 
         expect(result).not.toBe(null);
     });
