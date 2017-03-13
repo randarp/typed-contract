@@ -28,6 +28,15 @@ module.exports = function(grunt){
                 src: [ "/TypedContract/**/*.ts" ]
             }
         },
+        copy: {
+            // Webpack can't find the reference to BaseValidator, so copy it to the directory
+            sourceMap: {
+                expand: true,
+                src: 'TypedContract/TypeValidators/BaseValidator.js.map',
+                dest: './TypedContract/',
+                flatten: true,
+            },
+        },
         // Merge all of the the TypeScript files into a single, transpiled file
         webpack: {
             default: require("./webpack.config.js")
@@ -141,5 +150,5 @@ module.exports = function(grunt){
     });
 
     // Run all grunt tasks required to build the solution and get it ready for deployment
-    grunt.task.registerTask("default", ["webpack", "dtsGenerator", "concat", "replace", "uglify"]);
+    grunt.task.registerTask("default", ["webpack", "dtsGenerator","copy", "concat", "replace", "uglify"]);
 };
