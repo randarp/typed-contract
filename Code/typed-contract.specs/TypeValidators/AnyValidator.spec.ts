@@ -1,5 +1,5 @@
 /// <reference path="../../typedcontract.d.ts" />
-/// <reference path="../../Typings/jasmine/jasmine.d.ts" />
+/// <reference path="../../typings/jasmine/jasmine.d.ts" />
 describe("AnyValidator", () => {
 
     it("isNotNull returns the proper validator when given an undefined", () => {

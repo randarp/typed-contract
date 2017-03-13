@@ -1,5 +1,5 @@
 /// <reference path="IContract.d.ts" />
-/// <reference path="TypeValidators/TypeValidators.d.ts" />
+/// <reference path="type-validators/TypeValidators.d.ts" />
 
 /* tslint:disable */
 var contract: IContractStatic;

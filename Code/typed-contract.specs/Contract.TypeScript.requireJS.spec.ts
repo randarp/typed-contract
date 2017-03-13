@@ -1,5 +1,5 @@
 /// <reference path="../typedcontract.d.ts" />
-/// <reference path="../Typings/jasmine/jasmine.d.ts" />
+/// <reference path="../typings/jasmine/jasmine.d.ts" />
 
 import { contract } from "typedcontract";
 
