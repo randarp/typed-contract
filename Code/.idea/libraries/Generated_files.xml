@@ -21,22 +21,22 @@
       </sourceFilesUrls>
     </properties>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/typedcontract.specs/Contract.TypeScript.globalscope.spec.js" />
-      <root url="file://$PROJECT_DIR$/typedcontract.specs/Contract.TypeScript.requireJS.spec.js" />
+      <root url="file://$PROJECT_DIR$/typedcontract.specs/contract.typescript.globalscope.spec.js" />
+      <root url="file://$PROJECT_DIR$/typedcontract.specs/contract.typescript.requireJS.spec.js" />
       <root url="file://$PROJECT_DIR$/typedcontract/type-validators/number-validator.js" />
       <root url="file://$PROJECT_DIR$/typedcontract/type-validators/string-validator.js" />
       <root url="file://$PROJECT_DIR$/typedcontract/type-validators/boolean-validator.js" />
       <root url="file://$PROJECT_DIR$/typedcontract/type-validators/base-validator.js" />
-      <root url="file://$PROJECT_DIR$/typedcontract.specs/TypeValidators/AnyValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/typedcontract.specs/type-validators/any-validator.spec.js" />
       <root url="file://$PROJECT_DIR$/typedcontract/type-validators/array-validator.js" />
-      <root url="file://$PROJECT_DIR$/typedcontract.specs/TypeValidators/NumberValidator.spec.js" />
-      <root url="file://$PROJECT_DIR$/typedcontract.specs/TypeValidators/ArrayValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/typedcontract.specs/type-validators/number-validator.spec.js" />
+      <root url="file://$PROJECT_DIR$/typedcontract.specs/type-validators/array-validator.spec.js" />
       <root url="file://$PROJECT_DIR$/typedcontract/type-validators/any-validator.js" />
-      <root url="file://$PROJECT_DIR$/typedcontract.specs/TypeValidators/BooleanValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/typedcontract.specs/type-validators/boolean-validator.spec.js" />
       <root url="file://$PROJECT_DIR$/typedcontract/contract/contract.js" />
       <root url="file://$PROJECT_DIR$/typedcontract/typedcontract-bootstrapper.js" />
-      <root url="file://$PROJECT_DIR$/typedcontract.specs/TypeValidators/BaseValidator.spec.js" />
-      <root url="file://$PROJECT_DIR$/typedcontract.specs/TypeValidators/StringValidator.spec.js" />
+      <root url="file://$PROJECT_DIR$/typedcontract.specs/type-validators/base-validator.spec.js" />
+      <root url="file://$PROJECT_DIR$/typedcontract.specs/type-validators/string-validator.spec.js" />
     </CLASSES>
     <SOURCES />
   </library>
