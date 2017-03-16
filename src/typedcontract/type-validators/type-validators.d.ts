@@ -118,81 +118,81 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      *
      * isLengthGreaterThan checks if the array variable length is greater than the parameter passed into the function as an argument
      * @throws RangeError if the array is not greater than the parameter passed into the function
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator}
      */
-    isLengthGreaterThan(compareTo: any[]): IArrayValidator;
+    isLengthGreaterThan(compareTo: any[] | number): IArrayValidator;
 
     /**
      *
      * isLengthNotGreaterThan checks if the array variable's length is not greater than the length of the contract precondition
      * @throws RangeError if the array variable is greater than the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator}
      */
-    isLengthNotGreaterThan(compareTo: any[]): IArrayValidator;
+    isLengthNotGreaterThan(compareTo: any[] | number): IArrayValidator;
 
     /**
      *
      * isLengthGreaterOrEqualTo checks if the array variable's length is greater or equal than the length of the contract precondition
      * @throws RangeError if the array variable is not
      * greater or equal than the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator}
      */
 
-    isLengthGreaterOrEqualTo(compareTo: any[]): IArrayValidator;
+    isLengthGreaterOrEqualTo(compareTo: any[] | number): IArrayValidator;
 
     /**
      *
      * isLengthNotGreaterOrEqualTo checks if the array variable's length is greater or equal than the length of the contract precondition
      * @throws RangeError if the array variable is not greater or
      * equal than the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator}
      */
-    isLengthNotGreaterOrEqualTo(compareTo: any[]):  IArrayValidator;
+    isLengthNotGreaterOrEqualTo(compareTo: any[] | number):  IArrayValidator;
 
     /**
      *
      * isLengthLessThan checks if the array variable's length is less than the length of the contract precondition
      * @throws RangeError if the array variable is greater or
      * equal than the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator}
      */
-    isLengthLessThan(compareTo: any[]):  IArrayValidator;
+    isLengthLessThan(compareTo: any[] | number):  IArrayValidator;
 
     /**
      *
      * isLengthNotLessThan checks if the array variable's length is not less than the length of the contract precondition
      * @throws RangeError if the array variable is less than or
      * equal than the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator}
      */
 
-    isLengthNotLessThan(compareTo: any[]):  IArrayValidator;
+    isLengthNotLessThan(compareTo: any[] | number):  IArrayValidator;
 
     /**
      *
      * isLengthLessOrEqualThan checks if the array variable's length is less or equal than the length of the contract precondition
      * @throws RangeError if the array variable is greater than
      * the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator}
      */
-    isLengthLessOrEqualThan(compareTo: any[]):  IArrayValidator;
+    isLengthLessOrEqualThan(compareTo: any[] | number):  IArrayValidator;
 
     /**
      *
      * isLengthNotLessOrEqualThan checks if the array variable's length is not less or equal than the length of the contract precondition
      * @throws RangeError if the array variable is less or equal than
      * the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator}
      */
-    isLengthNotLessOrEqualThan(compareTo: any[]): IArrayValidator;
+    isLengthNotLessOrEqualThan(compareTo: any[] | number): IArrayValidator;
 
     /**
      *

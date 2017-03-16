@@ -1,7 +1,7 @@
 /// <reference path="../icontract.d.ts" />
 /// <reference path="../type-validators/type-validators.d.ts" />
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var string_validator_1 = require("../type-validators/string-validator");
 var boolean_validator_1 = require("../type-validators/boolean-validator");
 var number_validator_1 = require("../type-validators/number-validator");

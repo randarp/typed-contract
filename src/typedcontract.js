@@ -200,7 +200,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var base_validator_1 = __webpack_require__(0);
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
@@ -296,7 +296,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var base_validator_1 = __webpack_require__(0);
 var ArrayValidator = (function (_super) {
     __extends(ArrayValidator, _super);
@@ -412,16 +412,14 @@ var ArrayValidator = (function (_super) {
      *
      * isLengthGreaterThan checks if the array variable length is greater than the parameter passed into the function as an argument
      * @throws RangeError if the array is not greater than the parameter passed into the function
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthGreaterThan = function (compareTo) {
-        if (!compareTo.length || !this._variableValue.length) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
-                "please append values to the array's in the instance of this TypedContract");
-        }
-        if (this._variableValue.length < compareTo.length) {
-            throw new RangeError(this._variableName + " should have a\n            length greater than " + compareTo.length + " but is " + this._variableValue.length);
+        var compareValue = 0;
+        compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
+        if (this._variableValue.length < compareValue) {
+            throw new RangeError(this._variableName + " should have a\n            length greater than " + compareValue + " but is " + this._variableValue.length);
         }
         else {
             return this;
@@ -431,19 +429,17 @@ var ArrayValidator = (function (_super) {
      *
      * isLengthNotGreaterThan checks if the array variable's length is not greater than the length of the contract precondition
      * @throws RangeError if the array variable is greater than the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthNotGreaterThan = function (compareTo) {
-        if (!compareTo.length || !this._variableValue.length) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
-                "please append values to the array's in the instance of this TypedContract");
-        }
-        if (this._variableValue.length <= compareTo.length) {
+        var compareValue = 0;
+        compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
+        if (this._variableValue.length <= compareValue) {
             return this;
         }
         else {
-            throw new RangeError(this._variableName + " should not have a\n            length greater than " + compareTo.length + " but is " + this._variableValue.length);
+            throw new RangeError(this._variableName + " should not have a\n            length greater than " + compareValue + " but is " + this._variableValue.length);
         }
     };
     /**
@@ -451,19 +447,17 @@ var ArrayValidator = (function (_super) {
      * isLengthGreaterOrEqualTo checks if the array variable's length is greater or equal than the length of the contract precondition
      * @throws RangeError if the array variable is not
      * greater or equal than the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthGreaterOrEqualTo = function (compareTo) {
-        if (!compareTo.length || !this._variableValue.length) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays," +
-                "please append values to the array's in the instance of this TypedContract");
-        }
-        if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
+        var compareValue = 0;
+        compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
+        if (this._variableValue.length > compareValue || this._variableValue.length === compareValue) {
             return this;
         }
         else {
-            throw new RangeError(this._variableName + " should have a length\n            greater or equal to " + compareTo.length + " but is " + this._variableValue.length);
+            throw new RangeError(this._variableName + " should have a length\n            greater or equal to " + compareValue + " but is " + this._variableValue.length);
         }
     };
     /**
@@ -471,16 +465,14 @@ var ArrayValidator = (function (_super) {
      * isLengthNotGreaterOrEqualTo checks if the array variable's length is greater or equal than the length of the contract precondition
      * @throws RangeError if the array variable is not greater or
      * equal than the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthNotGreaterOrEqualTo = function (compareTo) {
-        if (!compareTo.length || !this._variableValue.length) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays," +
-                "please append values to the array's in the instance of this TypedContract");
-        }
-        if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
-            throw new RangeError(this._variableName + " should not have a\n             length greater or equal to " + compareTo.length + " but is " + this._variableValue.length);
+        var compareValue = 0;
+        compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
+        if (this._variableValue.length > compareValue || this._variableValue.length === compareValue) {
+            throw new RangeError(this._variableName + " should not have a\n             length greater or equal to " + compareValue + " but is " + this._variableValue.length);
         }
         else {
             return this;
@@ -491,16 +483,14 @@ var ArrayValidator = (function (_super) {
      * isLengthLessThan checks if the array variable's length is less than the length of the contract precondition
      * @throws RangeError if the array variable is greater or
      * equal than the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthLessThan = function (compareTo) {
-        if (!compareTo.length || !this._variableValue.length) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
-                "please append values to the array's in the instance of this TypedContract");
-        }
-        if (this._variableValue.length >= compareTo.length) {
-            throw new RangeError(this._variableName + " should have a length\n        less than " + compareTo.length + " but is " + this._variableValue.length);
+        var compareValue = 0;
+        compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
+        if (this._variableValue.length >= compareValue) {
+            throw new RangeError(this._variableName + " should have a length less than " + compareValue + " but is " + this._variableValue.length);
         }
         else {
             return this;
@@ -511,16 +501,14 @@ var ArrayValidator = (function (_super) {
      * isLengthNotLessThan checks if the array variable's length is not less than the length of the contract precondition
      * @throws RangeError if the array variable is less than or
      * equal than the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthNotLessThan = function (compareTo) {
-        if (!compareTo.length || !this._variableValue.length) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
-                "please append values to the array's in the instance of this TypedContract");
-        }
-        if (this._variableValue.length <= compareTo.length) {
-            throw new RangeError(this._variableName + " should have a length\n        not less than " + compareTo.length + " but is " + this._variableValue.length);
+        var compareValue = 0;
+        compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
+        if (this._variableValue.length <= compareValue) {
+            throw new RangeError(this._variableName + " should have a length\n        not less than " + compareValue + " but is " + this._variableValue.length);
         }
         else {
             return this;
@@ -531,16 +519,14 @@ var ArrayValidator = (function (_super) {
      * isLengthLessOrEqualThan checks if the array variable's length is less or equal than the length of the contract precondition
      * @throws RangeError if the array variable is greater than
      * the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthLessOrEqualThan = function (compareTo) {
-        if (!compareTo.length || !this._variableValue.length) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
-                "please append values to the array's in the instance of this TypedContract");
-        }
-        if (this._variableValue.length > compareTo.length) {
-            throw new RangeError(this._variableName + " should have a length less or equal\n            to " + compareTo.length + " but is " + this._variableValue.length);
+        var compareValue = 0;
+        compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
+        if (this._variableValue.length > compareValue) {
+            throw new RangeError(this._variableName + " should have a length less or equal\n            to " + compareValue + " but is " + this._variableValue.length);
         }
         else {
             return this;
@@ -551,16 +537,14 @@ var ArrayValidator = (function (_super) {
      * isLengthNotLessOrEqualThan checks if the array variable's length is not less or equal than the length of the contract precondition
      * @throws RangeError if the array variable is less or equal than
      * the length of the precondition passed into the instance of the TypedContract
-     * @param compareTo
+     * @param compareTo is a number or another array
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthNotLessOrEqualThan = function (compareTo) {
-        if (!compareTo.length || !this._variableValue.length) {
-            throw new RangeError("Can't compare the length's of uninitialized arrays, " +
-                "please append values to the array's in the instance of this TypedContract");
-        }
-        if (this._variableValue.length <= compareTo.length) {
-            throw new RangeError(this._variableName + " should not have a\n             length less or equal to " + compareTo.length + " but is " + this._variableValue.length);
+        var compareValue = 0;
+        compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
+        if (this._variableValue.length <= compareValue) {
+            throw new RangeError(this._variableName + " should not have a\n             length less or equal to " + compareValue + " but is " + this._variableValue.length);
         }
         else {
             return this;
@@ -581,10 +565,13 @@ var ArrayValidator = (function (_super) {
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("The length of either your contract precondition\n            or comparable have a length of zero, please enter in values");
         }
-        for (var i = 0; i < compareTo.length; i++) {
+        var _loop_1 = function (i) {
             if (compareTo.some(function (elem) { return _this._variableValue[i] === elem; })) {
                 count++;
             }
+        };
+        for (var i = 0; i < compareTo.length; i++) {
+            _loop_1(i);
         }
         if (count === 0) {
             throw new RangeError(this._variableName + " should contain the pattern " + compareTo + "\n             but the pattern is not found in " + this._variableValue);
@@ -606,15 +593,35 @@ var ArrayValidator = (function (_super) {
         if (compareTo.length === 0 || this._variableValue.length === 0) {
             throw new RangeError("The length of either your contract precondition\n            or comparable have a length of zero, please enter in values");
         }
-        for (var i = 0; i < compareTo.length; i++) {
+        var _loop_2 = function (i) {
             if (compareTo.some(function (elem) { return _this._variableValue[i] === elem; })) {
                 count++;
             }
+        };
+        for (var i = 0; i < compareTo.length; i++) {
+            _loop_2(i);
         }
         if (count > 0) {
             throw new RangeError(this._variableName + " should not contain the pattern " + compareTo + "\n             but the pattern is not found in " + this._variableValue);
         }
         return this;
+    };
+    ArrayValidator.prototype.prepareArrayForLengthComparison = function (compareTo, compareValue) {
+        if (!this._variableValue.length) {
+            throw new RangeError("Can't compare the values length of uninitialized arrays, " +
+                "please append values to the array's in the instance of this TypedContract");
+        }
+        if (compareTo instanceof Array) {
+            if (!compareTo.length) {
+                throw new RangeError("Can't compare the length of uninitialized arrays, " +
+                    "please append values to the array's in the instance of this TypedContract");
+            }
+            compareValue = compareTo.length;
+        }
+        else {
+            compareValue = compareTo;
+        }
+        return compareValue;
     };
     return ArrayValidator;
 }(base_validator_1.BaseValidator));
@@ -638,7 +645,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var base_validator_1 = __webpack_require__(0);
 var BooleanValidator = (function (_super) {
     __extends(BooleanValidator, _super);
@@ -792,7 +799,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var base_validator_1 = __webpack_require__(0);
 var NumberValidator = (function (_super) {
     __extends(NumberValidator, _super);
@@ -1067,7 +1074,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var base_validator_1 = __webpack_require__(0);
 var StringValidator = (function (_super) {
     __extends(StringValidator, _super);

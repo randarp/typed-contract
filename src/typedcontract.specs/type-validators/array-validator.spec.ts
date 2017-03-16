@@ -183,9 +183,18 @@ describe("ArrayValidator", () => {
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
     });
 
-    it("isLengthGreaterThan returns this when given the proper precondition and comparable", () => {
+    it("isLengthGreaterThan returns this when given the proper precondition and comparable array", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2];
+
+        let result: IArrayValidator = contract.checks(localVar).isLengthGreaterThan(compareTo);
+
+        expect(result);
+    });
+
+    it("isLengthGreaterThan returns this when given the proper precondition and comparable number", () => {
+        let localVar: any[] = [1, 2, 3];
+        let compareTo: number = 2;
 
         let result: IArrayValidator = contract.checks(localVar).isLengthGreaterThan(compareTo);
 
@@ -195,6 +204,16 @@ describe("ArrayValidator", () => {
     it("isLengthGreaterThan throws an error when given a contract precondition and comparable for a number array", () => {
         let localVar: number[] = [1, 2, 3];
         let compareTo: number[] = [1, 2, 3, 4];
+
+        expect(() => {
+            contract.checks(localVar).isLengthGreaterThan(compareTo);
+        }).toThrowError(<any>RangeError);
+
+    });
+
+    it("isLengthGreaterThan throws an error when given a contract precondition and comparable for a number", () => {
+        let localVar: number[] = [1, 2, 3];
+        let compareTo: number = 4;
 
         expect(() => {
             contract.checks(localVar).isLengthGreaterThan(compareTo);
@@ -212,13 +231,23 @@ describe("ArrayValidator", () => {
 
     });
 
-    it("isLengthGreaterThan throws an error when given a contract.checks() precondition and comparable for a empty arrays", () => {
+    it("isLengthGreaterThan throws an error when given a contract.checks() precondition and comparable for an empty value arrays", () => {
         let localVar: string[] = [];
+        let compareTo: string[] = ["1"];
+
+        expect(() => {
+            contract.checks(localVar).isLengthGreaterThan(compareTo);
+        }).toThrow(new RangeError("Can't compare the values length of uninitialized arrays, please append values to the array's in the instance of this TypedContract"));
+
+    });
+
+    it("isLengthGreaterThan throws an error when given a contract.checks() precondition and comparable for an empty comparison arrays", () => {
+        let localVar: string[] = ["1"];
         let compareTo: string[] = [];
 
         expect(() => {
             contract.checks(localVar).isLengthGreaterThan(compareTo);
-        }).toThrow(new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract"));
+        }).toThrow(new RangeError("Can't compare the length of uninitialized arrays, please append values to the array's in the instance of this TypedContract"));
 
     });
 
@@ -231,9 +260,18 @@ describe("ArrayValidator", () => {
         expect(result);
     });
 
-    it("isLengthNotGreaterThan throws an error when give a precondition that is larger in length than the given comparable", () => {
+    it("isLengthNotGreaterThan throws an error when give a precondition that is larger in length than the given comparable array", () => {
         let localVar: any[] = [2, 3, 4, 5];
         let compareTo: any[] = [3, 2, 4];
+
+        expect(() => {
+            contract.checks(localVar).isLengthNotGreaterThan(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("isLengthNotGreaterThan throws an error when give a precondition that is larger in length than the given comparable number", () => {
+        let localVar: any[] = [2, 3, 4, 5];
+        let compareTo: number = 3;
 
         expect(() => {
             contract.checks(localVar).isLengthNotGreaterThan(compareTo);
@@ -258,9 +296,18 @@ describe("ArrayValidator", () => {
         expect(result);
     });
 
-    it("isLengthGreaterOrEqualTo returns this when given the proper precondition and comparable", () => {
+    it("isLengthGreaterOrEqualTo returns this when given the proper precondition and comparable array", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2, 3];
+
+        let result: IArrayValidator = contract.checks(localVar).isLengthGreaterOrEqualTo(compareTo);
+
+        expect(result);
+    });
+
+    it("isLengthGreaterOrEqualTo returns this when given the proper precondition and comparable number", () => {
+        let localVar: any[] = [1, 2, 3];
+        let compareTo: number = 3;
 
         let result: IArrayValidator = contract.checks(localVar).isLengthGreaterOrEqualTo(compareTo);
 
@@ -285,9 +332,18 @@ describe("ArrayValidator", () => {
         expect(result);
     });
 
-    it("isLengthNotGreaterOrEqualTo throws an error when given a precondition and comparable that is greater than", () => {
+    it("isLengthNotGreaterOrEqualTo throws an error when given a precondition and comparable that is greater than an array", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2];
+
+        expect(() => {
+            contract.checks(localVar).isLengthNotGreaterOrEqualTo(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("isLengthNotGreaterOrEqualTo throws an error when given a precondition and comparable that is greater than a number", () => {
+        let localVar: any[] = [1, 2, 3];
+        let compareTo: number = 2;
 
         expect(() => {
             contract.checks(localVar).isLengthNotGreaterOrEqualTo(compareTo);
@@ -303,7 +359,7 @@ describe("ArrayValidator", () => {
         }).toThrowError(<any>RangeError);
     });
 
-    it("isLengthLessThan returns the proper validator for the precondition and comparable", () => {
+    it("isLengthLessThan returns the proper validator for the precondition and comparable array", () => {
         let localVar: any[] = [1, 2];
         let compareTo: any[] = [1, 2, 3];
 
@@ -311,6 +367,16 @@ describe("ArrayValidator", () => {
 
         expect(result);
     });
+
+    it("isLengthLessThan returns the proper validator for the precondition and comparable number", () => {
+        let localVar: any[] = [1, 2];
+        let compareTo: number = 3;
+
+        let result: IArrayValidator = contract.checks(localVar).isLengthLessThan(compareTo);
+
+        expect(result);
+    });
+
     it("isLengthLessThan throws an error when the lengths are equal ", () => {
         let localVar:  any[] = [1, 2, 3];
         let compareTo:  any[] = [1, 2, 3];
@@ -338,9 +404,18 @@ describe("ArrayValidator", () => {
         }).toThrowError(<any>RangeError);
     });
 
-    it("isLengthLessThan throws an error when the lengths are equal of array type object ", () => {
+    it("isLengthLessThan throws an error when the lengths are equal of array type object to an array", () => {
         let localVar:  any[] = [{a: "1", b: "2", c: "3"},{a: "1", b: "2", c: "3"},{a: "1", b: "2", c: "3"}];
         let compareTo:  any[] = [1, 2, 3];
+
+        expect(() => {
+            contract.checks(localVar).isLengthLessThan(compareTo);
+        }).toThrowError(<any>RangeError);
+    });
+
+    it("isLengthLessThan throws an error when the lengths are equal of array type object to a number", () => {
+        let localVar:  any[] = [{a: "1", b: "2", c: "3"},{a: "1", b: "2", c: "3"},{a: "1", b: "2", c: "3"}];
+        let compareTo:  number = 3;
 
         expect(() => {
             contract.checks(localVar).isLengthLessThan(compareTo);
@@ -443,9 +518,19 @@ describe("ArrayValidator", () => {
         expect(result);
     });
 
-    it("isLengthNotLessOrEqual to throw an error when given an array that is equal to the comparable", () => {
+    it("isLengthNotLessOrEqual to throw an error when given an array that is equal to the comparable array", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2, 3];
+
+        expect( () => {
+            contract.checks(localVar).isLengthNotLessOrEqualThan(compareTo);
+        }).toThrowError(<any>RangeError);
+
+    });
+
+    it("isLengthNotLessOrEqual to throw an error when given an array that is equal to the comparable number", () => {
+        let localVar: any[] = [1, 2, 3];
+        let compareTo: number = 3;
 
         expect( () => {
             contract.checks(localVar).isLengthNotLessOrEqualThan(compareTo);

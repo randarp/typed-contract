@@ -122,15 +122,28 @@ describe("ArrayValidator", function () {
             contract.checks(localVar).isNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
     });
-    it("isLengthGreaterThan returns this when given the proper precondition and comparable", function () {
+    it("isLengthGreaterThan returns this when given the proper precondition and comparable array", function () {
         var localVar = [1, 2, 3];
         var compareTo = [1, 2];
+        var result = contract.checks(localVar).isLengthGreaterThan(compareTo);
+        expect(result);
+    });
+    it("isLengthGreaterThan returns this when given the proper precondition and comparable number", function () {
+        var localVar = [1, 2, 3];
+        var compareTo = 2;
         var result = contract.checks(localVar).isLengthGreaterThan(compareTo);
         expect(result);
     });
     it("isLengthGreaterThan throws an error when given a contract precondition and comparable for a number array", function () {
         var localVar = [1, 2, 3];
         var compareTo = [1, 2, 3, 4];
+        expect(function () {
+            contract.checks(localVar).isLengthGreaterThan(compareTo);
+        }).toThrowError(RangeError);
+    });
+    it("isLengthGreaterThan throws an error when given a contract precondition and comparable for a number", function () {
+        var localVar = [1, 2, 3];
+        var compareTo = 4;
         expect(function () {
             contract.checks(localVar).isLengthGreaterThan(compareTo);
         }).toThrowError(RangeError);
@@ -142,12 +155,19 @@ describe("ArrayValidator", function () {
             contract.checks(localVar).isLengthGreaterThan(compareTo);
         }).toThrowError(RangeError);
     });
-    it("isLengthGreaterThan throws an error when given a contract.checks() precondition and comparable for a empty arrays", function () {
+    it("isLengthGreaterThan throws an error when given a contract.checks() precondition and comparable for an empty value arrays", function () {
         var localVar = [];
+        var compareTo = ["1"];
+        expect(function () {
+            contract.checks(localVar).isLengthGreaterThan(compareTo);
+        }).toThrow(new RangeError("Can't compare the values length of uninitialized arrays, please append values to the array's in the instance of this TypedContract"));
+    });
+    it("isLengthGreaterThan throws an error when given a contract.checks() precondition and comparable for an empty comparison arrays", function () {
+        var localVar = ["1"];
         var compareTo = [];
         expect(function () {
             contract.checks(localVar).isLengthGreaterThan(compareTo);
-        }).toThrow(new RangeError("Can't compare the length's of uninitialized arrays, please append values to the array's in the instance of this TypedContract"));
+        }).toThrow(new RangeError("Can't compare the length of uninitialized arrays, please append values to the array's in the instance of this TypedContract"));
     });
     it("isLengthNotGreaterThan throws an error with the proper validator when given a comparable", function () {
         var localVar = [2, 3, 4, 5];
@@ -155,9 +175,16 @@ describe("ArrayValidator", function () {
         var result = contract.checks(localVar).isLengthNotGreaterThan(compareTo);
         expect(result);
     });
-    it("isLengthNotGreaterThan throws an error when give a precondition that is larger in length than the given comparable", function () {
+    it("isLengthNotGreaterThan throws an error when give a precondition that is larger in length than the given comparable array", function () {
         var localVar = [2, 3, 4, 5];
         var compareTo = [3, 2, 4];
+        expect(function () {
+            contract.checks(localVar).isLengthNotGreaterThan(compareTo);
+        }).toThrowError(RangeError);
+    });
+    it("isLengthNotGreaterThan throws an error when give a precondition that is larger in length than the given comparable number", function () {
+        var localVar = [2, 3, 4, 5];
+        var compareTo = 3;
         expect(function () {
             contract.checks(localVar).isLengthNotGreaterThan(compareTo);
         }).toThrowError(RangeError);
@@ -175,9 +202,15 @@ describe("ArrayValidator", function () {
         var result = contract.checks(localVar).isLengthGreaterOrEqualTo(compareTo);
         expect(result);
     });
-    it("isLengthGreaterOrEqualTo returns this when given the proper precondition and comparable", function () {
+    it("isLengthGreaterOrEqualTo returns this when given the proper precondition and comparable array", function () {
         var localVar = [1, 2, 3];
         var compareTo = [1, 2, 3];
+        var result = contract.checks(localVar).isLengthGreaterOrEqualTo(compareTo);
+        expect(result);
+    });
+    it("isLengthGreaterOrEqualTo returns this when given the proper precondition and comparable number", function () {
+        var localVar = [1, 2, 3];
+        var compareTo = 3;
         var result = contract.checks(localVar).isLengthGreaterOrEqualTo(compareTo);
         expect(result);
     });
@@ -194,9 +227,16 @@ describe("ArrayValidator", function () {
         var result = contract.checks(localVar).isLengthNotGreaterOrEqualTo(compareTo);
         expect(result);
     });
-    it("isLengthNotGreaterOrEqualTo throws an error when given a precondition and comparable that is greater than", function () {
+    it("isLengthNotGreaterOrEqualTo throws an error when given a precondition and comparable that is greater than an array", function () {
         var localVar = [1, 2, 3];
         var compareTo = [1, 2];
+        expect(function () {
+            contract.checks(localVar).isLengthNotGreaterOrEqualTo(compareTo);
+        }).toThrowError(RangeError);
+    });
+    it("isLengthNotGreaterOrEqualTo throws an error when given a precondition and comparable that is greater than a number", function () {
+        var localVar = [1, 2, 3];
+        var compareTo = 2;
         expect(function () {
             contract.checks(localVar).isLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(RangeError);
@@ -208,9 +248,15 @@ describe("ArrayValidator", function () {
             contract.checks(localVar).isLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(RangeError);
     });
-    it("isLengthLessThan returns the proper validator for the precondition and comparable", function () {
+    it("isLengthLessThan returns the proper validator for the precondition and comparable array", function () {
         var localVar = [1, 2];
         var compareTo = [1, 2, 3];
+        var result = contract.checks(localVar).isLengthLessThan(compareTo);
+        expect(result);
+    });
+    it("isLengthLessThan returns the proper validator for the precondition and comparable number", function () {
+        var localVar = [1, 2];
+        var compareTo = 3;
         var result = contract.checks(localVar).isLengthLessThan(compareTo);
         expect(result);
     });
@@ -235,9 +281,16 @@ describe("ArrayValidator", function () {
             contract.checks(localVar).isLengthLessThan(compareTo);
         }).toThrowError(RangeError);
     });
-    it("isLengthLessThan throws an error when the lengths are equal of array type object ", function () {
+    it("isLengthLessThan throws an error when the lengths are equal of array type object to an array", function () {
         var localVar = [{ a: "1", b: "2", c: "3" }, { a: "1", b: "2", c: "3" }, { a: "1", b: "2", c: "3" }];
         var compareTo = [1, 2, 3];
+        expect(function () {
+            contract.checks(localVar).isLengthLessThan(compareTo);
+        }).toThrowError(RangeError);
+    });
+    it("isLengthLessThan throws an error when the lengths are equal of array type object to a number", function () {
+        var localVar = [{ a: "1", b: "2", c: "3" }, { a: "1", b: "2", c: "3" }, { a: "1", b: "2", c: "3" }];
+        var compareTo = 3;
         expect(function () {
             contract.checks(localVar).isLengthLessThan(compareTo);
         }).toThrowError(RangeError);
@@ -306,9 +359,16 @@ describe("ArrayValidator", function () {
         var result = contract.checks(localVar).isLengthNotLessOrEqualThan(compareTo);
         expect(result);
     });
-    it("isLengthNotLessOrEqual to throw an error when given an array that is equal to the comparable", function () {
+    it("isLengthNotLessOrEqual to throw an error when given an array that is equal to the comparable array", function () {
         var localVar = [1, 2, 3];
         var compareTo = [1, 2, 3];
+        expect(function () {
+            contract.checks(localVar).isLengthNotLessOrEqualThan(compareTo);
+        }).toThrowError(RangeError);
+    });
+    it("isLengthNotLessOrEqual to throw an error when given an array that is equal to the comparable number", function () {
+        var localVar = [1, 2, 3];
+        var compareTo = 3;
         expect(function () {
             contract.checks(localVar).isLengthNotLessOrEqualThan(compareTo);
         }).toThrowError(RangeError);

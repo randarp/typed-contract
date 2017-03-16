@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var base_validator_1 = require("./base-validator");
 var BooleanValidator = (function (_super) {
     __extends(BooleanValidator, _super);
