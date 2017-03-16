@@ -122,4 +122,4 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
         });
     });
 });
-//# sourceMappingURL=Contract.TypeScript.requireJS.spec.js.map
+//# sourceMappingURL=contract.typescript.requireJS.spec.js.map
