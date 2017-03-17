@@ -84,27 +84,7 @@ module.exports = function(grunt){
                     to: ""
                 },{
                     // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"type-validators/type-validators.d.ts\" \/>",
-                    to: ""
-                },{
-                    // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"..\/type-validators\/type-validators.d.ts\" \/>",
-                    to: ""
-                },{
-                    // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"type-validators.d.ts\" \/>",
-                    to: ""
-                },{
-                    // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"..\/icontract.d.ts\" \/>",
-                    to: ""
-                },{
-                    // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"icontract.d.ts\" \/>",
-                    to: ""
-                },{
-                    // Remove some references that are merged in
-                    from: "\t\/\/\/ <reference path=\"type-validators/type-validators.d.ts\" \/>",
+                    from: /\t\/\/\/.<reference path=".*" \/>/g,
                     to: ""
                 },{
                     // Clean up some whitespace after replaces
@@ -121,23 +101,7 @@ module.exports = function(grunt){
                 overwrite: true,
                 replacements: [{
                     // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"type-validators\/type-validators.d.ts\" \/>",
-                    to: ""
-                },{
-                    // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"..\/type-validators\/type-validators.d.ts\" \/>",
-                    to: ""
-                },{
-                    // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"type-validators.d.ts\" \/>",
-                    to: ""
-                },{
-                    // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"icontract.d.ts\" \/>",
-                    to: ""
-                },{
-                    // Remove some references that are merged in
-                    from: "\/\/\/ <reference path=\"..\/icontract.d.ts\" \/>",
+                    from: /\/\/\/.<reference path=".*" \/>/g,
                     to: ""
                 },{
                     // Fix the link to the source mapping, which was based on the initially generated one
