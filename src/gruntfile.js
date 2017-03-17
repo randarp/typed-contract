@@ -87,6 +87,10 @@ module.exports = function(grunt){
                     from: /\t\/\/\/.<reference path=".*" \/>/g,
                     to: ""
                 },{
+                    // Remove some private methods that should not be there
+                    from: /\sprivate.\w+\(.*\);/g,
+                    to: ""
+                },{
                     // Clean up some whitespace after replaces
                     from: "\n\n\n",
                     to: "\n"

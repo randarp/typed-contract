@@ -1234,7 +1234,7 @@ declare module "typedcontract" {
 	     * @returns { IArrayValidator }
 	     */
 	    notContains(compareTo: any[]): ArrayValidator;
-	    private prepareArrayForLengthComparison(compareTo, compareValue);
+	   
 	}
 
 	export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
