@@ -5,13 +5,12 @@ exports.__esModule = true;
  */
 var BaseValidator = (function () {
     function BaseValidator(variableValue, variableName) {
-        var self = this;
-        self._variableValue = variableValue;
+        this._variableValue = variableValue;
         if (variableName && variableName.length > 0) {
-            self._variableName = variableName;
+            this._variableName = variableName;
         }
         else {
-            self._variableName = "The variable";
+            this._variableName = "The variable";
         }
     }
     /**
@@ -29,6 +28,20 @@ var BaseValidator = (function () {
      */
     BaseValidator.prototype.name = function () {
         return this._variableName;
+    };
+    /**
+     * Will return either the custom message passed in or the default message
+     * @param optionalMessage
+     * @param defaultMessage
+     * @returns {string}
+     */
+    BaseValidator.prototype.validationMessage = function (optionalMessage, defaultMessage) {
+        if (optionalMessage && optionalMessage.length > 0) {
+            return optionalMessage.replace("$var", this._variableName);
+        }
+        else {
+            return defaultMessage;
+        }
     };
     return BaseValidator;
 }());

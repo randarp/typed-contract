@@ -34,6 +34,22 @@ describe("AnyValidator", function () {
             contract.In(localVariable).isNull();
         }).toThrow(new ReferenceError("The variable should be null")); // getting right result, assertion statement wrong
     });
+    it("isNull expects a custom message when passed in and an error thrown", function () {
+        // arrange
+        var localVariable = { a: "TypeScript", b: function () { return null; }, c: [1, 2, 3] };
+        // act/assert
+        expect(function () {
+            contract.In(localVariable).isNull("Custom error");
+        }).toThrow(new ReferenceError("Custom error"));
+    });
+    it("isNull expects a custom message with a variable name when passed in and an error thrown", function () {
+        // arrange
+        var localVariable = { a: "TypeScript", b: function () { return null; }, c: [1, 2, 3] };
+        // act/assert
+        expect(function () {
+            contract.In(localVariable, "localVariable").isNull("$var with custom error");
+        }).toThrow(new ReferenceError("localVariable with custom error"));
+    });
     it("isDefined should return the proper result ", function () {
         var localVar = "Andre";
         var result = contract.In(localVar).isDefined();

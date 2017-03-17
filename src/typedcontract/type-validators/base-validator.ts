@@ -6,14 +6,12 @@ export class BaseValidator<T> {
     protected _variableName: string;
 
     constructor(variableValue: T, variableName: string) {
-        var self = this;
-
-        self._variableValue = variableValue;
+        this._variableValue = variableValue;
 
         if (variableName && variableName.length > 0) {
-            self._variableName = variableName;
+            this._variableName = variableName;
         } else {
-            self._variableName = "The variable";
+            this._variableName = "The variable";
         }
     }
 
@@ -33,5 +31,19 @@ export class BaseValidator<T> {
      */
     public name(): string {
         return this._variableName;
+    }
+
+    /**
+     * Will return either the custom message passed in or the default message
+     * @param optionalMessage
+     * @param defaultMessage
+     * @returns {string}
+     */
+    protected validationMessage(optionalMessage: string, defaultMessage: string) {
+        if (optionalMessage && optionalMessage.length > 0) {
+            return optionalMessage.replace("$var", this._variableName);
+        } else {
+            return defaultMessage;
+        }
     }
 }

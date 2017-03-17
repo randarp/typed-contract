@@ -447,18 +447,20 @@ interface IStringValidator extends IBaseValidator<string> {
     /**
      *
      * isNotNull checks if the string variable is not null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is null
      * @returns {IStringValidator}
      */
-    isNotNull(): IStringValidator;
+    isNotNull(message: string): IStringValidator;
 
     /**
      *
      * isNull checks if the string variable is null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is not null
      * @returns {IStringValidator}
      */
-    isNull(): IStringValidator;
+    isNull(message: string): IStringValidator;
 
     /**
      * Checks if a string is only whitespace

@@ -407,17 +407,19 @@ interface IStringValidator extends IBaseValidator<string> {
     /**
      *
      * isNotNull checks if the string variable is not null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is null
      * @returns {IStringValidator}
      */
-    isNotNull(): IStringValidator;
+    isNotNull(message: string): IStringValidator;
     /**
      *
      * isNull checks if the string variable is null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is not null
      * @returns {IStringValidator}
      */
-    isNull(): IStringValidator;
+    isNull(message: string): IStringValidator;
     /**
      * Checks if a string is only whitespace
      * @returns {StringValidator}
@@ -660,6 +662,13 @@ declare module "typedcontract" {
 	     * @constructor
 	     */
 	    name(): string;
+	    /**
+	     * Will return either the custom message passed in or the default message
+	     * @param optionalMessage
+	     * @param defaultMessage
+	     * @returns {string}
+	     */
+	    protected validationMessage(optionalMessage: string, defaultMessage: string): string;
 	}
 
 	export class StringValidator extends BaseValidator<string> implements IStringValidator {
@@ -1242,17 +1251,19 @@ declare module "typedcontract" {
 	    /**
 	     *
 	     * isNotNull checks if the type any variable is not null
+	     * @param message is an optional message if validation fails
 	     * @throws a ReferenceError if the any is null
 	     * @returns { IAnyValidator }
 	     */
-	    isNotNull(): IAnyValidator;
+	    isNotNull(message?: string): IAnyValidator;
 	    /**
 	     *
 	     * isNull checks if the any variable is null
+	     * @param message is an optional message if validation fails
 	     * @throws a ReferenceError if the variable is not null
 	     * @returns { IAnyValidator }
 	     */
-	    isNull(): IAnyValidator;
+	    isNull(message?: string): IAnyValidator;
 	    /**
 	     * isDefined checks if the any variable is defined
 	     * @throws ReferenceError if the any variable jis not defined

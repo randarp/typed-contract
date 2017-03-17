@@ -88,13 +88,12 @@ exports.__esModule = true;
  */
 var BaseValidator = (function () {
     function BaseValidator(variableValue, variableName) {
-        var self = this;
-        self._variableValue = variableValue;
+        this._variableValue = variableValue;
         if (variableName && variableName.length > 0) {
-            self._variableName = variableName;
+            this._variableName = variableName;
         }
         else {
-            self._variableName = "The variable";
+            this._variableName = "The variable";
         }
     }
     /**
@@ -112,6 +111,20 @@ var BaseValidator = (function () {
      */
     BaseValidator.prototype.name = function () {
         return this._variableName;
+    };
+    /**
+     * Will return either the custom message passed in or the default message
+     * @param optionalMessage
+     * @param defaultMessage
+     * @returns {string}
+     */
+    BaseValidator.prototype.validationMessage = function (optionalMessage, defaultMessage) {
+        if (optionalMessage && optionalMessage.length > 0) {
+            return optionalMessage.replace("$var", this._variableName);
+        }
+        else {
+            return defaultMessage;
+        }
     };
     return BaseValidator;
 }());
@@ -200,7 +213,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var base_validator_1 = __webpack_require__(0);
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
@@ -210,12 +223,14 @@ var AnyValidator = (function (_super) {
     /**
      *
      * isNotNull checks if the type any variable is not null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the any is null
      * @returns { IAnyValidator }
      */
-    AnyValidator.prototype.isNotNull = function () {
+    AnyValidator.prototype.isNotNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === null) {
-            throw new ReferenceError(this._variableName + " should not be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
         else {
             return this;
@@ -224,12 +239,14 @@ var AnyValidator = (function (_super) {
     /**
      *
      * isNull checks if the any variable is null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is not null
      * @returns { IAnyValidator }
      */
-    AnyValidator.prototype.isNull = function () {
+    AnyValidator.prototype.isNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== null) {
-            throw new ReferenceError(this._variableName + " should be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
         else {
             return this;

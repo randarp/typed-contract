@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var base_validator_1 = require("./base-validator");
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
@@ -20,12 +20,14 @@ var AnyValidator = (function (_super) {
     /**
      *
      * isNotNull checks if the type any variable is not null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the any is null
      * @returns { IAnyValidator }
      */
-    AnyValidator.prototype.isNotNull = function () {
+    AnyValidator.prototype.isNotNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === null) {
-            throw new ReferenceError(this._variableName + " should not be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
         else {
             return this;
@@ -34,12 +36,14 @@ var AnyValidator = (function (_super) {
     /**
      *
      * isNull checks if the any variable is null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is not null
      * @returns { IAnyValidator }
      */
-    AnyValidator.prototype.isNull = function () {
+    AnyValidator.prototype.isNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== null) {
-            throw new ReferenceError(this._variableName + " should be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
         else {
             return this;
