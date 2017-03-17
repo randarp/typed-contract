@@ -5,19 +5,19 @@ describe("BaseValidator", function () {
         // arrange
         var localVariable = "A string";
         // act
-        var result = contract.checks(localVariable).isNotNull().value();
+        var result = contract.In(localVariable).isNotNull().value();
         // assert
         expect(result).toEqual("A string");
     });
     it("name returns the original variable name", function () {
         var localVariable = "A string";
-        var result = contract.checks(localVariable, "My var").isNotNull().name();
+        var result = contract.In(localVariable, "My var").isNotNull().name();
         expect(result).toEqual("My var");
     });
     it("name returns the original variable name with a variable", function () {
         var localVariable = "A string";
         var varName = "My var";
-        var result = contract.checks(localVariable, varName).isNotNull().name();
+        var result = contract.In(localVariable, varName).isNotNull().name();
         expect(result).toEqual("My var");
     });
 });

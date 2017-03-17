@@ -13,7 +13,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: IBooleanValidator = contract.checks(localVariable);
+        let result: IBooleanValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -26,7 +26,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: IBooleanValidator = contract.checks(localVariable);
+        let result: IBooleanValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -38,7 +38,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let localVariable: boolean = true;
 
         // act
-        let result: IBooleanValidator = contract.checks(localVariable, "localVariable");
+        let result: IBooleanValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -51,7 +51,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let localVariable: number = 2;
 
         // act
-        let result: INumberValidator = contract.checks(localVariable);
+        let result: INumberValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -64,7 +64,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let localVariable: number = 2;
 
         // act
-        let result: INumberValidator = contract.checks(localVariable, "localVariable");
+        let result: INumberValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -77,7 +77,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: IStringValidator = contract.checks(localVariable);
+        let result: IStringValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -90,7 +90,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let localVariable: string = "A string";
 
         // act
-        let result: IStringValidator = contract.checks(localVariable, "localVariable");
+        let result: IStringValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -103,7 +103,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: IArrayValidator = contract.checks(localVariable);
+        let result: IArrayValidator = contract.In(localVariable);
 
         // assert
         expect(result).not.toBeNull();
@@ -116,7 +116,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: IArrayValidator = contract.checks(localVariable, "localVariable");
+        let result: IArrayValidator = contract.In(localVariable, "localVariable");
 
         // assert
         expect(result).not.toBeNull();
@@ -127,7 +127,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
     it("will return the correct validator for an any type", () => {
         let localVariable: any = /[A-Z]/;
 
-        let result: IAnyValidator = contract.checks(localVariable);
+        let result: IAnyValidator = contract.In(localVariable);
 
         expect(result).not.toBeNull();
         expect(result).not.toBeUndefined();
@@ -137,7 +137,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
     it("will return the correct validator for an any type with a variable name", () => {
         let localVariable: any = /[A-Z]/;
 
-        let result: IAnyValidator = contract.checks(localVariable, "myVar");
+        let result: IAnyValidator = contract.In(localVariable, "myVar");
 
         expect(result).not.toBeNull();
         expect(result).not.toBeUndefined();
@@ -150,7 +150,7 @@ describe("typedcontract with module syntax RequireJS via TypeScript", () => {
         let comparableVar: number = 1;
 
         // act
-        let result: INumberValidator = contract.checks(localVariable).isGreaterThan(comparableVar);
+        let result: INumberValidator = contract.In(localVariable).isGreaterThan(comparableVar);
 
         // assert
         expect(result);

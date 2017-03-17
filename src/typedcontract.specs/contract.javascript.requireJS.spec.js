@@ -6,7 +6,7 @@ describe("typedcontract with inline RequireJS via JavaScript", function () {
     it("will return function through object returned through inline syntax", function () {
         // arrange/act
         var typedcontract = require("typedcontract");
-        var result = typedcontract.contract.checks;
+        var result = typedcontract.contract.In;
 
         // assert
         expect(result).not.toBeUndefined();
@@ -23,7 +23,7 @@ define(['typedcontract'], function(typedcontract) {
             var localVariable = ["A", "B", "C"];
 
             // act
-            var result = typedcontract.contract.checks(localVariable).isNotNull();
+            var result = typedcontract.contract.In(localVariable).isNotNull();
 
             // assert
             expect(result).not.toBeNull();

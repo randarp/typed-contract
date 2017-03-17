@@ -11,7 +11,7 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
             // arrange
             var localVariable = true;
             // act
-            var result = typedcontract_1.contract.checks(localVariable);
+            var result = typedcontract_1.contract.In(localVariable);
             // assert
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
@@ -21,7 +21,7 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
             // arrange
             var localVariable = true;
             // act
-            var result = typedcontract_1.contract.checks(localVariable);
+            var result = typedcontract_1.contract.In(localVariable);
             // assert
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
@@ -31,7 +31,7 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
             // arrange
             var localVariable = true;
             // act
-            var result = typedcontract_1.contract.checks(localVariable, "localVariable");
+            var result = typedcontract_1.contract.In(localVariable, "localVariable");
             // assert
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
@@ -41,7 +41,7 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
             // arrange m
             var localVariable = 2;
             // act
-            var result = typedcontract_1.contract.checks(localVariable);
+            var result = typedcontract_1.contract.In(localVariable);
             // assert
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
@@ -51,7 +51,7 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
             // arrange
             var localVariable = 2;
             // act
-            var result = typedcontract_1.contract.checks(localVariable, "localVariable");
+            var result = typedcontract_1.contract.In(localVariable, "localVariable");
             // assert
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
@@ -61,7 +61,7 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
             // arrange
             var localVariable = "A string";
             // act
-            var result = typedcontract_1.contract.checks(localVariable);
+            var result = typedcontract_1.contract.In(localVariable);
             // assert
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
@@ -71,7 +71,7 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
             // arrange
             var localVariable = "A string";
             // act
-            var result = typedcontract_1.contract.checks(localVariable, "localVariable");
+            var result = typedcontract_1.contract.In(localVariable, "localVariable");
             // assert
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
@@ -81,7 +81,7 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
             // arrange
             var localVariable = ["A", "B", "C"];
             // act
-            var result = typedcontract_1.contract.checks(localVariable);
+            var result = typedcontract_1.contract.In(localVariable);
             // assert
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
@@ -91,7 +91,7 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
             // arrange
             var localVariable = ["A", "B", "C"];
             // act
-            var result = typedcontract_1.contract.checks(localVariable, "localVariable");
+            var result = typedcontract_1.contract.In(localVariable, "localVariable");
             // assert
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
@@ -99,14 +99,14 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
         });
         it("will return the correct validator for an any type", function () {
             var localVariable = /[A-Z]/;
-            var result = typedcontract_1.contract.checks(localVariable);
+            var result = typedcontract_1.contract.In(localVariable);
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
             expect(result.constructor.name).toBe("AnyValidator");
         });
         it("will return the correct validator for an any type with a variable name", function () {
             var localVariable = /[A-Z]/;
-            var result = typedcontract_1.contract.checks(localVariable, "myVar");
+            var result = typedcontract_1.contract.In(localVariable, "myVar");
             expect(result).not.toBeNull();
             expect(result).not.toBeUndefined();
             expect(result.constructor.name).toBe("AnyValidator");
@@ -116,7 +116,7 @@ define(["require", "exports", "typedcontract"], function (require, exports, type
             var localVariable = 2.05;
             var comparableVar = 1;
             // act
-            var result = typedcontract_1.contract.checks(localVariable).isGreaterThan(comparableVar);
+            var result = typedcontract_1.contract.In(localVariable).isGreaterThan(comparableVar);
             // assert
             expect(result);
         });

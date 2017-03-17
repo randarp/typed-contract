@@ -135,7 +135,7 @@ var any_validator_1 = __webpack_require__(2);
 var Contract = (function () {
     function Contract() {
     }
-    Contract.prototype.checks = function (precondition, name) {
+    Contract.prototype.In = function (precondition, name) {
         if (name === void 0) { name = undefined; }
         if (typeof precondition === "string" || precondition === null || precondition === undefined) {
             return new string_validator_1.StringValidator(precondition, name);
@@ -155,7 +155,7 @@ var Contract = (function () {
             return new any_validator_1.AnyValidator(precondition, name);
         }
     };
-    Contract.prototype.ensures = function (postcondition, name) {
+    Contract.prototype.Out = function (postcondition, name) {
         if (name === void 0) { name = undefined; }
         if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
             return new string_validator_1.StringValidator(postcondition, name);
@@ -201,7 +201,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var base_validator_1 = __webpack_require__(0);
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
@@ -297,7 +297,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var base_validator_1 = __webpack_require__(0);
 var ArrayValidator = (function (_super) {
     __extends(ArrayValidator, _super);
@@ -646,7 +646,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var base_validator_1 = __webpack_require__(0);
 var BooleanValidator = (function (_super) {
     __extends(BooleanValidator, _super);
@@ -1075,7 +1075,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var base_validator_1 = __webpack_require__(0);
 var StringValidator = (function (_super) {
     __extends(StringValidator, _super);

@@ -1,7 +1,7 @@
 /// <reference path="../icontract.d.ts" />
 /// <reference path="../type-validators/type-validators.d.ts" />
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var string_validator_1 = require("../type-validators/string-validator");
 var boolean_validator_1 = require("../type-validators/boolean-validator");
 var number_validator_1 = require("../type-validators/number-validator");
@@ -10,7 +10,7 @@ var any_validator_1 = require("../type-validators/any-validator");
 var Contract = (function () {
     function Contract() {
     }
-    Contract.prototype.checks = function (precondition, name) {
+    Contract.prototype.In = function (precondition, name) {
         if (name === void 0) { name = undefined; }
         if (typeof precondition === "string" || precondition === null || precondition === undefined) {
             return new string_validator_1.StringValidator(precondition, name);
@@ -30,7 +30,7 @@ var Contract = (function () {
             return new any_validator_1.AnyValidator(precondition, name);
         }
     };
-    Contract.prototype.ensures = function (postcondition, name) {
+    Contract.prototype.Out = function (postcondition, name) {
         if (name === void 0) { name = undefined; }
         if (typeof postcondition === "string" || postcondition === null || postcondition === undefined) {
             return new string_validator_1.StringValidator(postcondition, name);

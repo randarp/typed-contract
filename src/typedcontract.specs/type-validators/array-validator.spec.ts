@@ -8,7 +8,7 @@ describe("ArrayValidator", () => {
         let localVariable: string[] = ["A", "B", "C"];
 
         // act
-        let result: IArrayValidator = contract.checks(localVariable).isNotNull();
+        let result: IArrayValidator = contract.In(localVariable).isNotNull();
 
         // assert
         expect(result).not.toBeNull();
@@ -18,7 +18,7 @@ describe("ArrayValidator", () => {
     it("isNotNull returns the right validator with a number array", () => {
         let localVar: any[] = [1, 2, 3];
 
-        let result: IArrayValidator = contract.checks(localVar).isNotNull();
+        let result: IArrayValidator = contract.In(localVar).isNotNull();
 
         return expect(result).not.toBeNull();
     });
@@ -26,7 +26,7 @@ describe("ArrayValidator", () => {
     it("isNotNull returns the right validator as a postcondition", () => {
         let localVar: any[] = [1, 2, 3];
 
-        let result: IArrayValidator = contract.ensures(localVar).isNotNull();
+        let result: IArrayValidator = contract.Out(localVar).isNotNull();
 
         expect(result);
 
@@ -40,7 +40,7 @@ describe("ArrayValidator", () => {
             }}, {b: "A"}, {c: 1
         }];
 
-        let result: IArrayValidator = contract.checks(localVar).isNotNull();
+        let result: IArrayValidator = contract.In(localVar).isNotNull();
 
         expect(result).not.toBe(null);
     });
@@ -48,7 +48,7 @@ describe("ArrayValidator", () => {
     it("isNotNull returns an error", () => {
         let localVar:  any[] = [];
 
-        let result: IArrayValidator = contract.checks(localVar).isNotNull();
+        let result: IArrayValidator = contract.In(localVar).isNotNull();
 
         expect(result);
     });
@@ -57,7 +57,7 @@ describe("ArrayValidator", () => {
 
         let localVar:  any[] = null;
 
-        let result: IArrayValidator = contract.checks(localVar).isNull();
+        let result: IArrayValidator = contract.In(localVar).isNull();
 
         expect(result);
     });
@@ -65,7 +65,7 @@ describe("ArrayValidator", () => {
     it("isNull returns the right validator as a postcondition", () => {
        let localVar: any [] = null;
 
-       let result: IArrayValidator = contract.ensures(localVar).isNull();
+       let result: IArrayValidator = contract.Out(localVar).isNull();
 
        expect(result);
     });
@@ -74,14 +74,14 @@ describe("ArrayValidator", () => {
         let localVar:  any[];
 
         expect(() => {
-            contract.checks(localVar).isNull();
+            contract.In(localVar).isNull();
         }).toThrow(new ReferenceError("The variable should be null"));
     });
 
     it("isDefined returns proper validator", () => {
         let localVar: any[] = [];
 
-        let result: IArrayValidator = contract.checks(localVar).isDefined();
+        let result: IArrayValidator = contract.In(localVar).isDefined();
 
         expect(result);
     });
@@ -89,7 +89,7 @@ describe("ArrayValidator", () => {
     it("isDefined returns the proper validator with an object array", () => {
         let localVar: any[] = [{a: function() {return null; }, b: 'A', c: 1}];
 
-        let result: IArrayValidator = contract.checks(localVar).isDefined();
+        let result: IArrayValidator = contract.In(localVar).isDefined();
 
         expect(result);
     });
@@ -97,7 +97,7 @@ describe("ArrayValidator", () => {
     it("isDefined returns the proper validator with a string array", () => {
         let localVar: any[] = ["1", "2", "3"];
 
-        let result: IArrayValidator = contract.checks(localVar).isDefined();
+        let result: IArrayValidator = contract.In(localVar).isDefined();
 
         expect(result);
     });
@@ -106,7 +106,7 @@ describe("ArrayValidator", () => {
         let localVar: any[];
 
         expect(() => {
-            contract.checks(localVar).isDefined();
+            contract.In(localVar).isDefined();
         }).toThrowError(<any>ReferenceError);
 
     });
@@ -115,7 +115,7 @@ describe("ArrayValidator", () => {
         let localVar: any[];
 
         expect( () => {
-            contract.checks(localVar).isUndefined();
+            contract.In(localVar).isUndefined();
         });
 
     });
@@ -124,7 +124,7 @@ describe("ArrayValidator", () => {
         let localVar: string[];
 
         expect( () => {
-            contract.checks(localVar).isUndefined();
+            contract.In(localVar).isUndefined();
         });
     });
 
@@ -132,7 +132,7 @@ describe("ArrayValidator", () => {
         let localVar: number[] = undefined;
 
         expect( () => {
-            contract.checks(localVar).isUndefined();
+            contract.In(localVar).isUndefined();
         });
     });
 
@@ -140,7 +140,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2, 3];
 
-        let result: IArrayValidator = contract.checks(localVar).isEqualTo(compareTo, 0);
+        let result: IArrayValidator = contract.In(localVar).isEqualTo(compareTo, 0);
 
         expect(result);
 
@@ -152,7 +152,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3];
 
         expect(() => {
-            contract.checks(localVar).isEqualTo(compareTo, 0);
+            contract.In(localVar).isEqualTo(compareTo, 0);
         }).toThrow(new RangeError("The variable should be equal to array variable 1,2,3 at the index 0"));
 
     });
@@ -162,7 +162,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3];
 
         expect(() => {
-            contract.checks(localVar).isEqualTo(compareTo, 0);
+            contract.In(localVar).isEqualTo(compareTo, 0);
         }).toThrow(new RangeError("The variable should be equal to array variable 1,2,3 at the index 0"));
 
     });
@@ -172,7 +172,7 @@ describe("ArrayValidator", () => {
         let localVar: any[];
 
         expect(() => {
-            contract.checks(localVar).isNullOrUndefined();
+            contract.In(localVar).isNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
     });
 
@@ -180,7 +180,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = null;
 
         expect(() => {
-            contract.checks(localVar).isNullOrUndefined();
+            contract.In(localVar).isNullOrUndefined();
         }).toThrow(new ReferenceError("The variable should not be null or undefined"));
     });
 
@@ -188,7 +188,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthGreaterThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthGreaterThan(compareTo);
 
         expect(result);
     });
@@ -197,7 +197,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: number = 2;
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthGreaterThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthGreaterThan(compareTo);
 
         expect(result);
     });
@@ -207,7 +207,7 @@ describe("ArrayValidator", () => {
         let compareTo: number[] = [1, 2, 3, 4];
 
         expect(() => {
-            contract.checks(localVar).isLengthGreaterThan(compareTo);
+            contract.In(localVar).isLengthGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
@@ -217,37 +217,37 @@ describe("ArrayValidator", () => {
         let compareTo: number = 4;
 
         expect(() => {
-            contract.checks(localVar).isLengthGreaterThan(compareTo);
+            contract.In(localVar).isLengthGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
 
-    it("isLengthGreaterThan throws an error when given a contract.checks() precondition and comparable for a string array", () => {
+    it("isLengthGreaterThan throws an error when given a contract.In() precondition and comparable for a string array", () => {
         let localVar: string[] = ["A", "B", "C"];
         let compareTo: string[] = ["A", "B", "C", "D"];
 
         expect(() => {
-            contract.checks(localVar).isLengthGreaterThan(compareTo);
+            contract.In(localVar).isLengthGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
 
-    it("isLengthGreaterThan throws an error when given a contract.checks() precondition and comparable for an empty value arrays", () => {
+    it("isLengthGreaterThan throws an error when given a contract.In() precondition and comparable for an empty value arrays", () => {
         let localVar: string[] = [];
         let compareTo: string[] = ["1"];
 
         expect(() => {
-            contract.checks(localVar).isLengthGreaterThan(compareTo);
+            contract.In(localVar).isLengthGreaterThan(compareTo);
         }).toThrow(new RangeError("Can't compare the values length of uninitialized arrays, please append values to the array's in the instance of this TypedContract"));
 
     });
 
-    it("isLengthGreaterThan throws an error when given a contract.checks() precondition and comparable for an empty comparison arrays", () => {
+    it("isLengthGreaterThan throws an error when given a contract.In() precondition and comparable for an empty comparison arrays", () => {
         let localVar: string[] = ["1"];
         let compareTo: string[] = [];
 
         expect(() => {
-            contract.checks(localVar).isLengthGreaterThan(compareTo);
+            contract.In(localVar).isLengthGreaterThan(compareTo);
         }).toThrow(new RangeError("Can't compare the length of uninitialized arrays, please append values to the array's in the instance of this TypedContract"));
 
     });
@@ -256,7 +256,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [2, 3, 4, 5];
         let compareTo: any[] = [2, 3, 4, 3, 2];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthNotGreaterThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthNotGreaterThan(compareTo);
 
         expect(result);
     });
@@ -266,7 +266,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [3, 2, 4];
 
         expect(() => {
-            contract.checks(localVar).isLengthNotGreaterThan(compareTo);
+            contract.In(localVar).isLengthNotGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -275,7 +275,7 @@ describe("ArrayValidator", () => {
         let compareTo: number = 3;
 
         expect(() => {
-            contract.checks(localVar).isLengthNotGreaterThan(compareTo);
+            contract.In(localVar).isLengthNotGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -284,7 +284,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [];
 
         expect( () => {
-            contract.checks(localVar).isLengthNotGreaterThan(compareTo);
+            contract.In(localVar).isLengthNotGreaterThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -292,7 +292,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthGreaterOrEqualTo(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthGreaterOrEqualTo(compareTo);
 
         expect(result);
     });
@@ -301,7 +301,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2, 3];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthGreaterOrEqualTo(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthGreaterOrEqualTo(compareTo);
 
         expect(result);
     });
@@ -310,7 +310,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: number = 3;
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthGreaterOrEqualTo(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthGreaterOrEqualTo(compareTo);
 
         expect(result);
     });
@@ -320,7 +320,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 5, 4, 3];
 
         expect(() => {
-            contract.checks(localVar).isLengthGreaterOrEqualTo(compareTo);
+            contract.In(localVar).isLengthGreaterOrEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -328,7 +328,7 @@ describe("ArrayValidator", () => {
         let localVar:  any[] = [1, 2, 3];
         let compareTo:  any[] = [1, 2, 3, 4];
 
-        let result:  IArrayValidator = contract.checks(localVar).isLengthNotGreaterOrEqualTo(compareTo);
+        let result:  IArrayValidator = contract.In(localVar).isLengthNotGreaterOrEqualTo(compareTo);
 
         expect(result);
     });
@@ -338,7 +338,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2];
 
         expect(() => {
-            contract.checks(localVar).isLengthNotGreaterOrEqualTo(compareTo);
+            contract.In(localVar).isLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -347,7 +347,7 @@ describe("ArrayValidator", () => {
         let compareTo: number = 2;
 
         expect(() => {
-            contract.checks(localVar).isLengthNotGreaterOrEqualTo(compareTo);
+            contract.In(localVar).isLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -356,7 +356,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3];
 
         expect(() => {
-            contract.checks(localVar).isLengthNotGreaterOrEqualTo(compareTo);
+            contract.In(localVar).isLengthNotGreaterOrEqualTo(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -364,7 +364,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2];
         let compareTo: any[] = [1, 2, 3];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthLessThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthLessThan(compareTo);
 
         expect(result);
     });
@@ -373,7 +373,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2];
         let compareTo: number = 3;
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthLessThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthLessThan(compareTo);
 
         expect(result);
     });
@@ -383,7 +383,7 @@ describe("ArrayValidator", () => {
         let compareTo:  any[] = [1, 2, 3];
 
         expect(() => {
-            contract.checks(localVar).isLengthLessThan(compareTo);
+            contract.In(localVar).isLengthLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -392,7 +392,7 @@ describe("ArrayValidator", () => {
         let compareTo:  any[] = [1, 2, 3];
 
         expect(() => {
-            contract.ensures(localVar).isLengthLessThan(compareTo);
+            contract.Out(localVar).isLengthLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -401,7 +401,7 @@ describe("ArrayValidator", () => {
         let compareTo:  any[] = [1, 2, 3];
 
         expect(() => {
-            contract.checks(localVar).isLengthLessThan(compareTo);
+            contract.In(localVar).isLengthLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -410,7 +410,7 @@ describe("ArrayValidator", () => {
         let compareTo:  any[] = [1, 2, 3];
 
         expect(() => {
-            contract.checks(localVar).isLengthLessThan(compareTo);
+            contract.In(localVar).isLengthLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -419,7 +419,7 @@ describe("ArrayValidator", () => {
         let compareTo:  number = 3;
 
         expect(() => {
-            contract.checks(localVar).isLengthLessThan(compareTo);
+            contract.In(localVar).isLengthLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -427,7 +427,7 @@ describe("ArrayValidator", () => {
         let localVar:  any[] = [1, 2, 3, 4];
         let compareTo:  any[] = [1, 2, 3, 4, 5];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthLessThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthLessThan(compareTo);
 
         expect(result);
 
@@ -437,7 +437,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3, 4, 5, 6];
         let compareTo: any[] = [1, 2, 3];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthNotLessThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthNotLessThan(compareTo);
 
         expect(result);
 
@@ -447,7 +447,7 @@ describe("ArrayValidator", () => {
         let localVar: string[] = ["1", "2", "3", "4", "5", "6"];
         let compareTo: string[] = ["1", "2", "3"];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthNotLessThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthNotLessThan(compareTo);
 
         expect(result);
 
@@ -458,7 +458,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3 , 4];
 
         expect( () => {
-            contract.checks(localVar).isLengthNotLessThan(compareTo);
+            contract.In(localVar).isLengthNotLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -467,7 +467,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3];
 
         expect( () => {
-            contract.checks(localVar).isLengthNotLessThan(compareTo);
+            contract.In(localVar).isLengthNotLessThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -476,7 +476,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2, 3, 4];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthLessOrEqualThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthLessOrEqualThan(compareTo);
 
         expect(result);
     });
@@ -486,7 +486,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3, 4];
         let compareTo: any[] = [1, 2, 3, 4];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthLessOrEqualThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthLessOrEqualThan(compareTo);
 
         expect(result);
     });
@@ -497,7 +497,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3, 4, 5];
 
         expect( () => {
-            contract.checks(localVar).isLengthLessOrEqualThan(compareTo);
+            contract.In(localVar).isLengthLessOrEqualThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -506,7 +506,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [];
 
         expect( () => {
-            contract.checks(localVar).isLengthLessOrEqualThan(compareTo);
+            contract.In(localVar).isLengthLessOrEqualThan(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -514,7 +514,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2];
 
-        let result: IArrayValidator = contract.checks(localVar).isLengthNotLessOrEqualThan(compareTo);
+        let result: IArrayValidator = contract.In(localVar).isLengthNotLessOrEqualThan(compareTo);
 
         expect(result);
     });
@@ -524,7 +524,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3];
 
         expect( () => {
-            contract.checks(localVar).isLengthNotLessOrEqualThan(compareTo);
+            contract.In(localVar).isLengthNotLessOrEqualThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
@@ -534,7 +534,7 @@ describe("ArrayValidator", () => {
         let compareTo: number = 3;
 
         expect( () => {
-            contract.checks(localVar).isLengthNotLessOrEqualThan(compareTo);
+            contract.In(localVar).isLengthNotLessOrEqualThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
@@ -544,7 +544,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3, 4];
 
         expect( () => {
-            contract.checks(localVar).isLengthNotLessOrEqualThan(compareTo);
+            contract.In(localVar).isLengthNotLessOrEqualThan(compareTo);
         }).toThrowError(<any>RangeError);
 
     });
@@ -554,7 +554,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [1, 2, 3];
 
-        let result: IArrayValidator = contract.checks(localVar).contains(compareTo);
+        let result: IArrayValidator = contract.In(localVar).contains(compareTo);
 
         expect(result);
     });
@@ -564,7 +564,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [ ];
 
         expect( () => {
-            contract.checks(localVar).contains(compareTo);
+            contract.In(localVar).contains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -573,7 +573,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1.1, 2, "3"];
         let compareTo: any[] = [4.2, 5, "3"];
 
-        let result: IArrayValidator = contract.checks(localVar).contains(compareTo);
+        let result: IArrayValidator = contract.In(localVar).contains(compareTo);
 
         expect(result);
     });
@@ -584,7 +584,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [197, 195];
 
         expect( () => {
-            contract.checks(localVar).contains(compareTo);
+            contract.In(localVar).contains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -592,7 +592,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [" ", " "];
         let compareTo: any[] = [" ", " "];
 
-        let result: IArrayValidator = contract.checks(localVar).contains(compareTo);
+        let result: IArrayValidator = contract.In(localVar).contains(compareTo);
 
         expect(result);
     });
@@ -601,7 +601,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [1, 2, 3];
         let compareTo: any[] = [4, 5, 6];
 
-        let result: IArrayValidator = contract.checks(localVar).notContains(compareTo);
+        let result: IArrayValidator = contract.In(localVar).notContains(compareTo);
 
         expect(result);
     });
@@ -610,7 +610,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [{c: "3", d: "4"}];
         let compareTo: any[] = [{a: "1", b: "2"}];
 
-        let result: IArrayValidator = contract.checks(localVar).notContains(compareTo);
+        let result: IArrayValidator = contract.In(localVar).notContains(compareTo);
 
         expect(result);
     });
@@ -619,7 +619,7 @@ describe("ArrayValidator", () => {
         let localVar: any[] = [4, 3, 6];
         let compareTo: any[] = [1.0, 2.54, "3"];
 
-        let result: IArrayValidator = contract.checks(localVar).notContains(compareTo);
+        let result: IArrayValidator = contract.In(localVar).notContains(compareTo);
 
         expect(result);
     });
@@ -629,7 +629,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [" ", "A", "B", "C"];
 
         expect( () => {
-            contract.checks(localVar).notContains(compareTo);
+            contract.In(localVar).notContains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -639,7 +639,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [1, 2, 3];
 
         expect( () => {
-            contract.checks(localVar).notContains(compareTo);
+            contract.In(localVar).notContains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
@@ -649,7 +649,7 @@ describe("ArrayValidator", () => {
         let compareTo: any[] = [ ];
 
         expect( () => {
-            contract.checks(localVar).notContains(compareTo);
+            contract.In(localVar).notContains(compareTo);
         }).toThrowError(<any>RangeError);
     });
 
