@@ -23,7 +23,6 @@ var BooleanValidator = (function (_super) {
      * @throws a ReferenceError if the variable is not null
      */
     BooleanValidator.prototype.isNull = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === null && typeof this._variableValue === "object") {
             return this;
         }
@@ -37,7 +36,6 @@ var BooleanValidator = (function (_super) {
      * @throws a ReferenceError if the variable is null
      */
     BooleanValidator.prototype.isNotNull = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue == null) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
@@ -52,7 +50,6 @@ var BooleanValidator = (function (_super) {
      * @returns {IBooleanValidator}
      */
     BooleanValidator.prototype.isDefined = function (message) {
-        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
@@ -67,7 +64,6 @@ var BooleanValidator = (function (_super) {
      * @returns {IBooleanValidator}
      */
     BooleanValidator.prototype.isUndefined = function (message) {
-        if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be undefined"));
         }
@@ -82,7 +78,6 @@ var BooleanValidator = (function (_super) {
      * @returns {IBooleanValidator}
      */
     BooleanValidator.prototype.isNullOrUndefined = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null or undefined"));
         }
@@ -99,7 +94,6 @@ var BooleanValidator = (function (_super) {
      * @returns {IBooleanValidator}
      */
     BooleanValidator.prototype.isEqualTo = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (!this._variableValue === compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should be equal to the boolean variable " + compareTo));
         }
@@ -116,7 +110,6 @@ var BooleanValidator = (function (_super) {
      * @returns {IBooleanValidator}
      */
     BooleanValidator.prototype.isNotEqualTo = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not be equal to the boolean " + compareTo));
         }
@@ -133,7 +126,6 @@ var BooleanValidator = (function (_super) {
      * @returns {IBooleanValidator}
      */
     BooleanValidator.prototype.isTrue = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === false) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should be true"));
         }
@@ -150,7 +142,6 @@ var BooleanValidator = (function (_super) {
      * @returns {IBooleanValidator}
      */
     BooleanValidator.prototype.isFalse = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === true) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should be false"));
         }

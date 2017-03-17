@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var base_validator_1 = require("./base-validator");
 var StringValidator = (function (_super) {
     __extends(StringValidator, _super);
@@ -24,7 +24,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isNotNull = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === null) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
@@ -40,7 +39,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isNull = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue !== null) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
@@ -54,7 +52,6 @@ var StringValidator = (function (_super) {
      * @returns {StringValidator}
      */
     StringValidator.prototype.isWhitespace = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
             return this;
         }
@@ -68,7 +65,6 @@ var StringValidator = (function (_super) {
      * @returns {StringValidator}
      */
     StringValidator.prototype.isNotWhitespace = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be all whitespace"));
         }
@@ -83,7 +79,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isDefined = function (message) {
-        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
@@ -98,7 +93,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isUndefined = function (message) {
-        if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be defined"));
         }
@@ -113,7 +107,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isNullOrUndefined = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null or undefined"));
         }
@@ -130,7 +123,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isEqualTo = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue !== compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should be equal to the string variable " + compareTo));
         }
@@ -147,7 +139,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isNotEqualTo = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not be equal to the string variable " + compareTo));
         }
@@ -164,7 +155,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isLessThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length > compareTo.length) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be less than " + compareTo + " but is " + this._variableValue));
         }
@@ -181,7 +171,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isNotLessThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length < compareTo.length) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be less that " + compareTo + " but is " + this._variableValue + " "));
         }
@@ -198,7 +187,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isLengthGreaterThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should have a length greater\n            than " + compareTo.length + " but is " + this._variableValue.length));
         }
@@ -216,7 +204,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isLengthGreaterOrEqualTo = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             return this;
         }
@@ -233,7 +220,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isLengthNotGreaterThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length <= compareTo.length) {
             return this;
         }
@@ -250,7 +236,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isLengthNotGreaterOrEqualTo = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not have a length greater or equal to " + compareTo.length + "\n              but is " + this._variableValue.length));
         }
@@ -267,7 +252,6 @@ var StringValidator = (function (_super) {
      *
      */
     StringValidator.prototype.isLengthLessThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length >= compareTo.length) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should have a length\n        less than " + compareTo.length + " but is " + this._variableValue.length));
         }
@@ -284,7 +268,6 @@ var StringValidator = (function (_super) {
      *
      */
     StringValidator.prototype.isLengthNotLessThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not have a length\n        less than " + compareTo.length + " but is " + this._variableValue.length));
         }
@@ -301,7 +284,6 @@ var StringValidator = (function (_super) {
      *
      */
     StringValidator.prototype.isLengthLessOrEqualThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length > compareTo.length) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should have a\n            length less or equal to " + compareTo.length + " but is " + this._variableValue.length));
         }
@@ -318,7 +300,6 @@ var StringValidator = (function (_super) {
      *
      */
     StringValidator.prototype.isLengthNotLessOrEqualThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not have a length less\n            or equal to " + compareTo.length + " but is " + this._variableValue.length));
         }
@@ -336,7 +317,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.toMatch = function (regExp, message) {
-        if (message === void 0) { message = null; }
         if (!regExp.test(this._variableValue)) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should match\n            the pattern " + regExp + " but the value of " + this._variableValue + " does not match"));
         }
@@ -354,7 +334,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.toNotMatch = function (regExp, message) {
-        if (message === void 0) { message = null; }
         if (regExp.test(this._variableValue)) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not match\n            the pattern " + regExp + " but the value of " + this._variableValue + " matches"));
         }
@@ -372,7 +351,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.contains = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.length === 0 && compareTo.length === 0) {
             return this;
         }
@@ -393,7 +371,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.notContains = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue.indexOf(compareTo) > -1) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not contain\n           the pattern " + compareTo + " but the pattern is found in " + this._variableValue));
         }
@@ -411,7 +388,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.startsWith = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if ((this._variableValue).lastIndexOf(compareTo, 0) === 0) {
             return this;
         }
@@ -429,7 +405,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.notStartsWith = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if ((this._variableValue).lastIndexOf(compareTo, 0) !== 0) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not start with " + compareTo + " but " + this._variableValue + " does not"));
         }
@@ -447,7 +422,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.endsWith = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) === -1) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should end with " + compareTo + ", but " + this._variableValue + " does not"));
         }
@@ -465,7 +439,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.notEndsWith = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) !== -1) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not end with " + compareTo + ", but " + this._variableValue + " does not"));
         }
@@ -485,7 +458,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isBetween = function (startRange, endRange, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             return this;
         }
@@ -505,7 +477,6 @@ var StringValidator = (function (_super) {
      * @returns {IStringValidator}
      */
     StringValidator.prototype.isNotBetween = function (startRange, endRange, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range"));
         }

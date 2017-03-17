@@ -43,7 +43,7 @@ interface IAnyValidator extends IBaseValidator<any> {
      * @throws a ReferenceError if the any is null
      * @returns {IAnyValidator}
      */
-    isNotNull(message: string): IAnyValidator;
+    isNotNull(message?: string): IAnyValidator;
     /**
      *
      * isNull checks if the any variable is null
@@ -51,28 +51,28 @@ interface IAnyValidator extends IBaseValidator<any> {
      * @throws a ReferenceError if the variable is not null
      * @returns {IAnyValidator}
      */
-    isNull(message: string): IAnyValidator;
+    isNull(message?: string): IAnyValidator;
     /**
      * isDefined checks if the any variable is defined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if the any variable jis not defined
      * @returns {IAnyValidator}
      */
-    isDefined(message: string): IAnyValidator;
+    isDefined(message?: string): IAnyValidator;
     /**
      * isUndefined checks if the any variable is undefined
      * @param message is an optional message if validation fails
      * @throws a ReferenceError if the any variable is undefined
      * @returns {IAnyValidator}
      */
-    isUndefined(message: string): IAnyValidator;
+    isUndefined(message?: string): IAnyValidator;
     /**
      * isNullOrUndefined checks if the any variable is not null or undefined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if the any variable is null or undefined
      * @returns {IAnyValidator}
      */
-    isNullOrUndefined(message: string): IAnyValidator;
+    isNullOrUndefined(message?: string): IAnyValidator;
 }
 interface IArrayValidator extends IBaseValidator<any[]> {
     /**
@@ -82,7 +82,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @throws ReferenceError if the variable is not null
      * @returns { IArrayValidator}
      */
-    isNull(message: string): IArrayValidator;
+    isNull(message?: string): IArrayValidator;
     /**
      *
      * isNotNull checks if the array variable is not null
@@ -90,28 +90,28 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @throws ReferenceError if the variable is null
      * @returns { IArrayValidator}
      */
-    isNotNull(message: string): IArrayValidator;
+    isNotNull(message?: string): IArrayValidator;
     /**
      * isDefined checks if the array variable is defined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if the array variable is undefined
      * @returns { IArrayValidator}
      */
-    isDefined(message: string): IArrayValidator;
+    isDefined(message?: string): IArrayValidator;
     /**
      * isUndefined checks if the array variable is undefined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if the array variable is defined
      * @returns { IArrayValidator}
      */
-    isUndefined(message: string): IArrayValidator;
+    isUndefined(message?: string): IArrayValidator;
     /**
      * isNullOrUndefined checks if the array variable is not null or undefined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if the array variable is null or undefined
      * @returns { IArrayValidator}
      */
-    isNullOrUndefined(message: string): IArrayValidator;
+    isNullOrUndefined(message?: string): IArrayValidator;
     /**
      *
      * isEqualTo checks if the array variable is equal to the index of the parameter passed into the function as an argument
@@ -120,7 +120,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    isEqualTo(compareTo: any[], index: number, message: string): IArrayValidator;
+    isEqualTo(compareTo: any[], index: number, message?: string): IArrayValidator;
     /**
      *
      * isNotEqualTo checks if the array variable is not equal to the index of the parameter passed into the function as an argument
@@ -129,7 +129,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    isNotEqualTo(compareTo: any[], index: number, message: string): IArrayValidator;
+    isNotEqualTo(compareTo: any[], index: number, message?: string): IArrayValidator;
     /**
      *
      * isLengthGreaterThan checks if the array variable length is greater than the parameter passed into the function as an argument
@@ -138,7 +138,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    isLengthGreaterThan(compareTo: any[] | number, message: string): IArrayValidator;
+    isLengthGreaterThan(compareTo: any[] | number, message?: string): IArrayValidator;
     /**
      *
      * isLengthNotGreaterThan checks if the array variable"s length is not greater than the length of the contract precondition
@@ -147,7 +147,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    isLengthNotGreaterThan(compareTo: any[] | number, message: string): IArrayValidator;
+    isLengthNotGreaterThan(compareTo: any[] | number, message?: string): IArrayValidator;
     /**
      *
      * isLengthGreaterOrEqualTo checks if the array variable"s length is greater or equal than the length of the contract precondition
@@ -157,7 +157,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    isLengthGreaterOrEqualTo(compareTo: any[] | number, message: string): IArrayValidator;
+    isLengthGreaterOrEqualTo(compareTo: any[] | number, message?: string): IArrayValidator;
     /**
      *
      * isLengthNotGreaterOrEqualTo checks if the array variable"s length is greater or equal than the length of the contract precondition
@@ -167,7 +167,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    isLengthNotGreaterOrEqualTo(compareTo: any[] | number, message: string):  IArrayValidator;
+    isLengthNotGreaterOrEqualTo(compareTo: any[] | number, message?: string):  IArrayValidator;
     /**
      *
      * isLengthLessThan checks if the array variable"s length is less than the length of the contract precondition
@@ -177,7 +177,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    isLengthLessThan(compareTo: any[] | number, message: string):  IArrayValidator;
+    isLengthLessThan(compareTo: any[] | number, message?: string):  IArrayValidator;
     /**
      *
      * isLengthNotLessThan checks if the array variable"s length is not less than the length of the contract precondition
@@ -187,7 +187,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    isLengthNotLessThan(compareTo: any[] | number, message: string):  IArrayValidator;
+    isLengthNotLessThan(compareTo: any[] | number, message?: string):  IArrayValidator;
     /**
      *
      * isLengthLessOrEqualThan checks if the array variable"s length is less or equal than the length of the contract precondition
@@ -197,7 +197,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    isLengthLessOrEqualThan(compareTo: any[] | number, message: string):  IArrayValidator;
+    isLengthLessOrEqualThan(compareTo: any[] | number, message?: string):  IArrayValidator;
     /**
      *
      * isLengthNotLessOrEqualThan checks if the array variable"s length is not less or equal than the length of the contract precondition
@@ -207,7 +207,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    isLengthNotLessOrEqualThan(compareTo: any[] | number, message: string): IArrayValidator;
+    isLengthNotLessOrEqualThan(compareTo: any[] | number, message?: string): IArrayValidator;
     /**
      *
      * contains checks if the array variable"s values contains one or more values
@@ -218,7 +218,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    contains(compareTo: any[], message: string): IArrayValidator;
+    contains(compareTo: any[], message?: string): IArrayValidator;
     /**
      *
      * notContains checks if the array variable"s values does not contain any values
@@ -229,7 +229,7 @@ interface IArrayValidator extends IBaseValidator<any[]> {
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator}
      */
-    notContains(compareTo: any[], message: string): IArrayValidator;
+    notContains(compareTo: any[], message?: string): IArrayValidator;
 }
 interface IBooleanValidator extends IBaseValidator<boolean> {
     /**
@@ -237,34 +237,34 @@ interface IBooleanValidator extends IBaseValidator<boolean> {
      * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is not null
      */
-    isNull(message: string): IBooleanValidator;
+    isNull(message?: string): IBooleanValidator;
     /**
      * isNotNull checks if the boolean variable is not null
      * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is null
      */
-    isNotNull(message: string): IBooleanValidator;
+    isNotNull(message?: string): IBooleanValidator;
     /**
      * isDefined checks if the boolean variable is defined
      * @param message is an optional message if validation fails
      * @throws a ReferenceError if the boolen variable is undefined
      * @returns {IBooleanValidator}
      */
-    isDefined(message: string): IBooleanValidator;
+    isDefined(message?: string): IBooleanValidator;
     /**
      * isUndefined checks if the boolean variable is undefined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if the boolean variable is defined
      * @returns {IBooleanValidator}
      */
-    isUndefined(message: string): IBooleanValidator;
+    isUndefined(message?: string): IBooleanValidator;
     /**
      * isNullOrUndefined checks if the boolean variable is not null or undefined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if the boolean variable is null or undefined
      * @returns {IBooleanValidator}
      */
-    isNullOrUndefined(message: string): IBooleanValidator;
+    isNullOrUndefined(message?: string): IBooleanValidator;
     /**
      *
      * isEqualTo checks if the boolean variable is equal to the parameter passed into the function as an argument
@@ -273,7 +273,7 @@ interface IBooleanValidator extends IBaseValidator<boolean> {
      * @throws RangeError if the boolean variable is not equal to the parameter passed into the function
      * @returns {IBooleanValidator}
      */
-    isEqualTo(compareTo: boolean, message: string): IBooleanValidator;
+    isEqualTo(compareTo: boolean, message?: string): IBooleanValidator;
     /**
      *
      * isNotEqualTo checks if the boolean variable is not equal to the parameter passed into the function as an argument
@@ -282,7 +282,7 @@ interface IBooleanValidator extends IBaseValidator<boolean> {
      * @throws RangeError if the boolean variable is equal to the parameter passed into the function
      * @returns {IBooleanValidator}
      */
-    isNotEqualTo(compareTo: boolean, message: string): IBooleanValidator;
+    isNotEqualTo(compareTo: boolean, message?: string): IBooleanValidator;
     /**
      *
      * isTrue checks if the boolean variable is true
@@ -290,7 +290,7 @@ interface IBooleanValidator extends IBaseValidator<boolean> {
      * @param message is an optional message if validation fails
      * @returns {IBooleanValidator}
      */
-    isTrue(message: string): IBooleanValidator;
+    isTrue(message?: string): IBooleanValidator;
     /**
      *
      * isFalse checks if the boolean variable is false
@@ -298,7 +298,7 @@ interface IBooleanValidator extends IBaseValidator<boolean> {
      * @param message is an optional message if validation fails
      * @returns {IBooleanValidator}
      */
-    isFalse(message: string): IBooleanValidator;
+    isFalse(message?: string): IBooleanValidator;
 }
 interface INumberValidator extends IBaseValidator<number> {
     /**
@@ -308,7 +308,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws a ReferenceError if the variable is null
      * @returns {INumberValidator}
      */
-    isNotNull(message: string): INumberValidator;
+    isNotNull(message?: string): INumberValidator;
     /**
      *
      * isNull checks if the string variable is null
@@ -316,28 +316,28 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws a ReferenceError if the variable is not null
      * @returns {INumberValidator}
      */
-    isNull(message: string): INumberValidator;
+    isNull(message?: string): INumberValidator;
     /**
      * isDefined checks if the number variable is defined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if the number variable jis not defined
      * @returns {INumberValidator}
      */
-    isDefined(message: string): INumberValidator;
+    isDefined(message?: string): INumberValidator;
     /**
      * isUndefined checks if the number variable is undefined
      * @param message is an optional message if validation fails
      * @throws a ReferenceError if the number variable is undefined
      * @returns {INumberValidator}
      */
-    isUndefined(message: string): INumberValidator;
+    isUndefined(message?: string): INumberValidator;
     /**
      * isNullOrUndefined checks if the number variable is not null or undefined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if the number variable is null or undefined
      * @returns {INumberValidator}
      */
-    isNullOrUndefined(message: string): INumberValidator;
+    isNullOrUndefined(message?: string): INumberValidator;
     /**
      *
      * isEqualTo checks if the number variable is equal to the parameter passed into the function as an argument
@@ -346,7 +346,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @param compareTo
      * @returns {INumberValidator}
      */
-    isEqualTo(compareTo: number, message: string): INumberValidator;
+    isEqualTo(compareTo: number, message?: string): INumberValidator;
     /**
      *
      * isNotEqualTo checks if the number variable is not equal to the parameter passed into the function as an argument
@@ -355,7 +355,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @returns {INumberValidator}
      */
-    isNotEqualTo(compareTo: number, message: string): INumberValidator;
+    isNotEqualTo(compareTo: number, message?: string): INumberValidator;
     /**
      *
      * isGreaterThan checks if the number variable is not greater than the parameter passed into the function as an argument
@@ -364,7 +364,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws RangeError if the number variable is less or equal to the parameter passed into the function
      * @returns {INumberValidator}
      */
-    isGreaterThan(compareTo: number, message: string): INumberValidator;
+    isGreaterThan(compareTo: number, message?: string): INumberValidator;
     /**
      *
      * isNotGreaterThan checks if the number variable is not greater to the parameter passed into the function as an argument
@@ -373,7 +373,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @returns {INumberValidator}
      */
-    isNotGreaterThan(compareTo: number, message: string): INumberValidator;
+    isNotGreaterThan(compareTo: number, message?: string): INumberValidator;
     /**
      *
      * isGreaterOrEqualThan checks if the number variable is greater or equal than the parameter passed into the function as an argument
@@ -382,7 +382,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @returns {INumberValidator}
      */
-    isGreaterOrEqualThan(compareTo: number, message: string): INumberValidator;
+    isGreaterOrEqualThan(compareTo: number, message?: string): INumberValidator;
     /**
      *
      * isNotGreaterOrEqualThan checks if the number variable is not greater or equal than the
@@ -392,7 +392,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws RangeError if the number variable is equal or greater than parameter passed into the function
      * @returns {INumberValidator}
      */
-    isNotGreaterOrEqualThan(compareTo: number, message: string): INumberValidator;
+    isNotGreaterOrEqualThan(compareTo: number, message?: string): INumberValidator;
     /**
      *
      * isLessThan checks if the number variable is less than the parameter passed into the function as an argument
@@ -401,7 +401,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws RangeError if the number variable is greater to the parameter passed into the function
      * @returns {INumberValidator}
      */
-    isLessThan(compareTo: number, message: string): INumberValidator;
+    isLessThan(compareTo: number, message?: string): INumberValidator;
     /**
      *
      * isNotLessThan checks if the number variable is not less than the parameter passed into the function as an argument
@@ -410,7 +410,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws RangeError if the number variable is greater to the parameter passed into the function
      * @returns {INumberValidator}
      */
-    isNotLessThan(compareTo: number, message: string): INumberValidator;
+    isNotLessThan(compareTo: number, message?: string): INumberValidator;
     /**
      *
      * isLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
@@ -419,7 +419,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws RangeError if the number variable is greater or equal than the parameter passed into the function
      * @returns {INumberValidator}
      */
-    isLessOrEqualThan(compareTo: number, message: string): INumberValidator;
+    isLessOrEqualThan(compareTo: number, message?: string): INumberValidator;
     /**
      *
      * isNotLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
@@ -428,7 +428,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @throws RangeError if the number variable is greater or equal than the parameter passed into the function
      * @returns {INumberValidator}
      */
-    isNotLessOrEqualThan(compareTo: number, message: string): INumberValidator;
+    isNotLessOrEqualThan(compareTo: number, message?: string): INumberValidator;
     /**
      * Checks if the variable passed into the TypedContract as a pre or post condition is between certain a range of values. The TypedContract will throw an error if the pre or post condition in the contract is not in the range as specified.
      * @param startRange
@@ -437,7 +437,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @returns {NumberValidator}
      * @constructor
      */
-    isBetween(startRange: number, endRange: number, message: string): INumberValidator;
+    isBetween(startRange: number, endRange: number, message?: string): INumberValidator;
     /**
      * Checks if the variable passed into the TypedContract as a pre or post condition is not in between certain a range of values. The TypedContract will throw an error if the pre or post condition in the contract is in the range as specified.
      * @param startRange
@@ -445,7 +445,7 @@ interface INumberValidator extends IBaseValidator<number> {
      * @param message is an optional message if validation fails
      * @returns {NumberValidator}
      */
-    isNotBetween(startRange: number, endRange: number, message: string): INumberValidator;
+    isNotBetween(startRange: number, endRange: number, message?: string): INumberValidator;
 }
 interface IStringValidator extends IBaseValidator<string> {
     /**
@@ -455,7 +455,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @throws a ReferenceError if the variable is null
      * @returns {IStringValidator}
      */
-    isNotNull(message: string): IStringValidator;
+    isNotNull(message?: string): IStringValidator;
     /**
      *
      * isNull checks if the string variable is null
@@ -463,40 +463,40 @@ interface IStringValidator extends IBaseValidator<string> {
      * @throws a ReferenceError if the variable is not null
      * @returns {IStringValidator}
      */
-    isNull(message: string): IStringValidator;
+    isNull(message?: string): IStringValidator;
     /**
      * Checks if a string is only whitespace
      * @param message is an optional message if validation fails
      * @returns {StringValidator}
      */
-    isWhitespace(message: string): IStringValidator;
+    isWhitespace(message?: string): IStringValidator;
     /**
      * Checks if a string is not just whitespace
      * @param message is an optional message if validation fails
      * @returns {StringValidator}
      */
-    isNotWhitespace(message: string): IStringValidator;
+    isNotWhitespace(message?: string): IStringValidator;
     /**
      * isDefined checks if the string variable is defined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if the string is not defined
      * @returns {IStringValidator}
      */
-    isDefined(message: string): IStringValidator;
+    isDefined(message?: string): IStringValidator;
     /**
      * isNotDefined checks if the string variable is not defined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if variable is defined
      * @returns {IStringValidator}
      */
-    isUndefined(message: string): IStringValidator;
+    isUndefined(message?: string): IStringValidator;
     /**
      * isNullOrUndefined checks if a string variable is not null or undefined
      * @param message is an optional message if validation fails
      * @throws ReferenceError if a string variable is null or not undefined
      * @returns {IStringValidator}
      */
-    isNullOrUndefined(message: string): IStringValidator;
+    isNullOrUndefined(message?: string): IStringValidator;
     /**
      *
      * isEqualTo cecks if the string variable is equal to the parameter passed into the function as an argument
@@ -505,7 +505,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @throws RangeError if the string variable is not equal to the parameter passed into the function
      * @returns {IStringValidator}
      */
-    isEqualTo(compareTo: string, message: string): IStringValidator;
+    isEqualTo(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * isNotEqualTo checks if the string variable is not equal to the parameter passed into the function as an argument
@@ -514,7 +514,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @throws RangeError if the string variable is equal to the parameter passed into the function
      * @returns {IStringValidator}
      */
-    isNotEqualTo(compareTo: string, message: string): IStringValidator;
+    isNotEqualTo(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * isLessThan checks if the string variable is less than to the parameter passed into the function as an argument
@@ -523,7 +523,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @throws RangeError if the string variable is greater to the parameter passed into the function
      * @returns {IStringValidator}
      */
-    isLessThan(compareTo: string, message: string): IStringValidator;
+    isLessThan(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * isNotLessThan checks if the string variable is not less than to the parameter passed into the function as an argument
@@ -532,7 +532,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @throws RangeError if the string variable is not less than to the parameter passed into the function
      * @returns {IStringValidator}
      */
-    isNotLessThan(compareTo: string, message: string): IStringValidator;
+    isNotLessThan(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * isLengthGreaterThan checks if the string variable length is greater than to the parameter passed into the function as an argument
@@ -541,7 +541,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @throws RangeError if the string variable is not greater than to the parameter passed into the function
      * @returns {IStringValidator}
      */
-    isLengthGreaterThan(compareTo: string, message: string): IStringValidator;
+    isLengthGreaterThan(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * isLengthGreaterOrEqualTo checks if the string variable length is greater or equal than
@@ -551,7 +551,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @throws RangeError if the string variable is not greater or equal than to the parameter passed into the function
      * @returns {IStringValidator}
      */
-    isLengthGreaterOrEqualTo(compareTo: string, message: string): IStringValidator;
+    isLengthGreaterOrEqualTo(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * isLengthNotGreaterThan checks if the string variable length is not greater than to the parameter passed into the function as an argument
@@ -560,7 +560,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @throws RangeError if the string variable is less or equal than to the parameter passed into the function
      * @returns {IStringValidator}
      */
-    isLengthNotGreaterThan(compareTo: string, message: string): IStringValidator;
+    isLengthNotGreaterThan(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * isLengthNotGreaterOrEqualTo checks if the string variable length is not greater or equal than to the parameter passed into the function as an argument
@@ -569,7 +569,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @throws RangeError if the string variable is greater or equal than to the parameter passed into the function
      * @returns {IStringValidator}
      */
-    isLengthNotGreaterOrEqualTo(compareTo: string, message: string): IStringValidator;
+    isLengthNotGreaterOrEqualTo(compareTo: string, message?: string): IStringValidator;
     /**
      * isLengthLessThan checks if length of the string is less than the comparable passed into the TypedContract
      * @param compareTo
@@ -578,7 +578,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @returns {IStringValidator}
      *
      */
-    isLengthLessThan(compareTo: string, message: string): IStringValidator;
+    isLengthLessThan(compareTo: string, message?: string): IStringValidator;
     /**
      * isLengthNotLessThan checks if length of the string is less than the comparable passed into the TypedContract
      * @param compareTo
@@ -587,7 +587,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @returns {IStringValidator}
      *
      */
-    isLengthNotLessThan(compareTo: string, message: string): IStringValidator;
+    isLengthNotLessThan(compareTo: string, message?: string): IStringValidator;
     /**
      * isLengthLessOrEqualThan checks if length of the string is less or equal than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater than the comparable passed into the function
@@ -596,7 +596,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @returns {IStringValidator}
      *
      */
-    isLengthLessOrEqualThan(compareTo: string, message: string): IStringValidator;
+    isLengthLessOrEqualThan(compareTo: string, message?: string): IStringValidator;
     /**
      * isLengthNotLessOrEqualThan checks if length of the string is not less or equal than the comparable passed into the TypedContract
      * @throws RangeError if the string length is less or equal than the comparable passed into the function
@@ -605,7 +605,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @returns {IStringValidator}
      *
      */
-    isLengthNotLessOrEqualThan(compareTo: string, message: string): IStringValidator;
+    isLengthNotLessOrEqualThan(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * toMatch checks if the regular expression passed into the function matches the string
@@ -615,7 +615,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    toMatch(regExp: RegExp, message: string): IStringValidator;
+    toMatch(regExp: RegExp, message?: string): IStringValidator;
     /**
      *
      * toNotMatch checks if the regular expression passed into the function does not match the string
@@ -625,7 +625,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    toNotMatch(regExp: RegExp, message: string): IStringValidator;
+    toNotMatch(regExp: RegExp, message?: string): IStringValidator;
     /**
      *
      * contains checks if the string passed into the function contains a match of the string
@@ -635,7 +635,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    contains(compareTo: string, message: string): IStringValidator;
+    contains(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * notContains checks if the string passed into the function contains a match of the string
@@ -645,7 +645,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    notContains(compareTo: string, message: string): IStringValidator;
+    notContains(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * startsWith checks if the precondition in the TypedContract has the same starting string
@@ -655,7 +655,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    startsWith(compareTo: string, message: string): IStringValidator;
+    startsWith(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * notStartsWith checks if the precondition in the TypedContract does not have the same starting string
@@ -665,7 +665,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    notStartsWith(compareTo: string, message: string): IStringValidator;
+    notStartsWith(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * endsWith checks if the precondition in the TypedContract has the same ending string
@@ -675,7 +675,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    endsWith(compareTo: string, message: string): IStringValidator;
+    endsWith(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * notEndsWith checks if the precondition in the TypedContract does not have the same ending string
@@ -685,7 +685,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    notEndsWith(compareTo: string, message: string): IStringValidator;
+    notEndsWith(compareTo: string, message?: string): IStringValidator;
     /**
      *
      * isBetween checks if the precondition in the TypedContract is in between the starting and ending string range
@@ -696,7 +696,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    isBetween(startRange: string, endRange: string, message: string): IStringValidator;
+    isBetween(startRange: string, endRange: string, message?: string): IStringValidator;
     /**
      *
      * isNotBetween checks if the precondition in the TypedContract is not in between the starting and ending string range
@@ -707,7 +707,7 @@ interface IStringValidator extends IBaseValidator<string> {
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    isNotBetween(startRange: string, endRange: string, message: string): IStringValidator;
+    isNotBetween(startRange: string, endRange: string, message?: string): IStringValidator;
 }
 /// <reference path="icontract.d.ts" />
 /// <reference path="type-validators/type-validators.d.ts" />

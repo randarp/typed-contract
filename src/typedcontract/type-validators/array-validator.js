@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var base_validator_1 = require("./base-validator");
 var ArrayValidator = (function (_super) {
     __extends(ArrayValidator, _super);
@@ -24,7 +24,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isNull = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue !== null) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
@@ -39,7 +38,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isNotNull = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === null) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
@@ -54,7 +52,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isDefined = function (message) {
-        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
@@ -69,7 +66,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isUndefined = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue !== undefined) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be undefined"));
         }
@@ -84,7 +80,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isNullOrUndefined = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null or undefined"));
         }
@@ -101,7 +96,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isEqualTo = function (compareTo, index, message) {
-        if (message === void 0) { message = null; }
         if (!compareTo.length || this._variableValue.length === 0) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
@@ -122,7 +116,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isNotEqualTo = function (compareTo, index, message) {
-        if (message === void 0) { message = null; }
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
                 " please append values to the array's in the instance of this TypedContract");
@@ -143,7 +136,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthGreaterThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length < compareValue) {
@@ -162,7 +154,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthNotGreaterThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length <= compareValue) {
@@ -182,7 +173,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthGreaterOrEqualTo = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length > compareValue || this._variableValue.length === compareValue) {
@@ -202,7 +192,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthNotGreaterOrEqualTo = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length > compareValue || this._variableValue.length === compareValue) {
@@ -222,7 +211,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthLessThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length >= compareValue) {
@@ -242,7 +230,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthNotLessThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length <= compareValue) {
@@ -262,7 +249,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthLessOrEqualThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length > compareValue) {
@@ -282,7 +268,6 @@ var ArrayValidator = (function (_super) {
      * @returns { IArrayValidator }
      */
     ArrayValidator.prototype.isLengthNotLessOrEqualThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length <= compareValue) {
@@ -304,7 +289,6 @@ var ArrayValidator = (function (_super) {
      */
     ArrayValidator.prototype.contains = function (compareTo, message) {
         var _this = this;
-        if (message === void 0) { message = null; }
         var count = 0;
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("The length of either your contract precondition\n            or comparable have a length of zero, please enter in values");
@@ -334,7 +318,6 @@ var ArrayValidator = (function (_super) {
      */
     ArrayValidator.prototype.notContains = function (compareTo, message) {
         var _this = this;
-        if (message === void 0) { message = null; }
         var count = 0;
         if (compareTo.length === 0 || this._variableValue.length === 0) {
             throw new RangeError("The length of either your contract precondition\n            or comparable have a length of zero, please enter in values");
@@ -353,7 +336,6 @@ var ArrayValidator = (function (_super) {
         return this;
     };
     ArrayValidator.prototype.prepareArrayForLengthComparison = function (compareTo, compareValue, message) {
-        if (message === void 0) { message = null; }
         if (!this._variableValue.length) {
             throw new RangeError("Can't compare the values length of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");

@@ -14,7 +14,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @throws a ReferenceError if the variable is null
      * @returns {INumberValidator}
      */
-    public isNotNull(message: string = null): INumberValidator {
+    public isNotNull(message?: string): INumberValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be null`));
         } else {
@@ -29,7 +29,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @throws a ReferenceError if the variable is not null
      * @returns {INumberValidator}
      */
-    public isNull(message: string = null): INumberValidator {
+    public isNull(message?: string): INumberValidator {
         if (this._variableValue !== null) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be null`));
         } else {
@@ -43,7 +43,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @throws ReferenceError if the number variable jis not defined
      * @returns {INumberValidator}
      */
-    public isDefined(message: string = null): INumberValidator {
+    public isDefined(message?: string): INumberValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be defined`));
         } else {
@@ -57,7 +57,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @throws a ReferenceError if the number variable is undefined
      * @returns {INumberValidator}
      */
-    public isUndefined(message: string = null): INumberValidator {
+    public isUndefined(message?: string): INumberValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be defined`));
         } else {
@@ -71,7 +71,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @throws ReferenceError if the number variable is null or undefined
      * @returns {INumberValidator}
      */
-    public isNullOrUndefined(message: string = null): INumberValidator {
+    public isNullOrUndefined(message?: string): INumberValidator {
         if (this._variableValue === null || typeof this._variableValue === undefined) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be null or undefined`));
         } else {
@@ -86,7 +86,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @throws RangeError if the number variable is not equal to the parameter passed into the function
      * @returns {INumberValidator}
      */
-    public isEqualTo(compareTo:number, message: string = null): INumberValidator {
+    public isEqualTo(compareTo:number, message?: string): INumberValidator {
         if (this._variableValue !== compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should be equal to the number variable ${compareTo}`));
         } else {
@@ -103,7 +103,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @returns {INumberValidator}
      */
-    public isNotEqualTo(compareTo:number, message: string = null): INumberValidator {
+    public isNotEqualTo(compareTo:number, message?: string): INumberValidator {
         if (this._variableValue === compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not be equal to the number variable ${compareTo}`));
         } else {
@@ -119,7 +119,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    public isGreaterThan(compareTo:number, message: string = null): INumberValidator {
+    public isGreaterThan(compareTo:number, message?: string): INumberValidator {
         if (this._variableValue < compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should be greater than ${compareTo} but is ${this._variableValue}`));
         } else {
@@ -135,7 +135,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    public isNotGreaterThan(compareTo:number, message: string = null): INumberValidator {
+    public isNotGreaterThan(compareTo:number, message?: string): INumberValidator {
         if (this._variableValue > compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not be greater than ${compareTo} but is ${this._variableValue}`));
         } else {
@@ -151,7 +151,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    public isGreaterOrEqualThan(compareTo:number, message: string = null): INumberValidator {
+    public isGreaterOrEqualThan(compareTo:number, message?: string): INumberValidator {
 
         if (this._variableValue < compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should be greater than ${compareTo} but is ${this._variableValue}`));
@@ -169,7 +169,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    public isNotGreaterOrEqualThan(compareTo:number, message: string = null): INumberValidator {
+    public isNotGreaterOrEqualThan(compareTo:number, message?: string): INumberValidator {
         if (this._variableValue > compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not be greater or equal to ${compareTo} but is ${this._variableValue}`));
         } else {
@@ -185,7 +185,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    public isLessThan(compareTo:number, message: string = null): INumberValidator {
+    public isLessThan(compareTo:number, message?: string): INumberValidator {
         if (this._variableValue >= compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should be less than ${compareTo} but is ${this._variableValue}`));
         } else {
@@ -201,7 +201,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    public isNotLessThan(compareTo:number, message: string = null): INumberValidator {
+    public isNotLessThan(compareTo:number, message?: string): INumberValidator {
         if (this._variableValue <= compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not be less than ${compareTo} but is ${this._variableValue}`));
         } else {
@@ -217,7 +217,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    public isLessOrEqualThan(compareTo:number, message: string = null): INumberValidator {
+    public isLessOrEqualThan(compareTo:number, message?: string): INumberValidator {
         if (this._variableValue > compareTo) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be less or equal than ${compareTo} but is ${this._variableName}`));
         } else {
@@ -233,7 +233,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    public isNotLessOrEqualThan(compareTo:number, message: string = null): INumberValidator {
+    public isNotLessOrEqualThan(compareTo:number, message?: string): INumberValidator {
         if (this._variableValue <= compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not be less or equal
                  than ${compareTo} but is ${this._variableValue}`));
@@ -249,7 +249,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @param message is an optional message if validation fails
      * @returns {NumberValidator}
      */
-    public isBetween(startRange:number, endRange:number, message: string = null): INumberValidator {
+    public isBetween(startRange:number, endRange:number, message?: string): INumberValidator {
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             return this;
         } else {
@@ -267,7 +267,7 @@ export class NumberValidator extends BaseValidator<number> implements INumberVal
      * @param message is an optional message if validation fails
      * @returns {NumberValidator}
      */
-    public isNotBetween(startRange:number, endRange:number, message: string = null): INumberValidator {
+    public isNotBetween(startRange:number, endRange:number, message?: string): INumberValidator {
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not be between
             ${startRange} and ${endRange}, but the value of ${this._variableValue} is in that range`));

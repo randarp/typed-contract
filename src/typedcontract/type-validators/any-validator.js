@@ -25,7 +25,6 @@ var AnyValidator = (function (_super) {
      * @returns { IAnyValidator }
      */
     AnyValidator.prototype.isNotNull = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === null) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
@@ -41,7 +40,6 @@ var AnyValidator = (function (_super) {
      * @returns { IAnyValidator }
      */
     AnyValidator.prototype.isNull = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue !== null) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
@@ -56,7 +54,6 @@ var AnyValidator = (function (_super) {
      * @returns { IAnyValidator }
      */
     AnyValidator.prototype.isDefined = function (message) {
-        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
@@ -71,7 +68,6 @@ var AnyValidator = (function (_super) {
      * @returns { IAnyValidator }
      */
     AnyValidator.prototype.isUndefined = function (message) {
-        if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be defined"));
         }
@@ -86,7 +82,6 @@ var AnyValidator = (function (_super) {
      * @returns { IAnyValidator }
      */
     AnyValidator.prototype.isNullOrUndefined = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === null || typeof this._variableValue === undefined) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null or undefined"));
         }

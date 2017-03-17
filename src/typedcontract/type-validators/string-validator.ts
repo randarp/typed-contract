@@ -14,7 +14,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @throws a ReferenceError if the variable is null
      * @returns {IStringValidator}
      */
-    public isNotNull(message: string = null): IStringValidator {
+    public isNotNull(message?: string): IStringValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be null`));
         } else {
@@ -29,7 +29,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @throws a ReferenceError if the variable is not null
      * @returns {IStringValidator}
      */
-    public isNull(message: string = null): IStringValidator {
+    public isNull(message?: string): IStringValidator {
 
         if (this._variableValue !== null) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be null`));
@@ -43,7 +43,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {StringValidator}
      */
-    public isWhitespace(message: string = null): IStringValidator {
+    public isWhitespace(message?: string): IStringValidator {
         if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
             return this;
         } else {
@@ -56,7 +56,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {StringValidator}
      */
-    public isNotWhitespace(message: string = null): IStringValidator {
+    public isNotWhitespace(message?: string): IStringValidator {
         if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be all whitespace`));
         } else {
@@ -70,7 +70,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @throws ReferenceError if the string is not defined
      * @returns {IStringValidator}
      */
-    public isDefined(message: string = null): IStringValidator {
+    public isDefined(message?: string): IStringValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be defined`));
         } else {
@@ -84,7 +84,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @throws ReferenceError if variable is defined
      * @returns {IStringValidator}
      */
-    public isUndefined(message: string = null): IStringValidator {
+    public isUndefined(message?: string): IStringValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be defined`));
         } else {
@@ -99,7 +99,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @throws ReferenceError if a string variable is null or not undefined
      * @returns {IStringValidator}
      */
-    public isNullOrUndefined(message: string = null): IStringValidator {
+    public isNullOrUndefined(message?: string): IStringValidator {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be null or undefined`));
         } else {
@@ -115,7 +115,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public isEqualTo(compareTo: string, message: string = null): IStringValidator {
+    public isEqualTo(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue !== compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should be equal to the string variable ${compareTo}`));
         } else {
@@ -131,7 +131,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public isNotEqualTo(compareTo: string, message: string = null): IStringValidator {
+    public isNotEqualTo(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue === compareTo) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not be equal to the string variable ${compareTo}`));
         } else {
@@ -147,7 +147,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public isLessThan(compareTo: string, message: string = null): IStringValidator {
+    public isLessThan(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue.length > compareTo.length) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be less than ${compareTo} but is ${this._variableValue}`));
         } else {
@@ -163,7 +163,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public isNotLessThan(compareTo: string, message: string = null): IStringValidator {
+    public isNotLessThan(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue.length < compareTo.length) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be less that ${compareTo} but is ${this._variableValue} `));
         } else {
@@ -179,7 +179,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public isLengthGreaterThan(compareTo: string, message: string = null): IStringValidator {
+    public isLengthGreaterThan(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should have a length greater
             than ${compareTo.length} but is ${this._variableValue.length}`));
@@ -197,7 +197,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public isLengthGreaterOrEqualTo(compareTo: string, message: string = null): IStringValidator {
+    public isLengthGreaterOrEqualTo(compareTo: string, message?: string): IStringValidator {
 
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             return this;
@@ -215,7 +215,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public isLengthNotGreaterThan(compareTo: string, message: string = null): IStringValidator {
+    public isLengthNotGreaterThan(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             return this;
         } else {
@@ -232,7 +232,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public isLengthNotGreaterOrEqualTo(compareTo: string, message: string = null): IStringValidator {
+    public isLengthNotGreaterOrEqualTo(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not have a length greater or equal to ${compareTo.length}
               but is ${this._variableValue.length}`));
@@ -249,7 +249,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @returns {IStringValidator}
      *
      */
-    public isLengthLessThan(compareTo: string, message: string = null): IStringValidator {
+    public isLengthLessThan(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue.length >= compareTo.length) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should have a length
         less than ${compareTo.length} but is ${this._variableValue.length}`));
@@ -266,7 +266,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @returns {IStringValidator}
      *
      */
-    public isLengthNotLessThan(compareTo: string, message: string = null): IStringValidator {
+    public isLengthNotLessThan(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not have a length
         less than ${compareTo.length} but is ${this._variableValue.length}`));
@@ -283,7 +283,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @returns {IStringValidator}
      *
      */
-    public isLengthLessOrEqualThan(compareTo: string, message: string = null): IStringValidator {
+    public isLengthLessOrEqualThan(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue.length > compareTo.length) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should have a
             length less or equal to ${compareTo.length} but is ${this._variableValue.length}`));
@@ -300,7 +300,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @returns {IStringValidator}
      *
      */
-    public isLengthNotLessOrEqualThan(compareTo: string, message: string = null): IStringValidator {
+    public isLengthNotLessOrEqualThan(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue.length <= compareTo.length) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not have a length less
             or equal to ${compareTo.length} but is ${this._variableValue.length}`));
@@ -318,7 +318,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public toMatch(regExp: any, message: string = null): IStringValidator {
+    public toMatch(regExp: any, message?: string): IStringValidator {
         if (!regExp.test(this._variableValue)) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should match
             the pattern ${regExp} but the value of ${this._variableValue} does not match`));
@@ -336,7 +336,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public toNotMatch(regExp: RegExp, message: string = null): IStringValidator {
+    public toNotMatch(regExp: RegExp, message?: string): IStringValidator {
         if (regExp.test(this._variableValue)) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not match
             the pattern ${regExp} but the value of ${this._variableValue} matches`));
@@ -354,7 +354,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public contains(compareTo: string, message: string = null): IStringValidator {
+    public contains(compareTo: string, message?: string): IStringValidator {
         if (this._variableValue.length === 0 && compareTo.length === 0) {
             return this;
         }
@@ -375,7 +375,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public notContains(compareTo: string, message: string = null): IStringValidator {
+    public notContains(compareTo: string, message?: string): IStringValidator {
 
         if (this._variableValue.indexOf(compareTo) > -1) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not contain
@@ -394,7 +394,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public startsWith(compareTo: string, message: string = null): IStringValidator {
+    public startsWith(compareTo: string, message?: string): IStringValidator {
 
         if ((this._variableValue).lastIndexOf(compareTo, 0) === 0) {
             return this;
@@ -412,7 +412,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public notStartsWith(compareTo: string, message: string = null): IStringValidator {
+    public notStartsWith(compareTo: string, message?: string): IStringValidator {
 
         if ((this._variableValue).lastIndexOf(compareTo, 0) !== 0) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not start with ${compareTo} but ${this._variableValue} does not`));
@@ -430,7 +430,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public endsWith(compareTo: string, message: string = null): IStringValidator {
+    public endsWith(compareTo: string, message?: string): IStringValidator {
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) === -1) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should end with ${compareTo}, but ${this._variableValue} does not`));
         } else {
@@ -447,7 +447,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public notEndsWith(compareTo: string, message: string = null): IStringValidator {
+    public notEndsWith(compareTo: string, message?: string): IStringValidator {
 
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) !== -1) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not end with ${compareTo}, but ${this._variableValue} does not`));
@@ -467,7 +467,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public isBetween(startRange: string, endRange: string, message: string = null): IStringValidator {
+    public isBetween(startRange: string, endRange: string, message?: string): IStringValidator {
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             return this;
         } else {
@@ -488,7 +488,7 @@ export class StringValidator extends BaseValidator<string> implements IStringVal
      * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    public isNotBetween(startRange: string, endRange: string, message: string = null): IStringValidator {
+    public isNotBetween(startRange: string, endRange: string, message?: string): IStringValidator {
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             throw new RangeError(this.validationMessage(message, `${this._variableName} should not be between
             ${startRange} and ${endRange}, but the value of ${this._variableValue} is in that range`));

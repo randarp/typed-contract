@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var base_validator_1 = require("./base-validator");
 var NumberValidator = (function (_super) {
     __extends(NumberValidator, _super);
@@ -24,7 +24,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isNotNull = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === null) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
@@ -40,7 +39,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isNull = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue !== null) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
@@ -55,7 +53,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isDefined = function (message) {
-        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
@@ -70,7 +67,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isUndefined = function (message) {
-        if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be defined"));
         }
@@ -85,7 +81,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isNullOrUndefined = function (message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === null || typeof this._variableValue === undefined) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null or undefined"));
         }
@@ -101,7 +96,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isEqualTo = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue !== compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should be equal to the number variable " + compareTo));
         }
@@ -118,7 +112,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isNotEqualTo = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue === compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not be equal to the number variable " + compareTo));
         }
@@ -135,7 +128,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isGreaterThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue < compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should be greater than " + compareTo + " but is " + this._variableValue));
         }
@@ -152,7 +144,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isNotGreaterThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue > compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not be greater than " + compareTo + " but is " + this._variableValue));
         }
@@ -169,7 +160,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isGreaterOrEqualThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue < compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should be greater than " + compareTo + " but is " + this._variableValue));
         }
@@ -187,7 +177,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isNotGreaterOrEqualThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue > compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not be greater or equal to " + compareTo + " but is " + this._variableValue));
         }
@@ -204,7 +193,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isLessThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue >= compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should be less than " + compareTo + " but is " + this._variableValue));
         }
@@ -221,7 +209,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isNotLessThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue <= compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not be less than " + compareTo + " but is " + this._variableValue));
         }
@@ -238,7 +225,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isLessOrEqualThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue > compareTo) {
             throw new ReferenceError(this.validationMessage(message, this._variableName + " should be less or equal than " + compareTo + " but is " + this._variableName));
         }
@@ -255,7 +241,6 @@ var NumberValidator = (function (_super) {
      * @returns {INumberValidator}
      */
     NumberValidator.prototype.isNotLessOrEqualThan = function (compareTo, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue <= compareTo) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not be less or equal\n                 than " + compareTo + " but is " + this._variableValue));
         }
@@ -271,7 +256,6 @@ var NumberValidator = (function (_super) {
      * @returns {NumberValidator}
      */
     NumberValidator.prototype.isBetween = function (startRange, endRange, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             return this;
         }
@@ -287,7 +271,6 @@ var NumberValidator = (function (_super) {
      * @returns {NumberValidator}
      */
     NumberValidator.prototype.isNotBetween = function (startRange, endRange, message) {
-        if (message === void 0) { message = null; }
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             throw new RangeError(this.validationMessage(message, this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range"));
         }

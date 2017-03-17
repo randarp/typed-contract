@@ -13,7 +13,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @throws ReferenceError if the variable is not null
      * @returns { IArrayValidator }
      */
-    public isNull(message: string = null): IArrayValidator {
+    public isNull(message?: string): IArrayValidator {
 
         if (this._variableValue !== null) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be null`));
@@ -28,7 +28,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @throws ReferenceError if the variable is null
      * @returns { IArrayValidator }
      */
-    public isNotNull(message: string = null): IArrayValidator {
+    public isNotNull(message?: string): IArrayValidator {
         if (this._variableValue === null) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be null`));
         } else {
@@ -42,7 +42,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @throws ReferenceError if the array variable is undefined
      * @returns { IArrayValidator }
      */
-    public isDefined(message: string = null): IArrayValidator {
+    public isDefined(message?: string): IArrayValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be defined`));
         } else {
@@ -56,7 +56,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @throws ReferenceError if the array variable is defined
      * @returns { IArrayValidator }
      */
-    public isUndefined(message: string = null): IArrayValidator {
+    public isUndefined(message?: string): IArrayValidator {
         if (this._variableValue !== undefined) {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be undefined`));
         } else {
@@ -70,7 +70,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @throws ReferenceError if the array variable is null or undefined
      * @returns { IArrayValidator }
      */
-    public isNullOrUndefined(message: string = null): IArrayValidator {
+    public isNullOrUndefined(message?: string): IArrayValidator {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be null or undefined`));
         } else {
@@ -86,7 +86,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param compareTo, index
      * @returns { IArrayValidator }
      */
-    public isEqualTo(compareTo: any[], index: number, message: string = null): IArrayValidator {
+    public isEqualTo(compareTo: any[], index: number, message?: string): IArrayValidator {
         if (!compareTo.length || this._variableValue.length === 0) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
@@ -106,7 +106,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public isNotEqualTo(compareTo: any[], index: number, message: string = null): IArrayValidator {
+    public isNotEqualTo(compareTo: any[], index: number, message?: string): IArrayValidator {
         if (!compareTo.length  || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
                 " please append values to the array's in the instance of this TypedContract");
@@ -126,7 +126,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public isLengthGreaterThan(compareTo: any[] | number, message: string = null): IArrayValidator {
+    public isLengthGreaterThan(compareTo: any[] | number, message?: string): IArrayValidator {
         let compareValue:number = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
 
@@ -146,7 +146,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public isLengthNotGreaterThan(compareTo: any[] | number, message: string = null): IArrayValidator {
+    public isLengthNotGreaterThan(compareTo: any[] | number, message?: string): IArrayValidator {
         let compareValue:number = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
 
@@ -167,7 +167,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public isLengthGreaterOrEqualTo(compareTo: any[] | number, message: string = null): IArrayValidator {
+    public isLengthGreaterOrEqualTo(compareTo: any[] | number, message?: string): IArrayValidator {
         let compareValue:number = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
 
@@ -188,7 +188,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public isLengthNotGreaterOrEqualTo(compareTo: any[] | number, message: string = null):  ArrayValidator {
+    public isLengthNotGreaterOrEqualTo(compareTo: any[] | number, message?: string):  ArrayValidator {
         let compareValue:number = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
 
@@ -209,7 +209,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public isLengthLessThan(compareTo: any[] | number, message: string = null):  ArrayValidator {
+    public isLengthLessThan(compareTo: any[] | number, message?: string):  ArrayValidator {
         let compareValue:number = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
 
@@ -229,7 +229,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public isLengthNotLessThan(compareTo: any[] | number, message: string = null):  ArrayValidator {
+    public isLengthNotLessThan(compareTo: any[] | number, message?: string):  ArrayValidator {
         let compareValue:number = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
 
@@ -250,7 +250,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public isLengthLessOrEqualThan(compareTo: any[] | number, message: string = null):  ArrayValidator {
+    public isLengthLessOrEqualThan(compareTo: any[] | number, message?: string):  ArrayValidator {
         let compareValue:number = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
 
@@ -271,7 +271,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public isLengthNotLessOrEqualThan(compareTo: any[] | number, message: string = null): IArrayValidator {
+    public isLengthNotLessOrEqualThan(compareTo: any[] | number, message?: string): IArrayValidator {
         let compareValue:number = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
 
@@ -293,7 +293,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public contains(compareTo: any[], message: string = null): IArrayValidator {
+    public contains(compareTo: any[], message?: string): IArrayValidator {
         let count = 0;
 
         if (!compareTo.length || !this._variableValue.length) {
@@ -324,7 +324,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
      * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    public notContains(compareTo: any[], message: string = null):  ArrayValidator {
+    public notContains(compareTo: any[], message?: string):  ArrayValidator {
         let count = 0;
 
         if (compareTo.length === 0 || this._variableValue.length === 0) {
@@ -345,7 +345,7 @@ export class ArrayValidator extends BaseValidator <any[]> implements IArrayValid
         return this;
     }
 
-    private prepareArrayForLengthComparison(compareTo: any[] | number, compareValue: number, message: string = null) {
+    private prepareArrayForLengthComparison(compareTo: any[] | number, compareValue: number, message?: string) {
         if (!this._variableValue.length) {
             throw new RangeError("Can't compare the values length of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
