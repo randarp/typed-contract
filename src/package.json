@@ -1,0 +1,66 @@
+{
+  "name": "typedcontract",
+  "version": "2.0.0",
+  "description": "A wonderfully simple, yet powerful TypeScript and JavaScript code contract library",
+  "main": "./typedcontract.js",
+  "typings": "./typedcontract.d.ts",
+  "devDependencies": {
+    "dts-generator": "^2.1.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^2.2.0",
+    "grunt-npm-release": "0.0.2",
+    "grunt-release": "^0.14.0",
+    "grunt-text-replace": "^0.4.0",
+    "grunt-webpack": "^2.0.1",
+    "jasmine": "^2.4.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "source-map-loader": "^0.2.0",
+    "ts-loader": "^2.0.1",
+    "tslint": "^4.5.1",
+    "tslint-loader": "^3.4.3",
+    "typescript": "^2.2.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1",
+    "yargs": "^7.0.2"
+  },
+  "keywords": [
+    "typed-contract",
+    "typedcontract",
+    "code-contract",
+    "npm code contract",
+    "TypeScript code contract",
+    "JavaScript code contract",
+    "code contract library"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/randarp/typed-contract.git"
+  },
+  "author": {
+    "name": "Randar Puust",
+    "url": "randar.puust.com"
+  },
+  "contributors": [
+    {
+      "name": "Andre Fischbacher",
+      "url": "andrefischbacher.com"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "Randar Puust",
+      "url": "http://randar.puust.com/"
+    },
+    {
+      "name": "Andre Fischbacher",
+      "url": "andrefischbacher.com"
+    }
+  ],
+  "license": "MIT"
+}

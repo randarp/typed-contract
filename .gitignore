@@ -1,26 +1,26 @@
 # Solution files #
 ##################
-Code/.idea/workspace.xml
-Code/.idea/tasks.xml
+src/.idea/workspace.xml
+src/.idea/tasks.xml
+src/.idea/libraries/Generated_files.xml
 
 # Node packages #
 #################
-Code/node_modules/
+src/node_modules/
 
 # Generated source files #
 ##########################
-Code/TypedContract/**/*.js
-Code/TypedContract/**/*.map
-Code/TypedContract.specs/**/*.js
-Code/TypedContract.specs/**/*.map
+src/TypedContract/**/*.js
+src/TypedContract/**/*.map
+src/TypedContract.specs/**/*.js
+src/TypedContract.specs/**/*.map
 
 # Generated diff fiels #
 ##########################
-Code/**/*.orig
-Code/**/*.BACKUP.*
-Code/**/*.BASE.*
-Code/**/*.LOCAL.*
-Code/**/*.REMOTE.*
-Documents/~$Validators.xlsx
-Documents/~$M Process TC.docx
+src/**/*.orig
+src/**/*.BACKUP.*
+src/**/*.BASE.*
+src/**/*.LOCAL.*
+src/**/*.REMOTE.*
+documents/~$*.xlsx
 sh.exe.stackdump

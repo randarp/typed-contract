@@ -1,0 +1,20 @@
+Required software for developing TypedContract:
+-WebStorm 2016 or greater
+-SourceTree 1.8.3 or greater
+
+Required software for executing specs:
+-Node.js.  v4.2.6 or greater.
+-Karma.  
+
+Steps required for executing specs under WebStorm:
+Make sure the Karma plugin is enabled. The plugin is bundled with WebStorm and activated by default. If the plugin is not activated, enable it on the Plugins page of the Settings / Preferences Dialog as described in Enabling and Disabling Plugins. 
+
+Type the following in the terminal screen so that Karma is installed globally: npm install -g karma
+
+On the Node.js and NPM page that opens, click Install in the Packages area.
+In the Available Packages dialog box that opens, select karma-jasmine and click Install Package. 
+
+Configuring a Custom JavaScript Library
+1) Open the Settings / Preferences Dialog by choosing File | Settings for Windows and Unix or WebStorm | Preferences for OS X. Expand the Languages and Frameworks node, and then click Libraries under JavaScript.
+2) Download
+3) Pick Jasmine
