@@ -2,7 +2,7 @@
 
 import {BaseValidator} from "./base-validator";
 
-export class NumberValidator extends BaseValidator<number> {
+export class NumberValidator extends BaseValidator<number> implements INumberValidator {
 
     constructor(variableValue:number, variableName:string) {
         super(variableValue, variableName);

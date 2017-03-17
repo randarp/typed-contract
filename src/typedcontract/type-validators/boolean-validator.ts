@@ -2,7 +2,7 @@
 
 import { BaseValidator } from "./base-validator";
 
-export class BooleanValidator extends BaseValidator<boolean> {
+export class BooleanValidator extends BaseValidator<boolean> implements IBooleanValidator {
 
     constructor(variableValue: boolean, variableName: string) {
         super(variableValue, variableName);

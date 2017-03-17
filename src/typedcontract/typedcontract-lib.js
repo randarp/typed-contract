@@ -800,7 +800,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var base_validator_1 = __webpack_require__(0);
 var NumberValidator = (function (_super) {
     __extends(NumberValidator, _super);
@@ -1105,6 +1105,30 @@ var StringValidator = (function (_super) {
     StringValidator.prototype.isNull = function () {
         if (this._variableValue !== null) {
             throw new ReferenceError(this._variableName + " should be null");
+        }
+        else {
+            return this;
+        }
+    };
+    /**
+     * Checks if a string is only whitespace
+     * @returns {StringValidator}
+     */
+    StringValidator.prototype.isWhitespace = function () {
+        if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
+            return this;
+        }
+        else {
+            throw new ReferenceError(this._variableName + " should be all whitespace");
+        }
+    };
+    /**
+     * Checks if a string is not only whitespace
+     * @returns {StringValidator}
+     */
+    StringValidator.prototype.isNotWhitespace = function () {
+        if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
+            throw new ReferenceError(this._variableName + " should be all whitespace");
         }
         else {
             return this;

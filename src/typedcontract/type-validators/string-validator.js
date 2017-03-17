@@ -46,6 +46,30 @@ var StringValidator = (function (_super) {
         }
     };
     /**
+     * Checks if a string is only whitespace
+     * @returns {StringValidator}
+     */
+    StringValidator.prototype.isWhitespace = function () {
+        if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
+            return this;
+        }
+        else {
+            throw new ReferenceError(this._variableName + " should be all whitespace");
+        }
+    };
+    /**
+     * Checks if a string is not only whitespace
+     * @returns {StringValidator}
+     */
+    StringValidator.prototype.isNotWhitespace = function () {
+        if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
+            throw new ReferenceError(this._variableName + " should be all whitespace");
+        }
+        else {
+            return this;
+        }
+    };
+    /**
      * isDefined checks if the string variable is defined
      * @throws ReferenceError if the string is not defined
      * @returns {IStringValidator}

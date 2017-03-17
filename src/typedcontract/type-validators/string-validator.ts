@@ -2,7 +2,7 @@
 
 import { BaseValidator } from "./base-validator";
 
-export class StringValidator extends BaseValidator<string> {
+export class StringValidator extends BaseValidator<string> implements IStringValidator {
 
     constructor(variableValue: string, variableName: string) {
         super(variableValue, variableName);
@@ -32,6 +32,30 @@ export class StringValidator extends BaseValidator<string> {
 
         if (this._variableValue !== null) {
             throw new ReferenceError(`${this._variableName} should be null`);
+        } else {
+            return this;
+        }
+    }
+
+    /**
+     * Checks if a string is only whitespace
+     * @returns {StringValidator}
+     */
+    public isWhitespace(): IStringValidator {
+        if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
+            return this;
+        } else {
+            throw new ReferenceError(`${this._variableName} should be all whitespace`);
+        }
+    }
+
+    /**
+     * Checks if a string is not only whitespace
+     * @returns {StringValidator}
+     */
+    public isNotWhitespace(): IStringValidator {
+        if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
+            throw new ReferenceError(`${this._variableName} should be all whitespace`);
         } else {
             return this;
         }

@@ -461,6 +461,18 @@ interface IStringValidator extends IBaseValidator<string> {
     isNull(): IStringValidator;
 
     /**
+     * Checks if a string is only whitespace
+     * @returns {StringValidator}
+     */
+    isWhitespace(): IStringValidator;
+
+    /**
+     * Checks if a string is not just whitespace
+     * @returns {StringValidator}
+     */
+    isNotWhitespace(): IStringValidator;
+
+    /**
      * isDefined checks if the string variable is defined
      * @throws ReferenceError if the string is not defined
      * @returns {IStringValidator}

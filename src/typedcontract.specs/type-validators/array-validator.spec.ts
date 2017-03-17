@@ -69,6 +69,7 @@ describe("ArrayValidator", () => {
 
        expect(result);
     });
+
     it("isNull throws an error when given an undefined array", () => {
         let localVar:  any[];
 

@@ -29,9 +29,73 @@ describe("StringValidator", function () {
             contract.checks(localVariable).isNull();
         }).toThrow(new ReferenceError("The variable should be null")); // getting right result, assertion statement wrong
     });
+    it("isWhitespace with a valid string expects an error to be thrown", function () {
+        // arrange
+        var localVariable = "Andre";
+        // act/assert
+        expect(function () {
+            contract.checks(localVariable).isWhitespace();
+        }).toThrow(new ReferenceError("The variable should be all whitespace"));
+    });
+    it("isWhitespace with an empty string passes", function () {
+        // arrange
+        var localVariable = "";
+        // act
+        var result = contract.checks(localVariable).isWhitespace();
+        // assert
+        expect(result).not.toBe(null);
+        expect(result.constructor.name).toBe("StringValidator");
+    });
+    it("isWhitespace with a whitespace string passes", function () {
+        // arrange
+        var localVariable = "    ";
+        // act
+        var result = contract.checks(localVariable).isWhitespace();
+        // assert
+        expect(result).not.toBe(null);
+        expect(result.constructor.name).toBe("StringValidator");
+    });
+    it("isNotWhitespace with a valid string passes", function () {
+        // arrange
+        var localVariable = "Andre";
+        // act
+        var result = contract.checks(localVariable).isNotWhitespace();
+        // assert
+        expect(result).not.toBe(null);
+        expect(result.constructor.name).toBe("StringValidator");
+    });
+    it("isNotWhitespace with an empty string throws an error", function () {
+        // arrange
+        var localVariable = "";
+        // act/assert
+        expect(function () {
+            contract.checks(localVariable).isNotWhitespace();
+        }).toThrow(new ReferenceError("The variable should be all whitespace"));
+    });
+    it("isNotWhitespace with a whitespace string throws an error", function () {
+        // arrange
+        var localVariable = "    ";
+        // act/assert
+        expect(function () {
+            contract.checks(localVariable).isNotWhitespace();
+        }).toThrow(new ReferenceError("The variable should be all whitespace"));
+    });
+    it("isNotWhitespace and isNotNull chained with a whitespace string throws an error", function () {
+        // arrange
+        var localVariable = "    ";
+        // act/assert
+        expect(function () {
+            contract.checks(localVariable).isNotNull().isNotWhitespace();
+        }).toThrow(new ReferenceError("The variable should be all whitespace"));
+    });
     it("isDefined should return the proper result ", function () {
         var localVar = "Andre";
         var result = contract.checks(localVar).isDefined();
+        expect(result).toBeDefined();
+    });
+    it("isDefined and isNotNull should return the proper result ", function () {
+        var localVar = "Andre";
+        var result = contract.checks(localVar).isNotNull().isDefined();
         expect(result).toBeDefined();
     });
     it("isNull should return the proper result", function () {

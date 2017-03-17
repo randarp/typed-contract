@@ -419,6 +419,16 @@ interface IStringValidator extends IBaseValidator<string> {
      */
     isNull(): IStringValidator;
     /**
+     * Checks if a string is only whitespace
+     * @returns {StringValidator}
+     */
+    isWhitespace(): IStringValidator;
+    /**
+     * Checks if a string is not just whitespace
+     * @returns {StringValidator}
+     */
+    isNotWhitespace(): IStringValidator;
+    /**
      * isDefined checks if the string variable is defined
      * @throws ReferenceError if the string is not defined
      * @returns {IStringValidator}
@@ -652,7 +662,7 @@ declare module "typedcontract" {
 	    name(): string;
 	}
 
-	export class StringValidator extends BaseValidator<string> {
+	export class StringValidator extends BaseValidator<string> implements IStringValidator {
 	    constructor(variableValue: string, variableName: string);
 	    /**
 	     *
@@ -668,6 +678,16 @@ declare module "typedcontract" {
 	     * @returns {IStringValidator}
 	     */
 	    isNull(): IStringValidator;
+	    /**
+	     * Checks if a string is only whitespace
+	     * @returns {StringValidator}
+	     */
+	    isWhitespace(): IStringValidator;
+	    /**
+	     * Checks if a string is not only whitespace
+	     * @returns {StringValidator}
+	     */
+	    isNotWhitespace(): IStringValidator;
 	    /**
 	     * isDefined checks if the string variable is defined
 	     * @throws ReferenceError if the string is not defined
@@ -877,7 +897,7 @@ declare module "typedcontract" {
 	    isNotBetween(startRange: string, endRange: string): IStringValidator;
 	}
 
-	export class BooleanValidator extends BaseValidator<boolean> {
+	export class BooleanValidator extends BaseValidator<boolean> implements IBooleanValidator {
 	    constructor(variableValue: boolean, variableName: string);
 	    /**
 	     *
@@ -943,7 +963,7 @@ declare module "typedcontract" {
 	    isFalse(): IBooleanValidator;
 	}
 
-	export class NumberValidator extends BaseValidator<number> {
+	export class NumberValidator extends BaseValidator<number> implements INumberValidator {
 	    constructor(variableValue: number, variableName: string);
 	    /**
 	     *
