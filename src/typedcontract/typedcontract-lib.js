@@ -214,7 +214,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var base_validator_1 = __webpack_require__(0);
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
@@ -255,12 +255,14 @@ var AnyValidator = (function (_super) {
     };
     /**
      * isDefined checks if the any variable is defined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the any variable jis not defined
      * @returns { IAnyValidator }
      */
-    AnyValidator.prototype.isDefined = function () {
+    AnyValidator.prototype.isDefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
-            throw new ReferenceError(this._variableName + " should be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
         else {
             return this;
@@ -268,12 +270,14 @@ var AnyValidator = (function (_super) {
     };
     /**
      * isUndefined checks if the any variable is undefined
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the any variable is undefined
      * @returns { IAnyValidator }
      */
-    AnyValidator.prototype.isUndefined = function () {
+    AnyValidator.prototype.isUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should not be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be defined"));
         }
         else {
             return this;
@@ -281,12 +285,14 @@ var AnyValidator = (function (_super) {
     };
     /**
      * isNullOrUndefined checks if the any variable is not null or undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the any variable is null or undefined
      * @returns { IAnyValidator }
      */
-    AnyValidator.prototype.isNullOrUndefined = function () {
+    AnyValidator.prototype.isNullOrUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === null || typeof this._variableValue === undefined) {
-            throw new ReferenceError(this._variableName + " should not be null or undefined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null or undefined"));
         }
         else {
             return this;
@@ -322,28 +328,30 @@ var ArrayValidator = (function (_super) {
         return _super.call(this, variableValue, variableName) || this;
     }
     /**
-     *
      * isNull Checks if the array variable is null
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the variable is not null
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isNull = function () {
+    ArrayValidator.prototype.isNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== null) {
-            throw new ReferenceError(this._variableName + " should be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
         else {
             return this;
         }
     };
     /**
-     *
      * isNotNull checks if the array variable is not null
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the variable is null
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isNotNull = function () {
+    ArrayValidator.prototype.isNotNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === null) {
-            throw new ReferenceError(this._variableName + " should not be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
         else {
             return this;
@@ -351,12 +359,14 @@ var ArrayValidator = (function (_super) {
     };
     /**
      * isDefined checks if the array variable is defined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the array variable is undefined
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isDefined = function () {
+    ArrayValidator.prototype.isDefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
-            throw new ReferenceError(this._variableName + " should be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
         else {
             return this;
@@ -364,12 +374,14 @@ var ArrayValidator = (function (_super) {
     };
     /**
      * isUndefined checks if the array variable is undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the array variable is defined
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isUndefined = function () {
+    ArrayValidator.prototype.isUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== undefined) {
-            throw new ReferenceError(this._variableName + " should be undefined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be undefined"));
         }
         else {
             return this;
@@ -377,12 +389,14 @@ var ArrayValidator = (function (_super) {
     };
     /**
      * isNullOrUndefined checks if the array variable is not null or undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the array variable is null or undefined
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isNullOrUndefined = function () {
+    ArrayValidator.prototype.isNullOrUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should be null or undefined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null or undefined"));
         }
         else {
             return this;
@@ -391,17 +405,19 @@ var ArrayValidator = (function (_super) {
     /**
      *
      * isEqualTo checks if the array variable is equal to the index of the parameter passed into the function as an argument
+     * @param message is an optional message if validation fails
      * @throws RangeError if the array variable is not equal to the index given parameter passed into the function
      * @param compareTo, index
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isEqualTo = function (compareTo, index) {
+    ArrayValidator.prototype.isEqualTo = function (compareTo, index, message) {
+        if (message === void 0) { message = null; }
         if (!compareTo.length || this._variableValue.length === 0) {
             throw new RangeError("Can't compare the length's of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue[index] !== compareTo[index]) {
-            throw new RangeError(this._variableName + " should be equal to array variable " + compareTo + " at the index " + index);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be equal to array variable " + compareTo + " at the index " + index));
         }
         else {
             return this;
@@ -412,15 +428,17 @@ var ArrayValidator = (function (_super) {
      * isNotEqualTo checks if the array variable is not equal to the index of the parameter passed into the function as an argument
      * @throws RangeError if the array variable is equal to the index given parameter passed into the function
      * @param compareTo, index
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isNotEqualTo = function (compareTo, index) {
+    ArrayValidator.prototype.isNotEqualTo = function (compareTo, index, message) {
+        if (message === void 0) { message = null; }
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("Can't compare the length's of uninitialized arrays," +
                 " please append values to the array's in the instance of this TypedContract");
         }
         if (this._variableValue[index] === compareTo[index]) {
-            throw new RangeError(this._variableName + " should be equal to array variable " + compareTo + " at the index " + index);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be equal to array variable " + compareTo + " at the index " + index));
         }
         else {
             return this;
@@ -431,13 +449,15 @@ var ArrayValidator = (function (_super) {
      * isLengthGreaterThan checks if the array variable length is greater than the parameter passed into the function as an argument
      * @throws RangeError if the array is not greater than the parameter passed into the function
      * @param compareTo is a number or another array
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isLengthGreaterThan = function (compareTo) {
+    ArrayValidator.prototype.isLengthGreaterThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length < compareValue) {
-            throw new RangeError(this._variableName + " should have a\n            length greater than " + compareValue + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should have a\n            length greater than " + compareValue + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -448,16 +468,18 @@ var ArrayValidator = (function (_super) {
      * isLengthNotGreaterThan checks if the array variable's length is not greater than the length of the contract precondition
      * @throws RangeError if the array variable is greater than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo is a number or another array
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isLengthNotGreaterThan = function (compareTo) {
+    ArrayValidator.prototype.isLengthNotGreaterThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length <= compareValue) {
             return this;
         }
         else {
-            throw new RangeError(this._variableName + " should not have a\n            length greater than " + compareValue + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not have a\n            length greater than " + compareValue + " but is " + this._variableValue.length));
         }
     };
     /**
@@ -466,16 +488,18 @@ var ArrayValidator = (function (_super) {
      * @throws RangeError if the array variable is not
      * greater or equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo is a number or another array
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isLengthGreaterOrEqualTo = function (compareTo) {
+    ArrayValidator.prototype.isLengthGreaterOrEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length > compareValue || this._variableValue.length === compareValue) {
             return this;
         }
         else {
-            throw new RangeError(this._variableName + " should have a length\n            greater or equal to " + compareValue + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should have a length\n            greater or equal to " + compareValue + " but is " + this._variableValue.length));
         }
     };
     /**
@@ -484,13 +508,15 @@ var ArrayValidator = (function (_super) {
      * @throws RangeError if the array variable is not greater or
      * equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo is a number or another array
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isLengthNotGreaterOrEqualTo = function (compareTo) {
+    ArrayValidator.prototype.isLengthNotGreaterOrEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length > compareValue || this._variableValue.length === compareValue) {
-            throw new RangeError(this._variableName + " should not have a\n             length greater or equal to " + compareValue + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not have a\n             length greater or equal to " + compareValue + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -502,13 +528,15 @@ var ArrayValidator = (function (_super) {
      * @throws RangeError if the array variable is greater or
      * equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo is a number or another array
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isLengthLessThan = function (compareTo) {
+    ArrayValidator.prototype.isLengthLessThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length >= compareValue) {
-            throw new RangeError(this._variableName + " should have a length less than " + compareValue + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should have a length less than " + compareValue + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -520,13 +548,15 @@ var ArrayValidator = (function (_super) {
      * @throws RangeError if the array variable is less than or
      * equal than the length of the precondition passed into the instance of the TypedContract
      * @param compareTo is a number or another array
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isLengthNotLessThan = function (compareTo) {
+    ArrayValidator.prototype.isLengthNotLessThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length <= compareValue) {
-            throw new RangeError(this._variableName + " should have a length\n        not less than " + compareValue + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should have a length\n        not less than " + compareValue + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -538,13 +568,15 @@ var ArrayValidator = (function (_super) {
      * @throws RangeError if the array variable is greater than
      * the length of the precondition passed into the instance of the TypedContract
      * @param compareTo is a number or another array
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isLengthLessOrEqualThan = function (compareTo) {
+    ArrayValidator.prototype.isLengthLessOrEqualThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length > compareValue) {
-            throw new RangeError(this._variableName + " should have a length less or equal\n            to " + compareValue + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should have a length less or equal\n            to " + compareValue + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -556,13 +588,15 @@ var ArrayValidator = (function (_super) {
      * @throws RangeError if the array variable is less or equal than
      * the length of the precondition passed into the instance of the TypedContract
      * @param compareTo is a number or another array
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.isLengthNotLessOrEqualThan = function (compareTo) {
+    ArrayValidator.prototype.isLengthNotLessOrEqualThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         var compareValue = 0;
         compareValue = this.prepareArrayForLengthComparison(compareTo, compareValue);
         if (this._variableValue.length <= compareValue) {
-            throw new RangeError(this._variableName + " should not have a\n             length less or equal to " + compareValue + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not have a\n             length less or equal to " + compareValue + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -575,10 +609,12 @@ var ArrayValidator = (function (_super) {
      * @throws RangeError if the array variable does not contain any of the values
      *  passed into the instance of the TypedContract using the contains function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.contains = function (compareTo) {
+    ArrayValidator.prototype.contains = function (compareTo, message) {
         var _this = this;
+        if (message === void 0) { message = null; }
         var count = 0;
         if (!compareTo.length || !this._variableValue.length) {
             throw new RangeError("The length of either your contract precondition\n            or comparable have a length of zero, please enter in values");
@@ -592,7 +628,7 @@ var ArrayValidator = (function (_super) {
             _loop_1(i);
         }
         if (count === 0) {
-            throw new RangeError(this._variableName + " should contain the pattern " + compareTo + "\n             but the pattern is not found in " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should contain the pattern " + compareTo + "\n             but the pattern is not found in " + this._variableValue));
         }
         return this;
     };
@@ -603,10 +639,12 @@ var ArrayValidator = (function (_super) {
      * @throws RangeError if the array variable does contain any of the values
      *  passed into the instance of the TypedContract using the notContains function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns { IArrayValidator }
      */
-    ArrayValidator.prototype.notContains = function (compareTo) {
+    ArrayValidator.prototype.notContains = function (compareTo, message) {
         var _this = this;
+        if (message === void 0) { message = null; }
         var count = 0;
         if (compareTo.length === 0 || this._variableValue.length === 0) {
             throw new RangeError("The length of either your contract precondition\n            or comparable have a length of zero, please enter in values");
@@ -620,11 +658,12 @@ var ArrayValidator = (function (_super) {
             _loop_2(i);
         }
         if (count > 0) {
-            throw new RangeError(this._variableName + " should not contain the pattern " + compareTo + "\n             but the pattern is not found in " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not contain the pattern " + compareTo + "\n             but the pattern is not found in " + this._variableValue));
         }
         return this;
     };
-    ArrayValidator.prototype.prepareArrayForLengthComparison = function (compareTo, compareValue) {
+    ArrayValidator.prototype.prepareArrayForLengthComparison = function (compareTo, compareValue, message) {
+        if (message === void 0) { message = null; }
         if (!this._variableValue.length) {
             throw new RangeError("Can't compare the values length of uninitialized arrays, " +
                 "please append values to the array's in the instance of this TypedContract");
@@ -671,26 +710,28 @@ var BooleanValidator = (function (_super) {
         return _super.call(this, variableValue, variableName) || this;
     }
     /**
-     *
      * isNull checks if the boolean variable is null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is not null
      */
-    BooleanValidator.prototype.isNull = function () {
+    BooleanValidator.prototype.isNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === null && typeof this._variableValue === "object") {
             return this;
         }
         else {
-            throw new ReferenceError(this._variableName + " should be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
     };
     /**
-     *
      * isNotNull checks if the boolean variable is not null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is null
      */
-    BooleanValidator.prototype.isNotNull = function () {
+    BooleanValidator.prototype.isNotNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue == null) {
-            throw new ReferenceError(this._variableName + " should not be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
         else {
             return this;
@@ -698,12 +739,14 @@ var BooleanValidator = (function (_super) {
     };
     /**
      * isDefined checks if the boolean variable is defined
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the boolen variable is undefined
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isDefined = function () {
+    BooleanValidator.prototype.isDefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
-            throw new ReferenceError(this._variableName + " should be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
         else {
             return this;
@@ -711,12 +754,14 @@ var BooleanValidator = (function (_super) {
     };
     /**
      * isUndefined checks if the boolean variable is undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the boolean variable is defined
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isUndefined = function () {
+    BooleanValidator.prototype.isUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should be undefined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be undefined"));
         }
         else {
             return this;
@@ -724,12 +769,14 @@ var BooleanValidator = (function (_super) {
     };
     /**
      * isNullOrUndefined checks if the boolean variable is not null or undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the boolean variable is null or undefined
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isNullOrUndefined = function () {
+    BooleanValidator.prototype.isNullOrUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should be null or undefined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null or undefined"));
         }
         else {
             return this;
@@ -738,13 +785,15 @@ var BooleanValidator = (function (_super) {
     /**
      *
      * isEqualTo checks if the boolean variable is equal to the parameter passed into the function as an argument
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is not equal to the parameter passed into the function
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isEqualTo = function (compareTo) {
+    BooleanValidator.prototype.isEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (!this._variableValue === compareTo) {
-            throw new RangeError(this._variableName + " should be equal to the boolean variable " + compareTo);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be equal to the boolean variable " + compareTo));
         }
         else {
             return this;
@@ -753,13 +802,15 @@ var BooleanValidator = (function (_super) {
     /**
      *
      * isNotEqualTo checks if the boolean variable is not equal to the parameter passed into the function as an argument
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is equal to the parameter passed into the function
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isNotEqualTo = function (compareTo) {
+    BooleanValidator.prototype.isNotEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === compareTo) {
-            throw new RangeError(this._variableName + " should not be equal to the boolean " + compareTo);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not be equal to the boolean " + compareTo));
         }
         else {
             return this;
@@ -768,13 +819,15 @@ var BooleanValidator = (function (_super) {
     /**
      *
      * isTrue checks if the boolean variable is true
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is false
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isTrue = function () {
+    BooleanValidator.prototype.isTrue = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === false) {
-            throw new RangeError(this._variableName + " should be true");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be true"));
         }
         else {
             return this;
@@ -783,13 +836,15 @@ var BooleanValidator = (function (_super) {
     /**
      *
      * isFalse checks if the boolean variable is false
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is alse
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isFalse = function () {
+    BooleanValidator.prototype.isFalse = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === true) {
-            throw new RangeError(this._variableName + " should be false");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be false"));
         }
         else {
             return this;
@@ -817,7 +872,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var base_validator_1 = __webpack_require__(0);
 var NumberValidator = (function (_super) {
     __extends(NumberValidator, _super);
@@ -825,14 +880,15 @@ var NumberValidator = (function (_super) {
         return _super.call(this, variableValue, variableName) || this;
     }
     /**
-     *
      * isNotNull checks if the type number variable is not null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is null
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isNotNull = function () {
+    NumberValidator.prototype.isNotNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === null) {
-            throw new ReferenceError(this._variableName + " should not be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
         else {
             return this;
@@ -841,12 +897,14 @@ var NumberValidator = (function (_super) {
     /**
      *
      * isNull checks if the string variable is null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is not null
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isNull = function () {
+    NumberValidator.prototype.isNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== null) {
-            throw new ReferenceError(this._variableName + " should be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
         else {
             return this;
@@ -854,12 +912,14 @@ var NumberValidator = (function (_super) {
     };
     /**
      * isDefined checks if the number variable is defined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the number variable jis not defined
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isDefined = function () {
+    NumberValidator.prototype.isDefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
-            throw new ReferenceError(this._variableName + " should be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
         else {
             return this;
@@ -867,12 +927,14 @@ var NumberValidator = (function (_super) {
     };
     /**
      * isUndefined checks if the number variable is undefined
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the number variable is undefined
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isUndefined = function () {
+    NumberValidator.prototype.isUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should not be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be defined"));
         }
         else {
             return this;
@@ -880,27 +942,30 @@ var NumberValidator = (function (_super) {
     };
     /**
      * isNullOrUndefined checks if the number variable is not null or undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the number variable is null or undefined
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isNullOrUndefined = function () {
+    NumberValidator.prototype.isNullOrUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === null || typeof this._variableValue === undefined) {
-            throw new ReferenceError(this._variableName + " should not be null or undefined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null or undefined"));
         }
         else {
             return this;
         }
     };
     /**
-     *
      * isEqualTo checks if the number variable is equal to the parameter passed into the function as an argument
-     * @throws RangeError if the number variable is not equal to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
+     * @throws RangeError if the number variable is not equal to the parameter passed into the function
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isEqualTo = function (compareTo) {
+    NumberValidator.prototype.isEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== compareTo) {
-            throw new RangeError(this._variableName + " should be equal to the number variable " + compareTo);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be equal to the number variable " + compareTo));
         }
         else {
             return this;
@@ -909,13 +974,15 @@ var NumberValidator = (function (_super) {
     /**
      *
      * isNotEqualTo checks if the number variable is not equal to the parameter passed into the function as an argument
-     * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
+     * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isNotEqualTo = function (compareTo) {
+    NumberValidator.prototype.isNotEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === compareTo) {
-            throw new RangeError(this._variableName + " should not be equal to the number variable " + compareTo);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not be equal to the number variable " + compareTo));
         }
         else {
             return this;
@@ -926,11 +993,13 @@ var NumberValidator = (function (_super) {
      * isGreaterThan checks if the number variable is not greater than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is less or equal to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isGreaterThan = function (compareTo) {
+    NumberValidator.prototype.isGreaterThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue < compareTo) {
-            throw new RangeError(this._variableName + " should be greater than " + compareTo + " but is " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be greater than " + compareTo + " but is " + this._variableValue));
         }
         else {
             return this;
@@ -941,11 +1010,13 @@ var NumberValidator = (function (_super) {
      * isNotGreaterThan checks if the number variable is not greater to the parameter passed into the function as an argument
      * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isNotGreaterThan = function (compareTo) {
+    NumberValidator.prototype.isNotGreaterThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue > compareTo) {
-            throw new RangeError(this._variableName + " should not be greater than " + compareTo + " but is " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not be greater than " + compareTo + " but is " + this._variableValue));
         }
         else {
             return this;
@@ -956,11 +1027,13 @@ var NumberValidator = (function (_super) {
      * isGreaterOrEqualThan checks if the number variable is greater or equal than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is equal to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isGreaterOrEqualThan = function (compareTo) {
+    NumberValidator.prototype.isGreaterOrEqualThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue < compareTo) {
-            throw new RangeError(this._variableName + " should be greater than " + compareTo + " but is " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be greater than " + compareTo + " but is " + this._variableValue));
         }
         else {
             return this;
@@ -972,11 +1045,13 @@ var NumberValidator = (function (_super) {
      * parameter passed into the function as an argument
      * @throws RangeError if the number variable is equal or greater than parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isNotGreaterOrEqualThan = function (compareTo) {
+    NumberValidator.prototype.isNotGreaterOrEqualThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue > compareTo) {
-            throw new RangeError(this._variableName + " should not be greater or equal to " + compareTo + " but is " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not be greater or equal to " + compareTo + " but is " + this._variableValue));
         }
         else {
             return this;
@@ -987,11 +1062,13 @@ var NumberValidator = (function (_super) {
      * isLessThan checks if the number variable is less than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is greater to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isLessThan = function (compareTo) {
+    NumberValidator.prototype.isLessThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue >= compareTo) {
-            throw new RangeError(this._variableName + " should be less than " + compareTo + " but is " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be less than " + compareTo + " but is " + this._variableValue));
         }
         else {
             return this;
@@ -1002,11 +1079,13 @@ var NumberValidator = (function (_super) {
      * isNotLessThan checks if the number variable is not less than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is greater to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isNotLessThan = function (compareTo) {
+    NumberValidator.prototype.isNotLessThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue <= compareTo) {
-            throw new RangeError(this._variableName + " should not be less than " + compareTo + " but is " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not be less than " + compareTo + " but is " + this._variableValue));
         }
         else {
             return this;
@@ -1017,11 +1096,13 @@ var NumberValidator = (function (_super) {
      * isLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is greater or equal than the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isLessOrEqualThan = function (compareTo) {
+    NumberValidator.prototype.isLessOrEqualThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue > compareTo) {
-            throw new ReferenceError(this._variableName + " should be less or equal than " + compareTo + " but is " + this._variableName);
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be less or equal than " + compareTo + " but is " + this._variableName));
         }
         else {
             return this;
@@ -1032,11 +1113,13 @@ var NumberValidator = (function (_super) {
      * isNotLessOrEqualThan checks if the number variable is less or equal than the parameter passed into the function as an argument
      * @throws RangeError if the number variable is greater or equal than the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {INumberValidator}
      */
-    NumberValidator.prototype.isNotLessOrEqualThan = function (compareTo) {
+    NumberValidator.prototype.isNotLessOrEqualThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue <= compareTo) {
-            throw new RangeError(this._variableName + " should not be less or equal\n                 than " + compareTo + " but is " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not be less or equal\n                 than " + compareTo + " but is " + this._variableValue));
         }
         else {
             return this;
@@ -1046,25 +1129,29 @@ var NumberValidator = (function (_super) {
      * Checks if the variable passed into the TypedContract as a pre or post condition is between certain a range of values. The TypedContract will throw an error if the pre or post condition in the contract is not in the range as specified.
      * @param startRange
      * @param endRange
+     * @param message is an optional message if validation fails
      * @returns {NumberValidator}
      */
-    NumberValidator.prototype.isBetween = function (startRange, endRange) {
+    NumberValidator.prototype.isBetween = function (startRange, endRange, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             return this;
         }
         else {
-            throw new RangeError(this._variableName + " should be between\n            " + startRange + " and " + endRange + ", but the value of\n            " + this._variableValue + " is not in that range");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be between\n            " + startRange + " and " + endRange + ", but the value of\n            " + this._variableValue + " is not in that range"));
         }
     };
     /**
      * Checks if the variable passed into the TypedContract as a pre or post condition is not in between certain a range of values. The TypedContract will throw an error if the pre or post condition in the contract is in the range as specified.
      * @param startRange
      * @param endRange
+     * @param message is an optional message if validation fails
      * @returns {NumberValidator}
      */
-    NumberValidator.prototype.isNotBetween = function (startRange, endRange) {
+    NumberValidator.prototype.isNotBetween = function (startRange, endRange, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
-            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range"));
         }
         else {
             return this;
@@ -1092,7 +1179,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var base_validator_1 = __webpack_require__(0);
 var StringValidator = (function (_super) {
     __extends(StringValidator, _super);
@@ -1100,14 +1187,15 @@ var StringValidator = (function (_super) {
         return _super.call(this, variableValue, variableName) || this;
     }
     /**
-     *
      * isNotNull checks if the string variable is not null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is null
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNotNull = function () {
+    StringValidator.prototype.isNotNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === null) {
-            throw new ReferenceError(this._variableName + " should not be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
         else {
             return this;
@@ -1116,12 +1204,14 @@ var StringValidator = (function (_super) {
     /**
      *
      * isNull checks if the string variable is null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is not null
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNull = function () {
+    StringValidator.prototype.isNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== null) {
-            throw new ReferenceError(this._variableName + " should be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
         else {
             return this;
@@ -1129,23 +1219,27 @@ var StringValidator = (function (_super) {
     };
     /**
      * Checks if a string is only whitespace
+     * @param message is an optional message if validation fails
      * @returns {StringValidator}
      */
-    StringValidator.prototype.isWhitespace = function () {
+    StringValidator.prototype.isWhitespace = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
             return this;
         }
         else {
-            throw new ReferenceError(this._variableName + " should be all whitespace");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be all whitespace"));
         }
     };
     /**
      * Checks if a string is not only whitespace
+     * @param message is an optional message if validation fails
      * @returns {StringValidator}
      */
-    StringValidator.prototype.isNotWhitespace = function () {
+    StringValidator.prototype.isNotWhitespace = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.replace(/^\s+/, "").replace(/\s+$/, "") === "") {
-            throw new ReferenceError(this._variableName + " should be all whitespace");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be all whitespace"));
         }
         else {
             return this;
@@ -1153,12 +1247,14 @@ var StringValidator = (function (_super) {
     };
     /**
      * isDefined checks if the string variable is defined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the string is not defined
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isDefined = function () {
+    StringValidator.prototype.isDefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
-            throw new ReferenceError(this._variableName + " should be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
         else {
             return this;
@@ -1166,12 +1262,14 @@ var StringValidator = (function (_super) {
     };
     /**
      * isNotDefined checks if the string variable is not defined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if variable is defined
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isUndefined = function () {
+    StringValidator.prototype.isUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should not be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be defined"));
         }
         else {
             return this;
@@ -1179,12 +1277,14 @@ var StringValidator = (function (_super) {
     };
     /**
      * isNullOrUndefined checks if a string variable is not null or undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if a string variable is null or not undefined
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNullOrUndefined = function () {
+    StringValidator.prototype.isNullOrUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should not be null or undefined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null or undefined"));
         }
         else {
             return this;
@@ -1195,11 +1295,13 @@ var StringValidator = (function (_super) {
      * isEqualTo cecks if the string variable is equal to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not equal to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isEqualTo = function (compareTo) {
+    StringValidator.prototype.isEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== compareTo) {
-            throw new RangeError(this._variableName + " should be equal to the string variable " + compareTo);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be equal to the string variable " + compareTo));
         }
         else {
             return this;
@@ -1210,11 +1312,13 @@ var StringValidator = (function (_super) {
      * isNotEqualTo checks if the string variable is not equal to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is equal to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNotEqualTo = function (compareTo) {
+    StringValidator.prototype.isNotEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === compareTo) {
-            throw new RangeError(this._variableName + " should not be equal to the string variable " + compareTo);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not be equal to the string variable " + compareTo));
         }
         else {
             return this;
@@ -1225,11 +1329,13 @@ var StringValidator = (function (_super) {
      * isLessThan checks if the string variable is less than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is greater to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isLessThan = function (compareTo) {
+    StringValidator.prototype.isLessThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length > compareTo.length) {
-            throw new ReferenceError(this._variableName + " should be less than " + compareTo + " but is " + this._variableValue);
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be less than " + compareTo + " but is " + this._variableValue));
         }
         else {
             return this;
@@ -1240,11 +1346,13 @@ var StringValidator = (function (_super) {
      * isNotLessThan checks if the string variable is not less than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not less than to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNotLessThan = function (compareTo) {
+    StringValidator.prototype.isNotLessThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length < compareTo.length) {
-            throw new ReferenceError(this._variableName + " should not be less that " + compareTo + " but is " + this._variableValue + " ");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be less that " + compareTo + " but is " + this._variableValue + " "));
         }
         else {
             return this;
@@ -1255,11 +1363,13 @@ var StringValidator = (function (_super) {
      * isLengthGreaterThan checks if the string variable length is greater than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not greater than to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isLengthGreaterThan = function (compareTo) {
+    StringValidator.prototype.isLengthGreaterThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length <= compareTo.length) {
-            throw new RangeError(this._variableName + " should have a length greater\n            than " + compareTo.length + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should have a length greater\n            than " + compareTo.length + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -1271,14 +1381,16 @@ var StringValidator = (function (_super) {
      * to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is not greater or equal than to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isLengthGreaterOrEqualTo = function (compareTo) {
+    StringValidator.prototype.isLengthGreaterOrEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
             return this;
         }
         else {
-            throw new RangeError(this._variableName + " should have a length\n            greater or equal to " + compareTo.length + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should have a length\n            greater or equal to " + compareTo.length + " but is " + this._variableValue.length));
         }
     };
     /**
@@ -1286,14 +1398,16 @@ var StringValidator = (function (_super) {
      * isLengthNotGreaterThan checks if the string variable length is not greater than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is less or equal than to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isLengthNotGreaterThan = function (compareTo) {
+    StringValidator.prototype.isLengthNotGreaterThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length <= compareTo.length) {
             return this;
         }
         else {
-            throw new RangeError(this._variableName + " should not have a\n            length greater than " + compareTo.length + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not have a\n            length greater than " + compareTo.length + " but is " + this._variableValue.length));
         }
     };
     /**
@@ -1301,11 +1415,13 @@ var StringValidator = (function (_super) {
      * isLengthNotGreaterOrEqualTo checks if the string variable length is not greater or equal than to the parameter passed into the function as an argument
      * @throws RangeError if the string variable is greater or equal than to the parameter passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isLengthNotGreaterOrEqualTo = function (compareTo) {
+    StringValidator.prototype.isLengthNotGreaterOrEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length > compareTo.length || this._variableValue.length === compareTo.length) {
-            throw new RangeError(this._variableName + " should not have a length greater or equal to " + compareTo.length + "\n              but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not have a length greater or equal to " + compareTo.length + "\n              but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -1315,12 +1431,14 @@ var StringValidator = (function (_super) {
      * isLengthLessThan checks if length of the string is less than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater or equal to the comparable passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      *
      */
-    StringValidator.prototype.isLengthLessThan = function (compareTo) {
+    StringValidator.prototype.isLengthLessThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length >= compareTo.length) {
-            throw new RangeError(this._variableName + " should have a length\n        less than " + compareTo.length + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should have a length\n        less than " + compareTo.length + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -1330,12 +1448,14 @@ var StringValidator = (function (_super) {
      * isLengthNotLessThan checks if length of the string is less than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater or equal to the comparable passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      *
      */
-    StringValidator.prototype.isLengthNotLessThan = function (compareTo) {
+    StringValidator.prototype.isLengthNotLessThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length <= compareTo.length) {
-            throw new RangeError(this._variableName + " should not have a length\n        less than " + compareTo.length + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not have a length\n        less than " + compareTo.length + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -1345,12 +1465,14 @@ var StringValidator = (function (_super) {
      * isLengthLessOrEqualThan checks if length of the string is less or equal than the comparable passed into the TypedContract
      * @throws RangeError if the string length is greater than the comparable passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      *
      */
-    StringValidator.prototype.isLengthLessOrEqualThan = function (compareTo) {
+    StringValidator.prototype.isLengthLessOrEqualThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length > compareTo.length) {
-            throw new RangeError(this._variableName + " should have a\n            length less or equal to " + compareTo.length + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should have a\n            length less or equal to " + compareTo.length + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -1360,12 +1482,14 @@ var StringValidator = (function (_super) {
      * isLengthNotLessOrEqualThan checks if length of the string is not less or equal than the comparable passed into the TypedContract
      * @throws RangeError if the string length is less or equal than the comparable passed into the function
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      *
      */
-    StringValidator.prototype.isLengthNotLessOrEqualThan = function (compareTo) {
+    StringValidator.prototype.isLengthNotLessOrEqualThan = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length <= compareTo.length) {
-            throw new RangeError(this._variableName + " should not have a length less\n            or equal to " + compareTo.length + " but is " + this._variableValue.length);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not have a length less\n            or equal to " + compareTo.length + " but is " + this._variableValue.length));
         }
         else {
             return this;
@@ -1377,11 +1501,13 @@ var StringValidator = (function (_super) {
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does not match the values in the precondition
      * @param regExp
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.toMatch = function (regExp) {
+    StringValidator.prototype.toMatch = function (regExp, message) {
+        if (message === void 0) { message = null; }
         if (!regExp.test(this._variableValue)) {
-            throw new RangeError(this._variableName + " should match\n            the pattern " + regExp + " but the value of " + this._variableValue + " does not match");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should match\n            the pattern " + regExp + " but the value of " + this._variableValue + " does not match"));
         }
         else {
             return this;
@@ -1393,11 +1519,13 @@ var StringValidator = (function (_super) {
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does not match the values in the precondition
      * @param regExp
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.toNotMatch = function (regExp) {
+    StringValidator.prototype.toNotMatch = function (regExp, message) {
+        if (message === void 0) { message = null; }
         if (regExp.test(this._variableValue)) {
-            throw new RangeError(this._variableName + " should not match\n            the pattern " + regExp + " but the value of " + this._variableValue + " matches");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not match\n            the pattern " + regExp + " but the value of " + this._variableValue + " matches"));
         }
         else {
             return this;
@@ -1409,14 +1537,16 @@ var StringValidator = (function (_super) {
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does match the values in the precondition
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.contains = function (compareTo) {
+    StringValidator.prototype.contains = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.length === 0 && compareTo.length === 0) {
             return this;
         }
         if (compareTo.length === 0 || this._variableValue.indexOf(compareTo) <= -1) {
-            throw new RangeError(this._variableName + " should contain\n           the pattern " + compareTo + " but the pattern is not found in " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should contain\n           the pattern " + compareTo + " but the pattern is not found in " + this._variableValue));
         }
         else {
             return this;
@@ -1428,11 +1558,13 @@ var StringValidator = (function (_super) {
      * precondition in the TypedContract
      * @throws RangeError if the regular expression does not match the values in the precondition
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.notContains = function (compareTo) {
+    StringValidator.prototype.notContains = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue.indexOf(compareTo) > -1) {
-            throw new RangeError(this._variableName + " should not contain\n           the pattern " + compareTo + " but the pattern is found in " + this._variableValue);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not contain\n           the pattern " + compareTo + " but the pattern is found in " + this._variableValue));
         }
         else {
             return this;
@@ -1444,14 +1576,16 @@ var StringValidator = (function (_super) {
      * value as the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract does not contain the same starting values
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.startsWith = function (compareTo) {
+    StringValidator.prototype.startsWith = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if ((this._variableValue).lastIndexOf(compareTo, 0) === 0) {
             return this;
         }
         else {
-            throw new RangeError(this._variableName + " should start with " + this._variableValue + ", but " + compareTo + " does not");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should start with " + this._variableValue + ", but " + compareTo + " does not"));
         }
     };
     /**
@@ -1460,11 +1594,13 @@ var StringValidator = (function (_super) {
      * value as the comparable variable passed into the function
      * @throws RangeError if the compareTo argument passed into TypedContract does not contain the same starting values
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.notStartsWith = function (compareTo) {
+    StringValidator.prototype.notStartsWith = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if ((this._variableValue).lastIndexOf(compareTo, 0) !== 0) {
-            throw new RangeError(this._variableName + " should not start with " + compareTo + " but " + this._variableValue + " does not");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not start with " + compareTo + " but " + this._variableValue + " does not"));
         }
         else {
             return this;
@@ -1476,11 +1612,13 @@ var StringValidator = (function (_super) {
      * values as the comparable variable passed into the function
      * @throws RangeError if the compareTo argument passed into TypedContract does not contain the same ending values
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.endsWith = function (compareTo) {
+    StringValidator.prototype.endsWith = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) === -1) {
-            throw new RangeError(this._variableName + " should end with " + compareTo + ", but " + this._variableValue + " does not");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should end with " + compareTo + ", but " + this._variableValue + " does not"));
         }
         else {
             return this;
@@ -1492,11 +1630,13 @@ var StringValidator = (function (_super) {
      * values as the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract does contain the same ending values
      * @param compareTo
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.notEndsWith = function (compareTo) {
+    StringValidator.prototype.notEndsWith = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if ((this._variableValue).indexOf(compareTo, (this._variableValue).length - compareTo.length) !== -1) {
-            throw new RangeError(this._variableName + " should not end with " + compareTo + ", but " + this._variableValue + " does not");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not end with " + compareTo + ", but " + this._variableValue + " does not"));
         }
         else {
             return this;
@@ -1508,15 +1648,18 @@ var StringValidator = (function (_super) {
      * and are compared against the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract is not in between the
      * starting and ending range
-     * @param startRange, endRange
+     * @param startRange
+     * @param endRange
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isBetween = function (startRange, endRange) {
+    StringValidator.prototype.isBetween = function (startRange, endRange, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
             return this;
         }
         else {
-            throw new RangeError(this._variableName + " should be between\n            " + startRange + " and " + endRange + ", but the value of\n            " + this._variableValue + " is not in that range");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be between\n            " + startRange + " and " + endRange + ", but the value of\n            " + this._variableValue + " is not in that range"));
         }
     };
     /**
@@ -1525,12 +1668,15 @@ var StringValidator = (function (_super) {
      * and are compared against the comparable variable passed into the function
      * @throws RangeError if the comparable argument passed into TypedContract is in between the
      * starting and ending range
-     * @param startRange, endRange
+     * @param startRange
+     * @param endRange
+     * @param message is an optional message if validation fails
      * @returns {IStringValidator}
      */
-    StringValidator.prototype.isNotBetween = function (startRange, endRange) {
+    StringValidator.prototype.isNotBetween = function (startRange, endRange, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue >= startRange && this._variableValue <= endRange) {
-            throw new RangeError(this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not be between\n            " + startRange + " and " + endRange + ", but the value of " + this._variableValue + " is in that range"));
         }
         else {
             return this;

@@ -47,7 +47,7 @@ export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
      */
     public isDefined(message: string = null):IAnyValidator {
         if (typeof this._variableValue === "undefined") {
-            throw new ReferenceError(`${this._variableName} should be defined`);
+            throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be defined`));
         } else {
             return this;
         }
@@ -61,7 +61,7 @@ export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
      */
     public isUndefined(message: string = null):IAnyValidator {
         if (typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(`${this._variableName} should not be defined`);
+            throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be defined`));
         } else {
             return this;
         }
@@ -75,7 +75,7 @@ export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
      */
     public isNullOrUndefined(message: string = null):IAnyValidator {
         if (this._variableValue === null || typeof this._variableValue === undefined) {
-            throw new ReferenceError(`${this._variableName} should not be null or undefined`);
+            throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be null or undefined`));
         } else {
             return this;
         }

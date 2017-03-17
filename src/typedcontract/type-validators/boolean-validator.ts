@@ -9,26 +9,26 @@ export class BooleanValidator extends BaseValidator<boolean> implements IBoolean
     }
 
     /**
-     *
      * isNull checks if the boolean variable is null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is not null
      */
-    public isNull(): IBooleanValidator {
+    public isNull(message: string = null): IBooleanValidator {
         if (this._variableValue === null && typeof this._variableValue === "object") {
             return this;
         } else {
-            throw new ReferenceError(`${this._variableName} should be null`);
+            throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be null`));
         }
     }
 
     /**
-     *
      * isNotNull checks if the boolean variable is not null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is null
      */
-    public isNotNull(): IBooleanValidator {
+    public isNotNull(message: string = null): IBooleanValidator {
         if (this._variableValue == null) {
-            throw new ReferenceError(`${this._variableName} should not be null`);
+            throw new ReferenceError(this.validationMessage(message, `${this._variableName} should not be null`));
         } else {
             return this;
         }
@@ -36,12 +36,13 @@ export class BooleanValidator extends BaseValidator<boolean> implements IBoolean
 
     /**
      * isDefined checks if the boolean variable is defined
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the boolen variable is undefined
      * @returns {IBooleanValidator}
      */
-    public isDefined(): IBooleanValidator {
+    public isDefined(message: string = null): IBooleanValidator {
         if (typeof this._variableValue === "undefined") {
-            throw new ReferenceError(`${this._variableName} should be defined`);
+            throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be defined`));
         } else {
             return this;
         }
@@ -49,12 +50,13 @@ export class BooleanValidator extends BaseValidator<boolean> implements IBoolean
 
     /**
      * isUndefined checks if the boolean variable is undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the boolean variable is defined
      * @returns {IBooleanValidator}
      */
-    public isUndefined(): IBooleanValidator {
+    public isUndefined(message: string = null): IBooleanValidator {
         if (typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(`${this._variableName} should be undefined`);
+            throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be undefined`));
         } else {
             return this;
         }
@@ -62,12 +64,13 @@ export class BooleanValidator extends BaseValidator<boolean> implements IBoolean
 
     /**
      * isNullOrUndefined checks if the boolean variable is not null or undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the boolean variable is null or undefined
      * @returns {IBooleanValidator}
      */
-    public isNullOrUndefined(): IBooleanValidator {
+    public isNullOrUndefined(message: string = null): IBooleanValidator {
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(`${this._variableName} should be null or undefined`);
+            throw new ReferenceError(this.validationMessage(message, `${this._variableName} should be null or undefined`));
         } else {
             return this;
         }
@@ -75,13 +78,14 @@ export class BooleanValidator extends BaseValidator<boolean> implements IBoolean
     /**
      *
      * isEqualTo checks if the boolean variable is equal to the parameter passed into the function as an argument
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is not equal to the parameter passed into the function
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    public isEqualTo(compareTo: boolean): IBooleanValidator {
+    public isEqualTo(compareTo: boolean, message: string = null): IBooleanValidator {
         if (!this._variableValue === compareTo) {
-            throw new RangeError(`${this._variableName} should be equal to the boolean variable ${compareTo}`);
+            throw new RangeError(this.validationMessage(message, `${this._variableName} should be equal to the boolean variable ${compareTo}`));
         } else {
             return this;
         }
@@ -90,13 +94,14 @@ export class BooleanValidator extends BaseValidator<boolean> implements IBoolean
     /**
      *
      * isNotEqualTo checks if the boolean variable is not equal to the parameter passed into the function as an argument
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is equal to the parameter passed into the function
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    public isNotEqualTo(compareTo: boolean): IBooleanValidator {
+    public isNotEqualTo(compareTo: boolean, message: string = null): IBooleanValidator {
         if (this._variableValue === compareTo) {
-            throw new RangeError(`${this._variableName} should not be equal to the boolean ${compareTo}`);
+            throw new RangeError(this.validationMessage(message, `${this._variableName} should not be equal to the boolean ${compareTo}`));
         } else {
             return this;
         }
@@ -105,13 +110,14 @@ export class BooleanValidator extends BaseValidator<boolean> implements IBoolean
     /**
      *
      * isTrue checks if the boolean variable is true
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is false
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    public isTrue(): IBooleanValidator {
+    public isTrue(message: string = null): IBooleanValidator {
         if (this._variableValue === false) {
-            throw new RangeError(`${this._variableName} should be true`);
+            throw new RangeError(this.validationMessage(message, `${this._variableName} should be true`));
         } else {
             return this;
         }
@@ -120,13 +126,14 @@ export class BooleanValidator extends BaseValidator<boolean> implements IBoolean
     /**
      *
      * isFalse checks if the boolean variable is false
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is alse
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    public isFalse(): IBooleanValidator {
+    public isFalse(message: string = null): IBooleanValidator {
         if (this._variableValue === true) {
-            throw new RangeError(`${this._variableName} should be false`);
+            throw new RangeError(this.validationMessage(message, `${this._variableName} should be false`));
         } else {
             return this;
         }

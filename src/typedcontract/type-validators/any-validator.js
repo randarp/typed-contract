@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var base_validator_1 = require("./base-validator");
 var AnyValidator = (function (_super) {
     __extends(AnyValidator, _super);
@@ -58,7 +58,7 @@ var AnyValidator = (function (_super) {
     AnyValidator.prototype.isDefined = function (message) {
         if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
-            throw new ReferenceError(this._variableName + " should be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
         else {
             return this;
@@ -73,7 +73,7 @@ var AnyValidator = (function (_super) {
     AnyValidator.prototype.isUndefined = function (message) {
         if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should not be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be defined"));
         }
         else {
             return this;
@@ -88,7 +88,7 @@ var AnyValidator = (function (_super) {
     AnyValidator.prototype.isNullOrUndefined = function (message) {
         if (message === void 0) { message = null; }
         if (this._variableValue === null || typeof this._variableValue === undefined) {
-            throw new ReferenceError(this._variableName + " should not be null or undefined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null or undefined"));
         }
         else {
             return this;

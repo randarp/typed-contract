@@ -18,26 +18,28 @@ var BooleanValidator = (function (_super) {
         return _super.call(this, variableValue, variableName) || this;
     }
     /**
-     *
      * isNull checks if the boolean variable is null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is not null
      */
-    BooleanValidator.prototype.isNull = function () {
+    BooleanValidator.prototype.isNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === null && typeof this._variableValue === "object") {
             return this;
         }
         else {
-            throw new ReferenceError(this._variableName + " should be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null"));
         }
     };
     /**
-     *
      * isNotNull checks if the boolean variable is not null
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the variable is null
      */
-    BooleanValidator.prototype.isNotNull = function () {
+    BooleanValidator.prototype.isNotNull = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue == null) {
-            throw new ReferenceError(this._variableName + " should not be null");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should not be null"));
         }
         else {
             return this;
@@ -45,12 +47,14 @@ var BooleanValidator = (function (_super) {
     };
     /**
      * isDefined checks if the boolean variable is defined
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the boolen variable is undefined
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isDefined = function () {
+    BooleanValidator.prototype.isDefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
-            throw new ReferenceError(this._variableName + " should be defined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be defined"));
         }
         else {
             return this;
@@ -58,12 +62,14 @@ var BooleanValidator = (function (_super) {
     };
     /**
      * isUndefined checks if the boolean variable is undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the boolean variable is defined
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isUndefined = function () {
+    BooleanValidator.prototype.isUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should be undefined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be undefined"));
         }
         else {
             return this;
@@ -71,12 +77,14 @@ var BooleanValidator = (function (_super) {
     };
     /**
      * isNullOrUndefined checks if the boolean variable is not null or undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the boolean variable is null or undefined
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isNullOrUndefined = function () {
+    BooleanValidator.prototype.isNullOrUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue !== null || typeof this._variableValue !== "undefined") {
-            throw new ReferenceError(this._variableName + " should be null or undefined");
+            throw new ReferenceError(this.validationMessage(message, this._variableName + " should be null or undefined"));
         }
         else {
             return this;
@@ -85,13 +93,15 @@ var BooleanValidator = (function (_super) {
     /**
      *
      * isEqualTo checks if the boolean variable is equal to the parameter passed into the function as an argument
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is not equal to the parameter passed into the function
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isEqualTo = function (compareTo) {
+    BooleanValidator.prototype.isEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (!this._variableValue === compareTo) {
-            throw new RangeError(this._variableName + " should be equal to the boolean variable " + compareTo);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be equal to the boolean variable " + compareTo));
         }
         else {
             return this;
@@ -100,13 +110,15 @@ var BooleanValidator = (function (_super) {
     /**
      *
      * isNotEqualTo checks if the boolean variable is not equal to the parameter passed into the function as an argument
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is equal to the parameter passed into the function
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isNotEqualTo = function (compareTo) {
+    BooleanValidator.prototype.isNotEqualTo = function (compareTo, message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === compareTo) {
-            throw new RangeError(this._variableName + " should not be equal to the boolean " + compareTo);
+            throw new RangeError(this.validationMessage(message, this._variableName + " should not be equal to the boolean " + compareTo));
         }
         else {
             return this;
@@ -115,13 +127,15 @@ var BooleanValidator = (function (_super) {
     /**
      *
      * isTrue checks if the boolean variable is true
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is false
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isTrue = function () {
+    BooleanValidator.prototype.isTrue = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === false) {
-            throw new RangeError(this._variableName + " should be true");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be true"));
         }
         else {
             return this;
@@ -130,13 +144,15 @@ var BooleanValidator = (function (_super) {
     /**
      *
      * isFalse checks if the boolean variable is false
+     * @param message is an optional message if validation fails
      * @throws RangeError if the boolean variable is alse
      * @param compareTo
      * @returns {IBooleanValidator}
      */
-    BooleanValidator.prototype.isFalse = function () {
+    BooleanValidator.prototype.isFalse = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === true) {
-            throw new RangeError(this._variableName + " should be false");
+            throw new RangeError(this.validationMessage(message, this._variableName + " should be false"));
         }
         else {
             return this;
