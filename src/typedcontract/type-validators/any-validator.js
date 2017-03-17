@@ -51,10 +51,12 @@ var AnyValidator = (function (_super) {
     };
     /**
      * isDefined checks if the any variable is defined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the any variable jis not defined
      * @returns { IAnyValidator }
      */
-    AnyValidator.prototype.isDefined = function () {
+    AnyValidator.prototype.isDefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(this._variableName + " should be defined");
         }
@@ -64,10 +66,12 @@ var AnyValidator = (function (_super) {
     };
     /**
      * isUndefined checks if the any variable is undefined
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the any variable is undefined
      * @returns { IAnyValidator }
      */
-    AnyValidator.prototype.isUndefined = function () {
+    AnyValidator.prototype.isUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(this._variableName + " should not be defined");
         }
@@ -77,10 +81,12 @@ var AnyValidator = (function (_super) {
     };
     /**
      * isNullOrUndefined checks if the any variable is not null or undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the any variable is null or undefined
      * @returns { IAnyValidator }
      */
-    AnyValidator.prototype.isNullOrUndefined = function () {
+    AnyValidator.prototype.isNullOrUndefined = function (message) {
+        if (message === void 0) { message = null; }
         if (this._variableValue === null || typeof this._variableValue === undefined) {
             throw new ReferenceError(this._variableName + " should not be null or undefined");
         }

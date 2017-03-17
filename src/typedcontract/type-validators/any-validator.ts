@@ -41,10 +41,11 @@ export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
 
     /**
      * isDefined checks if the any variable is defined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the any variable jis not defined
      * @returns { IAnyValidator }
      */
-    public isDefined():IAnyValidator {
+    public isDefined(message: string = null):IAnyValidator {
         if (typeof this._variableValue === "undefined") {
             throw new ReferenceError(`${this._variableName} should be defined`);
         } else {
@@ -54,10 +55,11 @@ export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
 
     /**
      * isUndefined checks if the any variable is undefined
+     * @param message is an optional message if validation fails
      * @throws a ReferenceError if the any variable is undefined
      * @returns { IAnyValidator }
      */
-    public isUndefined():IAnyValidator {
+    public isUndefined(message: string = null):IAnyValidator {
         if (typeof this._variableValue !== "undefined") {
             throw new ReferenceError(`${this._variableName} should not be defined`);
         } else {
@@ -67,10 +69,11 @@ export class AnyValidator extends BaseValidator<any> implements IAnyValidator {
 
     /**
      * isNullOrUndefined checks if the any variable is not null or undefined
+     * @param message is an optional message if validation fails
      * @throws ReferenceError if the any variable is null or undefined
      * @returns { IAnyValidator }
      */
-    public isNullOrUndefined():IAnyValidator {
+    public isNullOrUndefined(message: string = null):IAnyValidator {
         if (this._variableValue === null || typeof this._variableValue === undefined) {
             throw new ReferenceError(`${this._variableName} should not be null or undefined`);
         } else {
