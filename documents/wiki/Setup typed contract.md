@@ -9,7 +9,7 @@ If your project is fairly simple or you don't want to use a package manager
 3. Create a script tag that references the .js file.
 
 ### NPM
-If you would prefer to use a package manager, you will need NPM to install typed-contract.  
+If you would prefer to use a package manager, you will need NPM to install typedcontract.  
 
-1. Install it into your project: npm install typed-contract –save
+1. Install it into your project: npm install typedcontract –save
 

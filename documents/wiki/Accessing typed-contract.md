@@ -7,13 +7,13 @@ There is a global variable that has been instantiated that you can access the co
 
 #### String validator
 	var localVariable = "A string";
-	var result = contract.In(localVariable).IsNotNull();
+	var result = contract.In(localVariable).isNotNull();
 
 #### Number validator
 	var localVar = 99.9;
 	var startRange = 0.00;
 	var endRange = 100.0;
-	var result = contract.In(localVar).IsBetween(startRange, endRange);
+	var result = contract.In(localVar).isBetween(startRange, endRange);
 
 ### TypeScript
 
@@ -21,14 +21,14 @@ There is a global variable that has been instantiated that you can access the co
 	/// <reference path="../typedcontract.d.ts" />
 
     let localVariable: boolean = true;
-    contract.In(localVariable).IsTrue();
+    contract.In(localVariable).isTrue();
 
 #### Any validator
 	/// <reference path="../typedcontract.d.ts" />
 
 	let divElement: HTMLElement = document.createElement("div");
 	let localVar: void = divElement.addEventListener("click", (e: MouseEvent) => {e.preventDefault(); }, false);
-	let result: IAnyValidator = contract.In(localVar).IsNotNull();
+	let result: IAnyValidator = contract.In(localVar).isNotNull();
 
 ## Module
 
@@ -38,7 +38,7 @@ There is a module called “typedcontract” that can be accessed using either t
 #### Boolean validator
 	var localVariable = true;
 	var typedcontract = require("typedcontract");
-	var result = typedcontract.contract.In(localVariable).IsTrue();
+	var result = typedcontract.contract.In(localVariable).isTrue();
 
 #### Array validator
 	define(['typedcontract'], function(typedcontract) {
@@ -48,7 +48,7 @@ There is a module called “typedcontract” that can be accessed using either t
 				var localVariable = ["A", "B", "C"];
 
 				// act
-				var result = typedcontract.contract.In(localVariable).IsNotNull();
+				var result = typedcontract.contract.In(localVariable).isNotNull();
 
 				// assert
 				expect(result).not.toBeNull();
@@ -64,4 +64,4 @@ There is a module called “typedcontract” that can be accessed using either t
     let localVariable: number = 2.05;
     let comparableVar: number = 1;
 
-    let result: INumberValidator = contract.In(localVariable).IsGreaterThan(comparableVar);
+    let result: INumberValidator = contract.In(localVariable).isGreaterThan(comparableVar);
