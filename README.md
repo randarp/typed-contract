@@ -1,6 +1,6 @@
 # typed-contract
 
-<h3> Why use typed-contract ? </h3>
+### Why use typed-contract ? ###
 
 typed-contract is a library to help guard against invalid function inputs and outputs. Using a fluent syntax, it allows a short and descriptive way to protect the system and return useful error messages.
 
@@ -13,24 +13,24 @@ Our goals are:
 
 As the size and complexity of your JavaScript and TypeScript projects continues to grow, edge cases and regressions will occur. Help find them quickly before your users do!
 
-<h3>TypeScript, what is it and why would I ever want to use it ?</h3>
+###TypeScript, what is it and why would I ever want to use it ?###
  (Clears *throat*)
 
  <em>The simple definition of what TypeScript is, is this.... </em><br/>
  "TypeScript is a superset of JavaScript which primarily provides optional static typing, classes and interfaces. This allows much more insightful and transparent JavaScript and TypeScript application development. Allowing Integrated Development Environments to provide a richer environment for spotting common errors as you type and build your application." - <em> Andre Fischbacher</em>
 
-<h3> What is a Code Contract anyways, and why would I want to use one ? </h3>
+### What is a Code Contract anyways, and why would I want to use one ? ###
 
 Code contracts allow you to ensure that your intentions for any property or method are ensured using a code contract. When you are developing an application you can list and specify as many preconditions and postconditions in your code as needed. In typed-contract preconditions are strict requirements that must be met when entering executing an application at runtime. Postconditions describe expectations at the time the method or property code exits at runtime.
 
 Typed-contract allows you to set pre and postconditions in your code to check for certain invariants that you set while writing out a typed-contract. Once you execute a project, a set of classes or functions, the typed-contract can then check that every condition successfully passes, which allows your intentions when building your app to run as smooth as butter.
 
 Typed-contract will allow you and your projects to have more descriptive syntax for your variables, functions, interfaces and classes
-<h3> How to implement into your project </h3>
+### How to implement into your project ###
 
 typed-contract can be used in either JavaScript or TypeScript environments so the freedom of choice is always yours.  See [https://github.com/randarp/typed-contract/wiki/Setup-typed-contract](https://github.com/randarp/typed-contract/wiki/Setup-typed-contract).
 
-<h3> How do I use a code contract in TypeScript ?</h3>
+### How do I use a code contract in TypeScript ?###
 It's pretty simple really, once it is in your project and it's included in you node modules folder. You then should be able to use it in almost any function or class as you code your way through your project.
 
 Here is an example of what a typed-contract looks like...
@@ -73,9 +73,16 @@ As you can see we can use something known as <a href="https://en.wikipedia.org/w
 
 If you would like to see all of the documentation click here [https://github.com/randarp/typed-contract/wiki](https://github.com/randarp/typed-contract/wiki)
 
-<h3> Would you like to contribute to this project ? </h3>
+### Custom messages ###
+
+All validators take in an optional message.  You can also use *$var* to reference the variable name. e.g.
+
+- contract.In("foo").isNull("foo should not have been null") will return "foo should not have been null" if the validation fails.
+- contract.In("foo", "fubar").isNull("$var should not have been null") will return "fubar should not have been null" if the validation fails.
+
+### Would you like to contribute to this project ? ###
 Check out the GitHub repository to see where we can make typed-contract even better <a href="https://github.com/randarp/typed-contract/">Here</a>
-<h3> Class and Function Documentation </h3>
+### Class and Function Documentation ###
 
 Of course you would like to know what is included in this wonderful code contract library so you can utilize it to the best of it's ability.
 

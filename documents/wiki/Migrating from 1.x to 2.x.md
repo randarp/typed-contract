@@ -2,6 +2,14 @@
 There are a number of breaking changes from 1.x to 2.x
 
 - The biggest change is in many cases, we've changed how you access TypedContract from "typed-contract" to "typedcontract".  There were just too many issues trying to make it work as a UMD, global variable, etc.
+	- If you installed this via NPM, your steps are to:	
+
+    npm uninstall typed-contract
+
+	npm install typedcontract --save
+
+	- *Warning*: There will be breaking changes with the function names. See next line...  
+
 - Function names are camelCase instead of PascalCase to be more consistent with JavaScript standards.  The only exceptions are the contract methods *In* and *Out*. The reason was partially for backwards compatibility, but also because we really liked how concise they were.  But we couldn't use *in*, because it's a reserved word.
 
 # Enhancements #
