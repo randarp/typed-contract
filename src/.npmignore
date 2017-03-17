@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# Only publish these files
+!typedcontract.d.ts
+!typedcontract.js
+!typedcontract.js.map
+!typedcontract.min.js
+
+# Ignoring subdirectories
+!*/
